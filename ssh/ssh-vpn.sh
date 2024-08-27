@@ -487,7 +487,8 @@ service cron restart >/dev/null 2>&1
 service cron reload >/dev/null 2>&1
 
 # remove unnecessary files
-sleep 10
+sleep 0.5
+echo " "
 echo -e "[ ${green}INFO$NC ] Clearing trash"
 apt autoclean -y >/dev/null 2>&1
 
