@@ -380,6 +380,7 @@ wget -O auto-reboot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/m
 wget -O restart "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/restart.sh"
 wget -O tambah_bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tambah_bot.py"
 wget -O ingpo "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/ingpo.sh"
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/zmxn.txt"
 wget -O bw "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/bw.sh"
 wget -O m-tcp "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tcp.sh"
 wget -O xp "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/xp.sh"
