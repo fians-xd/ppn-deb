@@ -502,18 +502,42 @@ wget -O del-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray
 wget -O renew-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ssws.sh" && chmod +x renew-ssws
 
 # vmess
-wget -O add-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ws.sh" && chmod +x add-ws
-wget -O trialvmess "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvmess.sh" && chmod +x trialvmess
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ws.sh"
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvmess.sh"
 wget -O renew-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ws.sh" && chmod +x renew-ws
 wget -O del-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ws.sh" && chmod +x del-ws
-wget -O cek-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-ws.sh" && chmod +x cek-ws
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-ws.sh"
+
+sudo shc -U -S -f add-ws.sh -o add-ws
+sudo shc -U -S -f trialvmess.sh -o trialvmess
+sudo shc -U -S -f cek-ws.sh -o cek-ws
+
+sudo chmod +x add-ws
+sudo chmod +x trialvmess
+sudo chmod +x cek-ws
+
+rm add-ws.sh add-ws.sh.x.c
+rm trialvmess.sh trialvmess.sh.x.c
+rm cek-ws.sh cek-ws.sh.x.c
 
 # vless
-wget -O add-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-vless.sh" && chmod +x add-vless
-wget -O trialvless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvless.sh" && chmod +x trialvless
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-vless.sh"
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvless.sh"
 wget -O renew-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-vless.sh" && chmod +x renew-vless
 wget -O del-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-vless.sh" && chmod +x del-vless
-wget -O cek-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-vless.sh" && chmod +x cek-vless
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-vless.sh"
+
+sudo shc -U -S -f add-vless.sh -o add-vless
+sudo shc -U -S -f trialvless.sh -o trialvless
+sudo shc -U -S -f cek-vless.sh -o cek-vless
+
+sudo chmod +x add-vless
+sudo chmod +x trialvless
+sudo chmod +x cek-vless
+
+rm add-vless.sh add-vless.sh.x.c
+rm trialvless.sh trialvless.sh.x.c
+rm cek-vless.sh cek-vless.sh.x.c
 
 # trojan
 wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-tr.sh"
