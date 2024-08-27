@@ -495,6 +495,12 @@ systemctl enable runn
 systemctl restart runn
 
 cd /usr/bin/
+# shadowsocks
+wget -O add-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ssws.sh" && chmod +x add-ssws
+wget -O trialssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialssws.sh" && chmod +x trialssws
+wget -O del-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ssws.sh" && chmod +x del-ssws
+wget -O renew-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ssws.sh" && chmod +x renew-ssws
+
 # vmess
 wget -O add-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ws.sh" && chmod +x add-ws
 wget -O trialvmess "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvmess.sh" && chmod +x trialvmess
@@ -510,17 +516,23 @@ wget -O del-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xra
 wget -O cek-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-vless.sh" && chmod +x cek-vless
 
 # trojan
-wget -O add-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-tr.sh" && chmod +x add-tr
-wget -O trialtrojan "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialtrojan.sh" && chmod +x trialtrojan
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-tr.sh"
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialtrojan.sh"
 wget -O del-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-tr.sh" && chmod +x del-tr
 wget -O renew-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-tr.sh" && chmod +x renew-tr
-wget -O cek-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-tr.sh" && chmod +x cek-tr
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-tr.sh"
 
-# shadowsocks
-wget -O add-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ssws.sh" && chmod +x add-ssws
-wget -O trialssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialssws.sh" && chmod +x trialssws
-wget -O del-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ssws.sh" && chmod +x del-ssws
-wget -O renew-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ssws.sh" && chmod +x renew-ssws
+sudo shc -U -S -f cek-tr.sh -o cek-tr
+sudo shc -U -S -f trialtrojan.sh -o trialtrojan
+sudo shc -U -S -f add-tr.sh -o add-tr
+
+sudo chmod +x cek-tr
+sudo chmod +x trialtrojan
+sudo chmod +x add-tr
+
+rm cek-tr.sh cek-tr.sh.x.c
+rm trialtrojan.sh trialtrojan.sh.x.c
+rm add-tr.sh add-tr.sh.x.c
 
 
 sleep 0.5
