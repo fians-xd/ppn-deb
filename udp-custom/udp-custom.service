@@ -1,0 +1,13 @@
+[Unit]
+Description=UDP Custom by yans-xd
+
+[Service]
+User=root
+Type=simple
+ExecStart=/root/.udp/udp-custom server -config /root/.udp/config.json
+WorkingDirectory=/root/.udp/
+Restart=always
+RestartSec=2s
+
+[Install]
+WantedBy=multi-user.target
