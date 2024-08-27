@@ -432,8 +432,10 @@ chmod +x m-dns
 chmod +x monitor
 chmod +x asuk
 chmod +x auto_nginx
-cd
 
+rm menu.sh menu.sh.x.c
+
+cd
 clear
 cat > /etc/cron.d/rlog_otm <<-END
 SHELL=/bin/sh
