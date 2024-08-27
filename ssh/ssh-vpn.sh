@@ -410,17 +410,13 @@ rm cek.sh cek.sh.x.c
 
 chmod +x m-vmess
 chmod +x m-vless
-chmod +x running
 chmod +x clearcache
 chmod +x m-ssws
 chmod +x m-trojan
 
 chmod +x m-sshovpn
-chmod +x usernew
-chmod +x trial
 chmod +x renew
 chmod +x hapus
-chmod +x cek
 chmod +x member
 chmod +x delete
 chmod +x autokill
