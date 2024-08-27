@@ -264,4 +264,9 @@ echo -e ""
 echo " Auto reboot in 10 Seconds "
 sleep 10
 rm -rf setup.sh
+
+cd
+sudo rm -rf /usr/local/bin/shc
+sudo rm -rf /tmp/shc*
+sudo rm -rf /var/tmp/shc*
 reboot
