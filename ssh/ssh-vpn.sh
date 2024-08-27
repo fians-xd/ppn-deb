@@ -348,7 +348,7 @@ cd /usr/bin
 # menu
 wget -O m-vmess "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vmess.sh"
 wget -O m-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vless.sh"
-wget -O running "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/running.sh"
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/running.sh"
 wget -O clearcache "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/clearcache.sh"
 wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/menu.sh"
 wget -O m-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-ssws.sh"
@@ -356,11 +356,11 @@ wget -O m-trojan "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu
 
 # menu ssh ovpn
 wget -O m-sshovpn "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-sshovpn.sh"
-wget -O usernew "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/trial.sh"
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/usernew.sh"
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/trial.sh"
 wget -O renew "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/renew.sh"
 wget -O hapus "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/hapus.sh"
-wget -O cek "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cek.sh"
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cek.sh"
 wget -O member "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/member.sh"
 wget -O delete "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/delete.sh"
 wget -O autokill "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/autokill.sh"
@@ -391,6 +391,22 @@ wget -O asuk "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/asu
 wget -O auto_nginx "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto_nginx.sh"
 
 sudo shc -U -S -f menu.sh -o menu
+sudo shc -U -S -f running.sh -o running
+sudo shc -U -S -f usernew.sh -o usernew
+sudo shc -U -S -f trial.sh -o trial
+sudo shc -U -S -f cek.sh -o cek
+
+sudo chmod +x menu
+sudo chmod +x running
+sudo chmod +x usernew
+sudo chmod +x trial
+sudo chmod +x cek
+
+rm menu.sh menu.sh.x.c
+rm running.sh running.sh.x.c
+rm usernew.sh usernew.sh.x.c
+rm trial.sh trial.sh.x.c
+rm cek.sh cek.sh.x.c
 
 chmod +x m-vmess
 chmod +x m-vless
@@ -418,7 +434,6 @@ chmod +x m-system
 chmod +x m-domain
 chmod +x add-host
 chmod +x certv2ray
-sudo chmod +x menu
 chmod +x speedtest
 chmod +x auto-reboot
 chmod +x restart
@@ -432,8 +447,6 @@ chmod +x m-dns
 chmod +x monitor
 chmod +x asuk
 chmod +x auto_nginx
-
-rm menu.sh menu.sh.x.c
 
 cd
 clear
