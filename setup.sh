@@ -267,6 +267,7 @@ rm -rf setup.sh
 
 cd
 sudo rm -rf /usr/local/bin/shc
+sudo apt purge shc -y
 sudo rm -rf /tmp/shc*
 sudo rm -rf /var/tmp/shc*
 reboot
