@@ -26,7 +26,8 @@ GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
 LIGHT='\033[0;37m'
 
-LICENSE_URL="https://drive.google.com/uc?export=download&id=1M3_V07lptrJ8t6j5LSRgaACO7m7aR_UH"
+QJXY_MKK=$(cat /usr/bin/zmxn.txt)
+LICENSE_URL=$(echo "$QJXY_MKK" | base64 --decode)
 LICENSE_FILE="/tmp/lisensi.txt"
 USER_FILE="/etc/user_name.txt"
 
