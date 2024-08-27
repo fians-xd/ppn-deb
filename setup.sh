@@ -18,6 +18,13 @@ tyblue() { echo -e "\\033[36;1m${*}\\033[0m"; }
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 red() { echo -e "\\033[31;1m${*}\\033[0m"; }
+
+if ! command -v shc &> /dev/null; then
+    echo -e "[ ${BRed}Dependensi Belum Terinstall...${NC} ]"
+    sleep 10
+    exit 1
+fi
+
 cd /root
 #System version number
 if [ "${EUID}" -ne 0 ]; then
@@ -58,7 +65,7 @@ PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "Persiapan 
 echo Checking for $REQUIRED_PKG: $PKG_OK
 if [ "" = "$PKG_OK" ]; then
   sleep 0.5
-  echo -e "[ ${BRed}WARNING${NC} ] Install Ok gass lanjut.."
+  echo -e "[ ${BRed}WARNING${NC} ]"
   echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
   apt-get --yes install $REQUIRED_PKG
   sleep 0.5
@@ -76,110 +83,6 @@ if ! dpkg -s $ReqPKG  >/dev/null 2>&1; then
   exit
 else
   clear
-fi
-
-LICENSE_URL="https://drive.google.com/uc?export=download&id=1M3_V07lptrJ8t6j5LSRgaACO7m7aR_UH"
-LICENSE_FILE="/tmp/lisensi.txt"
-USER_FILE="/etc/user_name.txt"
-
-if [ ! -f "$USER_FILE" ]; then
-    echo " "
-    echo " User baru yaa.? Masukan Nama.!"
-    read -p " Nama Pengguna: " user_name
-    echo "$user_name" > "$USER_FILE"
-    clear
-else
-    user_name=$(cat "$USER_FILE")
-    clear
-fi
-
-server_ip=$(hostname -I | awk '{print $1}')
-
-echo " "
-echo -e "\e[32m Please Wait...!\e[0m"
-
-
-CONFIRM=$(curl -sc /tmp/gcookie "https://drive.google.com/uc?export=download&id=${LICENSE_URL##*id=}" | \
-          grep -o 'confirm=[^&]*' | sed 's/confirm=//')
-
-curl -L -b /tmp/gcookie "https://drive.google.com/uc?export=download&confirm=${CONFIRM}&id=${LICENSE_URL##*id=}" -o $LICENSE_FILE > /dev/null 2>&1
-
-if [ ! -f "$LICENSE_FILE" ]; then
-    echo " "
-    echo -e "\e[31m Koneksi Server Bermasalah, Reboot Dulu.\e[0m"
-    rm -f /etc/user_name.txt
-    clear
-    exit 1
-fi
-
-if [ -s "$LICENSE_FILE" ] && [ "$(tail -c1 "$LICENSE_FILE" | wc -l)" -eq 0 ]; then
-    echo >> "$LICENSE_FILE"
-fi
-
-declare -A licenses
-while IFS="|" read -r name ip exp_date; do
-    if [[ -n "$name" && -n "$ip" && -n "$exp_date" ]]; then
-        licenses["$name"]="$ip|$exp_date"
-    fi
-done < $LICENSE_FILE
-
-rm -f $LICENSE_FILE
-
-convert_date_format() {
-    echo "$1" | awk -F'-' '{print $3 "-" $2 "-" $1}'
-}
-
-if [[ -z "${licenses[$user_name]}" ]]; then
-    echo " "
-    echo -e "\e[31m Nama Pengguna tidak valid.!\e[0m"
-    sleep 10
-    rm -rf setup.sh
-    rm -f /etc/user_name.txt
-    clear
-    exit 1
-else
-    license_data="${licenses[$user_name]}"
-    license_ip="${license_data%%|*}"
-    exp_date="${license_data##*|}"
-    
-    # Periksa apakah IP sesuai
-    if [[ "$server_ip" != "$license_ip" ]]; then
-        echo " "
-        echo -e "\e[31m IP server tidak sesuai dengan kesepakatan.! \e[0m"
-        sleep 10
-        rm -rf setup.sh
-        rm -f /etc/user_name.txt
-        clear
-        exit 1
-    fi
-
-    today=$(date +%s)
-    exp_date_converted=$(convert_date_format "$exp_date")
-    exp_timestamp=$(date -d "$exp_date_converted" +%s 2>/dev/null)
-    
-    if [[ -z "$exp_timestamp" ]]; then
-        echo " "
-        echo -e "\e[31m Format tanggal lisensi tidak valid: $exp_date.\e[0m"
-        sleep 0.7
-        rm -rf setup.sh
-        rm -f /etc/user_name.txt
-        clear
-        exit 1
-    fi
-
-    if [[ $today -le $exp_timestamp ]]; then
-        echo " "
-        echo -e "\e[32m Lisensi valid. Lisensi Anda berakhir pada $exp_date.\e[0m"
-        clear
-    else
-        echo " "
-        echo -e "\e[31m Lisensi Anda telah berakhir pada $exp_date.\e[0m"
-        sleep 10
-        rm -rf setup.sh
-        rm -f /etc/user_name.txt
-        clear
-        exit 1
-    fi
 fi
 
 secs_to_human() {
