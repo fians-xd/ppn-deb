@@ -59,6 +59,7 @@ echo -e "$Pass\n$Pass\n" | passwd $Login &> /dev/null
 PID=$(ps -ef | grep -v grep | grep sshws | awk '{print $2}')
 
 # Tampilkan hasil
+{
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;41;36m            SSH Account            \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -91,7 +92,7 @@ echo " UDP Custom:"
 echo ""
 echo " $domen:1-65535@$Login:$Pass"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-
+} | /etc/log-create-ssh.log
 
 # Simpan log bersih tanpa ANSI untuk Telegram
 {
