@@ -346,11 +346,11 @@ netfilter-persistent reload
 # download script
 cd /usr/bin
 # menu
-wget -O menu "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/menu.sh"
 wget -O m-vmess "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vmess.sh"
 wget -O m-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vless.sh"
 wget -O running "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/running.sh"
 wget -O clearcache "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/clearcache.sh"
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/menu.sh"
 wget -O m-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-ssws.sh"
 wget -O m-trojan "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-trojan.sh"
 
@@ -390,7 +390,8 @@ wget -O monitor "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/
 wget -O asuk "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/asuk.sh"
 wget -O auto_nginx "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto_nginx.sh"
 
-chmod +x menu
+sudo shc -U -S -f menu.sh -o menu
+
 chmod +x m-vmess
 chmod +x m-vless
 chmod +x running
@@ -417,6 +418,7 @@ chmod +x m-system
 chmod +x m-domain
 chmod +x add-host
 chmod +x certv2ray
+sudo chmod +x menu
 chmod +x speedtest
 chmod +x auto-reboot
 chmod +x restart
