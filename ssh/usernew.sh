@@ -59,40 +59,38 @@ echo -e "$Pass\n$Pass\n" | passwd $Login &> /dev/null
 PID=$(ps -ef | grep -v grep | grep sshws | awk '{print $2}')
 
 # Tampilkan hasil
-{
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m            SSH Account            \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Username    : $Login"
-echo -e "Password    : $Pass"
-echo -e "Expired On  : $exp"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "IP          : $IP"
-echo -e "Host        : $domen"
-echo -e "OpenSSH     : $opensh"
-echo -e "SSH WS      : $portsshws"
-echo -e "SSH SSL WS  : $wsssl"
-echo -e "SSL/TLS     :$ssl"
-echo -e "Udp Custom  : 1-65535"
-echo -e "UDPGW       : 7100-7900"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " Payload WSS:"
-echo ""
-echo " $domen:443@$Login:$Pass"
-echo ""
-echo -e " GET wss://isi_bug_disini HTTP/1.1[crlf]Host: ${domen}[crlf]Upgrade: websocket[crlf][crlf]"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " Payload WS:"
-echo ""
-echo " $domen:80@$Login:$Pass"
-echo ""
-echo -e " GET / HTTP/1.1[crlf]Host: $domen[crlf]Upgrade: websocket[crlf][crlf]"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo " UDP Custom:"
-echo ""
-echo " $domen:1-65535@$Login:$Pass"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-} | tee /etc/log-create-ssh.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
+echo -e "\E[0;41;36m            SSH Account            \E[0m" | tee -a /etc/log-create-ssh.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
+echo -e "Username    : $Login" | tee -a /etc/log-create-ssh.log
+echo -e "Password    : $Pass" | tee -a /etc/log-create-ssh.log
+echo -e "Expired On  : $exp" | tee -a /etc/log-create-ssh.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
+echo -e "IP          : $IP" | tee -a /etc/log-create-ssh.log
+echo -e "Host        : $domen" | tee -a /etc/log-create-ssh.log
+echo -e "OpenSSH     : $opensh" | tee -a /etc/log-create-ssh.log
+echo -e "SSH WS      : $portsshws" | tee -a /etc/log-create-ssh.log
+echo -e "SSH SSL WS  : $wsssl" | tee -a /etc/log-create-ssh.log
+echo -e "SSL/TLS     :$ssl" | tee -a /etc/log-create-ssh.log
+echo -e "Udp Custom  : 1-65535" | tee -a /etc/log-create-ssh.log
+echo -e "UDPGW       : 7100-7900" | tee -a /etc/log-create-ssh.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
+echo -e " Payload WS:" | tee -a /etc/log-create-ssh.log
+echo "" | tee -a /etc/log-create-ssh.log
+echo " $domen:80@$Login:$Pass" | tee -a /etc/log-create-ssh.log
+echo "" | tee -a /etc/log-create-ssh.log
+echo -e " GET / HTTP/1.1[crlf]Host: $domen[crlf]Upgrade: websocket[crlf][crlf]" | tee -a /etc/log-create-ssh.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
+echo -e " Payload WSS:" | tee -a /etc/log-create-ssh.log
+echo "" | tee -a /etc/log-create-ssh.log
+echo " $domen:443@$Login:$Pass" | tee -a /etc/log-create-ssh.log
+echo "" | tee -a /etc/log-create-ssh.log
+echo -e " GET wss://isi_bug_disini HTTP/1.1[crlf]Host: ${domen}[crlf]Upgrade: websocket[crlf][crlf]" | tee -a /etc/log-create-ssh.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
+echo " UDP Custom:" | tee -a /etc/log-create-ssh.log
+echo "" | tee -a /etc/log-create-ssh.log
+echo " $domen:1-65535@$Login:$Pass" | tee -a /etc/log-create-ssh.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 
 # Simpan log bersih tanpa ANSI untuk Telegram
 {
