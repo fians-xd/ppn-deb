@@ -25,6 +25,18 @@ organizationalunit=none
 commonname=none
 email=none
 
+# Warna
+red='\e[1;31m'
+green='\e[0;32m'
+yell='\e[1;33m'
+tyblue='\e[1;36m'
+BRed='\e[1;31m'
+BGreen='\e[1;32m'
+BGren='\e[1;44m'
+BYellow='\e[1;33m'
+BBlue='\e[1;34m'
+NC='\e[0m'
+
 # simple password minimal
 curl -sS https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
