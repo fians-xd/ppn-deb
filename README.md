@@ -109,9 +109,9 @@
 
 # PREVIEW
 <p float="left">
-  <img src="/preview/krik.jpg" width="33%" />
-  <img src="/preview/terk.jpg" width="33%" />
-  <img src="/preview/njiai.jpg" width="33%" />
+  <img src="/preview/krik.jpg" width="32%" />
+  <img src="/preview/terk.jpg" width="32%" />
+  <img src="/preview/njiai.jpg" width="32%" />
 </p>
 
 # CARA INSTALLASI
