@@ -231,7 +231,7 @@ echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━
 echo -e "\e[1;44m             ━SERVICE INFO━              \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;32m    SSH   \e[0m:$ssh_status\t     \e[1;32m Xray     \e[0m:$xray_status"
-echo -e "\e[1;32m    Nginx \e[0m:$nginx_status\t    \e[1;32m Dropbear \e[0m:$dropbear_status"
+echo -e "\e[1;32m    Nginx \e[0m:$nginx_status\t     \e[1;32m Dropbear \e[0m:$dropbear_status"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                ━MENU━                   \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
