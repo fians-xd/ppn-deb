@@ -199,9 +199,9 @@ exp_date="${license_data##*|}"
 # Fungsi untuk memeriksa status layanan
 check_status() {
     if systemctl is-active --quiet "$1"; then
-        echo "🟢"
+        echo -e "$greenon $NC"
     else
-        echo "🔴"
+        echo -e "$redoff$NC"
     fi
 }
 
