@@ -199,9 +199,9 @@ exp_date="${license_data##*|}"
 # Fungsi untuk memeriksa status layanan
 check_status() {
     if systemctl is-active --quiet "$1"; then
-        echo -e "$greenon $NC"
+        echo -e "$green on $NC"
     else
-        echo -e "$redoff$NC"
+        echo -e "$red off $NC"
     fi
 }
 
@@ -230,8 +230,8 @@ echo -e "\e[1;32m RAM TOTAL \e[0m: $tram MB   \e[1;32m RAM USED \e[0m: $uram MB"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m             ━SERVICE INFO━              \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m     SSH   \e[0m: $ssh_status\t  \e[1;32m Xray     \e[0m: $xray_status"
-echo -e "\e[1;32m     Nginx \e[0m: $nginx_status\t  \e[1;32m Dropbear \e[0m: $dropbear_status"
+echo -e "\e[1;32m     SSH   \e[0m:$ssh_status\t  \e[1;32m Xray     \e[0m:$xray_status"
+echo -e "\e[1;32m     Nginx \e[0m:$nginx_status\t  \e[1;32m Dropbear \e[0m:$dropbear_status"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                ━MENU━                   \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
