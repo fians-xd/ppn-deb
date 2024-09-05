@@ -201,7 +201,7 @@ check_status() {
     if systemctl is-active --quiet "$1"; then
         echo -e "$green on $NC"
     else
-        echo -e "$red off $NC"
+        echo -e "$red of $NC"
     fi
 }
 
