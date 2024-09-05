@@ -166,7 +166,7 @@ cpu_usage+=" %"
 ISP=$(curl -s ipinfo.io | jq -r '.org' | awk -F' ' '{$1=""; print substr($0,2)}')
 DAY=$(date +%A)
 DATE=$(date +%m/%d/%Y)
-DATE2=$(date -R | cut -d " " -f -5)
+DATE2=$(date +%A" "%m-%d-%Y)
 IPVPS=$(curl -s ifconfig.me )
 LOC=$(curl -s ipinfo.io | jq -r '.city' | tr -d '\n' && printf ", " && curl -s ipinfo.io | jq -r '.country' | xargs -I {} curl -s https://restcountries.com/v3.1/alpha/{} | jq -r '.[0].name.common')
 cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo )
