@@ -94,10 +94,10 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 
 echo ""
-echo -e "[ ${BGreen}INFO${NC} ] Preparing the install file"
+echo -e "[ ${BGreen}INFO${NC} ] Preparing the install file.."
 apt install git curl -y >/dev/null 2>&1
 apt install python -y >/dev/null 2>&1
-echo -e "[ ${BGreen}INFO${NC} ] Aight good ... installation file is ready"
+echo -e "[ ${BGreen}INFO${NC} ] Installation file is ready.."
 sleep 0.5
 echo -ne "[ ${BGreen}INFO${NC} ] Check permission: "
 echo -e "$BGreen Permission Accepted!$NC"
