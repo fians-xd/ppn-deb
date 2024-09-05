@@ -1,8 +1,6 @@
 #!/bin/bash
-MYIP=$(curl -sS ifconfig.me)
-echo "Checking VPS"
-clear
 
+clear
 # Color Validation
 DF='\e[39m'
 Bold='\e[1m'
