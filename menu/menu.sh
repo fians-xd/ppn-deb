@@ -195,6 +195,22 @@ fram=$( free -m | awk 'NR==2 {print $4}' )
 license_data="${licenses["$user_name"]}"
 license_ip="${license_data%%|*}"
 exp_date="${license_data##*|}"
+
+# Fungsi untuk memeriksa status layanan
+check_status() {
+    if systemctl is-active --quiet "$1"; then
+        echo "🟢"
+    else
+        echo "🔴"
+    fi
+}
+
+# Memeriksa status masing-masing layanan
+ssh_status=$(check_status ssh)
+xray_status=$(check_status xray)
+nginx_status=$(check_status nginx)
+dropbear_status=$(check_status dropbear)
+
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                ━VPS INFO━               \e[0m"
@@ -202,31 +218,29 @@ echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━
 echo -e "\e[1;32m OS            \e[0m: "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
 echo -e "\e[1;32m Uptime        \e[0m: $uptime"
 echo -e "\e[1;32m Public IP     \e[0m: $IPVPS"
-echo -e "\e[1;32m Author Sc     \e[0m: fian&lista"
+echo -e "\e[1;32m Author Sc     \e[0m: Fian & Lista"
 echo -e "\e[1;32m Country       \e[0m: $LOC"
 echo -e "\e[1;32m DOMAIN        \e[0m: $domain"
 echo -e "\e[1;32m ISP           \e[0m: $ISP"
 echo -e "\e[1;32m DATE & TIME   \e[0m: $ID_DAY $TIME $DATE"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m               ━RAM INFO━                \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"	
+echo -e "\e[1;32m RAM TOTAL \e[0m: $tram MB   \e[1;32m RAM USED \e[0m: $uram MB"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m RAM USED   \e[0m: $uram MB"	
-echo -e "\e[1;32m RAM TOTAL  \e[0m: $tram MB"
+echo -e "\e[1;44m             ━SERVICE INFO━              \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;32m     SSH   \e[0m: $ssh_status\t  \e[1;32m Xray     \e[0m: $xray_status"
+echo -e "\e[1;32m     Nginx \e[0m: $nginx_status\t  \e[1;32m Dropbear \e[0m: $dropbear_status"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                ━MENU━                   \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;36m 1 \e[0m: Menu SSH"
-echo -e "\e[1;36m 2 \e[0m: Menu Vmess"
-echo -e "\e[1;36m 3 \e[0m: Menu Vless"
-echo -e "\e[1;36m 4 \e[0m: Menu Trojan"
-echo -e "\e[1;36m 5 \e[0m: Menu Shwsocks"
-echo -e "\e[1;36m 6 \e[0m: Menu Setting"
-echo -e "\e[1;36m 7 \e[0m: Status Service"
-echo -e "\e[1;36m 8 \e[0m: Monitor VPS"
-echo -e "\e[1;36m 9 \e[0m: Reboot VPS"
-echo -e "\e[1;36m 10 \e[0m: Clear RAM Cache"
-echo -e "\e[1;36m 11 \e[0m: Bootol Telegram"
-echo -e "\e[1;36m x \e[0m: Exit Script"
+echo -e "\e[1;36m 1 \e[0m: SSH           \e[1;36m 7  \e[0m: Status Service"
+echo -e "\e[1;36m 2 \e[0m: Vmess         \e[1;36m 8  \e[0m: Monitor VPS"
+echo -e "\e[1;36m 3 \e[0m: Vless         \e[1;36m 9  \e[0m: Reboot VPS"
+echo -e "\e[1;36m 4 \e[0m: Trojan        \e[1;36m 10 \e[0m: Clear Ram Cache"
+echo -e "\e[1;36m 5 \e[0m: Shwsocks      \e[1;36m 11 \e[0m: Boot Telegram"
+echo -e "\e[1;36m 6 \e[0m: Setting       \e[1;36m x  \e[0m: Exit Script"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;32m Client   \e[0m: $user_name"
 echo -e "\e[1;32m Expired  \e[0m: $exp_date"
