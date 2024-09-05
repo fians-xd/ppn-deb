@@ -1,6 +1,5 @@
 #!/bin/bash
 
-mkdir /root/.ngx
 LOG_FILE="/root/.ngx/auto_nginx.log"
 CHECK_INTERVAL=7200 # 2 jam dalam detik
 DELAY_AFTER_REBOOT=5   # 5 detik delay setelah reboot
