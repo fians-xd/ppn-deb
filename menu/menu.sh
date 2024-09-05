@@ -164,9 +164,26 @@ cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
 cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
 cpu_usage+=" %"
 ISP=$(curl -s ipinfo.io | jq -r '.org' | awk -F' ' '{$1=""; print substr($0,2)}')
-DAY=$(date +%A)
-DATE=$(date +%m/%d/%Y)
-DATE2=$(date +%A" "%m-%d-%Y)
+
+# Buat array untuk menerjemahkan nama hari
+declare -A days
+days["Monday"]="Senin"
+days["Tuesday"]="Selasa"
+days["Wednesday"]="Rabu"
+days["Thursday"]="Kamis"
+days["Friday"]="Jumat"
+days["Saturday"]="Sabtu"
+days["Sunday"]="Minggu"
+
+# Ambil nama hari dalam bahasa Inggris
+EN_DAY=$(date +%A)                                         
+# Ambil jam, menit, dan tanggal
+TIME=$(date +"%H:%M")
+DATE=$(date +"%d-%m-%Y")
+
+# Ganti nama hari ke bahasa Indonesia
+ID_DAY=${days[$EN_DAY]}
+
 IPVPS=$(curl -s ifconfig.me )
 LOC=$(curl -s ipinfo.io | jq -r '.city' | tr -d '\n' && printf ", " && curl -s ipinfo.io | jq -r '.country' | xargs -I {} curl -s https://restcountries.com/v3.1/alpha/{} | jq -r '.[0].name.common')
 cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo )
@@ -191,7 +208,7 @@ echo -e "\e[1;32m Author Sc     \e[0m: fian&lista"
 echo -e "\e[1;32m Country       \e[0m: $LOC"
 echo -e "\e[1;32m DOMAIN        \e[0m: $domain"
 echo -e "\e[1;32m ISP           \e[0m: $ISP"
-echo -e "\e[1;32m DATE & TIME   \e[0m: $DATE2"
+echo -e "\e[1;32m DATE & TIME   \e[0m: $ID_DAY $TIME $DATE"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m               ━RAM INFO━                \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
