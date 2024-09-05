@@ -104,18 +104,11 @@ apt dist-upgrade -y
 apt-get remove --purge ufw firewalld -y
 apt-get remove --purge exim4 -y
 
-#install jq
-apt -y install jq
-
-#install shc
-apt -y install shc
-
-# install wget and curl
-apt -y install wget curl
-
 #figlet
-apt-get install figlet -y
-apt-get install ruby -y
+apt install figlet -y
+apt install jq -y
+apt install wget curl -y
+apt install ruby -y
 apt install python -y
 apt install make -y
 apt install cmake -y
@@ -210,6 +203,7 @@ rm /etc/nginx/conf.d/default.conf
 systemctl daemon-reload
 service nginx restart
 cd
+mkdir .ngx
 mkdir /home/vps
 mkdir /home/vps/public_html
 wget -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/index"
@@ -476,7 +470,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 */5 * * * * root > /etc/log-create-trojan-trial-clean.log
 */5 * * * * root > /etc/log-create-vless-trial-clean.log
 */5 * * * * root > /etc/log-create-vmess-trial-clean.log
-0 */2 * * * root > /root/auto_nginx.log
+0 */2 * * * root > /root/.ngx/auto_nginx.log
 END
 
 cat > /etc/cron.d/re_otm <<-END
