@@ -239,6 +239,8 @@ echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━
 echo -e "\e[1;44m                   t.me/yansxdi                   \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo ""
+echo -e "\e[1;36m    [\e[1;32m Ketik menu Untuk Kembali Kemenu Utama \e[1;36m]\e[0m"
+echo ""
 
 # Ini Output Untuk Pesan Bot Telegram Tanpa kode warna ansi
 {
