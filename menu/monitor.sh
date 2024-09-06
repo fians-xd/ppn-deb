@@ -10,8 +10,5 @@ echo ""
 echo -e "         \e[1;36mSilahkan Enter.!\e[0m"
 read -p "                "
 
-# Menjalankan htop
 htop
-
-# Setelah htop dihentikan dengan Ctrl+C, menjalankan file menu dari bin
 menu
