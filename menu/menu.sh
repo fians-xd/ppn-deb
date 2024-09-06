@@ -199,9 +199,9 @@ exp_date="${license_data##*|}"
 # Fungsi untuk memeriksa status layanan
 check_status() {
     if systemctl is-active --quiet "$1"; then
-        echo -e "$green on $NC"
+        echo -e "$green On $NC"
     else
-        echo -e "$red of $NC"
+        echo -e "$red Of $NC"
     fi
 }
 
@@ -213,42 +213,44 @@ dropbear_status=$(check_status dropbear)
 
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m                ━VPS INFO━               \e[0m"
+echo -e "\e[1;44m             ━VPS INFO━                  \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m OS            \e[0m: "`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
-echo -e "\e[1;32m Uptime        \e[0m: $uptime"
-echo -e "\e[1;32m Public IP     \e[0m: $IPVPS"
-echo -e "\e[1;32m Author Sc     \e[0m: Fian & Lista"
-echo -e "\e[1;32m Country       \e[0m: $LOC"
-echo -e "\e[1;32m DOMAIN        \e[0m: $domain"
-echo -e "\e[1;32m ISP           \e[0m: $ISP"
-echo -e "\e[1;32m DATE & TIME   \e[0m: $ID_DAY $TIME $DATE"
+echo -e "\e[1;32m OS            \e[1;33m: \e[0m"`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
+echo -e "\e[1;32m Uptime        \e[1;33m: \e[0m$uptime"
+echo -e "\e[1;32m Public IP     \e[1;33m: \e[0m$IPVPS"
+echo -e "\e[1;32m Author Sc     \e[1;33m: \e[0mFian & Lista"
+echo -e "\e[1;32m Country       \e[1;33m: \e[0m$LOC"
+echo -e "\e[1;32m DOMAIN        \e[1;33m: \e[0m$domain"
+echo -e "\e[1;32m ISP           \e[1;33m: \e[0m$ISP"
+echo -e "\e[1;32m DATE & TIME   \e[1;33m: \e[0m$ID_DAY $TIME $DATE"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m               ━RAM INFO━                \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"	
-echo -e "\e[1;32m RAM TOTAL \e[0m: $tram MB   \e[1;32m RAM USED \e[0m: $uram MB"
+echo -e "\e[1;32m RAM TOTAL \e[1;33m: \e[0m$tram MB   \e[1;32m RAM USED \e[1;33m: \e[0m$uram MB"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m             ━SERVICE INFO━              \e[0m"
+echo -e "\e[1;44m           ━SERVICE INFO━                \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m    SSH   \e[0m:$ssh_status\t     \e[1;32m Xray     \e[0m:$xray_status"
-echo -e "\e[1;32m    Nginx \e[0m:$nginx_status\t     \e[1;32m Dropbear \e[0m:$dropbear_status"
+echo -e "\e[1;32m    SSH   \e[1;33m:\e[0m$ssh_status     \e[1;32m Xray     \e[1;33m:\e[0m$xray_status"
+echo -e "\e[1;32m    Nginx \e[1;33m:\e[0m$nginx_status     \e[1;32m Dropbear \e[1;33m:\e[0m$dropbear_status"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                ━MENU━                   \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;36m 1 \e[0m: SSH           \e[1;36m 7  \e[0m: Status Service"
-echo -e "\e[1;36m 2 \e[0m: Vmess         \e[1;36m 8  \e[0m: Monitor VPS"
-echo -e "\e[1;36m 3 \e[0m: Vless         \e[1;36m 9  \e[0m: Reboot VPS"
-echo -e "\e[1;36m 4 \e[0m: Trojan        \e[1;36m 10 \e[0m: Clear Ram Cache"
-echo -e "\e[1;36m 5 \e[0m: Shwsocks      \e[1;36m 11 \e[0m: Boot Telegram"
-echo -e "\e[1;36m 6 \e[0m: Setting       \e[1;36m x  \e[0m: Exit Script"
+echo -e "\e[38;5;40m [\e[31m1\e[38;5;40m]\e[1;33m : \e[0mSSH           \e[38;5;40m[\e[31m7\e[38;5;40m]\e[1;33m : \e[0mStatus Service"
+echo -e "\e[38;5;40m [\e[31m2\e[38;5;40m]\e[1;33m : \e[0mVmess         \e[38;5;40m[\e[31m8\e[38;5;40m]\e[1;33m : \e[0mMonitor VPS"
+echo -e "\e[38;5;40m [\e[31m3\e[38;5;40m]\e[1;33m : \e[0mVless         \e[38;5;40m[\e[31m9\e[38;5;40m]\e[1;33m : \e[0mReboot VPS"
+echo -e "\e[38;5;40m [\e[31m4\e[38;5;40m]\e[1;33m : \e[0mTrojan        \e[38;5;40m[\e[31m10\e[38;5;40m]\e[1;33m: \e[0mClear Cache"
+echo -e "\e[38;5;40m [\e[31m5\e[38;5;40m]\e[1;33m : \e[0mShwsocks      \e[38;5;40m[\e[31m11\e[38;5;40m]\e[1;33m: \e[0mBoot Telegram"
+echo -e "\e[38;5;40m [\e[31m6\e[38;5;40m]\e[1;33m : \e[0mSetting       \e[38;5;40m[\e[31mx\e[38;5;40m]\e[1;33m : \e[0mExit Script"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m Client   \e[0m: $user_name"
-echo -e "\e[1;32m Expired  \e[0m: $exp_date"
+echo -e "\e[1;44m            ━USER INFO━                  \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;32m     Name \e[1;33m: \e[0m$user_name     \e[1;32m Exp \e[1;33m: \e[0m$exp_date"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e   ""
-echo -e "\e[1;36m━━━━━━━━━━━━[ \e[0mt.me/yansxdi \e[1;36m]━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;36m━━━━━━━━━━━━[ \e[1;32mt.me/yansxdi \e[1;36m]━━━━━━━━━━━━━\e[0m"
 echo -e   ""
-read -p " Pilih menu: "  opt
+echo -e "┏━\e[1;36m[\e[1;32mPilih menu\e[1;36m]\e[0m"
+read -p "┗━> "  opt
 echo -e   ""
 case $opt in
 1) clear ; m-sshovpn ;;
