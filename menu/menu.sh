@@ -242,7 +242,7 @@ echo -e "\e[38;5;40m [\e[31m4\e[38;5;40m]\e[1;33m : \e[0mTrojan        \e[38;5;4
 echo -e "\e[38;5;40m [\e[31m5\e[38;5;40m]\e[1;33m : \e[0mShwsocks      \e[38;5;40m[\e[31m11\e[38;5;40m]\e[1;33m: \e[0mBoot Telegram"
 echo -e "\e[38;5;40m [\e[31m6\e[38;5;40m]\e[1;33m : \e[0mSetting       \e[38;5;40m[\e[31mx\e[38;5;40m]\e[1;33m : \e[0mExit Script"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m            ━USER INFO━                  \e[0m"
+echo -e "\e[1;44m              ━USER INFO━                \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;32m     Name \e[1;33m: \e[0m$user_name     \e[1;32m Exp \e[1;33m: \e[0m$exp_date"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
