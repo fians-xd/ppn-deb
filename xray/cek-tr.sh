@@ -55,6 +55,9 @@ jum2=$(cat /tmp/iptrws.txt | nl)
 echo "User : $akun";
 echo "$jum2";
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo ""
+echo -e "\e[1;36m    [\e[1;32m Ketik menu Untuk Kembali Kemenu Utama \e[1;36m]\e[0m"
+echo ""
 
 # Disini log tanpa kodewarn ansi dan simpan log nya
 {

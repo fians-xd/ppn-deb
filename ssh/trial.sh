@@ -74,6 +74,9 @@ echo " UDP Custom:"
 echo ""
 echo " $domen:1-65535@$Login:$Pass"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo ""
+echo -e "\e[1;36m    [\e[1;32m Ketik menu Untuk Kembali Kemenu Utama \e[1;36m]\e[0m"
+echo ""
 
 # Output trial bot
 {

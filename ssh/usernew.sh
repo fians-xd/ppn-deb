@@ -91,6 +91,9 @@ echo " UDP Custom:" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
 echo " $domen:1-65535@$Login:$Pass" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
+echo ""
+echo -e "\e[1;36m    [\e[1;32m Ketik menu Untuk Kembali Kemenu Utama \e[1;36m]\e[0m"
+echo ""
 
 # Simpan log bersih tanpa ANSI untuk Telegram
 {
