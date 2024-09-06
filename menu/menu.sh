@@ -250,7 +250,7 @@ echo -e   ""
 echo -e "\e[1;36m━━━━━━━━━━━━[ \e[1;32mt.me/yansxdi \e[1;36m]━━━━━━━━━━━━━\e[0m"
 echo -e   ""
 echo -e "┏━\e[1;36m[\e[1;32mPilih menu\e[1;36m]\e[0m"
-read -p "┗━> "  opt
+read -p "┗⟶ "  opt
 echo -e   ""
 case $opt in
 1) clear ; m-sshovpn ;;
