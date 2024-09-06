@@ -213,7 +213,7 @@ dropbear_status=$(check_status dropbear)
 
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m             ━VPS INFO━                  \e[0m"
+echo -e "\e[1;44m               ━VPS INFO━                \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;32m OS            \e[1;33m: \e[0m"`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
 echo -e "\e[1;32m Uptime        \e[1;33m: \e[0m$uptime"
