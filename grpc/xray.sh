@@ -2,11 +2,10 @@
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 clear
 domain=$(cat /etc/xray/domain)
-apt install iptables iptables-persistent -y
+apt install iptables iptables-persistent socat cron bash-completion ntpdate chrony -y
 apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
-apt install socat cron bash-completion ntpdate -y
+
 ntpdate pool.ntp.org
-apt -y install chrony
 timedatectl set-ntp true
 systemctl enable chronyd && systemctl restart chronyd
 systemctl enable chrony && systemctl restart chrony
@@ -314,12 +313,12 @@ systemctl enable vmess-grpc
 systemctl restart vmess-grpc
 systemctl enable vless-grpc
 systemctl restart vless-grpc
-#
+
 cd /usr/bin
-wget -O addgrpc "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/grpc/addgrpc.sh"
-wget -O delgrpc "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/grpc/delgrpc.sh"
-wget -O renewgrpc "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/grpc/renewgrpc.sh"
-wget -O cekgrpc "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/grpc/cekgrpc.sh"
+wget -q -O addgrpc "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/grpc/addgrpc.sh"
+wget -q -O delgrpc "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/grpc/delgrpc.sh"
+wget -q -O renewgrpc "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/grpc/renewgrpc.sh"
+wget -q -O cekgrpc "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/grpc/cekgrpc.sh"
 
 chmod +x addgrpc
 chmod +x delgrpc
