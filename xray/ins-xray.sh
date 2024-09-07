@@ -3,7 +3,6 @@ MYIP=$(wget -qO- ipv4.icanhazip.com);
 echo "Checking VPS"
 clear
 
-date
 echo " "
 botak=$(cat /etc/xray/domain)
 echo "$botak" > /root/domain
