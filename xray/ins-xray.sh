@@ -1,7 +1,11 @@
 #!/bin/bash
 
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-echo "Checking VPS"
+apt clean all && apt update
+apt install zip -y
+apt install chrony -y
+apt install curl pwgen openssl netcat cron -y
+apt install socat cron bash-completion ntpdate -y
+apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
 
 # Warna
 red='\e[1;31m'
@@ -43,14 +47,7 @@ echo -e "[ ${green}INFO$NC ] Setting chrony tracking"
 chronyc sourcestats -v
 chronyc tracking -v
 echo -e "[ ${green}INFO$NC ] Setting dll"
-
-apt clean all && apt update
-apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
-apt install socat cron bash-completion ntpdate -y
 ntpdate pool.ntp.org
-apt -y install chrony
-apt install zip -y
-apt install curl pwgen openssl netcat cron -y
 
 # install xray
 sleep 0.5
