@@ -87,7 +87,6 @@ END
 chmod +x /etc/rc.local
 
 # enable rc local
-
 systemctl enable rc-local
 systemctl enable rest_nginx.service
 systemctl start rest_nginx.service
@@ -245,7 +244,8 @@ sed -i '/Port 22/a Port 200' /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
 /etc/init.d/ssh restart
 
-echo "=== Install Dropbear ==="
+echo " "
+echo -e "${green}=== Install Dropbear ===${NC}"
 # install dropbear
 apt -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
@@ -281,7 +281,6 @@ connect = 700
 [openvpn]
 accept = 442
 connect = 127.0.0.1:1194
-
 END
 
 # make a certificate
@@ -302,32 +301,32 @@ apt -y install fail2ban
 
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
-	echo; echo; echo "Please un-install the previous version first"
+	echo; echo; echo -e "${green}Please un-install the previous version first${NC}"
 	exit 0
 else
 	mkdir /usr/local/ddos
 fi
 clear
 echo " "
-echo; echo 'Installing DOS-Deflate 0.6'; echo
-echo; echo -n 'Downloading source files...'
+echo; echo -e "${green}Installing DOS-Deflate 0.6${NC}"; echo
+echo; echo -n "${green}Downloading source files...${NC}"
 wget --progress=bar:force -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ddos.conf\s+100%|saved \["
 wget --progress=bar:force -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|LICENSE\s+100%|saved \["
 wget --progress=bar:force -O /usr/local/ddos/ignore.ip.list http://www.inetbase.com/scripts/ddos/ignore.ip.list 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ignore.ip.list\s+100%|saved \["
 wget --progress=bar:force -O /usr/local/ddos/ddos.sh http://www.inetbase.com/scripts/ddos/ddos.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ddos.sh\s+100%|saved \["
 chmod 0755 /usr/local/ddos/ddos.sh
 cp -s /usr/local/ddos/ddos.sh /usr/local/sbin/ddos
-echo '...done'
-echo; echo -n 'Creating cron to run script every minute.....(Default setting)'
+echo -e "${green}...done${NC}"
+echo; echo -n "${green}Creating cron to run script every minute.....${NC}"
 /usr/local/ddos/ddos.sh --cron > /dev/null 2>&1
-echo '.....done'
-echo; echo 'Installation has completed.'
-echo 'Config file is at /usr/local/ddos/ddos.conf'
-echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
+echo -e "${green}.....done${NC}"
+echo; echo -e "${green}Installation has completed.${NC}"
+echo -e "${green}Config file is at ${NC}/usr/local/ddos/ddos.conf"
+echo -e "${green}Please send in your comments and/or suggestions to fian-xd.com${NC}"
 
 # // banner /etc/issue.net
 wget --progress=bar:force -O /etc/issue.net "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/banner/banner.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|banner.conf\s+100%|saved \["
-echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+echo -e "${green}Banner ${NC}/etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # blokir torrent
@@ -493,7 +492,7 @@ service cron reload >/dev/null 2>&1
 # remove unnecessary files
 sleep 0.5
 echo " "
-echo -e "[ ${green}INFO$NC ] Clearing trash"
+echo -e "${green}[${yell} INGPO COK ${green}]${NC} Clearing trash"
 apt autoclean -y >/dev/null 2>&1
 
 if dpkg -s unscd >/dev/null 2>&1; then
@@ -509,7 +508,7 @@ apt autoremove -y >/dev/null 2>&1
 cd
 chown -R www-data:www-data /home/vps/public_html
 sleep 0.5
-echo -e "$yell[SERVICE]$NC Restart All service SSH & OVPN"
+echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service SSH & OVPN"
 /etc/init.d/nginx restart >/dev/null 2>&1
 sleep 0.5
 echo -e "[ ${green}ok${NC} ] Restarting nginx"
