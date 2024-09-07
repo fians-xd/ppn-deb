@@ -147,6 +147,7 @@ echo -e "$BGren   Install XRAY   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
 wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ins-xray.sh\s+100%|saved \[" && chmod +x ins-xray.sh && ./ins-xray.sh
+python3 -m pip install tabulate
 wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|insshws.sh\s+100%|saved \[" && chmod +x insshws.sh && ./insshws.sh
 clear
 cat> /root/.profile << END
@@ -254,7 +255,6 @@ echo ""
 echo -e "\e[33m==================[ Contact ]=====================\033[0m" | tee -a log-install.txt
 echo -e "$BGreen                 t.me/fians-xd                  $NC" | tee -a log-install.txt
 echo -e "\e[33m==================================================\033[0m" | tee -a log-install.txt
-echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
 rm /root/setup.sh >/dev/null 2>&1
