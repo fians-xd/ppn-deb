@@ -1,10 +1,11 @@
 #!/bin/bash
 
+MYIP=$(wget -qO- ipv4.icanhazip.com);
+echo "Checking VPS"
+
 apt clean all && apt update
-apt install zip -y
-apt install chrony -y
-apt install curl pwgen openssl netcat cron -y
-apt install socat cron bash-completion ntpdate -y
+apt install zip chrony openssl netcat cron -y
+apt install socat bash-completion ntpdate curl pwgen -y
 apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
 
 # Warna
