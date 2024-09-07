@@ -244,7 +244,7 @@ echo -e "\e[38;5;40m [\e[31m6\e[38;5;40m]\e[1;33m : \e[0mSetting       \e[38;5;4
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m              ━USER INFO━                \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m     Name \e[1;33m: \e[0m$user_name     \e[1;32m Exp \e[1;33m: \e[0m$exp_date"
+echo -e "\e[1;32m   Name \e[1;33m: \e[0m$user_name   \e[1;32m Exp \e[1;33m: \e[0m$exp_date"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e   ""
 echo -e "\e[1;36m━━━━━━━━━━━━[ \e[1;32mt.me/yansxdi \e[1;36m]━━━━━━━━━━━━━\e[0m"
