@@ -6,7 +6,9 @@ apt install netfilter-persistent -y
 python3 -m pip install --upgrade pip
 timedatectl set-timezone Asia/Jakarta
 apt-get remove --purge ufw firewalld -y
-apt install -y screen mc curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential earlyoom htop -y
+apt install libz-dev gcc g++ libreadline-dev libreadline-dev zlib1g-dev libssl-dev libssl1.0-dev dos2unix cron -y
+apt install fail2ban screen mc wget curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential earlyoom htop -y
+apt install figlet jq ruby python make cmake coreutils rsyslog net-tools nano sed gnupg gnupg1 bc jq dirmngr libxml-parser-perl neofetch lsof libsqlite3-dev -y
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -41,9 +43,7 @@ NC='\e[0m'
 curl -sS https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
-# go to root
 cd
-
 cat > /etc/systemd/system/rest_nginx.service <<-END
 [Unit]
 Description=Recover Services Script
@@ -103,42 +103,6 @@ apt dist-upgrade -y
 apt-get remove --purge ufw firewalld -y
 apt-get remove --purge exim4 -y
 
-#figlet
-apt install figlet -y
-apt install jq -y
-apt install wget curl -y
-apt install ruby -y
-apt install python -y
-apt install make -y
-apt install cmake -y
-apt install coreutils -y
-apt install rsyslog -y
-apt install net-tools -y
-apt install zip -y
-apt install unzip -y
-apt install nano -y
-apt install sed -y
-apt install gnupg -y
-apt install gnupg1 -y
-apt install bc -y
-apt install jq -y
-apt install apt-transport-https -y
-apt install build-essential -y
-apt install dirmngr -y
-apt install libxml-parser-perl -y
-apt install neofetch -y
-apt install git -y
-apt install lsof -y
-apt install libsqlite3-dev -y
-apt install libz-dev -y
-apt install gcc -y
-apt install g++ -y
-apt install libreadline-dev -y
-apt install zlib1g-dev -y
-apt install libssl-dev -y
-apt install libssl1.0-dev -y
-apt install dos2unix -y
-apt install cron -y
 systemctl enable cron
 systemctl start cron
 gem install lolcat
@@ -204,6 +168,7 @@ mkdir /home/vps/public_html
 wget --progress=bar:force -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/index" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|index\s+100%|saved \["
 mkdir /home/vps/public_html/ss-ws
 mkdir /home/vps/public_html/clash-ws
+
 # install badvpn
 cd
 wget --progress=bar:force -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/newudpgw" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|newudpgw\s+100%|saved \["
@@ -240,9 +205,10 @@ sed -i '/Port 22/a Port 200' /etc/ssh/sshd_config
 sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
 /etc/init.d/ssh restart
 
+# install dropbear
 echo " "
 echo -e "${green}=== Install Dropbear ===${NC}"
-# install dropbear
+sleep 0.7
 apt -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
@@ -252,8 +218,8 @@ echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
 
-cd
 # install stunnel
+cd
 apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
 cert = /etc/stunnel/stunnel.pem
@@ -290,9 +256,6 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /lib/systemd/systemd-sysv-install enable stunnel4
 systemctl start stunnel4
 /etc/init.d/stunnel4 restart
-
-# install fail2ban
-apt -y install fail2ban
 
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
