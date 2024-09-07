@@ -133,24 +133,29 @@ exit 1
 fi
 echo -e "${BGreen}Done!${NC}"
 sleep 0.5
+mkdir .loginstal-all
 clear
     
 #install ssh ovpn
+cd
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$BGren   Install SSH Websocket   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ssh-vpn.sh\s+100%|saved \[" && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ssh-vpn.sh\s+100%|saved \[" && chmod +x ssh-vpn.sh && ./ssh-vpn.sh | tee -a .loginstal-all/log-instal-ssh-vpn.txt
 clear
+
 #Instal Xray
+cd
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$BGren   Install XRAY   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ins-xray.sh\s+100%|saved \[" && chmod +x ins-xray.sh && ./ins-xray.sh
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ins-xray.sh\s+100%|saved \[" && chmod +x ins-xray.sh && ./ins-xray.sh | tee -a .loginstal-all/log-instal-ins-xray.txt
 python3 -m pip install tabulate
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|insshws.sh\s+100%|saved \[" && chmod +x insshws.sh && ./insshws.sh
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|insshws.sh\s+100%|saved \[" && chmod +x insshws.sh && ./insshws.sh | tee -a .loginstal-all/log-instal-insshws.txt
 clear
+cd
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
 
@@ -164,6 +169,7 @@ mesg n || true
 clear
 menu
 END
+
 chmod 644 /root/.profile
 
 if [ -f "/root/log-install.txt" ]; then
@@ -202,36 +208,19 @@ fi
 sleep 0.5
 clear
 #install udp
+cd
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$BGren  SSH Udp Custom   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
-mkdir -p /root/.udp
-echo "downloading udp-custom"
-wget --progress=bar:force -O /root/.udp/udp-custom https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/udp-custom-linux-amd64 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|udp-custom-linux-amd64\s+100%|saved \["
-echo "downloading default config"
-wget --progress=bar:force -O /root/.udp/config.json https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/config.json 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|config.json\s+100%|saved \["
-echo "downloading udp-custom.service"
-wget --progress=bar:force -O /etc/systemd/system/udp-custom.service https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/udp-custom.service 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|udp-custom.service\s+100%|saved \["
-
-chmod 755 /root/.udp/udp-custom
-chmod 644 /root/.udp/config.json
-chmod 644 /etc/systemd/system/udp-custom.service
- 
-echo "reloading systemd"
-systemctl daemon-reload
-echo "starting service udp-custom"
-systemctl start udp-custom
-echo "enabling service udp-custom"
-systemctl enable udp-custom
-sleep 0.5
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/ins-udp.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ins-udp.sh\s+100%|saved \[" && chmod +x ins-udp.sh && ./ins-udp.sh | tee -a .loginstal-all/log-instal-ins-udp.txt
 
 curl -sS ipv4.icanhazip.com > /etc/myipvps
 clear
 echo ""
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a log-install.txt
 echo -e "$BGreen   >>> 𝐒𝐞𝐫𝐯𝐢𝐜𝐞 & 𝐏𝐨𝐫𝐭 𝐘𝐚𝐧𝐠 𝐃𝐢𝐠𝐮𝐧𝐚𝐤𝐚𝐧 <<<<$NC"  | tee -a log-install.txt      
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a log-install.txt
 echo ""
 echo "     >> Nginx                    : 81" | tee -a log-install.txt
 echo "     >> Badvpn                   : 7100-7900" | tee -a log-install.txt
