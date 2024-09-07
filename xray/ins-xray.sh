@@ -1,6 +1,19 @@
 #!/bin/bash
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 echo "Checking VPS"
+
+# Warna
+red='\e[1;31m'
+green='\e[0;32m'
+yell='\e[1;33m'
+tyblue='\e[1;36m'
+BRed='\e[1;31m'
+BGreen='\e[1;32m'
+BGren='\e[1;44m'
+BYellow='\e[1;33m'
+BBlue='\e[1;34m'
+NC='\e[0m'
+
 clear
 echo " "
 date
