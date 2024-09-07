@@ -13,5 +13,5 @@ sudo apt install gcc make build-essential -y && wget https://github.com/neurobin
 ```
 [ 4 ]  Install-Sc
 ```
-sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl unzip && wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/setup.sh && chmod +x setup.sh && sed -i -e 's/\r$//' setup.sh && screen -S setup ./setup.sh
+sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl unzip && wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/setupp.sh && chmod +x setup.sh && sed -i -e 's/\r$//' settup.sh && screen -S seetup ./setup.sh
 ```
