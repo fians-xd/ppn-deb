@@ -38,8 +38,8 @@ chmod +x /usr/local/bin/xray
 # Make Folder XRay
 mkdir -p /var/log/xray/
 #
-wget -q -O /usr/local/bin/geosite.dat "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/grpc/menu/geosite.dat"
-wget -q -O /usr/local/bin/geoip.dat "https://raw.githubusercontent.com/givpn/AutoScriptXray/AutoScriptXray/grpc/ma/geoip.dat"
+wget --progress=bar:force -O /usr/local/bin/geosite.dat "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/grpc/menu/geosite.dat" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|geosite.dat\s+100%|saved \["
+wget --progress=bar:force -O /usr/local/bin/geoip.dat "https://raw.githubusercontent.com/givpn/AutoScriptXray/AutoScriptXray/grpc/ma/geoip.dat" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|geoip.dat\s+100%|saved \["
 
 #
 cat > /etc/xray/vmessgrpc.json << END

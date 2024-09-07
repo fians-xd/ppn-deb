@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 VERSIONNAME="Helium v"
 VERSIONNUMBER="3.0"
 GREEN="\e[1;32m"
