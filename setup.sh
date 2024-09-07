@@ -142,7 +142,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "$BGren   Install SSH Websocket   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ssh-vpn.sh\s+100%|saved \[" && chmod +x ssh-vpn.sh && ./ssh-vpn.sh | tee -a .loginstal-all/log-instal-ssh-vpn.txt
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ssh-vpn.sh\s+100%|saved \[" && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 clear
 
 #Instal Xray
@@ -151,9 +151,9 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$BGren   Install XRAY   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ins-xray.sh\s+100%|saved \[" && chmod +x ins-xray.sh && ./ins-xray.sh | tee -a .loginstal-all/log-instal-ins-xray.txt
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ins-xray.sh\s+100%|saved \[" && chmod +x ins-xray.sh && ./ins-xray.sh
 python3 -m pip install tabulate
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|insshws.sh\s+100%|saved \[" && chmod +x insshws.sh && ./insshws.sh | tee -a .loginstal-all/log-instal-insshws.txt
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|insshws.sh\s+100%|saved \[" && chmod +x insshws.sh && ./insshws.sh
 clear
 cd
 cat> /root/.profile << END
@@ -213,7 +213,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$BGren  SSH Udp Custom   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/ins-udp.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ins-udp.sh\s+100%|saved \[" && chmod +x ins-udp.sh && ./ins-udp.sh | tee -a .loginstal-all/log-instal-ins-udp.txt
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/ins-udp.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ins-udp.sh\s+100%|saved \[" && chmod +x ins-udp.sh && ./ins-udp.sh
 
 curl -sS ipv4.icanhazip.com > /etc/myipvps
 clear
