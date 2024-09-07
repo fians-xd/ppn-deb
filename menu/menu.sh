@@ -211,6 +211,12 @@ xray_status=$(check_status xray)
 nginx_status=$(check_status nginx)
 dropbear_status=$(check_status dropbear)
 
+# Jumlah Orang Pembuat Akun
+xshx=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)
+xvmesx=$(cat /etc/xray/config.json | grep '^###' | cut -d ' ' -f 2 | sort | uniq | wc -l)
+xvlesx=$(cat /etc/xray/config.json | grep '^#&' | cut -d ' ' -f 2 | sort | uniq | wc -l)
+xtrojanx=$(cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq | wc -l)
+
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m               ━VPS INFO━                \e[0m"
@@ -232,6 +238,10 @@ echo -e "\e[1;44m           ━SERVICE INFO━                \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;32m    SSH   \e[1;33m:\e[0m$ssh_status     \e[1;32m Xray     \e[1;33m:\e[0m$xray_status"
 echo -e "\e[1;32m    Nginx \e[1;33m:\e[0m$nginx_status     \e[1;32m Dropbear \e[1;33m:\e[0m$dropbear_status"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m           ━ACCOUNT CREATED━             \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;32m SSH\e[1;33m:\e[0m$xshx  \e[1;32mVmess\e[1;33m:\e[0m$xvmesx  \e[1;32mVless\e[1;33m:\e[0m$xvlesx  \e[1;32mTrojan\e[1;33m:\e[0m$xtrojanx"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                ━MENU━                   \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
