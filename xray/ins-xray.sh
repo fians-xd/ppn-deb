@@ -496,17 +496,17 @@ systemctl restart runn
 
 cd /usr/bin/
 # shadowsocks
-wget --progress=bar:force -O add-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \[" && chmod +x add-ssws
-wget --progress=bar:force -O trialssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \[" && chmod +x trialssws
-wget --progress=bar:force -O del-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \[" && chmod +x del-ssws
-wget --progress=bar:force -O renew-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \[" && chmod +x renew-ssws
+wget --progress=bar:force -O add-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-ssws.sh\s+100%|saved \[" && chmod +x add-ssws
+wget --progress=bar:force -O trialssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialssws.sh\s+100%|saved \[" && chmod +x trialssws
+wget --progress=bar:force -O del-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-ssws.sh\s+100%|saved \[" && chmod +x del-ssws
+wget --progress=bar:force -O renew-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-ssws.sh\s+100%|saved \[" && chmod +x renew-ssws
 
 # vmess
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvmess.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \["
-wget --progress=bar:force -O renew-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \[" && chmod +x renew-ws
-wget --progress=bar:force -O del-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \[" && chmod +x del-ws
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-ws.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvmess.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialvmess.sh\s+100%|saved \["
+wget --progress=bar:force -O renew-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-ws.sh\s+100%|saved \[" && chmod +x renew-ws
+wget --progress=bar:force -O del-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-ws.sh\s+100%|saved \[" && chmod +x del-ws
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-ws.sh\s+100%|saved \["
 
 sudo shc -U -S -f add-ws.sh -o add-ws
 sudo shc -U -S -f trialvmess.sh -o trialvmess
@@ -521,11 +521,11 @@ rm trialvmess.sh trialvmess.sh.x.c
 rm cek-ws.sh cek-ws.sh.x.c
 
 # vless
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \["
-wget --progress=bar:force -O renew-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \[" && chmod +x renew-vless
-wget --progress=bar:force -O del-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \[" && chmod +x del-vless
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-vless.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialvless.sh\s+100%|saved \["
+wget --progress=bar:force -O renew-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-vless.sh\s+100%|saved \[" && chmod +x renew-vless
+wget --progress=bar:force -O del-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-vless.sh\s+100%|saved \[" && chmod +x del-vless
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-vless.sh\s+100%|saved \["
 
 sudo shc -U -S -f add-vless.sh -o add-vless
 sudo shc -U -S -f trialvless.sh -o trialvless
@@ -540,11 +540,11 @@ rm trialvless.sh trialvless.sh.x.c
 rm cek-vless.sh cek-vless.sh.x.c
 
 # trojan
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialtrojan.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \["
-wget --progress=bar:force -O del-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \[" && chmod +x del-tr
-wget --progress=bar:force -O renew-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \[" && chmod +x renew-tr
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-tr.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialtrojan.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialtrojan.sh\s+100%|saved \["
+wget --progress=bar:force -O del-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-tr.sh\s+100%|saved \[" && chmod +x del-tr
+wget --progress=bar:force -O renew-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-tr.sh\s+100%|saved \[" && chmod +x renew-tr
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-tr.sh\s+100%|saved \["
 
 sudo shc -U -S -f cek-tr.sh -o cek-tr
 sudo shc -U -S -f trialtrojan.sh -o trialtrojan
@@ -557,7 +557,6 @@ sudo chmod +x add-tr
 rm cek-tr.sh cek-tr.sh.x.c
 rm trialtrojan.sh trialtrojan.sh.x.c
 rm add-tr.sh add-tr.sh.x.c
-
 
 sleep 0.5
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
