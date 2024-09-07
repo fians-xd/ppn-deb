@@ -58,13 +58,14 @@ echo " "
 echo -e "[ ${BBlue}NOTES${NC} ] Izin dulu asuu..!!"
 sleep 0.5
 echo -e "[ ${BGreen}INFO${NC} ] Author script @yan-xd"
-sleep 10
+sleep 0.8
 totet=`uname -r`
 REQUIRED_PKG="linux-headers-$totet"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "Persiapan install...")
 echo Checking for $REQUIRED_PKG: $PKG_OK
 if [ "" = "$PKG_OK" ]; then
   sleep 0.5
+  echo " "
   echo -e "[ ${BRed}WARNING${NC} ]"
   echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
   apt-get --yes install $REQUIRED_PKG
@@ -197,6 +198,7 @@ gg="PM"
 else
 gg="AM"
 fi
+
 sleep 0.5
 clear
 #install udp
@@ -255,7 +257,6 @@ echo ""
 echo -e "\e[33m==================[ Contact ]=====================\033[0m" | tee -a log-install.txt
 echo -e "$BGreen                 t.me/fians-xd                  $NC" | tee -a log-install.txt
 echo -e "\e[33m==================================================\033[0m" | tee -a log-install.txt
-echo ""
 echo "" | tee -a log-install.txt
 rm /root/setup.sh >/dev/null 2>&1
 rm /root/ins-xray.sh >/dev/null 2>&1

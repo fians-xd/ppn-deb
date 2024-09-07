@@ -1,8 +1,6 @@
 #!/bin/bash
 
-clear
 cd
-
 #Install Script Websocket-SSH Python
 wget --progress=bar:force -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/ws-dropbear 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-dropbear\s+100%|saved \["
 wget --progress=bar:force -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/ws-stunnel 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ws-stunnel\s+100%|saved \["
