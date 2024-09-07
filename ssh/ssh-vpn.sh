@@ -5,10 +5,9 @@ apt dist-upgrade -y
 apt install python3 python3-pip -y
 apt install netfilter-persistent -y
 python3 -m pip install --upgrade pip
-timedatectl set-timezone Asia/Jakarta
 apt-get remove --purge ufw firewalld -y
-apt install libz-dev gcc g++ libreadline-dev libreadline-dev zlib1g-dev libssl-dev libssl1.0-dev dos2unix cron stunnel4 dropbear nginx -y
-apt install fail2ban screen mc wget curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential earlyoom htop -y
+apt install libz-dev gcc g++ libreadline-dev libreadline-dev zlib1g-dev libssl-dev libssl1.0-dev dos2unix cron -y
+apt install screen mc wget curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential earlyoom htop -y
 apt install figlet jq ruby python make cmake coreutils rsyslog net-tools nano sed gnupg gnupg1 bc jq dirmngr libxml-parser-perl neofetch lsof libsqlite3-dev -y
 
 # initializing var
@@ -109,6 +108,7 @@ systemctl start cron
 gem install lolcat
 
 # set locale
+timedatectl set-timezone Asia/Jakarta
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 
 install_ssl(){
@@ -149,6 +149,7 @@ install_ssl(){
 
 # install webserver
 cd
+apt install nginx -y
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget --progress=bar:force -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/nginx.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
@@ -207,6 +208,7 @@ sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
 
 # install dropbear
 echo " "
+apt install dropbear -y
 echo -e "${green}=== Install Dropbear ===${NC}"
 sleep 0.7
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
@@ -219,6 +221,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 
 # install stunnel
 cd
+apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
 cert = /etc/stunnel/stunnel.pem
 client = no
@@ -254,6 +257,9 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /lib/systemd/systemd-sysv-install enable stunnel4
 systemctl start stunnel4
 /etc/init.d/stunnel4 restart
+
+# install fail2ban
+apt install fail2ban -y
 
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
