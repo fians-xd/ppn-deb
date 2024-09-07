@@ -131,7 +131,6 @@ install_ssl(){
     systemctl stop nginx.service
 
 # Validasi sertifikat susah
-
     if [ -f "/usr/bin/apt-get" ];then
             isDebian=`cat /etc/issue|grep Debian`
             if [ "$isDebian" != "" ];then
@@ -208,8 +207,9 @@ sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
 
 # install dropbear
 echo " "
-apt install dropbear -y
 echo -e "${green}=== Install Dropbear ===${NC}"
+echo " "
+apt install dropbear -y
 sleep 0.7
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
