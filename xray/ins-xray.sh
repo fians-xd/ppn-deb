@@ -4,7 +4,7 @@ echo "Checking VPS"
 clear
 
 date
-echo ""
+echo " "
 botak=$(cat /etc/xray/domain)
 echo "$botak" > /root/domain
 domain=$(cat /root/domain)
