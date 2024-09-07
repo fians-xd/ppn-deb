@@ -6,7 +6,7 @@ apt install netfilter-persistent -y
 python3 -m pip install --upgrade pip
 timedatectl set-timezone Asia/Jakarta
 apt-get remove --purge ufw firewalld -y
-apt install libz-dev gcc g++ libreadline-dev libreadline-dev zlib1g-dev libssl-dev libssl1.0-dev dos2unix cron -y
+apt install libz-dev gcc g++ libreadline-dev libreadline-dev zlib1g-dev libssl-dev libssl1.0-dev dos2unix cron stunnel4 dropbear nginx -y
 apt install fail2ban screen mc wget curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential earlyoom htop -y
 apt install figlet jq ruby python make cmake coreutils rsyslog net-tools nano sed gnupg gnupg1 bc jq dirmngr libxml-parser-perl neofetch lsof libsqlite3-dev -y
 
@@ -147,7 +147,6 @@ install_ssl(){
 }
 
 # install webserver
-apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
@@ -209,7 +208,6 @@ sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
 echo " "
 echo -e "${green}=== Install Dropbear ===${NC}"
 sleep 0.7
-apt -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"/g' /etc/default/dropbear
@@ -220,7 +218,6 @@ echo "/usr/sbin/nologin" >> /etc/shells
 
 # install stunnel
 cd
-apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
 cert = /etc/stunnel/stunnel.pem
 client = no
@@ -264,7 +261,7 @@ if [ -d '/usr/local/ddos' ]; then
 else
 	mkdir /usr/local/ddos
 fi
-clear
+
 echo " "
 echo; echo "Installing DOS-Deflate 0.6"; echo
 echo; echo -n "Downloading source files..."
@@ -406,7 +403,6 @@ chmod +x asuk
 chmod +x auto_nginx
 
 cd
-clear
 cat > /etc/cron.d/rlog_otm <<-END
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
