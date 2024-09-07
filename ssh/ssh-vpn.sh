@@ -291,7 +291,6 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 systemctl start stunnel4
 /etc/init.d/stunnel4 restart
 
-
 # install fail2ban
 apt -y install fail2ban
 
