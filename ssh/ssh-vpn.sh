@@ -2,8 +2,9 @@
 
 apt dist-upgrade -y
 apt install python3 python3-pip -y
-python3 -m pip install --upgrade pip
 apt install netfilter-persistent -y
+python3 -m pip install --upgrade pip
+timedatectl set-timezone Asia/Jakarta
 apt-get remove --purge ufw firewalld -y
 apt install -y screen mc curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential earlyoom htop -y
 
@@ -142,12 +143,8 @@ systemctl enable cron
 systemctl start cron
 gem install lolcat
 
-# set time GMT +7
-timedatectl set-timezone Asia/Jakarta
-
 # set locale
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
-
 
 install_ssl(){
     if [ -f "/usr/bin/apt-get" ];then
