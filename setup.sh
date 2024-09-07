@@ -118,7 +118,7 @@ echo -e "$red 2.$BGreen Gunakan Domain Sendiri $NC"
 echo -e "$BYellow━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 read -rp "Pilih Asw: " dns
 if test $dns -eq 1; then
-wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cf 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cf\s+100%|saved \[" && chmod +x cf && ./cf
+wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cf && chmod +x cf && ./cf
 elif test $dns -eq 2; then
 read -rp "Lebokno Domainmu: " dom
 echo "IP=$dom" > /var/lib/ipvps.conf
