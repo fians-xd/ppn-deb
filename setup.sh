@@ -133,7 +133,6 @@ exit 1
 fi
 echo -e "${BGreen}Done!${NC}"
 sleep 0.5
-mkdir .loginstal-all
 clear
     
 #install ssh ovpn
