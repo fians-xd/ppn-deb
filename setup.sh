@@ -117,7 +117,7 @@ echo -e "$red 2.$BGreen Gunakan Domain Sendiri $NC"
 echo -e "$BYellow━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 read -rp "Pilih Asw: " dns
 if test $dns -eq 1; then
-wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cf && chmod +x cf && ./cf
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cf 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cf\s+100%|saved \[" && chmod +x cf && ./cf
 elif test $dns -eq 2; then
 read -rp "Lebokno Domainmu: " dom
 echo "IP=$dom" > /var/lib/ipvps.conf
@@ -139,15 +139,15 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "$BGren   Install SSH Websocket   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
-wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ssh-vpn.sh\s+100%|saved \[" && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 clear
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$BGren   Install XRAY   $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
-wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
-wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ins-xray.sh\s+100%|saved \[" && chmod +x ins-xray.sh && ./ins-xray.sh
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|insshws.sh\s+100%|saved \[" && chmod +x insshws.sh && ./insshws.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
@@ -205,11 +205,11 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
 mkdir -p /root/.udp
 echo "downloading udp-custom"
-wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/udp-custom-linux-amd64 -O /root/.udp/udp-custom
+wget --progress=bar:force -O /root/.udp/udp-custom https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/udp-custom-linux-amd64 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|udp-custom-linux-amd64\s+100%|saved \["
 echo "downloading default config"
-wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/config.json -O /root/.udp/config.json
+wget --progress=bar:force -O /root/.udp/config.json https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/config.json 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|config.json\s+100%|saved \["
 echo "downloading udp-custom.service"
-wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/udp-custom.service -O /etc/systemd/system/udp-custom.service
+wget --progress=bar:force -O /etc/systemd/system/udp-custom.service https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/udp-custom.service 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|udp-custom.service\s+100%|saved \["
 
 chmod 755 /root/.udp/udp-custom
 chmod 644 /root/.udp/config.json
@@ -267,7 +267,7 @@ sleep 10
 rm -rf setup.sh
 
 cd
-sudo rm -rf /usr/local/bin/shc
+sudo rm -rf /usr/local/bin/shc /tmp/wget.log
 sudo apt purge shc -y
 sudo rm -rf /tmp/shc*
 sudo rm -rf /var/tmp/shc*
