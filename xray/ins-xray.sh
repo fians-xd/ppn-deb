@@ -2,6 +2,12 @@
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 echo "Checking VPS"
 
+apt clean all && apt update
+timedatectl set-timezone Asia/Jakarta
+apt install zip chrony curl pwgen openssl netcat cron -y
+apt install iptables iptables-persistent socat cron bash-completion ntpdate -y
+apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y
+
 # Warna
 red='\e[1;31m'
 green='\e[0;32m'
@@ -14,7 +20,6 @@ BYellow='\e[1;33m'
 BBlue='\e[1;34m'
 NC='\e[0m'
 
-clear
 echo " "
 date
 echo " "
@@ -24,7 +29,6 @@ domain=$(cat /root/domain)
 sleep 0.5
 mkdir -p /etc/xray 
 echo -e "[ ${green}INFO${NC} ] Checking... "
-apt install iptables iptables-persistent -y
 sleep 0.5
 echo -e "[ ${green}INFO$NC ] Setting ntpdate"
 ntpdate pool.ntp.org 
@@ -37,19 +41,12 @@ sleep 0.5
 echo -e "[ ${green}INFO$NC ] Enable chrony"
 systemctl enable chrony
 systemctl restart chrony
-timedatectl set-timezone Asia/Jakarta
 sleep 0.5
 echo -e "[ ${green}INFO$NC ] Setting chrony tracking"
 chronyc sourcestats -v
 chronyc tracking -v
 echo -e "[ ${green}INFO$NC ] Setting dll"
-apt clean all && apt update
-apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
-apt install socat cron bash-completion ntpdate -y
 ntpdate pool.ntp.org
-apt -y install chrony
-apt install zip -y
-apt install curl pwgen openssl netcat cron -y
 
 # install xray
 sleep 0.5
@@ -500,7 +497,7 @@ sed -i '$ igrpc_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
 sed -i '$ igrpc_pass grpc://127.0.0.1:30310;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
-echo -e "$yell[SERVICE]$NC Restart All service"
+echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service"
 systemctl daemon-reload
 sleep 0.5
 echo -e "[ ${green}ok${NC} ] Enable & restart xray "
