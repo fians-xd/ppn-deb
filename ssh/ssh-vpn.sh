@@ -301,32 +301,32 @@ apt -y install fail2ban
 
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
-	echo; echo; echo -e "${green}Please un-install the previous version first${NC}"
+	echo; echo; echo "Please un-install the previous version first"
 	exit 0
 else
 	mkdir /usr/local/ddos
 fi
 clear
 echo " "
-echo; echo -e "${green}Installing DOS-Deflate 0.6${NC}"; echo
-echo; echo -n "${green}Downloading source files...${NC}"
+echo; echo "Installing DOS-Deflate 0.6"; echo
+echo; echo -n "Downloading source files..."
 wget --progress=bar:force -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ddos.conf\s+100%|saved \["
 wget --progress=bar:force -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|LICENSE\s+100%|saved \["
 wget --progress=bar:force -O /usr/local/ddos/ignore.ip.list http://www.inetbase.com/scripts/ddos/ignore.ip.list 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ignore.ip.list\s+100%|saved \["
 wget --progress=bar:force -O /usr/local/ddos/ddos.sh http://www.inetbase.com/scripts/ddos/ddos.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ddos.sh\s+100%|saved \["
 chmod 0755 /usr/local/ddos/ddos.sh
 cp -s /usr/local/ddos/ddos.sh /usr/local/sbin/ddos
-echo -e "${green}...done${NC}"
-echo; echo -n "${green}Creating cron to run script every minute.....${NC}"
+echo "...done"
+echo; echo -n "Creating cron to run script every minute....."
 /usr/local/ddos/ddos.sh --cron > /dev/null 2>&1
-echo -e "${green}.....done${NC}"
-echo; echo -e "${green}Installation has completed.${NC}"
-echo -e "${green}Config file is at ${NC}/usr/local/ddos/ddos.conf"
-echo -e "${green}Please send in your comments and/or suggestions to fian-xd.com${NC}"
+echo ".....done"
+echo; echo "Installation has completed."
+echo "Config file is at /usr/local/ddos/ddos.conf"
+echo "Please send in your comments and/or suggestions to fian-xd.com"
 
 # // banner /etc/issue.net
 wget --progress=bar:force -O /etc/issue.net "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/banner/banner.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|banner.conf\s+100%|saved \["
-echo -e "${green}Banner ${NC}/etc/issue.net" >> /etc/ssh/sshd_config
+echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # blokir torrent
