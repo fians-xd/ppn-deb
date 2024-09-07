@@ -3,7 +3,6 @@
 apt dist-upgrade -y
 apt install python3 python3-pip -y
 python3 -m pip install --upgrade pip
-python3 -m pip install tabulate
 apt install netfilter-persistent -y
 apt-get remove --purge ufw firewalld -y
 apt install -y screen mc curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential earlyoom htop -y
