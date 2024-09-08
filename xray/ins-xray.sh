@@ -515,6 +515,7 @@ sed -i '$ igrpc_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
 sed -i '$ igrpc_pass grpc://127.0.0.1:30310;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
+echo " "
 echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service"
 systemctl daemon-reload
 sleep 0.5
