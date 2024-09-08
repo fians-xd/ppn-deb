@@ -403,6 +403,22 @@ cat >/etc/nginx/conf.d/xray.conf <<EOF
         }
 EOF
 
+# Autinginx
+cat > /etc/systemd/system/rest_nginx.service <<-END
+[Unit]
+Description=Recover Services Script
+After=network-online.target
+[Service]
+ExecStart=/usr/bin/auto_nginx
+Type=simple
+User=root
+StandardOutput=journal
+StandardError=journal
+Restart=always
+[Install]
+WantedBy=multi-user.target
+END
+
 sed -i '$ ilocation = /vless' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
@@ -509,6 +525,8 @@ systemctl restart xray
 systemctl restart nginx
 systemctl enable runn
 systemctl restart runn
+systemctl enable rest_nginx.service
+systemctl start rest_nginx.service
 
 cd /usr/bin/
 # shadowsocks

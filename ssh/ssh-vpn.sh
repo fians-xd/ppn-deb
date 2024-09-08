@@ -43,23 +43,8 @@ NC='\e[0m'
 curl -sS https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
-cd
-cat > /etc/systemd/system/rest_nginx.service <<-END
-[Unit]
-Description=Recover Services Script
-After=network-online.target
-[Service]
-ExecStart=/usr/bin/auto_nginx
-Type=simple
-User=root
-StandardOutput=journal
-StandardError=journal
-Restart=always
-[Install]
-WantedBy=multi-user.target
-END
-
 # Edit file /etc/systemd/system/rc-local.service
+cd
 cat > /etc/systemd/system/rc-local.service <<-END
 [Unit]
 Description=/etc/rc.local
@@ -88,8 +73,6 @@ chmod +x /etc/rc.local
 
 # enable rc local
 systemctl enable rc-local
-systemctl enable rest_nginx.service
-systemctl start rest_nginx.service
 systemctl start rc-local.service
 
 # disable ipv6
