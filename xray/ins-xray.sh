@@ -592,10 +592,13 @@ rm cek-tr.sh cek-tr.sh.x.c
 rm trialtrojan.sh trialtrojan.sh.x.c
 rm add-tr.sh add-tr.sh.x.c
 
-sleep 0.5
-yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
-yellow "xray/Vmess"
-yellow "xray/Vless"
+sleep 0.8
+gren() { echo -e "\\033[0;32m${*}\\033[0m"; }
+echo " "
+gren "xray/Vmess"
+sleep 0.8
+gren "xray/Vless"
+echo " "
 
 mv /root/domain /etc/xray/ 
 if [ -f /root/scdomain ];then
