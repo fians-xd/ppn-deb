@@ -452,6 +452,7 @@ apt autoremove -y >/dev/null 2>&1
 cd
 chown -R www-data:www-data /home/vps/public_html
 sleep 0.5
+echo " "
 echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service SSH & OVPN"
 /etc/init.d/nginx restart >/dev/null 2>&1
 sleep 0.5
