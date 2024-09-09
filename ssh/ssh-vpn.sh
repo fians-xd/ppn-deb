@@ -1,14 +1,14 @@
 #!/bin/bash
 
 echo " "
-apt dist-upgrade -y
-apt install python3 -y
-apt install netfilter-persistent -y
+apt-get dist-upgrade -y
+apt-get install python3 -y
 python3 -m pip install --upgrade pip
+apt-get install netfilter-persistent -y
 apt-get remove --purge ufw firewalld -y
-apt install libz-dev gcc g++ libreadline-dev libreadline-dev zlib1g-dev libssl-dev libssl1.0-dev dos2unix cron -y
-apt install screen mc wget curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential earlyoom htop -y
-apt install figlet jq ruby python make cmake coreutils rsyslog net-tools nano sed gnupg gnupg1 bc jq dirmngr libxml-parser-perl neofetch lsof libsqlite3-dev -y
+apt-get install libz-dev gcc g++ libreadline-dev libreadline-dev zlib1g-dev libssl-dev libssl1.0-dev dos2unix cron -y
+apt-get install screen mc wget curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential earlyoom htop -y
+apt-get install figlet jq ruby python make cmake coreutils rsyslog net-tools nano sed gnupg gnupg1 bc jq dirmngr libxml-parser-perl neofetch lsof libsqlite3-dev -y
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -81,9 +81,9 @@ echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
 sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
 
 #update
-apt update -y
-apt upgrade -y
-apt dist-upgrade -y
+apt-get update -y
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get remove --purge ufw firewalld -y
 apt-get remove --purge exim4 -y
 
@@ -100,11 +100,11 @@ install_ssl(){
             isDebian=`cat /etc/issue|grep Debian`
             if [ "$isDebian" != "" ];then
                     apt-get install -y nginx certbot
-                    apt install -y nginx certbot
+                    apt-get install -y nginx certbot
                     sleep 3s
             else
                     apt-get install -y nginx certbot
-                    apt install -y nginx certbot
+                    apt-get install -y nginx certbot
                     sleep 3s
             fi
     else
@@ -132,7 +132,7 @@ install_ssl(){
 
 # install webserver
 cd
-apt install nginx -y
+apt-get install nginx -y
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget --progress=bar:force -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/nginx.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
@@ -193,7 +193,7 @@ sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
 echo " "
 echo -e "${biru}===[ ${green}Install Dropbear ${biru}]===${NC}"
 echo " "
-apt install dropbear -y
+apt-get install dropbear -y
 sleep 0.7
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
@@ -205,7 +205,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 
 # install stunnel
 cd
-apt install stunnel4 -y
+apt-get install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
 cert = /etc/stunnel/stunnel.pem
 client = no
@@ -243,7 +243,7 @@ systemctl start stunnel4
 /etc/init.d/stunnel4 restart
 
 # install fail2ban
-apt install fail2ban -y
+apt-get install fail2ban -y
 
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
@@ -438,16 +438,16 @@ service cron reload >/dev/null 2>&1
 sleep 0.5
 echo " "
 echo -e "${green}[${yell} INGPO COK ${green}]${NC} Clearing trash"
-apt autoclean -y >/dev/null 2>&1
+apt-get autoclean -y >/dev/null 2>&1
 
 if dpkg -s unscd >/dev/null 2>&1; then
-apt -y remove --purge unscd >/dev/null 2>&1
+apt-get -y remove --purge unscd >/dev/null 2>&1
 fi
 
 apt-get -y --purge remove samba* >/dev/null 2>&1
 apt-get -y --purge remove apache2* >/dev/null 2>&1
 apt-get -y remove sendmail* >/dev/null 2>&1
-apt autoremove -y >/dev/null 2>&1
+apt-get autoremove -y >/dev/null 2>&1
 
 # finishing
 cd

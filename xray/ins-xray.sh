@@ -3,10 +3,10 @@
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 echo "Checking VPS"
 
-apt clean all && apt update
-apt install zip chrony openssl netcat cron -y
-apt install socat bash-completion ntpdate curl pwgen -y
-apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
+apt-get clean all && apt-get update
+apt-get install zip chrony openssl netcat cron -y
+apt-get install socat bash-completion ntpdate curl pwgen -y
+apt-get install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
 
 # Warna
 red='\e[1;31m'
@@ -29,7 +29,7 @@ domain=$(cat /root/domain)
 sleep 0.5
 mkdir -p /etc/xray 
 echo -e "[ ${green}INFO${NC} ] Checking... "
-apt install iptables iptables-persistent -y
+apt-get install iptables iptables-persistent -y
 sleep 0.5
 echo -e "[ ${green}INFO$NC ] Setting ntpdate"
 ntpdate pool.ntp.org 
