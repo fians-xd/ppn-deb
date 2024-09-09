@@ -138,26 +138,25 @@ clear
     
 #install ssh ovpn
 cd
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$BGren   Install SSH Websocket   $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+mkdir .riwayat-install
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-ssh.txt
+echo -e "$BGren   Install SSH Websocket   $NC" | tee -a .riwayat-install/log-instal-ssh.txt
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-ssh.txt
 sleep 0.7
-wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh
-chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh | tee -a .riwayat-install/log-instal-ssh.txt
+chmod +x ssh-vpn.sh && ./ssh-vpn.sh | tee -a .riwayat-install/log-instal-ssh.txt
 clear
 
 #Instal Xray
 cd
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$BGren   Install XRAY   $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-xray.txt
+echo -e "$BGren   Install XRAY   $NC" | tee -a .riwayat-install/log-instal-xray.txt
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-xray.txt
 sleep 0.7
-wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh
-chmod +x ins-xray.sh && ./ins-xray.sh
-apt install python3-pip -y
-python3 -m pip install tabulate
-wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh
-chmod +x insshws.sh && ./insshws.sh
+wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh | tee -a .riwayat-install/log-instal-xray.txt
+chmod +x ins-xray.sh && ./ins-xray.sh | tee -a .riwayat-install/log-instal-xray.txt
+wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh | tee -a .riwayat-install/log-instal-insshws.txt
+chmod +x insshws.sh && ./insshws.sh | tee -a .riwayat-install/log-instal-insshws.txt
 clear
 cd
 cat> /root/.profile << END
@@ -213,14 +212,16 @@ sleep 0.5
 clear
 #install udp
 cd
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$BGren  SSH Udp Custom   $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
+echo -e "$BGren  SSH Udp Custom   $NC" | tee -a .riwayat-install/log-instal-udp.txt
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
 sleep 0.7
-wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/ins-udp.sh
-chmod +x ins-udp.sh && ./ins-udp.sh
+wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
+chmod +x ins-udp.sh && ./ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
 
 curl -sS ipv4.icanhazip.com > /etc/myipvps
+apt install python3-pip -y
+python3 -m pip install tabulate
 clear
 echo ""
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a log-install.txt
