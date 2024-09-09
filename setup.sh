@@ -96,8 +96,8 @@ sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 
 echo ""
 echo -e "[ ${BGreen}INFO${NC} ] Preparing the install file.."
-apt install git curl -y >/dev/null 2>&1
-apt install python -y >/dev/null 2>&1
+apt-get install git curl -y >/dev/null 2>&1
+apt-get install python -y >/dev/null 2>&1
 echo -e "[ ${BGreen}INFO${NC} ] Installation file is ready.."
 sleep 0.5
 echo -ne "[ ${BGreen}INFO${NC} ] Check permission: "
@@ -220,7 +220,7 @@ wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/ins
 chmod +x ins-udp.sh && ./ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
 
 curl -sS ipv4.icanhazip.com > /etc/myipvps
-apt install python3-pip -y
+apt-get install python3-pip -y
 python3 -m pip install tabulate
 clear
 echo ""
