@@ -44,9 +44,9 @@ systemctl enable chrony
 systemctl restart chrony
 timedatectl set-timezone Asia/Jakarta
 sleep 0.5
+echo " "
 echo -e "[ ${green}INFO$NC ] Setting chrony tracking"
 gren() { echo -e "\\033[0;32m${*}\\033[0m"; }
-echo " "
 gren "$(chronyc sourcestats -v)"
 gren "=============================================================================="
 gren "$(chronyc tracking -v)"
@@ -360,7 +360,6 @@ cat <<EOF> /etc/systemd/system/xray.service
 Description=Xray Service
 Documentation=https://github.com/xtls
 After=network.target nss-lookup.target
-
 [Service]
 User=www-data
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
@@ -371,7 +370,6 @@ Restart=on-failure
 RestartPreventExitStatus=23
 LimitNPROC=10000
 LimitNOFILE=1000000
-
 [Install]
 WantedBy=multi-user.target
 EOF
@@ -380,13 +378,11 @@ cat > /etc/systemd/system/runn.service <<EOF
 [Unit]
 Description=Mantap-Sayang
 After=network.target
-
 [Service]
 Type=simple
 ExecStartPre=-/usr/bin/mkdir -p /var/run/xray
 ExecStart=/usr/bin/chown www-data:www-data /var/run/xray
 Restart=on-abort
-
 [Install]
 WantedBy=multi-user.target
 EOF
