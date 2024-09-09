@@ -2,7 +2,7 @@
 
 echo " "
 apt dist-upgrade -y
-apt install python3 python3-pip -y
+apt install python3 -y
 apt install netfilter-persistent -y
 python3 -m pip install --upgrade pip
 apt-get remove --purge ufw firewalld -y

@@ -154,6 +154,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.7
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh
 chmod +x ins-xray.sh && ./ins-xray.sh
+apt install python3-pip -y
 python3 -m pip install tabulate
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh
 chmod +x insshws.sh && ./insshws.sh
