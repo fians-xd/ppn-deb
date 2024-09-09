@@ -45,8 +45,12 @@ systemctl restart chrony
 timedatectl set-timezone Asia/Jakarta
 sleep 0.5
 echo -e "[ ${green}INFO$NC ] Setting chrony tracking"
-chronyc sourcestats -v
-chronyc tracking -v
+gren() { echo -e "\\033[0;32m${*}\\033[0m"; }
+echo " "
+gren "$(chronyc sourcestats -v)"
+gren "=============================================================================="
+gren "$(chronyc tracking -v)"
+echo " "
 echo -e "[ ${green}INFO$NC ] Setting dll"
 ntpdate pool.ntp.org
 
