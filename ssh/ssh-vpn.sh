@@ -28,6 +28,7 @@ commonname=none
 email=none
 
 # Warna
+biru='\e[36m'
 red='\e[1;31m'
 green='\e[0;32m'
 yell='\e[1;33m'
@@ -190,7 +191,7 @@ sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
 
 # install dropbear
 echo " "
-echo -e "${green}=== Install Dropbear ===${NC}"
+echo -e "${biru}===[ ${green}Install Dropbear ${biru}]===${NC}"
 echo " "
 apt install dropbear -y
 sleep 0.7
