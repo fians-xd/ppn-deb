@@ -31,7 +31,7 @@ USER_FILE="/etc/user_name.txt"
 
 if [ ! -f "$USER_FILE" ]; then
     echo " "
-    echo " User baru yaa.? Masukan Nama.!"
+    echo " User baru yaa, Masukan Namamu.!"
     read -p " Nama Pengguna: " user_name
     echo "$user_name" > "$USER_FILE"
     clear
@@ -53,6 +53,7 @@ curl -L -b /tmp/gcookie "https://drive.google.com/uc?export=download&confirm=${C
 if [ ! -f "$LICENSE_FILE" ]; then
     echo " "
     echo -e "\e[31m Koneksi Server Bermasalah, Reboot Dulu.\e[0m"
+    sleep 10
     rm -f /etc/user_name.txt
     clear
     exit 1
@@ -141,6 +142,7 @@ tlsStatus=${remainingDays}
 if [[ ${remainingDays} -le 0 ]]; then
 	tlsStatus="expired"
 fi
+
 # OS Uptime
 uptime="$(uptime -p | cut -d " " -f 2-10)"
 
