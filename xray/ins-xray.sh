@@ -527,8 +527,6 @@ systemctl restart xray
 systemctl restart nginx
 systemctl enable runn
 systemctl restart runn
-systemctl enable rest_nginx.service
-systemctl start rest_nginx.service
 
 cd /usr/bin/
 # shadowsocks
