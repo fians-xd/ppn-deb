@@ -52,26 +52,26 @@ if [[ -z "$jum" ]]; then
 echo > /dev/null
 else
 jum2=$(cat /tmp/iptrws.txt | nl)
-echo "User : $akun";
-echo "$jum2";
+echo "User : $akun" | tee -a /tmp/tamp.txt;
+echo "$jum2" | tee -a /tmp/tamp.txt;
+echo "━━━━━━━━━━━━━━━━━━━━━━" | tee -a /tmp/tamp.txt > /dev/null
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo ""
-echo -e "\e[1;36m   [\e[1;32m Ketik menu Untuk Kembali Kemenu Utama \e[1;36m]\e[0m"
-echo ""
 
+fi
 # Disini log tanpa kodewarn ansi dan simpan log nya
 {
     echo "━━━━━━━━━━━━━━━━━━━━━━"
     echo "            User Login Trojan"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
-    echo "User : $akun";
-    echo "$jum2";
-    echo "━━━━━━━━━━━━━━━━━━━━━━"
+    t1g=$(cat /tmp/tamp.txt)
+    echo "$t1g"
 } > /etc/cek-tr.log
 
-fi
+done
+echo " "
+echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
+echo " "
+
 rm -rf /tmp/iptrws.txt
 rm -rf /tmp/other.txt
 > /tmp/tamp.txt
-done
-echo ""

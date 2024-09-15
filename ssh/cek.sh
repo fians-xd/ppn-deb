@@ -73,7 +73,7 @@ if [ -f "/etc/openvpn/server/openvpn-udp.log" ]; then
         cat /tmp/vpn-login-udp.txt
 fi
 echo ""
-echo -e "\e[1;36m[\e[1;32m Ketik menu Untuk Kembali Kemenu Utama \e[1;36m]\e[0m"
+echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
 
 # Disini log tanpa kodewarn ansi dan simpan log nya
 {
