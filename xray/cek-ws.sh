@@ -67,3 +67,4 @@ do
     rm -rf /tmp/ipvmess.txt
     rm -rf /tmp/other.txt
 done
+> /tmp/tamp.txt
