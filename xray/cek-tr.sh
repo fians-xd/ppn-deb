@@ -72,5 +72,6 @@ echo ""
 fi
 rm -rf /tmp/iptrws.txt
 rm -rf /tmp/other.txt
+> /tmp/tamp.txt
 done
 echo ""
