@@ -61,7 +61,7 @@ do
             t1g=$(cat /tmp/tamp.txt)
             echo "$t1g"
             } > /etc/cek-vmess.log
-    done
+            
     echo " "
     echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
     echo " "
