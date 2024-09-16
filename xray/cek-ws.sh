@@ -61,12 +61,11 @@ do
             t1g=$(cat /tmp/tamp.txt)
             echo "$t1g"
             } > /etc/cek-vmess.log
-            
-    echo " "
-    echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
-    echo " "
+        done
+echo " "
+echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
+echo " "
 
-    rm -rf /tmp/ipvmess.txt
-    rm -rf /tmp/other.txt
-done
+rm -rf /tmp/ipvmess.txt
+rm -rf /tmp/other.txt
 > /tmp/tamp.txt
