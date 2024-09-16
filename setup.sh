@@ -59,32 +59,32 @@ echo -e "[ ${BBlue}NOTES${NC} ] Izin dulu asuu..!!"
 sleep 0.5
 echo -e "[ ${BGreen}INFO${NC} ] Author script @yan-xd"
 sleep 0.8
-#totet=`uname -r`
-#REQUIRED_PKG="linux-headers-$totet"
-#PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "Persiapan install...")
-#echo Checking for $REQUIRED_PKG: $PKG_OK
-#if [ "" = "$PKG_OK" ]; then
-#  sleep 0.5
-#  echo " "
-#  echo -e "[ ${BRed}WARNING${NC} ]"
-#  echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-#  apt-get --yes install $REQUIRED_PKG
-#  sleep 0.5
-#  echo ""
-#  echo -e "[ ${BBlue}NOTES${NC} ] Enter anjing..!"
-#  read
-#else
-#  echo -e "[ ${BGreen}INFO${NC} ] Oke installed"
-#fi
+totet=`uname -r`
+REQUIRED_PKG="linux-headers-$totet"
+PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "Persiapan install...")
+echo Checking for $REQUIRED_PKG: $PKG_OK
+if [ "" = "$PKG_OK" ]; then
+  sleep 0.5
+  echo " "
+  echo -e "[ ${BRed}WARNING${NC} ]"
+  echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+  apt-get --yes install $REQUIRED_PKG
+  sleep 0.5
+  echo ""
+  echo -e "[ ${BBlue}NOTES${NC} ] Enter anjing..!"
+  read
+else
+  echo -e "[ ${BGreen}INFO${NC} ] Oke installed"
+fi
 
-#ttet=`uname -r`
-#ReqPKG="linux-headers-$ttet"
-#if ! dpkg -s $ReqPKG  >/dev/null 2>&1; then
-#  rm /root/setup.sh >/dev/null 2>&1 
-#  exit
-#else
-#  clear
-#fi
+ttet=`uname -r`
+ReqPKG="linux-headers-$ttet"
+if ! dpkg -s $ReqPKG  >/dev/null 2>&1; then
+  rm /root/setup.sh >/dev/null 2>&1 
+  exit
+else
+  clear
+fi
 
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
