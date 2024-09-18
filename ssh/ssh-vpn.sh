@@ -2,6 +2,7 @@
 
 echo " "
 apt-get dist-upgrade -y
+apt install chrony -y
 apt-get install python3 -y
 python3 -m pip install --upgrade pip
 apt-get install netfilter-persistent -y
