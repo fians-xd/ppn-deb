@@ -9,7 +9,7 @@ apt-get install netfilter-persistent -y
 apt-get remove --purge ufw firewalld -y
 apt-get install libz-dev gcc g++ libreadline-dev libreadline-dev zlib1g-dev libssl-dev libssl1.0-dev dos2unix cron -y
 apt-get install screen mc wget curl jq bzip2 gzip vnstat coreutils rsyslog iftop zip unzip git apt-transport-https build-essential earlyoom htop iptables -y
-apt-get install figlet jq ruby make cmake coreutils rsyslog net-tools nano sed gnupg gnupg1 bc jq dirmngr libxml-parser-perl neofetch lsof libsqlite3-dev -y
+apt-get install figlet python jq ruby make cmake coreutils rsyslog net-tools nano sed gnupg gnupg1 bc jq dirmngr libxml-parser-perl neofetch lsof libsqlite3-dev -y
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
