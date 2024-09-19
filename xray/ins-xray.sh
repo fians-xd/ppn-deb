@@ -30,7 +30,7 @@ domain=$(cat /root/domain)
 sleep 0.5
 mkdir -p /etc/xray 
 echo -e "[ ${green}INFO${NC} ] Checking... "
-apt-get install iptables iptables-persistent -y
+apt-get install chrony iptables iptables-persistent -y
 sleep 0.5
 echo " "
 echo -e "[ ${green}INFO$NC ] Setting ntpdate"
