@@ -4,6 +4,7 @@ MYIP=$(wget -qO- ipv4.icanhazip.com);
 echo "Checking VPS"
 
 apt-get clean all && apt-get update
+apt-get update
 apt-get install zip chrony openssl netcat cron -y
 apt-get install socat bash-completion ntpdate curl pwgen -y
 apt-get install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
