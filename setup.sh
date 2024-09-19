@@ -106,20 +106,25 @@ PYTHON_FOUND=false
 
 # Loop untuk memeriksa ketersediaan paket yang berpotensi mengandung Python 2.7
 for PACKAGE in "${PYTHON_PACKAGES[@]}"; do
-    if apt-cache policy "$PACKAGE" | grep -q "Candidate:"; then
-        echo "Paket $PACKAGE ditemukan di repositori. Menginstal $PACKAGE..."
-        apt-get install "$PACKAGE" -y >/dev/null 2>&1
-        PYTHON_FOUND=true
-        break
+    if apt-cache show "$PACKAGE" 2>/dev/null | grep -q "Package:"; then
+        # Jika paket ditemukan, coba instal
+        echo "Paket $PACKAGE ditemukan di repositori. Mencoba menginstal..."
+        if apt-get install "$PACKAGE" -y >/dev/null 2>&1; then
+            echo "$PACKAGE berhasil diinstal."
+            PYTHON_FOUND=true
+            break   # Hentikan loop setelah instalasi sukses
+        else
+            echo "Gagal menginstal $PACKAGE. Mencoba paket lain..."
+        fi
     fi
 done
 
-# Jika Python 2 tidak ditemukan di repositori, lakukan build manual
+# Jika Python 2 tidak ditemukan di repositori atau gagal diinstal, lakukan build manual
 if [ "$PYTHON_FOUND" = false ]; then
-    echo "Sabar Ternyata repomu gak lengkap jadi agak lama..."
+    echo "Python 2.7 tidak tersedia di repositori, melakukan build manual..."
 
     # Install dependencies untuk build Python 2.7
-    apt-get install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git -y
+    sudo apt-get install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git -y
 
     # Download Python 2.7 source code
     wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz
