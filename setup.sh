@@ -97,7 +97,48 @@ sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 echo ""
 echo -e "[ ${BGreen}INFO${NC} ] Preparing the install file.."
 apt-get install git curl -y >/dev/null 2>&1
-apt-get install python -y >/dev/null 2>&1
+
+# Daftar paket yang mungkin mengandung Python 2.7
+PYTHON_PACKAGES=("python-is-python2" "python2" "python2.7")
+
+# Flag untuk melacak apakah Python 2 dapat diinstal
+PYTHON_FOUND=false
+
+# Loop untuk memeriksa ketersediaan paket yang berpotensi mengandung Python 2.7
+for PACKAGE in "${PYTHON_PACKAGES[@]}"; do
+    if apt-cache policy "$PACKAGE" | grep -q "Candidate:"; then
+        echo "Paket $PACKAGE ditemukan di repositori. Menginstal $PACKAGE..."
+        apt-get install "$PACKAGE" -y >/dev/null 2>&1
+        PYTHON_FOUND=true
+        break
+    fi
+done
+
+# Jika Python 2 tidak ditemukan di repositori, lakukan build manual
+if [ "$PYTHON_FOUND" = false ]; then
+    echo "Sabar Ternyata repomu gak lengkap jadi agak lama..."
+
+    # Install dependencies untuk build Python 2.7
+    apt-get install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git -y
+
+    # Download Python 2.7 source code
+    wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz
+
+    # Extract source code
+    tar xvf Python-2.7.18.tgz
+    cd Python-2.7.18
+
+    # Build dan install Python 2.7
+    ./configure --enable-optimizations
+    make -j 4
+    sudo make altinstall
+
+    # Konfigurasi agar perintah 'python' menggunakan Python 2.7
+    sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python2.7 1
+
+    echo "Python 2.7 berhasil diinstal dan dikonfigurasi melalui build manual."
+fi
+
 echo -e "[ ${BGreen}INFO${NC} ] Installation file is ready.."
 sleep 0.5
 echo -ne "[ ${BGreen}INFO${NC} ] Check permission: "
