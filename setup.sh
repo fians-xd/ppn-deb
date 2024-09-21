@@ -257,7 +257,7 @@ rm /root/setup.sh >/dev/null 2>&1
 rm /root/ins-xray.sh >/dev/null 2>&1
 rm /root/insshws.sh >/dev/null 2>&1
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
-echo -e ""
+echo " "
 echo " Auto reboot in 10 Seconds "
 sleep 10
 rm -rf setup.sh
