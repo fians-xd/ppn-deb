@@ -1,0 +1,12 @@
+
+Khusus Untuk Ssh:
+Jika Menggunakan Debian Versi 11 Maka gunakan Aplkasi Http Injector
+Karena Http-Custom Belum Support Versi Terbaru Os Debian/Ubuntu
+
+Sedangakan Xray:
+Support Disemua Versi Os Dan Apk Vpn
+
+Note:
+Bisa coba gunakan aplikasi lain dan
+Script Ini mungkin akan di update agar mendukung semua jenis apk vpn
+
