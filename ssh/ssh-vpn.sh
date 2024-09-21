@@ -194,9 +194,20 @@ echo " "
 echo -e "${biru}===[ ${green}Install Dropbear ${biru}]===${NC}"
 echo " "
 sleep 0.9
-apt-get install dropbear -y
-echo " "
-sleep 0.7
+#apt-get install dropbear -y
+#echo " "
+#sleep 0.7
+
+# Cek dan buat direktori jika belum ada
+if [ ! -d "/etc/default" ]; then
+    mkdir -p /etc/default
+fi
+
+# Cek dan buat file kosong jika belum ada
+if [ ! -f "/etc/default/dropbear" ]; then
+    touch /etc/default/dropbear
+fi
+
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"/g' /etc/default/dropbear
