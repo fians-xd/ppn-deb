@@ -199,7 +199,7 @@ echo " "
 sleep 0.7
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69 -w -1 -c aes128-ctr,aes192-ctr,aes256-ctr,3des-cbc,aes128-gcm,aes256-gcm,chacha20-poly1305"/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69 -w -c aes128-ctr,aes192-ctr,aes256-ctr,3des-cbc,aes128-gcm,aes256-gcm,chacha20-poly1305"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/ssh restart
