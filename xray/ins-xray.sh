@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MYIP=$(wget -qO- ipv4.icanhazip.com);
-echo "Checking VPS"
+echo " "
 
 apt-get clean all && apt-get update
 apt-get update
