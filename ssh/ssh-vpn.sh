@@ -197,6 +197,36 @@ sleep 0.9
 #apt-get install dropbear -y
 #echo " "
 #sleep 0.7
+# Deteksi OS
+if [ -f /etc/debian_version ]; then
+    OS=$(cat /etc/os-release | grep "^ID=" | cut -d'=' -f2)
+
+    if [ "$OS" == "debian" ]; then
+        echo "Detected OS: Debian"
+        wget "https://raw.githubusercontent.com/fians-xd/AutoScript.vpn/master/dropbear/dropbear-2018.76.debian.tar.bz2"
+	tar -xvjf dropbear-2018.76.debian.tar.bz2
+ 	cd dropbear-2018.76
+  	./configure
+   	make && make install
+    	sleep 0.8
+     	cd && rm -rf dropbear-2018.76.debian.tar.bz2 dropbear-2018.76
+      
+    elif [ "$OS" == "ubuntu" ]; then
+        echo "Detected OS: Ubuntu"
+        wget "https://raw.githubusercontent.com/fians-xd/AutoScript.vpn/master/dropbear/dropbear-2019.78-ubuntu.tar.bz2"
+	tar -xvjf dropbear-2019.78-ubuntu.tar.bz2
+ 	cd dropbear-2019.78
+  	./configure
+   	make && make install
+    	sleep 0.8
+     	cd && rm -rf dropbear-2019.78-ubuntu.tar.bz2 dropbear-2019.78
+      
+    else
+        echo "Unsupported OS: $OS"
+    fi
+else
+    echo "This script only supports Debian or Ubuntu-based systems."
+fi
 
 # Cek dan buat direktori jika belum ada
 if [ ! -d "/etc/default" ]; then
@@ -206,7 +236,16 @@ fi
 # Cek dan buat file kosong jika belum ada
 if [ ! -f "/etc/default/dropbear" ]; then
     touch /etc/default/dropbear
+    chmod +x /etc/default/dropbear
 fi
+
+mkdir -p /etc/dropbear
+# Membuat kunci RSA 2048-bit
+/usr/local/bin/dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
+# Membuat kunci ECDSA
+/usr/local/bin/dropbearkey -t ecdsa -f /etc/dropbear/dropbear_ecdsa_host_key
+# Membuat kunci ED25519
+/usr/local/bin/dropbearkey -t dss -f /etc/dropbear/dropbear_dss_host_key
 
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
