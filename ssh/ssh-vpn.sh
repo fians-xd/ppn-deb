@@ -243,6 +243,8 @@ mkdir -p /etc/dropbear
 # Membuat kunci ED25519
 /usr/bin/dropbearkey -t dss -f /etc/dropbear/dropbear_dss_host_key
 
+sudo chmod 600 /etc/dropbear/dropbear_rsa_host_key /etc/dropbear/dropbear_ecdsa_host_key /etc/dropbear/dropbear_dss_host_key
+
 # Buat file run dengan konten yang diinginkan
 cat > /etc/dropbear/run <<-END
 #!/bin/sh
