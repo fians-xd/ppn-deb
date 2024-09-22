@@ -8,9 +8,11 @@ if [ -f /etc/debian_version ]; then
 	tar -xvjf dropbear-2018.76.debian.tar.bz2
  	cd dropbear-2018.76
   	./configure --prefix=/usr --sbindir=/usr/sbin
-   	make && make install
+   	make
+        make install
     	sleep 0.8
-     	cd && rm -rf dropbear-2018.76.debian.tar.bz2 dropbear-2018.76
+     	cd
+        rm -rf dropbear-2018.76.debian.tar.bz2 dropbear-2018.76
       
     elif [ "$OS" == "ubuntu" ]; then
         echo "Detected OS: Ubuntu"
@@ -18,9 +20,11 @@ if [ -f /etc/debian_version ]; then
 	tar -xvjf dropbear-2019.78-ubuntu.tar.bz2
  	cd dropbear-2019.78
   	./configure --prefix=/usr --sbindir=/usr/sbin
-   	make && make install
+   	make
+        make install
     	sleep 0.8
-     	cd && rm -rf dropbear-2019.78-ubuntu.tar.bz2 dropbear-2019.78
+     	cd
+        rm -rf dropbear-2019.78-ubuntu.tar.bz2 dropbear-2019.78
       
     else
         echo "Unsupported OS: $OS"
@@ -44,7 +48,7 @@ mkdir -p /etc/dropbear
 # Membuat kunci ED25519
 /usr/bin/dropbearkey -t dss -f /etc/dropbear/dropbear_dss_host_key
 
-sudo chmod 600 /etc/dropbear/dropbear_rsa_host_key /etc/dropbear/dropbear_ecdsa_host_key /etc/dropbear/dropbear_dss_host_key
+chmod +x /etc/dropbear/dropbear_rsa_host_key /etc/dropbear/dropbear_ecdsa_host_key /etc/dropbear/dropbear_dss_host_key
 
 # Buat file run dengan konten yang diinginkan
 cat > /etc/dropbear/run <<-END
@@ -166,3 +170,5 @@ DROPBEAR_BANNER="/etc/issue.net"
 # network performance
 DROPBEAR_RECEIVE_WINDOW=65536
 END
+
+chmod +x /etc/default/dropbear
