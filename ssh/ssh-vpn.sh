@@ -233,12 +233,6 @@ if [ ! -d "/etc/default" ]; then
     mkdir -p /etc/default
 fi
 
-# Cek dan buat file kosong jika belum ada
-if [ ! -f "/etc/default/dropbear" ]; then
-    touch /etc/default/dropbear
-    chmod +x /etc/default/dropbear
-fi
-
 mkdir -p /etc/init.d
 mkdir -p /etc/dropbear
 
@@ -342,9 +336,39 @@ END
 chmod +x /etc/init.d/dropbear
 chmod +x /etc/dropbear/run
 
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"/g' /etc/default/dropbear
+cat > /etc/default/dropbear <<-END
+# disabled because OpenSSH is installed
+# change to NO_START=0 to enable Dropbear
+NO_START=0
+# the TCP port that Dropbear listens on
+DROPBEAR_PORT=143
+
+# any additional arguments for Dropbear
+DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"
+
+# specify an optional banner file containing a message to be
+# sent to clients before they connect, such as "/etc/issue.net"
+DROPBEAR_BANNER="/etc/issue.net"
+
+# RSA hostkey file (default: /etc/dropbear/dropbear_rsa_host_key)
+#DROPBEAR_RSAKEY="/etc/dropbear/dropbear_rsa_host_key"
+
+# DSS hostkey file (default: /etc/dropbear/dropbear_dss_host_key)
+#DROPBEAR_DSSKEY="/etc/dropbear/dropbear_dss_host_key"
+
+# ECDSA hostkey file (default: /etc/dropbear/dropbear_ecdsa_host_key)
+#DROPBEAR_ECDSAKEY="/etc/dropbear/dropbear_ecdsa_host_key"
+
+# Receive window size - this is a tradeoff between memory and
+# network performance
+DROPBEAR_RECEIVE_WINDOW=65536
+END
+
+#sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
+#sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
+#sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"/g' /etc/default/dropbear
+chmod +x /etc/default/dropbear
+
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/ssh restart
