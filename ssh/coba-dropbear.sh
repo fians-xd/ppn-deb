@@ -7,7 +7,7 @@ if [ -f /etc/debian_version ]; then
         wget "https://raw.githubusercontent.com/fians-xd/AutoScript.vpn/master/dropbear/dropbear-2018.76.debian.tar.bz2"
 	tar -xvjf dropbear-2018.76.debian.tar.bz2
  	cd dropbear-2018.76
-  	./configure --prefix=/usr
+  	./configure --prefix=/usr --sbindir=/usr/sbin
    	make && make install
     	sleep 0.8
      	cd && rm -rf dropbear-2018.76.debian.tar.bz2 dropbear-2018.76
@@ -17,7 +17,7 @@ if [ -f /etc/debian_version ]; then
         wget "https://raw.githubusercontent.com/fians-xd/AutoScript.vpn/master/dropbear/dropbear-2019.78-ubuntu.tar.bz2"
 	tar -xvjf dropbear-2019.78-ubuntu.tar.bz2
  	cd dropbear-2019.78
-  	./configure --prefix=/usr
+  	./configure --prefix=/usr --sbindir=/usr/sbin
    	make && make install
     	sleep 0.8
      	cd && rm -rf dropbear-2019.78-ubuntu.tar.bz2 dropbear-2019.78
