@@ -21,6 +21,7 @@ if [ -f /etc/debian_version ]; then
 
 	mkdir -p /etc/init.d
 	mkdir -p /etc/dropbear
+ 	mkdir /etc/dropbear/log
 
 	# Membuat kunci RSA 2048-bit
 	/usr/bin/dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
@@ -30,6 +31,13 @@ if [ -f /etc/debian_version ]; then
 	/usr/bin/dropbearkey -t dss -f /etc/dropbear/dropbear_dss_host_key
 
 	chmod +x /etc/dropbear/dropbear_rsa_host_key /etc/dropbear/dropbear_ecdsa_host_key /etc/dropbear/dropbear_dss_host_key
+
+touch /etc/dropbear/log/main
+# Buat file run dengan konten yang diinginkan
+cat > /etc/dropbear/log/run <<-END
+#!/bin/sh
+exec chpst -udropbearlog svlogd -tt ./main
+END
 
 # Buat file run dengan konten yang diinginkan
 cat > /etc/dropbear/run <<-END
@@ -122,7 +130,9 @@ END
 
 	# Berikan izin eksekusi pada file run
 	chmod +x /etc/init.d/dropbear
-	chmod +x /etc/dropbear/run
+	chmod +x /etc/dropbear/run 
+ 	chmod +x /etc/dropbear/log/run
+  	chmod +x /etc/dropbear/log/main
 
 cat > /etc/default/dropbear <<-END
 # disabled because OpenSSH is installed
