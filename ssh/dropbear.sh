@@ -187,3 +187,8 @@ END
 
 chmod +x /etc/default/dropbear
 echo "Reached end of script successfully."
+
+echo "/bin/false" >> /etc/shells
+echo "/usr/sbin/nologin" >> /etc/shells
+/etc/init.d/ssh restart
+/etc/init.d/dropbear restart
