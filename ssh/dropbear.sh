@@ -180,3 +180,4 @@ DROPBEAR_BANNER="/etc/issue.net"
 DROPBEAR_RECEIVE_WINDOW=65536
 END
 chmod +x /etc/default/dropbear
+echo "Reached end of script successfully."
