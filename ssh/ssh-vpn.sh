@@ -191,7 +191,7 @@ sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
 
 # install dropbear
 echo " "
-echo -e "${biru}===[ ${green}Install Dropbear ${biru}]===${NC}"
+echo -e "${biru}~=[ ${green}Install Dropbear ${biru}]=~${NC}"
 echo " "
 sleep 0.9
 apt-get install dropbear -y
