@@ -269,7 +269,7 @@ cd
 sudo rm -rf /usr/local/bin/shc /tmp/wget.log ins-udp.sh
 sudo rm -rf /tmp/shc*
 sudo rm -rf /var/tmp/shc*
-#systemctl enable rest_nginx.service
-#systemctl start rest_nginx.service
+systemctl enable rest_nginx.service
+systemctl start rest_nginx.service
 touch /tmp/tamp.txt
 reboot
