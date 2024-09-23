@@ -276,6 +276,7 @@ echo "Please send in your comments and/or suggestions to fian-xd.com"
 # // banner /etc/issue.net
 wget --progress=bar:force -O /etc/issue.net "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/banner/banner.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|banner.conf\s+100%|saved \["
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+touch /etc/default/dropbear
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # blokir torrent
