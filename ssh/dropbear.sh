@@ -31,6 +31,7 @@ if [ -f /etc/debian_version ]; then
     fi
 else
     echo "This script only supports Debian or Ubuntu-based systems."
+fi
 
  # Cek dan buat direktori jika belum ada
 if [ ! -d "/etc/default" ]; then
@@ -179,5 +180,6 @@ DROPBEAR_BANNER="/etc/issue.net"
 # network performance
 DROPBEAR_RECEIVE_WINDOW=65536
 END
+
 chmod +x /etc/default/dropbear
 echo "Reached end of script successfully."
