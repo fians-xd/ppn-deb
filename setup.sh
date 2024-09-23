@@ -145,9 +145,6 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 0.7
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh | tee -a .riwayat-install/log-instal-ssh.txt
 chmod +x ssh-vpn.sh && ./ssh-vpn.sh | tee -a .riwayat-install/log-instal-ssh.txt
-echo " "
-wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/dropbear.sh | tee -a .riwayat-install/log-instal-dropbear.txt
-chmod +x dropbear.sh && ./dropbear.sh | tee -a .riwayat-install/log-instal-dropbear.txt
 clear
 
 #Instal Xray
