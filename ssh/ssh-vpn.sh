@@ -190,21 +190,21 @@ sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
 /etc/init.d/ssh restart
 
 # install dropbear
-#echo " "
-#echo -e "${biru}===[ ${green}Install Dropbear ${biru}]===${NC}"
-#echo " "
-#sleep 0.9
-#apt-get install dropbear -y
-#echo " "
-#sleep 0.7
-#sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-#sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-#sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"/g' /etc/default/dropbear
+echo " "
+echo -e "${biru}===[ ${green}Install Dropbear ${biru}]===${NC}"
+echo " "
+sleep 0.9
+apt-get install dropbear -y
+echo " "
+sleep 0.7
+sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"/g' /etc/default/dropbear
 
-#echo "/bin/false" >> /etc/shells
-#echo "/usr/sbin/nologin" >> /etc/shells
-#/etc/init.d/ssh restart
-#/etc/init.d/dropbear restart
+echo "/bin/false" >> /etc/shells
+echo "/usr/sbin/nologin" >> /etc/shells
+/etc/init.d/ssh restart
+/etc/init.d/dropbear restart
 
 # install stunnel
 cd
@@ -276,7 +276,6 @@ echo "Please send in your comments and/or suggestions to fian-xd.com"
 # // banner /etc/issue.net
 wget --progress=bar:force -O /etc/issue.net "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/banner/banner.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|banner.conf\s+100%|saved \["
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
-touch /etc/default/dropbear
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # blokir torrent
