@@ -8,7 +8,7 @@ sub=$(</dev/urandom tr -dc a-z0-9 | head -c5)
 DOMAIN=fians-xd.my.id
 SUB_DOMAIN=asx-${sub}.fians-xd.my.id
 CF_ID=sofiannasution91@gmail.com
-CF_KEY=bpvAedQq0ereLE6ohjPUrrBaKpSZPHUpjFbro3l5
+CF_KEY=d3ae1e1177ded24d36238219ce9c729082fa0
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Record DNS ${SUB_DOMAIN}..."
