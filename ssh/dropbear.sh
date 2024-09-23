@@ -179,5 +179,4 @@ DROPBEAR_BANNER="/etc/issue.net"
 # network performance
 DROPBEAR_RECEIVE_WINDOW=65536
 END
-
-#chmod +x /etc/default/dropbear
+chmod +x /etc/default/dropbear
