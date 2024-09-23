@@ -146,7 +146,7 @@ sleep 0.7
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh | tee -a .riwayat-install/log-instal-ssh.txt
 chmod +x ssh-vpn.sh && ./ssh-vpn.sh | tee -a .riwayat-install/log-instal-ssh.txt
 echo " "
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/dropbear.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|dropbear.sh\s+100%|saved \[" | tee -a .riwayat-install/log-instal-dropbear.txt
+wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/dropbear.sh | tee -a .riwayat-install/log-instal-dropbear.txt
 chmod +x dropbear.sh && ./dropbear.sh | tee -a .riwayat-install/log-instal-dropbear.txt
 clear
 
