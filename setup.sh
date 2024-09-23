@@ -222,7 +222,9 @@ chmod +x ins-udp.sh && ./ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
 curl -sS ipv4.icanhazip.com > /etc/myipvps
 apt-get install python3-pip -y
 python3 -m pip install tabulate
-gcc make build-essential
+apt-get -y remove --purge g++ gcc make build-essential >/dev/null 2>&1
+apt-get -y autoremove >/dev/null 2>&1
+apt-get -y autoclean >/dev/null 2>&1
 clear
 echo ""
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a log-install.txt
