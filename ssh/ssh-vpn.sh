@@ -194,12 +194,15 @@ echo " "
 echo -e "${biru}===[ ${green}Install Dropbear ${biru}]===${NC}"
 echo " "
 sleep 0.9
-apt-get install dropbear -y
-echo " "
-sleep 0.7
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"/g' /etc/default/dropbear
+#apt-get install dropbear -y
+#echo " "
+#sleep 0.7
+#sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
+#sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
+#sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69"/g' /etc/default/dropbear
+wget "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/dropbear.sh"
+chmod +x dropbear.sh
+./dropbear.sh
 
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
