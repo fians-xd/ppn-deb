@@ -50,7 +50,7 @@ mkdir /etc/dropbear/log
 
 chmod +x /etc/dropbear/dropbear_rsa_host_key /etc/dropbear/dropbear_ecdsa_host_key /etc/dropbear/dropbear_dss_host_key
 
-touch /etc/dropbear/log/main
+#touch /etc/dropbear/log/main
 # Buat file run dengan konten yang diinginkan
 cat > /etc/dropbear/log/run <<-END
 #!/bin/sh
