@@ -1,3 +1,7 @@
+echo -e "${biru}===[ ${green}Install Dropbear ${biru}]===${NC}"
+echo " "
+sleep 0.9
+
 # Deteksi OS
 if [ -f /etc/debian_version ]; then
     OS=$(cat /etc/os-release | grep "^ID=" | cut -d'=' -f2)
