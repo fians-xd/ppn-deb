@@ -117,10 +117,16 @@ else
     if [[ $today -le $exp_timestamp ]]; then
         echo " "
         echo -e "\e[32m Lisensi valid. Lisensi Anda berakhir pada $exp_date.\e[0m"
+	mv /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/xixi.py  /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/runbot.py &> /dev/null
+	systemctl enable runbot.service &> /dev/null
+	systemctl start runbot.service &> /dev/null
         clear
     else
         echo " "
         echo -e "\e[31m Lisensi Anda telah berakhir pada $exp_date.\e[0m"
+	systemctl disable runbot.service &> /dev/null
+ 	systemctl stop runbot.service &> /dev/null
+  	mv /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/runbot.py  /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/xixi.py &> /dev/null
         sleep 10
         rm -rf setup.sh
         rm -f /etc/user_name.txt
