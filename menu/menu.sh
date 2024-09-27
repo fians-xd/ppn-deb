@@ -115,8 +115,6 @@ else
     fi
 
     if [[ $today -le $exp_timestamp ]]; then
-        echo " "
-        echo -e "\e[32m Lisensi valid. Lisensi Anda berakhir pada $exp_date.\e[0m"
 	mv /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/xixi.py  /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/runbot.py &> /dev/null
  	systemctl enable runbot.service &> /dev/null
 	systemctl start runbot.service &> /dev/null
