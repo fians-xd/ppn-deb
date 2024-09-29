@@ -239,6 +239,7 @@ echo "     >> Dropbear                 : 109, 143" | tee -a log-install.txt
 echo "     >> Stunnel4                 : 222, 777" | tee -a log-install.txt
 echo "     >> Vmess gRPC               : 443" | tee -a log-install.txt
 echo "     >> Vless gRPC               : 443" | tee -a log-install.txt
+echo "     >> Squid Proxy              : 3128, 8000" | tee -a log-install.txt
 echo "     >> Trojan gRPC              : 443" | tee -a log-install.txt
 echo "     >> Vmess WS TLS             : 443" | tee -a log-install.txt
 echo "     >> Vless WS TLS             : 443" | tee -a log-install.txt
