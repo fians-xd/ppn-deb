@@ -65,6 +65,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "IP          : $IP" | tee -a /etc/log-create-ssh.log
 echo -e "Host        : $domen" | tee -a /etc/log-create-ssh.log
 echo -e "OpenSSH     : $opensh" | tee -a /etc/log-create-ssh.log
+echo -e "OpenVPN     : $ossl" | tee -a /etc/log-create-ssh.log
 echo -e "SSH WS      : $portsshws" | tee -a /etc/log-create-ssh.log
 echo -e "SSH SSL WS  : $wsssl" | tee -a /etc/log-create-ssh.log
 echo -e "SSL/TLS     :$ssl" | tee -a /etc/log-create-ssh.log
