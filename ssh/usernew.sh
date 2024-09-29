@@ -91,7 +91,7 @@ echo " $domen:1-65535@$Login:$Pass" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 echo " Open Vpn:" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
-echo "  http://$MYIP:81/client-tcp-$ossl.ovpn" | tee -a /etc/log-create-ssh.log
+echo "  http://$domen:81/client-tcp-$ossl.ovpn" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 echo ""
 echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
