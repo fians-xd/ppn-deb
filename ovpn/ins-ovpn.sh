@@ -15,7 +15,6 @@ domain=$(cat /etc/xray/domain)
 
 # install squid 
 echo " "
-echo "\e[1;32m Proses Download squid.. \e[0m"
 apt -y install squid
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
