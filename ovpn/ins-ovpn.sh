@@ -8,7 +8,7 @@ NC='\e[0m'
 # initialisasi var
 OS=`uname -m`;
 MYIP=$(wget -qO- ifconfig.co);
-IPX=$(cat /etc/myipvps);
+IPX=$(wget -qO- ipv4.icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 ANU=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 domain=$(cat /etc/xray/domain)
