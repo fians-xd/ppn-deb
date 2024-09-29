@@ -187,8 +187,8 @@ echo -e "[ ${BGreen}ok${NC} ] Restarting stunnel4 "
 sleep 0.5
 echo -e "[ ${BGreen}ok${NC} ] Restarting vnstat "
 /etc/init.d/squid restart >/dev/null 2>&1
-
-rm -rf install.sh
-sleep 5
 cd
-clear
+
+sleep 0.9
+rm -rf install.sh
+reboot
