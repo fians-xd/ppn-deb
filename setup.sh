@@ -210,15 +210,29 @@ fi
 
 sleep 0.5
 clear
+
 #install udp
 cd
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
-echo -e "$BGren  SSH Udp Custom   $NC" | tee -a .riwayat-install/log-instal-udp.txt
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
+echo -e "$BGren INSTALL Udp Custom  $NC" | tee -a .riwayat-install/log-instal-udp.txt
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
 sleep 0.7
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
 chmod +x ins-udp.sh && ./ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
 
+sleep 0.5
+clear
+
+# Install Open-Vpn
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-openvpn.txt
+echo -e "$BGren  INSTALL OpenVPN   $NC" | tee -a .riwayat-install/log-instal-openvpn.txt
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-openvpn.txt
+sleep 0.7
+wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/install.sh | tee -a .riwayat-install/log-instal-openvpn.txt
+chmod +x install.sh && bash install.sh | tee -a .riwayat-install/log-instal-openvpn.txt
+
+clear
+cd
 curl -sS ipv4.icanhazip.com > /etc/myipvps
 apt-get install python3-pip -y
 python3 -m pip install --upgrade pip
