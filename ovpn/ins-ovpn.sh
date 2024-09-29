@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm ins-ovpn.sh
 # pewarna hidup
 BGreen='\e[1;32m'
 NC='\e[0m'
@@ -12,7 +13,7 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 ANU=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 domain=$(cat /etc/xray/domain)
 
-# install squid for debian 11
+# install squid 
 echo " "
 echo "\e[1;32m Proses Download squid.. \e[0m"
 apt -y install squid
@@ -187,8 +188,4 @@ echo -e "[ ${BGreen}ok${NC} ] Restarting stunnel4 "
 sleep 0.5
 echo -e "[ ${BGreen}ok${NC} ] Restarting vnstat "
 /etc/init.d/squid restart >/dev/null 2>&1
-cd
-
 sleep 0.9
-rm -rf install.sh
-reboot
