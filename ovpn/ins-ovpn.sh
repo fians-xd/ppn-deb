@@ -15,13 +15,13 @@ domain=$(cat /etc/xray/domain)
 
 # install squid 
 echo " "
-apt -y install squid
+apt-get -y install squid
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # Install OpenVPN dan Easy-RSA
-apt install openvpn easy-rsa unzip -y
-apt install openssl iptables iptables-persistent -y
+apt-get install openvpn easy-rsa unzip -y
+apt-get install openssl iptables iptables-persistent -y
 
 mkdir -p /etc/openvpn/server/easy-rsa/
 
