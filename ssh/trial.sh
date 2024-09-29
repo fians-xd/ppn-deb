@@ -52,7 +52,7 @@ echo -e "SSH SSL WS     : $wsssl"
 echo -e "SSL/TLS        :$ssl"
 echo "Udp Custom        : 1-65535"
 echo -e "UDPGW          : 7100-7900"
-echo -e "Squid Proxy    : $sqd" | tee -a /etc/log-create-ssh.log
+echo -e "Squid Proxy    : $sqd"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " Payload WS"
 echo ""
