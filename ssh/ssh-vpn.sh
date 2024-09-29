@@ -3,7 +3,6 @@
 echo " "
 apt-get dist-upgrade -y
 apt-get install python3 -y
-python3 -m pip install --upgrade pip
 apt-get install netfilter-persistent -y
 apt-get remove --purge ufw firewalld -y
 apt-get install libz-dev g++ libreadline-dev libreadline-dev zlib1g-dev libssl-dev libssl1.0-dev dos2unix cron vnstat -y
