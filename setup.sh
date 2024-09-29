@@ -213,9 +213,9 @@ clear
 
 #install udp
 cd
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
-echo -e "$BGren INSTALL Udp Custom  $NC" | tee -a .riwayat-install/log-instal-udp.txt
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
+echo -e "$BGren  INSTALL Udp Custom  $NC" | tee -a .riwayat-install/log-instal-udp.txt
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
 sleep 0.7
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
 chmod +x ins-udp.sh && ./ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
