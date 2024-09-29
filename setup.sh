@@ -228,8 +228,8 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[
 echo -e "$BGren  INSTALL OpenVPN   $NC" | tee -a .riwayat-install/log-instal-openvpn.txt
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-openvpn.txt
 sleep 0.7
-wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/install.sh | tee -a .riwayat-install/log-instal-openvpn.txt
-chmod +x install.sh && bash install.sh | tee -a .riwayat-install/log-instal-openvpn.txt
+wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/ins-ovpn.sh | tee -a .riwayat-install/log-instal-openvpn.txt
+chmod +x ins-ovpn.sh && ./ins-ovpn.sh | tee -a .riwayat-install/log-instal-openvpn.txt
 
 clear
 cd
