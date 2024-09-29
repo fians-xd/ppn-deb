@@ -38,7 +38,7 @@ fi
 # Ambil informasi tambahan
 IP=$(curl -sS ifconfig.me)
 ssl=$(grep -w "Stunnel4" ~/log-install.txt | cut -d: -f2)
-ossl=$(grep -w "OpenVPN" /root/log-install.txt | cut -f2 -d: | awk '{print $6}')
+ossl=$(cat /root/log-install.txt | grep -w "OpenVPN" | cut -f2 -d: | awk '{print $1}')
 opensh=$(grep -w "OpenSSH" /root/log-install.txt | cut -f2 -d: | awk '{print $1}')
 db=$(grep -w "Dropbear" /root/log-install.txt | cut -f2 -d: | awk '{print $1,$2}')
 sqd=$(grep -w "Squid Proxy" ~/log-install.txt | cut -d: -f2)
