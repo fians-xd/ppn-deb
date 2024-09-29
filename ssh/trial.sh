@@ -116,7 +116,7 @@ echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━"
     echo "             >> 𝐎𝐩𝐞𝐧 𝐕𝐩𝐧 <<"
     echo ""
-    echo " http://$MYIP:81/client-tcp-$ossl.ovpn"
+    echo " http://$domen:81/client-tcp-$ossl.ovpn"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     } > /etc/log-create-ssh-trial-clean.log
