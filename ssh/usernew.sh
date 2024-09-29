@@ -41,11 +41,7 @@ ssl=$(grep -w "Stunnel4" ~/log-install.txt | cut -d: -f2)
 ossl=$(grep -w "OpenVPN" /root/log-install.txt | cut -f2 -d: | awk '{print $6}')
 opensh=$(grep -w "OpenSSH" /root/log-install.txt | cut -f2 -d: | awk '{print $1}')
 db=$(grep -w "Dropbear" /root/log-install.txt | cut -f2 -d: | awk '{print $1,$2}')
-sqd=$(grep -w "Squid" ~/log-install.txt | cut -d: -f2)
-
-OhpSSH=$(grep -w "OHP SSH" /root/log-install.txt | cut -d: -f2 | awk '{print $1}')
-OhpDB=$(grep -w "OHP DBear" /root/log-install.txt | cut -d: -f2 | awk '{print $1}')
-OhpOVPN=$(grep -w "OHP OpenVPN" /root/log-install.txt | cut -d: -f2 | awk '{print $1}')
+sqd=$(grep -w "Squid Proxy" ~/log-install.txt | cut -d: -f2)
 
 sleep 1
 clear
@@ -72,8 +68,9 @@ echo -e "OpenSSH     : $opensh" | tee -a /etc/log-create-ssh.log
 echo -e "SSH WS      : $portsshws" | tee -a /etc/log-create-ssh.log
 echo -e "SSH SSL WS  : $wsssl" | tee -a /etc/log-create-ssh.log
 echo -e "SSL/TLS     :$ssl" | tee -a /etc/log-create-ssh.log
-echo -e "Udp Custom  : 1-65535" | tee -a /etc/log-create-ssh.log
 echo -e "UDPGW       : 7100-7900" | tee -a /etc/log-create-ssh.log
+echo -e "Udp Custom  : 1-65535" | tee -a /etc/log-create-ssh.log
+echo -e "Squid Proxy : $sqd" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 echo -e " Payload WS:" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
@@ -112,6 +109,7 @@ echo ""
     echo "𝐒𝐒𝐋/𝐓𝐋𝐒:\`$ssl\`"
     echo "𝐔𝐝𝐩 𝐂𝐮𝐬𝐭𝐨𝐦: \`1-65535\`"
     echo "𝐔𝐃𝐏𝐆𝐖: \`7100-7900\`"
+    echo "𝐒𝐪𝐮𝐢𝐝 𝐏𝐫𝐨𝐱𝐲: \`$sqd\`"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
     echo "              >> 𝐏𝐚𝐲𝐥𝐨𝐚𝐝 𝐖𝐒 <<"
     echo ""
