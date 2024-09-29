@@ -92,7 +92,7 @@ clear
     echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 } | tee -a /etc/log-create-trojan.log
 echo ""
-echo -e "\e[1;36m   [\e[1;32m Ketik menu Untuk Kembali Kemenu Utama \e[1;36m]\e[0m"
+echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
 echo ""
 
 # Simpan log bersih tanpa ANSI untuk Telegram
