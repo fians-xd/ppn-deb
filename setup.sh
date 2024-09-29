@@ -27,18 +27,18 @@ fi
 
 cd /root
 #System version number
-#if [ "${EUID}" -ne 0 ]; then
-#		echo "Anda perlu menjalankan skrip ini sebagai root"
-#  sleep 5
-#		exit 1
-#fi
-#if [ "$(systemd-detect-virt)" == "openvz" ]; then
-#		echo "Open-VZ tidak didukung"
-#  clear
-#                echo "HANYA untuk VPS dengan virtualisasi KVM dan VMWare"
-#  sleep 5
-#		exit 1
-#fi
+if [ "${EUID}" -ne 0 ]; then
+		echo "Anda perlu menjalankan skrip ini sebagai root"
+  sleep 5
+		exit 1
+fi
+if [ "$(systemd-detect-virt)" == "openvz" ]; then
+		echo "Open-VZ tidak didukung"
+  clear
+                echo "HANYA untuk VPS dengan virtualisasi KVM dan VMWare"
+  sleep 5
+		exit 1
+fi
 
 localip=$(hostname -I | cut -d\  -f1)
 hst=( `hostname` )
