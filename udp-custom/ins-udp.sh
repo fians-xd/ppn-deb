@@ -2,6 +2,7 @@
 
 mkdir -p /root/.udp
 echo " "
+sleep 0.8
 wget --progress=bar:force -O /root/.udp/udp-custom https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/udp-custom-linux-amd64 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|udp-custom-linux-amd64\s+100%|saved \["
 echo "downloading default config"
 wget --progress=bar:force -O /root/.udp/config.json https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/config.json 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|config.json\s+100%|saved \["
