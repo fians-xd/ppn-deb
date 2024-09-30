@@ -73,23 +73,23 @@ echo -e "UDPGW       : 7100-7900" | tee -a /etc/log-create-ssh.log
 echo -e "Udp Custom  : 1-65535" | tee -a /etc/log-create-ssh.log
 echo -e "Squid Proxy :$sqd" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
-echo -e "                     ~=[ PAYLOAD WS ]=~" | tee -a /etc/log-create-ssh.log
+echo -e "       ~=[ PAYLOAD WS ]=~" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
 echo " $domen:80@$Login:$Pass" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
 echo -e " GET / HTTP/1.1[crlf]Host: $domen[crlf]Upgrade: websocket[crlf][crlf]" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
-echo -e "                    ~=[ PAYLOAD WSS ]=~" | tee -a /etc/log-create-ssh.log
+echo -e "      ~=[ PAYLOAD WSS ]=~" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
 echo " $domen:443@$Login:$Pass" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
 echo -e " GET wss://isi_bug_disini HTTP/1.1[crlf]Host: ${domen}[crlf]Upgrade: websocket[crlf][crlf]" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
-echo "                       ~=[ UDP-CUSTOM ]=~" | tee -a /etc/log-create-ssh.log
+echo "         ~=[ UDP-CUSTOM ]=~" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
 echo " $domen:1-65535@$Login:$Pass" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
-echo "                        ~=[ OPEN-VPN ]=~" | tee -a /etc/log-create-ssh.log
+echo "           ~=[ OPEN-VPN ]=~" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
 echo " http://$domen:81/client-tcp-$ossl.ovpn" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
@@ -117,23 +117,23 @@ echo ""
     echo "𝐔𝐃𝐏𝐆𝐖: \`7100-7900\`"
     echo "𝐒𝐪𝐮𝐢𝐝 𝐏𝐫𝐨𝐱𝐲:\`$sqd\`"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
-    echo "            ~=[ 𝐏𝐚𝐲𝐥𝐨𝐚𝐝 𝐖𝐒  ]=~"
+    echo "             ~= 𝐏𝐚𝐲𝐥𝐨𝐚𝐝 𝐖𝐒  =~"
     echo ""
     echo " \`$domen:80@$Login:$Pass\`"
     echo ""
     echo " \`GET / HTTP/1.1[crlf]Host: $domen[crlf]Upgrade: websocket[crlf][crlf]\`"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
-    echo "            ~=[ 𝐏𝐚𝐲𝐥𝐨𝐚𝐝 𝐖𝐒𝐒  ]=~"
+    echo "            ~= 𝐏𝐚𝐲𝐥𝐨𝐚𝐝 𝐖𝐒𝐒  =~"
     echo ""
     echo " \`$domen:443@$Login:$Pass\`"
     echo ""
     echo " \`GET wss://isi_bug_disini HTTP/1.1[crlf]Host: ${domen}[crlf]Upgrade: websocket[crlf][crlf]\`"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
-    echo "            ~=[ 𝐔𝐃𝐏-𝐂𝐮𝐬𝐭𝐨𝐦  ]=~"
+    echo "            ~= 𝐔𝐃𝐏-𝐂𝐮𝐬𝐭𝐨𝐦  =~"
     echo ""
     echo " \`$domen:1-65535@$Login:$Pass\`"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
-    echo "             ~=[ 𝐎𝐩𝐞𝐧 𝐕𝐩𝐧 ]=~"
+    echo "               ~= 𝐎𝐩𝐞𝐧 𝐕𝐩𝐧 =~"
     echo ""
     echo " http://$domen:81/client-tcp-$ossl.ovpn"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
