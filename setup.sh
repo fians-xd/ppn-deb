@@ -241,9 +241,9 @@ echo " "
 echo -e "${biru}~=[ ${green}Clearing Trash Please Wait.! ${biru}]=~${NC}"
 echo " "
 sleep 0.9
-apt-get -y remove --purge g++ gcc make build-essential zip unzip libz-dev git iftop >/dev/null 2>&1
-apt-get -y autoremove >/dev/null 2>&1
-apt-get -y autoclean >/dev/null 2>&1
+apt-get remove --purge g++ gcc make build-essential zip unzip libz-dev git iftop -y
+apt-get autoremove -y
+apt-get autoclean -y
 clear
 echo ""
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a log-install.txt
