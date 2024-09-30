@@ -3,7 +3,10 @@
 cd
 rm -rf setup.sh
 clear
+
+# Warna
 red='\e[1;31m'
+biru='\e[36m'
 green='\e[0;32m'
 yell='\e[1;33m'
 tyblue='\e[1;36m'
