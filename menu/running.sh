@@ -44,6 +44,7 @@ fail2ban_service=$(/etc/init.d/fail2ban status | grep Active | awk '{print $3}' 
 wstls=$(systemctl status ws-stunnel.service | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 wsdrop=$(systemctl status ws-dropbear.service | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 udp=$(systemctl status udp-custom | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+nginx_service=$(/etc/init.d/nginx status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 
 # COLOR VALIDATION
 RED='\033[0;31m'
@@ -200,6 +201,15 @@ else
    status_udp_tele=" Running ❌"
 fi
 
+# STATUS NGINX
+if [[ $nginx_service == "running" ]]; then 
+   status_nginx=" ${GREEN}Running ${NC}( No Error )"
+   status_nginx_tele=" Running ✅"
+else
+   status_nginx="${RED}  Not Running ${NC}  ( Error )"
+   status_nginx_tele=" Running ❌"
+fi
+
 
 # TOTAL RAM
 total_ram=` grep "MemTotal: " /proc/meminfo | awk '{ print $2}'`
@@ -220,6 +230,7 @@ echo -e ""
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m               SERVICE INFORMATION                \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;32mNGINX                \e[0m: $status_nginx"
 echo -e "\e[1;32mSSH / TUN            \e[0m: $status_ssh"
 echo -e "\e[1;32mDropbear             \e[0m: $status_beruangjatuh"
 echo -e "\e[1;32mStunnel4             \e[0m: $status_stunnel"
@@ -248,6 +259,7 @@ echo ""
    echo "          SERVICE INFORMATION           "
    echo "━━━━━━━━━━━━━━━━━━━━━━"
    echo "Cron 👉 $status_cron_tele"
+   echo "Nginx 👉 $status_nginx_tele"
    echo "Stunl4 👉 $status_stunnel_tele"
    echo "Ws-tls 👉 $swstls_tele"
    echo "Trojan 👉 $status_trojan_tele"
