@@ -2,6 +2,7 @@
 
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 echo " "
+sleep 0.8
 
 apt-get clean all && apt-get update
 apt-get update
