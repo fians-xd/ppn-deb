@@ -1,4 +1,8 @@
 
+Khusus Untuk Open-Vpn:
+Benahi Karena Belum  Berhasil Running
+Dan Pengaturanya Dll
+
 Khusus Untuk Ssh:
 Jika Menggunakan Debian Versi 11 Maka gunakan Aplkasi Http Injector
 Karena Http-Custom Belum Support Versi Terbaru Os Debian/Ubuntu
