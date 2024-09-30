@@ -89,7 +89,7 @@ echo "         ~=[ UDP-CUSTOM ]=~" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
 echo " $domen:1-65535@$Login:$Pass" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
-echo "           ~=[ OPEN-VPN ]=~" | tee -a /etc/log-create-ssh.log
+echo "          ~=[ OPEN-VPN ]=~" | tee -a /etc/log-create-ssh.log
 echo "" | tee -a /etc/log-create-ssh.log
 echo " http://$domen:81/client-tcp-$ossl.ovpn" | tee -a /etc/log-create-ssh.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
@@ -133,7 +133,7 @@ echo ""
     echo ""
     echo " \`$domen:1-65535@$Login:$Pass\`"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
-    echo "               ~= 𝐎𝐩𝐞𝐧 𝐕𝐩𝐧 =~"
+    echo "              ~= 𝐎𝐩𝐞𝐧 𝐕𝐩𝐧 =~"
     echo ""
     echo " http://$domen:81/client-tcp-$ossl.ovpn"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
