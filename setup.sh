@@ -231,12 +231,13 @@ sleep 0.7
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/ins-ovpn.sh | tee -a .riwayat-install/log-instal-openvpn.txt
 chmod +x ins-ovpn.sh && ./ins-ovpn.sh | tee -a .riwayat-install/log-instal-openvpn.txt
 
-clear
-cd
 curl -sS ipv4.icanhazip.com > /etc/myipvps
 apt-get install python3-pip -y
 python3 -m pip install --upgrade pip
 python3 -m pip install tabulate
+
+clear
+cd
 apt-get -y remove --purge g++ gcc make build-essential zip unzip libz-dev git iftop >/dev/null 2>&1
 apt-get -y autoremove >/dev/null 2>&1
 apt-get -y autoclean >/dev/null 2>&1
