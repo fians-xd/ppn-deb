@@ -49,6 +49,7 @@ timedatectl set-timezone Asia/Jakarta
 sleep 0.5
 echo " "
 echo -e "[ ${green}INFO$NC ] Setting chrony tracking"
+echo " "
 gren() { echo -e "\\033[0;32m${*}\\033[0m"; }
 gren "$(chronyc sourcestats -v)"
 gren "=============================================================================="
