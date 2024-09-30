@@ -160,9 +160,9 @@ netfilter-persistent reload
 # Restart service openvpn
 systemctl enable openvpn
 systemctl start openvpn
-/etc/init.d/openvpn restart
 
 cd
+echo " "
 chown -R www-data:www-data /home/vps/public_html
 sleep 0.5
 echo -e "$BGreen[SERVICE]$NC Restart All service SSH & OVPN"
