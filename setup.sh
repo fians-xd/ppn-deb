@@ -145,7 +145,6 @@ mkdir .riwayat-install
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-ssh.txt
 echo -e "$BGren   Install SSH WEBSOCKET   $NC" | tee -a .riwayat-install/log-instal-ssh.txt
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-ssh.txt
-sleep 0.7
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh | tee -a .riwayat-install/log-instal-ssh.txt
 chmod +x ssh-vpn.sh && ./ssh-vpn.sh | tee -a .riwayat-install/log-instal-ssh.txt
 clear
@@ -155,7 +154,6 @@ cd
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-xray.txt
 echo -e "$BGren   Install XRAY   $NC" | tee -a .riwayat-install/log-instal-xray.txt
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-xray.txt
-sleep 0.7
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh | tee -a .riwayat-install/log-instal-xray.txt
 chmod +x ins-xray.sh && ./ins-xray.sh | tee -a .riwayat-install/log-instal-xray.txt
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh | tee -a .riwayat-install/log-instal-insshws.txt
@@ -219,7 +217,6 @@ cd
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
 echo -e "$BGren  INSTALL UDP-CUSTOM  $NC" | tee -a .riwayat-install/log-instal-udp.txt
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
-sleep 0.7
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
 chmod +x ins-udp.sh && ./ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
 
@@ -230,7 +227,6 @@ clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-openvpn.txt
 echo -e "$BGren  INSTALL OpenVPN   $NC" | tee -a .riwayat-install/log-instal-openvpn.txt
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-openvpn.txt
-sleep 0.7
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/ins-ovpn.sh | tee -a .riwayat-install/log-instal-openvpn.txt
 chmod +x ins-ovpn.sh && ./ins-ovpn.sh | tee -a .riwayat-install/log-instal-openvpn.txt
 
@@ -241,6 +237,10 @@ python3 -m pip install tabulate
 
 clear
 cd
+echo " "
+echo -e "${biru}~=[ ${green}Clearing Trash Please Wait.! ${biru}]=~${NC}"
+echo " "
+sleep 0.9
 apt-get -y remove --purge g++ gcc make build-essential zip unzip libz-dev git iftop >/dev/null 2>&1
 apt-get -y autoremove >/dev/null 2>&1
 apt-get -y autoclean >/dev/null 2>&1
