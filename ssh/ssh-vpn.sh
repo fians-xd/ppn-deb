@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo " "
+sleep 0.8
 apt-get dist-upgrade -y
 apt-get install python3 -y
 apt-get install netfilter-persistent -y
