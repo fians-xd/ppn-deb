@@ -14,15 +14,12 @@ btr  = ('\x1b[0;34m')   # biru terang
 bt = ('\x1b[36;1m')     # biru terang
 
 def clear_screen():
-    """Membersihkan layar."""
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def file_exists(file_path):
-    """Periksa apakah file ada."""
     return os.path.isfile(file_path)
 
 def parse_ids(file_path):
-    """Parsing ID dari file dengan format campuran."""
     ids = []
     with open(file_path, 'r') as file:
         for line in file:
@@ -42,7 +39,6 @@ def parse_ids(file_path):
     return ids
 
 def print_ids(file_path):
-    """Cetak daftar ID yang ada dalam file dalam format tabel dengan kolom yang terpusat di tengah."""
     ids = parse_ids(file_path)
     
     if not ids:
@@ -63,7 +59,6 @@ def print_ids(file_path):
     return ids
 
 def add_id(file_path):
-    """Tambahkan ID baru ke file."""
     clear_screen()
     print_ids(file_path)
     
@@ -84,7 +79,6 @@ def add_id(file_path):
     input(f"\n{ht}Tekan Enter untuk melanjutkan...{n}")
 
 def remove_id(file_path):
-    """Hapus ID dari file berdasarkan pilihan pengguna."""
     clear_screen()
     ids = print_ids(file_path)
     
@@ -120,8 +114,6 @@ def main():
     
     if not file_exists(file_path):
         clear_screen()
-        #print(f"\n\n{ht}Anda belum menerapkan bot ke program.!!{n}")
-        #input(f"{ht}Tekan Enter untuk kembali ke menu...{n}")
         subprocess.run(['instal-bot'])
         if not file_exists(file_path):
             os.system('menu')
