@@ -16,13 +16,18 @@ decoded_link=$(echo "$encoded_link" | base64 --decode)
 wget --progress=bar:force -O instal.sh "$decoded_link" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|install.sh\s+100%|saved \["
 
 if grep -q "HTTP request sent" /tmp/wget.log && grep -q "200 OK" /tmp/wget.log; then
+    clear
+    echo " "
     echo -e "${green}Ok Lanjut Install Boot Telegram.!${NC}"
+    echo " "
     sleep 0.9
     apt-get install gcc make build-essential zip unzip curl -y
 else
-    echo -e "${green}Harap Izin Dulu bang.!${NC}"
+    clear
+    echo " "
+    echo -e "${green} Harap Izin Dulu bang.!${NC}"
     sleep 0.8
-    echo "wa.me/6287749044636"
+    echo "${green} Dm: wa.me/6287749044636 ${NC}"
     sleep 10
     exit 1
 fi
