@@ -25,9 +25,9 @@ if grep -q "HTTP request sent" /tmp/wget.log && grep -q "200 OK" /tmp/wget.log; 
 else
     clear
     echo " "
-    echo -e "${green} Harap Izin Dulu bang.!${NC}"
+    echo -e "${biru}~=[ ${green}Harap Izin Dulu bang.! ${biru}]=~${NC}"
     sleep 0.8
-    echo "${green} Dm: wa.me/6287749044636 ${NC}"
+    echo "${green}     Dm: wa.me/6287749044636 ${NC}"
     sleep 10
     exit 1
 fi
