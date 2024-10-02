@@ -123,9 +123,11 @@ def main():
         #print(f"\n\n{ht}Anda belum menerapkan bot ke program.!!{n}")
         #input(f"{ht}Tekan Enter untuk kembali ke menu...{n}")
         subprocess.run(['instal-bot'])
-        subprocess.run(['rm', '-rf', '/usr/bin/instal-bot'])
-        os.system('reboot')
-        return
+        if not file_exists(file_path):
+            os.system('menu')
+        else:
+            subprocess.run(['rm', '-rf', '/usr/bin/instal-bot'])
+            os.system('reboot')
     
     while True:
         clear_screen()
