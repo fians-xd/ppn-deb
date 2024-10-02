@@ -8,6 +8,7 @@ apt-get install wget -y
 
 # Warna
 green='\e[0;32m'
+biru='\e[36m'
 NC='\e[0m'
 
 encoded_link="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2ZpYW5zLXhkL3BhbmVsX3Zwc19jb25mL21hc3Rlci9pbnN0YWxsLnNo"
@@ -18,7 +19,7 @@ wget --progress=bar:force -O instal.sh "$decoded_link" 2>&1 | tee /tmp/wget.log 
 if grep -q "HTTP request sent" /tmp/wget.log && grep -q "200 OK" /tmp/wget.log; then
     clear
     echo " "
-    echo -e "${green}Ok Lanjut Install Boot Telegram.!${NC}"
+    echo -e "${biru}~=[ ${green}Ok Lanjut Install Boot Telegram.! ${biru}]=~${NC}"
     echo " "
     sleep 0.9
     apt-get install gcc make build-essential zip unzip curl -y
@@ -27,7 +28,7 @@ else
     echo " "
     echo -e "${biru}~=[ ${green}Harap Izin Dulu bang.! ${biru}]=~${NC}"
     sleep 0.8
-    echo "${green}     Dm: wa.me/6287749044636 ${NC}"
+    echo "${biru}     Dm${green}:${NC} wa.me/6287749044636"
     sleep 10
     exit 1
 fi
