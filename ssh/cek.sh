@@ -58,7 +58,7 @@ if [ -f "/etc/openvpn/server/openvpn-tcp.log" ]; then
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         echo "User  |  IP Address  |  LoginTime";
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        cat /etc/openvpn/server/openvpn-tcp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' > /tmp/vpn-login-tcp.txt
+        cat /etc/openvpn/server/openvpn-tcp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' -e 's/\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\):[0-9]\+/\1/g' -e 's/      / | /g' -e 's/[A-Za-z]\{3\} [A-Za-z]\{3\}  *[0-9]\{1,2\} //g' -e 's/ [0-9]\{4\}$//g' > /tmp/vpn-login-tcp.txt
         cat /tmp/vpn-login-tcp.txt
 fi
 #echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -70,7 +70,7 @@ if [ -f "/etc/openvpn/server/openvpn-udp.log" ]; then
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         echo "User  |  IP Address  |  LoginTime";
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        cat /etc/openvpn/server/openvpn-udp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' > /tmp/vpn-login-udp.txt
+        cat /etc/openvpn/server/openvpn-udp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' -e 's/\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\):[0-9]\+/\1/g' -e 's/      / | /g' -e 's/[A-Za-z]\{3\} [A-Za-z]\{3\}  *[0-9]\{1,2\} //g' -e 's/ [0-9]\{4\}$//g' > /tmp/vpn-login-udp.txt
         cat /tmp/vpn-login-udp.txt
 fi
 echo ""
