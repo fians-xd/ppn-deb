@@ -1,8 +1,7 @@
 #!/bin/bash
 
 cd
-rm instal.sh
-rm install.sh
+rm instal.sh install.sh > /dev/null 2>&1
 apt-get update
 apt-get install wget -y
 
