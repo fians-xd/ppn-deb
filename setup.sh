@@ -285,7 +285,7 @@ secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo " "
 echo " Auto reboot in 10 Seconds "
 sleep 10
-rm -rf setup.sh
+rm -rf setup.sh xray > /dev/null 2>&1
 
 cd
 sudo rm -rf /usr/local/bin/shc /tmp/wget.log ins-udp.sh
