@@ -27,7 +27,7 @@ else
     echo " "
     echo -e "${biru}~=[ ${green}Harap Izin Dulu bang.! ${biru}]=~${NC}"
     sleep 0.8
-    echo "${biru}     Dm${green}:${NC} wa.me/6287749044636"
+    echo -e "${biru}     Dm${green}:${NC} wa.me/6287749044636"
     sleep 10
     exit 1
 fi
