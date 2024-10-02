@@ -123,7 +123,8 @@ def main():
         #print(f"\n\n{ht}Anda belum menerapkan bot ke program.!!{n}")
         #input(f"{ht}Tekan Enter untuk kembali ke menu...{n}")
         subprocess.run(['instal-bot'])
-        os.system('menu')
+        subprocess.run(['rm', '-rf', '/usr/bin/instal-bot'])
+        os.system('reboot')
         return
     
     while True:
