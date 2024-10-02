@@ -56,7 +56,7 @@ client
 dev tun
 proto tcp
 setenv CLIENT_CERT 0
-remote $domain 1194
+remote $IPX 1194
 http-proxy $IPX 8000
 resolv-retry infinite
 route-method exe
@@ -80,7 +80,7 @@ client
 dev tun
 proto udp
 setenv CLIENT_CERT 0
-remote $domain 2200
+remote $IPX 2200
 resolv-retry infinite
 route-method exe
 nobind
@@ -103,7 +103,7 @@ client
 dev tun
 proto tcp
 setenv CLIENT_CERT 0
-remote $domain 442
+remote $IPX 442
 resolv-retry infinite
 route-method exe
 nobind
