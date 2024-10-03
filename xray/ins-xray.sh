@@ -378,6 +378,17 @@ LimitNOFILE=1000000
 WantedBy=multi-user.target
 EOF
 
+cat <<EOF> /etc/systemd/system/multi-login.service
+Description=Multi-Login Control Service
+After=network.target
+[Service]
+ExecStart=/usr/bin/menu-multi-login
+Restart=always
+User=root
+[Install]
+WantedBy=multi-user.target
+EOF
+
 cat > /etc/systemd/system/runn.service <<EOF
 [Unit]
 Description=Mantap-Sayang
@@ -522,6 +533,8 @@ sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 echo " "
 echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service"
 systemctl daemon-reload
+systemctl enable multi-login.service
+systemctl start multi-login.service
 sleep 0.5
 echo -e "[ ${green}ok${NC} ] Enable & restart xray "
 systemctl daemon-reload
