@@ -379,12 +379,16 @@ WantedBy=multi-user.target
 EOF
 
 cat <<EOF> /etc/systemd/system/multi-login.service
+[Unit]
 Description=Multi-Login Control Service
 After=network.target
+
 [Service]
+Type=simple
 ExecStart=/usr/bin/menu-multi-login -auto >> /var/log/multi-login-xray.log 2>&1
 Restart=always
 User=root
+
 [Install]
 WantedBy=multi-user.target
 EOF
