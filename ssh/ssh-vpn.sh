@@ -350,7 +350,6 @@ wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/ma
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/menu2-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu2-multi-login.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/menu3-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu3-multi-login.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/menu4-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu4-multi-login.sh\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/safe-xray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|safe-xray.sh\s+100%|saved \["
 
 sudo shc -U -S -f menu-multi-login.sh -o menu-multi-login
 sudo shc -U -S -f detect-multi-login.sh -o detect-multi-login
@@ -358,7 +357,6 @@ sudo shc -U -S -f menu1-multi-login.sh -o menu1-multi-login
 sudo shc -U -S -f menu2-multi-login.sh -o menu2-multi-login
 sudo shc -U -S -f menu3-multi-login.sh -o menu3-multi-login
 sudo shc -U -S -f menu4-multi-login.sh -o menu4-multi-login
-sudo shc -U -S -f safe-xray.sh -o safe-xray
 
 sudo chmod +x menu-multi-login
 sudo chmod +x detect-multi-login
@@ -366,9 +364,7 @@ sudo chmod +x menu1-multi-login
 sudo chmod +x menu2-multi-login
 sudo chmod +x menu3-multi-login
 sudo chmod +x menu4-multi-login
-sudo chmod +x safe-xray
 
-rm safe-xray.sh safe-xray.sh.x.c
 rm menu-multi-login.sh menu-multi-login.sh.x.c
 rm detect-multi-login.sh detect-multi-login.sh.x.c
 rm menu1-multi-login.sh menu1-multi-login.sh.x.c
