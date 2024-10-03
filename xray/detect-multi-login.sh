@@ -3,6 +3,17 @@
 duration=$1
 ip_limit=$2
 
+# Path file konfigurasi dan backup
+CONFIG_FILE="/etc/xray/config.json"
+BACKUP_FILE="/etc/xray/config.json.bak"
+SAFE_BACKUP_FILE="/etc/xray/config-backup-safe/config.json.bak"
+
+# Backup file konfigurasi Xray
+cp $CONFIG_FILE $BACKUP_FILE
+# Salin backup ke lokasi aman yang tidak terpengaruh reboot
+mkdir -p /etc/xray/config-backup-safe
+cp $BACKUP_FILE $SAFE_BACKUP_FILE
+
 # Fungsi untuk mendeteksi IP per user dari log Xray
 detect_ip_per_user() {
     user=$1
@@ -27,10 +38,12 @@ lock_user() {
     done
     
     echo "Unlocking user $user."
+    # Hapus file backup aman setelah akun di-unlock
+    rm -f $SAFE_BACKUP_FILE
 }
 
 # Looping untuk semua user Trojan
-for user in `cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`; do
+for user in `cat $CONFIG_FILE | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`; do
     ips=$(detect_ip_per_user $user)
     ip_count=$(echo "$ips" | wc -l)
     
@@ -40,7 +53,7 @@ for user in `cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | u
 done
 
 # Looping untuk semua user VLess
-for user in `cat /etc/xray/config.json | grep '^#&' | cut -d ' ' -f 2 | sort | uniq`; do
+for user in `cat $CONFIG_FILE | grep '^#&' | cut -d ' ' -f 2 | sort | uniq`; do
     ips=$(detect_ip_per_user $user)
     ip_count=$(echo "$ips" | wc -l)
     
@@ -50,7 +63,7 @@ for user in `cat /etc/xray/config.json | grep '^#&' | cut -d ' ' -f 2 | sort | u
 done
 
 # Looping untuk semua user VMess
-for user in `cat /etc/xray/config.json | grep '^###' | cut -d ' ' -f 2 | sort | uniq`; do
+for user in `cat $CONFIG_FILE | grep '^###' | cut -d ' ' -f 2 | sort | uniq`; do
     ips=$(detect_ip_per_user $user)
     ip_count=$(echo "$ips" | wc -l)
     
