@@ -12,7 +12,7 @@ SAFE_BACKUP_FILE="/etc/xray/config-backup-safe/config.json.bak"
 cp $CONFIG_FILE $BACKUP_FILE
 # Salin backup ke lokasi aman yang tidak terpengaruh reboot
 mkdir -p /etc/xray/config-backup-safe
-cp $BACKUP_FILE $SAFE_BACKUP_FILE
+cp $CONFIG_FILE $SAFE_BACKUP_FILE
 
 # Fungsi untuk mendeteksi IP per user dari log Xray
 detect_ip_per_user() {
@@ -39,7 +39,7 @@ lock_user() {
     systemctl restart xray
     
     # Hapus file backup aman setelah akun di-unlock
-    rm -f $SAFE_BACKUP_FILE
+    rm -f $BACKUP_FILE $SAFE_BACKUP_FILE
 }
 
 # Looping untuk semua user Trojan

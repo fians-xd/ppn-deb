@@ -378,17 +378,6 @@ LimitNOFILE=1000000
 WantedBy=multi-user.target
 EOF
 
-cat <<EOF> /etc/systemd/system/safe-xray.service
-Description=Backup on Reboot
-After=network.target
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/safe-xray
-RemainAfterExit=yes
-[Install]
-WantedBy=multi-user.target
-EOF
-
 cat > /etc/systemd/system/runn.service <<EOF
 [Unit]
 Description=Mantap-Sayang
@@ -533,11 +522,8 @@ sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 echo " "
 echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service"
 systemctl daemon-reload
-systemctl enable safe-xray.service
-systemctl start safe-xray.service
 sleep 0.5
 echo -e "[ ${green}ok${NC} ] Enable & restart xray "
-systemctl daemon-reload
 systemctl enable xray
 systemctl restart xray
 systemctl restart nginx
