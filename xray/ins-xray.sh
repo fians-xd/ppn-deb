@@ -382,7 +382,7 @@ cat <<EOF> /etc/systemd/system/multi-login.service
 Description=Multi-Login Control Service
 After=network.target
 [Service]
-ExecStart=/usr/bin/menu-multi-login  >> /var/log/multi-login-xray.log 2>&1
+ExecStart=/usr/bin/menu-multi-login -auto >> /var/log/multi-login-xray.log 2>&1
 Restart=always
 User=root
 [Install]
