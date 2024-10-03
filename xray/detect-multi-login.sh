@@ -26,8 +26,8 @@ lock_user() {
     user=$1
     echo "Locking user $user for $duration minutes."
     
-    # Tambahkan komentar di depan baris user pada file konfigurasi
-    sed -i "/^#! $user/s/^/#/" $CONFIG_FILE
+    # Hapus Sementara user
+    sed -i "/\"id\": \".*\",.*#.*$user/,/}/d" $CONFIG_FILE
     
     sleep $(($duration * 60))
     
