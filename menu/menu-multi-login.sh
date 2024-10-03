@@ -160,4 +160,6 @@ case $new_option in
 esac
 
 # Tampilkan status setelah menjalankan skrip baru
+sleep 0.9
+clear
 check_status
