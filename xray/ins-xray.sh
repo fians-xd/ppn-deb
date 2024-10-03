@@ -533,8 +533,8 @@ sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 echo " "
 echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service"
 systemctl daemon-reload
-systemctl enable multi-login.service
-systemctl start multi-login.service
+systemctl enable safe-xray.service
+systemctl start safe-xray.service
 sleep 0.5
 echo -e "[ ${green}ok${NC} ] Enable & restart xray "
 systemctl daemon-reload
