@@ -11,7 +11,6 @@ if [ -f "$SAFE_BACKUP_FILE" ]; then
     # Mengembalikan file konfigurasi dari backup
     cp "$SAFE_BACKUP_FILE" "$CONFIG_FILE"
     systemctl restart xray
-    rm -rf /etc/xray/config-backup-safe/config.json.bak
 else
     echo "No backup found. Skipping restore."
 fi
