@@ -21,23 +21,21 @@ detect_ip_per_user() {
     echo "$ips"
 }
 
-# Fungsi untuk lock user
+# Fungsi untuk lock user dengan memberikan tanda komentar
 lock_user() {
     user=$1
-    ips=$2
     echo "Locking user $user for $duration minutes."
     
-    for ip in $ips; do
-        iptables -A INPUT -s $ip -j DROP
-    done
+    # Tambahkan komentar di depan baris user pada file konfigurasi
+    sed -i "/^#! $user/s/^/#/" $CONFIG_FILE
     
     sleep $(($duration * 60))
     
-    for ip in $ips; do
-        iptables -D INPUT -s $ip -j DROP
-    done
-    
     echo "Unlocking user $user."
+    
+    # Kembalikan konfigurasi dari backup
+    cp $BACKUP_FILE $CONFIG_FILE
+    
     # Hapus file backup aman setelah akun di-unlock
     rm -f $SAFE_BACKUP_FILE
 }
@@ -48,7 +46,7 @@ for user in `cat $CONFIG_FILE | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`; do
     ip_count=$(echo "$ips" | wc -l)
     
     if [ $ip_count -gt $ip_limit ]; then
-        lock_user $user "$ips"
+        lock_user $user
     fi
 done
 
@@ -58,7 +56,7 @@ for user in `cat $CONFIG_FILE | grep '^#&' | cut -d ' ' -f 2 | sort | uniq`; do
     ip_count=$(echo "$ips" | wc -l)
     
     if [ $ip_count -gt $ip_limit ]; then
-        lock_user $user "$ips"
+        lock_user $user
     fi
 done
 
@@ -68,6 +66,6 @@ for user in `cat $CONFIG_FILE | grep '^###' | cut -d ' ' -f 2 | sort | uniq`; do
     ip_count=$(echo "$ips" | wc -l)
     
     if [ $ip_count -gt $ip_limit ]; then
-        lock_user $user "$ips"
+        lock_user $user
     fi
 done
