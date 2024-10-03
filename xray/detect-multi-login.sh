@@ -27,7 +27,8 @@ lock_user() {
     echo "Locking user $user for $duration minutes."
     
     # Hapus Sementara user
-    sed -i "/\"id\": \".*\",.*#.*$user/,/}/d" $CONFIG_FILE
+    sed -i "/\"email\": \"$user\"/,/^}/d" $CONFIG_FILE
+    systemctl restart xray
     
     sleep $(($duration * 60))
     
@@ -35,6 +36,7 @@ lock_user() {
     
     # Kembalikan konfigurasi dari backup
     cp $BACKUP_FILE $CONFIG_FILE
+    systemctl restart xray
     
     # Hapus file backup aman setelah akun di-unlock
     rm -f $SAFE_BACKUP_FILE
