@@ -378,17 +378,13 @@ LimitNOFILE=1000000
 WantedBy=multi-user.target
 EOF
 
-cat <<EOF> /etc/systemd/system/multi-login.service
-[Unit]
-Description=Multi-Login Control Service
+cat <<EOF> /etc/systemd/system/safe-xray.service
+Description=Backup on Reboot
 After=network.target
-
 [Service]
-Type=simple
-ExecStart=/usr/bin/menu-multi-login -auto >> /var/log/multi-login-xray.log 2>&1
-Restart=always
-User=root
-
+Type=oneshot
+ExecStart=/usr/bin/safe-xray
+RemainAfterExit=yes
 [Install]
 WantedBy=multi-user.target
 EOF
