@@ -1,7 +1,6 @@
 #!/bin/bash
 
 clear
-LOG_FILE="/var/log/multi-login-xray.log"
 
 # Fungsi untuk mencetak dengan warna
 print_status() {
@@ -12,10 +11,6 @@ print_status() {
         status_color="\033[0;31m"  # Merah
     fi
     echo -e "$status_color$2 $status_color[$1]\033[0m"  # Reset warna
-}
-
-log() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> $LOG_FILE
 }
 
 # Fungsi untuk memeriksa dan menampilkan status
@@ -49,57 +44,13 @@ check_status() {
 
 # Fungsi untuk menghentikan semua script yang berjalan
 stop_all_scripts() {
-    log "Mematikan semua pengaturan multi-login..."
     pkill -f menu1-multi-login
     pkill -f menu2-multi-login
     pkill -f menu3-multi-login
     pkill -f menu4-multi-login
 }
 
-# Cek apakah skrip dijalankan dengan argumen -auto
-if [[ $1 == "-auto" ]]; then
-    # Cek apakah ada pilihan terakhir
-    if [ -f /tmp/last_option.txt ]; then
-        option=$(cat /tmp/last_option.txt)
-        log "Menjalankan pengaturan multi-login sesuai pilihan terakhir: $option"
-        
-        # Hentikan semua script sebelum menjalankan yang baru
-        stop_all_scripts
-        
-        # Jalankan script yang dipilih sesuai opsi
-        case $option in
-            1)
-                log "Menjalankan menu1-multi-login"
-                menu1-multi-login && log "Berhasil menjalankan menu1-multi-login" || log "Gagal menjalankan menu1-multi-login" &
-                ;;
-            2)
-                log "Menjalankan menu2-multi-login"
-                menu2-multi-login && log "Berhasil menjalankan menu2-multi-login" || log "Gagal menjalankan menu2-multi-login" &
-                ;;
-            3)
-                log "Menjalankan menu3-multi-login"
-                menu3-multi-login && log "Berhasil menjalankan menu3-multi-login" || log "Gagal menjalankan menu3-multi-login" &
-                ;;
-            4)
-                log "Menjalankan menu4-multi-login"
-                menu4-multi-login && log "Berhasil menjalankan menu4-multi-login" || log "Gagal menjalankan menu4-multi-login" &
-                ;;
-            *)
-                log "Opsi tidak valid, tidak ada pengaturan yang dijalankan."
-                ;;
-        esac
-        
-        # Tampilkan status setelah menjalankan skrip baru
-        check_status
-        exit 0
-    else
-        echo "Tidak ada pengaturan multi-login yang sebelumnya dipilih."
-        exit 1
-    fi
-fi
-
 # Tampilkan menu untuk memilih pengaturan multi-login
-log "Menampilkan menu untuk memilih pengaturan multi-login."
 echo " "
 check_status
 echo "============================================"
@@ -139,23 +90,19 @@ echo $ip_limit > /tmp/ip_limit.txt
 # Jalankan script yang dipilih sesuai opsi
 case $new_option in
     1)
-        log "Menjalankan menu1-multi-login"
-        menu1-multi-login && log "Berhasil menjalankan menu1-multi-login" || log "Gagal menjalankan menu1-multi-login" &
+        menu1-multi-login &
         ;;
     2)
-        log "Menjalankan menu2-multi-login"
-        menu2-multi-login && log "Berhasil menjalankan menu2-multi-login" || log "Gagal menjalankan menu2-multi-login" &
+        menu2-multi-login &
         ;;
     3)
-        log "Menjalankan menu3-multi-login"
-        menu3-multi-login && log "Berhasil menjalankan menu3-multi-login" || log "Gagal menjalankan menu3-multi-login" &
+        menu3-multi-login &
         ;;
     4)
-        log "Menjalankan menu4-multi-login"
-        menu4-multi-login && log "Berhasil menjalankan menu4-multi-login" || log "Gagal menjalankan menu4-multi-login" &
+        menu4-multi-login &
         ;;
     *)
-        log "Opsi tidak valid, silakan pilih antara 1-5."
+        echo "Opsi tidak valid, silakan pilih antara 1-5."
         ;;
 esac
 
