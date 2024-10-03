@@ -56,56 +56,103 @@ stop_all_scripts() {
     pkill -f menu4-multi-login
 }
 
-# Jika ada file status sebelumnya, baca dan jalankan
-if [ -f /tmp/last_option.txt ]; then
-    option=$(cat /tmp/last_option.txt)
-    ip_limit=$(cat /tmp/ip_limit.txt)
-    log "Memulai pengaturan multi-login sesuai pilihan terakhir: $option"
-else
-    # Tampilkan menu jika belum ada status sebelumnya
-    log "Menampilkan menu untuk memilih pengaturan multi-login."
-    echo " "
-    check_status
-    echo "============================================"
-    echo "1. Lock user multilogin selama 5 menit"
-    echo "2. Lock user multilogin selama 10 menit"
-    echo "3. Lock user multilogin selama 15 menit"
-    echo "4. Lock user multilogin selama 20 menit"
-    echo "5. Off kan seluruh settingan Multi Login"
-    echo "============================================"
-    echo " "
-    read -p "Pilih Opsi Diatas: " option
-    read -p "Masukan Minimal IP Login yang diizinkan (1/2/3/4/5): " ip_limit
-    echo $option > /tmp/last_option.txt
-    echo $ip_limit > /tmp/ip_limit.txt
+# Cek apakah skrip dijalankan dengan argumen -auto
+if [[ $1 == "-auto" ]]; then
+    # Cek apakah ada pilihan terakhir
+    if [ -f /tmp/last_option.txt ]; then
+        option=$(cat /tmp/last_option.txt)
+        log "Menjalankan pengaturan multi-login sesuai pilihan terakhir: $option"
+        
+        # Hentikan semua script sebelum menjalankan yang baru
+        stop_all_scripts
+        
+        # Jalankan script yang dipilih sesuai opsi
+        case $option in
+            1)
+                log "Menjalankan menu1-multi-login"
+                menu1-multi-login && log "Berhasil menjalankan menu1-multi-login" || log "Gagal menjalankan menu1-multi-login" &
+                ;;
+            2)
+                log "Menjalankan menu2-multi-login"
+                menu2-multi-login && log "Berhasil menjalankan menu2-multi-login" || log "Gagal menjalankan menu2-multi-login" &
+                ;;
+            3)
+                log "Menjalankan menu3-multi-login"
+                menu3-multi-login && log "Berhasil menjalankan menu3-multi-login" || log "Gagal menjalankan menu3-multi-login" &
+                ;;
+            4)
+                log "Menjalankan menu4-multi-login"
+                menu4-multi-login && log "Berhasil menjalankan menu4-multi-login" || log "Gagal menjalankan menu4-multi-login" &
+                ;;
+            *)
+                log "Opsi tidak valid, tidak ada pengaturan yang dijalankan."
+                ;;
+        esac
+        
+        # Tampilkan status setelah menjalankan skrip baru
+        check_status
+        exit 0
+    else
+        echo "Tidak ada pengaturan multi-login yang sebelumnya dipilih."
+        exit 1
+    fi
 fi
 
+# Tampilkan menu untuk memilih pengaturan multi-login
+log "Menampilkan menu untuk memilih pengaturan multi-login."
+echo " "
+check_status
+echo "============================================"
+echo "1. Lock user multilogin selama 5 menit"
+echo "2. Lock user multilogin selama 10 menit"
+echo "3. Lock user multilogin selama 15 menit"
+echo "4. Lock user multilogin selama 20 menit"
+echo "5. Off kan seluruh settingan Multi Login"
+echo "============================================"
+echo " "
+
+# Baca opsi terakhir jika ada
+if [ -f /tmp/last_option.txt ]; then
+    option=$(cat /tmp/last_option.txt)
+else
+    option=0  # Default jika tidak ada pilihan sebelumnya
+fi
+
+# Membaca input dari pengguna
+read -p "Pilih Opsi Diatas: " new_option
+read -p "Masukan Minimal IP Login yang diizinkan (1/2/3/4/5): " ip_limit
+
 # Hentikan semua script jika menu 5 dipilih
-if [ $option -eq 5 ]; then
+if [[ -n "$new_option" ]] && [[ "$new_option" -eq 5 ]]; then
     stop_all_scripts
+    echo "Semua pengaturan multi-login dimatikan."
     exit 0
 fi
 
 # Hentikan semua script sebelum menjalankan yang baru
 stop_all_scripts
 
+# Simpan opsi baru ke file
+echo $new_option > /tmp/last_option.txt
+echo $ip_limit > /tmp/ip_limit.txt
+
 # Jalankan script yang dipilih sesuai opsi
-case $option in
+case $new_option in
     1)
         log "Menjalankan menu1-multi-login"
-        menu1-multi-login & || log "Gagal menjalankan menu1-multi-login"
+        menu1-multi-login && log "Berhasil menjalankan menu1-multi-login" || log "Gagal menjalankan menu1-multi-login" &
         ;;
     2)
         log "Menjalankan menu2-multi-login"
-        menu2-multi-login & || log "Gagal menjalankan menu2-multi-login"
+        menu2-multi-login && log "Berhasil menjalankan menu2-multi-login" || log "Gagal menjalankan menu2-multi-login" &
         ;;
     3)
         log "Menjalankan menu3-multi-login"
-        menu3-multi-login & || log "Gagal menjalankan menu3-multi-login"
+        menu3-multi-login && log "Berhasil menjalankan menu3-multi-login" || log "Gagal menjalankan menu3-multi-login" &
         ;;
     4)
         log "Menjalankan menu4-multi-login"
-        menu4-multi-login & || log "Gagal menjalankan menu4-multi-login"
+        menu4-multi-login && log "Berhasil menjalankan menu4-multi-login" || log "Gagal menjalankan menu4-multi-login" &
         ;;
     *)
         log "Opsi tidak valid, silakan pilih antara 1-5."
