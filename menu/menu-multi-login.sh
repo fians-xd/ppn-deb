@@ -80,6 +80,7 @@ read -p "Masukan Minimal IP Login yang diizinkan (1/2/3/4/5): " ip_limit
 if [[ -n "$new_option" ]] && [[ "$new_option" -eq 5 ]]; then
     stop_all_scripts
     systemctl restart xray
+    rm /var/xray-autokil/tendang-xray.txt
     echo "Semua pengaturan multi-login dimatikan."
     exit 0
 fi
