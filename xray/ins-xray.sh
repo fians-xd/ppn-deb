@@ -420,6 +420,29 @@ RemainAfterExit=true
 WantedBy=multi-user.target
 END
 
+# Save Status Run Xray Multilogin
+cat > /etc/systemd/system/save-multi-login-status.service <<-END
+[Unit]
+Description=Save Multi-Login Status Before Shutdown
+DefaultDependencies=no
+Before=shutdown.target reboot.target halt.target
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/save_running
+[Install]
+WantedBy=shutdown.target reboot.target halt.target
+END
+
+# Restore After Restart Xray Multilogin
+cat > /etc/systemd/system/save-multi-login-status.service <<-END
+[Unit]
+Description=Restart Multi-Login Scripts After Reboot
+[Service]
+ExecStart=/usr/bin/restart_running
+[Install]
+WantedBy=multi-user.target
+END
+
 # Autinginx
 cat > /etc/systemd/system/rest_nginx.service <<-END
 [Unit]
@@ -537,6 +560,10 @@ echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service"
 systemctl daemon-reload
 systemctl enable restore-xray-config.service
 systemctl start restore-xray-config.service
+systemctl enable save-multi-login-status.service
+systemctl start save-multi-login-status.service
+systemctl enable restart-multi-login.service
+systemctl start restart-multi-login.service
 sleep 0.5
 echo -e "[ ${green}ok${NC} ] Enable & restart xray "
 systemctl enable xray
