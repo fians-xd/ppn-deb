@@ -426,9 +426,11 @@ cat > /etc/systemd/system/save-multi-login-status.service <<-END
 Description=Save Multi-Login Status Before Shutdown
 DefaultDependencies=no
 Before=shutdown.target reboot.target halt.target
+After=multi-user.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/save_running
+RemainAfterExit=yes
 [Install]
 WantedBy=shutdown.target reboot.target halt.target
 END
