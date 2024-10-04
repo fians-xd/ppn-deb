@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # File untuk menyimpan status script yang sedang berjalan
-touch /var/xray-autokil/multi-login-status
-STATUS_FILE="/var/xray-autokil/multi-login-status"
+touch /var/xray-autokil/tendang-xray.txt
+STATUS_FILE="/var/xray-autokil/tendang-xray.txt"
 
 # Inisialisasi file status (mengosongkan file sebelum mencatat ulang)
 > "$STATUS_FILE"
