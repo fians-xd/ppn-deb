@@ -9,9 +9,11 @@ BACKUP_FILE="/etc/xray/config.json.bak"
 SAFE_BACKUP_FILE="/etc/xray/config-backup-safe/config.json.bak"
 
 # Backup file konfigurasi Xray
+rm $BACKUP_FILE > /dev/null 2>&1
 cp $CONFIG_FILE $BACKUP_FILE
 # Salin backup ke lokasi aman yang tidak terpengaruh reboot
 mkdir -p /etc/xray/config-backup-safe
+rm $SAFE_BACKUP_FILE > /dev/null 2>&1
 cp $CONFIG_FILE $SAFE_BACKUP_FILE
 
 # Fungsi untuk mendeteksi IP per user dari log Xray

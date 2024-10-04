@@ -14,29 +14,31 @@ print_status() {
 }
 
 # Fungsi untuk memeriksa dan menampilkan status
+cekip=$(cat /tmp/ip_limit.txt)
 check_status() {
+    echo " "
     echo " Multilogin/Autokil Xray Yang aktif:"
     
     if pgrep -f menu1-multi-login > /dev/null; then
-        print_status "aktif" "lock user multilogin selama 5 menit"
+        print_status "aktif" "lock user multilogin $cekip ip selama 5 menit"
     else
         print_status "tidak" "lock user multilogin selama 5 menit"
     fi
 
     if pgrep -f menu2-multi-login > /dev/null; then
-        print_status "aktif" "lock user multilogin selama 10 menit"
+        print_status "aktif" "lock user multilogin $cekip ip selama 10 menit"
     else
         print_status "tidak" "lock user multilogin selama 10 menit"
     fi
 
     if pgrep -f menu3-multi-login > /dev/null; then
-        print_status "aktif" "lock user multilogin selama 15 menit"
+        print_status "aktif" "lock user multilogin $cekip ip selama 15 menit"
     else
         print_status "tidak" "lock user multilogin selama 15 menit"
     fi
 
     if pgrep -f menu4-multi-login > /dev/null; then
-        print_status "aktif" "lock user multilogin selama 20 menit"
+        print_status "aktif" "lock user multilogin $cekip ip selama 20 menit"
     else
         print_status "tidak" "lock user multilogin selama 20 menit"
     fi
@@ -53,6 +55,7 @@ stop_all_scripts() {
 # Tampilkan menu untuk memilih pengaturan multi-login
 echo " "
 check_status
+echo " "
 echo "============================================"
 echo "1. Lock user multilogin selama 5 menit"
 echo "2. Lock user multilogin selama 10 menit"
@@ -76,6 +79,7 @@ read -p "Masukan Minimal IP Login yang diizinkan (1/2/3/4/5): " ip_limit
 # Hentikan semua script jika menu 5 dipilih
 if [[ -n "$new_option" ]] && [[ "$new_option" -eq 5 ]]; then
     stop_all_scripts
+    systemctl restart xray
     echo "Semua pengaturan multi-login dimatikan."
     exit 0
 fi
