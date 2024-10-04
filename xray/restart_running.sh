@@ -8,8 +8,8 @@ if [ -f "$STATUS_FILE" ]; then
     while IFS= read -r script; do
         # Jalankan ulang script yang tercatat
         /usr/bin/$script &
-        sleep 0.5
-        # Hapus file status setelah eksekusi
-        rm -f "$STATUS_FILE"
+        sleep 0.5   
     done < "$STATUS_FILE"
+    # Hapus file status setelah eksekusi
+    rm -f "$STATUS_FILE"
 fi
