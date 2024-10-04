@@ -434,7 +434,7 @@ WantedBy=shutdown.target reboot.target halt.target
 END
 
 # Restore After Restart Xray Multilogin
-cat > /etc/systemd/system/save-multi-login-status.service <<-END
+cat > /etc/systemd/system/restart-multi-login.service <<-END
 [Unit]
 Description=Restart Multi-Login Scripts After Reboot
 [Service]
