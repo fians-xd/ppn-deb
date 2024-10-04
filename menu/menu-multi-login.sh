@@ -56,7 +56,6 @@ stop_all_scripts() {
 # Tampilkan menu untuk memilih pengaturan multi-login
 echo " "
 check_status
-echo " "
 echo "============================================"
 echo "1. Lock user multilogin selama 5 menit"
 echo "2. Lock user multilogin selama 10 menit"
@@ -114,4 +113,5 @@ esac
 # Tampilkan status setelah menjalankan skrip baru
 sleep 0.9
 clear
+echo " "
 check_status
