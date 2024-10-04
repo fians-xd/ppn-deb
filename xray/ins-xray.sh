@@ -407,6 +407,19 @@ cat >/etc/nginx/conf.d/xray.conf <<EOF
         }
 EOF
 
+# Restore Xray Multilogin
+cat > /etc/systemd/system/restore-xray-config.service <<-END
+[Unit]
+Description=Restore Xray Config from Backup
+After=network.target
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/restore-xray-config
+RemainAfterExit=true
+[Install]
+WantedBy=multi-user.target
+END
+
 # Autinginx
 cat > /etc/systemd/system/rest_nginx.service <<-END
 [Unit]
@@ -522,6 +535,8 @@ sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 echo " "
 echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service"
 systemctl daemon-reload
+systemctl enable restore-xray-config.service
+systemctl start restore-xray-config.service
 sleep 0.5
 echo -e "[ ${green}ok${NC} ] Enable & restart xray "
 systemctl enable xray
