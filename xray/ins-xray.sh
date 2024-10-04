@@ -439,6 +439,7 @@ END
 cat > /etc/systemd/system/restart-multi-login.service <<-END
 [Unit]
 Description=Restart Multi-Login Scripts After Reboot
+After=multi-user.target network-online.target
 [Service]
 ExecStart=/usr/bin/restart_running
 [Install]
