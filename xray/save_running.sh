@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # File untuk menyimpan status script yang sedang berjalan
-STATUS_FILE="/var/run/multi-login-status"
+STATUS_FILE="/var/xray-autokil/multi-login-status"
 
 # Inisialisasi file status (mengosongkan file sebelum mencatat ulang)
 > "$STATUS_FILE"
