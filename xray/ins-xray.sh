@@ -558,12 +558,11 @@ sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 echo " "
 echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service"
 systemctl daemon-reload
+systemctl enable save-multi-login-status.service
+systemctl enable restart-multi-login.service
 systemctl enable restore-xray-config.service
 systemctl start restore-xray-config.service
-systemctl enable save-multi-login-status.service
-systemctl start save-multi-login-status.service
-systemctl enable restart-multi-login.service
-systemctl start restart-multi-login.service
+
 sleep 0.5
 echo -e "[ ${green}ok${NC} ] Enable & restart xray "
 systemctl enable xray
