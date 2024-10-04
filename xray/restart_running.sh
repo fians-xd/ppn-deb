@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # File yang menyimpan status script sebelum shutdown/restart
-STATUS_FILE="/var/xray-autokil/multi-login-status"
+STATUS_FILE="/var/xray-autokil/tendang-xray.txt"
 
 # Jalankan kembali script yang tercatat dalam status file
 if [ -f "$STATUS_FILE" ]; then
