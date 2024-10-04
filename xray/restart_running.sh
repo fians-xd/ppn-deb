@@ -7,7 +7,7 @@ STATUS_FILE="/var/run/multi-login-status"
 if [ -f "$STATUS_FILE" ]; then
     while IFS= read -r script; do
         # Jalankan ulang script yang tercatat
-        $script &
+        /usr/bin/$script &
     done < "$STATUS_FILE"
     
     # Hapus file status setelah eksekusi
