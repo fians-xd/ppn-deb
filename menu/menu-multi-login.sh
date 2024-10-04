@@ -1,6 +1,7 @@
 #!/bin/bash
 
 clear
+mkdir -p /var/xray-autokil
 
 # Fungsi untuk mencetak dengan warna
 print_status() {
@@ -14,7 +15,7 @@ print_status() {
 }
 
 # Fungsi untuk memeriksa dan menampilkan status
-cekip=$(cat /tmp/ip_limit.txt)
+cekip=$(cat /var/xray-autokil/ip_limit.txt)
 check_status() {
     echo " "
     echo " Multilogin/Autokil Xray Yang aktif:"
@@ -66,8 +67,8 @@ echo "============================================"
 echo " "
 
 # Baca opsi terakhir jika ada
-if [ -f /tmp/last_option.txt ]; then
-    option=$(cat /tmp/last_option.txt)
+if [ -f /var/xray-autokil/last_option.txt ]; then
+    option=$(cat /var/xray-autokil/last_option.txt)
 else
     option=0  # Default jika tidak ada pilihan sebelumnya
 fi
@@ -88,8 +89,8 @@ fi
 stop_all_scripts
 
 # Simpan opsi baru ke file
-echo $new_option > /tmp/last_option.txt
-echo $ip_limit > /tmp/ip_limit.txt
+echo $new_option > /var/xray-autokil/last_option.txt
+echo $ip_limit > /var/xray-autokil/ip_limit.txt
 
 # Jalankan script yang dipilih sesuai opsi
 case $new_option in
