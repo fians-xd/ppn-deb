@@ -132,3 +132,4 @@ done
 clear
 echo " "
 check_status
+echo " "
