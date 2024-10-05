@@ -550,6 +550,7 @@ echo " "
 echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service"
 systemctl daemon-reload
 systemctl enable restart-multi-login.service
+systemctl start restart-multi-login.service
 systemctl enable restore-xray-config.service
 systemctl start restore-xray-config.service
 
