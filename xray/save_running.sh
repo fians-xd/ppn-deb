@@ -4,7 +4,7 @@
 touch /var/xray-autokil/tendang-xray.txt
 STATUS_FILE="/var/xray-autokil/tendang-xray.txt"
 
-# Inisialisasi file status (mengosongkan file sebelum mencatat ulang)
+# Kosongkan file sebelum mencatat ulang
 > "$STATUS_FILE"
 
 # Cek apakah setiap script sedang berjalan dan simpan ke status file
