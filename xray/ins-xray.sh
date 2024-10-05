@@ -432,7 +432,6 @@ ExecStart=/usr/bin/restart_running
 Restart=on-failure
 [Install]
 WantedBy=multi-user.target
-
 END
 
 # Autinginx
