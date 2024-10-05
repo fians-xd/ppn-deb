@@ -423,12 +423,16 @@ END
 # Restore After Restart Xray Multilogin
 cat > /etc/systemd/system/restart-multi-login.service <<-END
 [Unit]
-Description=Restart Multi-Login Scripts After Reboot
-After=multi-user.target network-online.target
+Description=Jalankan Xray Autokil Scripts Setelah Delay
+After=multi-user.target
 [Service]
+Type=simple
+ExecStartPre=/bin/sleep 15
 ExecStart=/usr/bin/restart_running
+Restart=on-failure
 [Install]
 WantedBy=multi-user.target
+
 END
 
 # Autinginx
