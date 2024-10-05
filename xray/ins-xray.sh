@@ -420,21 +420,6 @@ RemainAfterExit=true
 WantedBy=multi-user.target
 END
 
-# Save Status Run Xray Multilogin
-cat > /etc/systemd/system/save-multi-login-status.service <<-END
-[Unit]
-Description=Save Multi-Login Status Before Shutdown
-DefaultDependencies=no
-Before=shutdown.target reboot.target halt.target
-After=multi-user.target
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/save_running
-RemainAfterExit=yes
-[Install]
-WantedBy=shutdown.target reboot.target halt.target
-END
-
 # Restore After Restart Xray Multilogin
 cat > /etc/systemd/system/restart-multi-login.service <<-END
 [Unit]
@@ -561,7 +546,6 @@ sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 echo " "
 echo -e "${green}[${yell} SERVICE ${green}]${NC} Restart All service"
 systemctl daemon-reload
-systemctl enable save-multi-login-status.service
 systemctl enable restart-multi-login.service
 systemctl enable restore-xray-config.service
 systemctl start restore-xray-config.service
