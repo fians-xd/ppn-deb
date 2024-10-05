@@ -351,7 +351,6 @@ wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/ma
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/menu3-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu3-multi-login.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/menu4-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu4-multi-login.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/restore-xray-config.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|restore-xray-config.sh\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/save_running.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|save_running.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/restart_running.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|restart_running.sh\s+100%|saved \["
 
 sudo shc -U -S -f menu-multi-login.sh -o menu-multi-login
@@ -361,7 +360,6 @@ sudo shc -U -S -f menu2-multi-login.sh -o menu2-multi-login
 sudo shc -U -S -f menu3-multi-login.sh -o menu3-multi-login
 sudo shc -U -S -f menu4-multi-login.sh -o menu4-multi-login
 sudo shc -U -S -f restore-xray-config.sh -o restore-xray-config
-sudo shc -U -S -f save_running.sh -o save_running
 sudo shc -U -S -f restart_running.sh -o restart_running
 
 sudo chmod +x menu-multi-login
@@ -371,7 +369,6 @@ sudo chmod +x menu2-multi-login
 sudo chmod +x menu3-multi-login
 sudo chmod +x menu4-multi-login
 sudo chmod +x restore-xray-config
-sudo chmod +x save_running
 sudo chmod +x restart_running
 
 rm menu-multi-login.sh menu-multi-login.sh.x.c
@@ -381,7 +378,6 @@ rm menu2-multi-login.sh menu2-multi-login.sh.x.c
 rm menu3-multi-login.sh menu3-multi-login.sh.x.c
 rm menu4-multi-login.sh menu4-multi-login.sh.x.c
 rm restore-xray-config.sh restore-xray-config.sh.x.c
-rm save_running.sh save_running.sh.x.c
 rm restart_running.sh restart_running.sh.x.c
 
 sudo shc -U -S -f menu.sh -o menu
