@@ -245,8 +245,9 @@ sleep 0.9
 apt-get remove --purge g++ gcc make build-essential zip unzip libz-dev git iftop -y
 apt-get autoremove -y
 apt-get autoclean -y
-mkdir -p /var/xray-autokil
-touch /var/xray-autokil/ip_limit.txt
+sudo mkdir -p /var/xray-autokil
+sudo chmod 777 /var/xray-autokil
+sudo touch /var/xray-autokil/ip_limit.txt
 
 clear
 echo ""
