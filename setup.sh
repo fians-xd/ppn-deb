@@ -248,6 +248,7 @@ apt-get autoclean -y
 sudo mkdir -p /var/xray-autokil
 sudo chmod 777 /var/xray-autokil
 sudo touch /var/xray-autokil/ip_limit.txt
+sudo chmod 755 /var/xray-autokil/ip_limit.txt
 
 clear
 echo ""
