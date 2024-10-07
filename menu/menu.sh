@@ -162,7 +162,7 @@ ISP=$(curl -s ipinfo.io | jq -r '.org' | awk -F' ' '{$1=""; print substr($0,2)}'
 
 citytx=$(curl -s ipinfo.io/city)
 count_codex=$(curl -s ipinfo.io/country)
-country_namez=$(grep -w $count_codex /usr/bin/countries.txt | awk '{print $2}')
+country_namez=$(grep -w $count_codex /usr/bin/countriest.txt | awk '{print $2}')
 
 # user
 license_data="${licenses["$user_name"]}"
