@@ -135,29 +135,6 @@ else
     fi
 fi
 
-#Domain
-domain=$(cat /etc/xray/domain)
-#Status certificate
-modifyTime=$(stat $HOME/.acme.sh/${domain}_ecc/${domain}.key | sed -n '7,6p' | awk '{print $2" "$3" "$4" "$5}')
-modifyTime1=$(date +%s -d "${modifyTime}")
-currentTime=$(date +%s)
-stampDiff=$(expr ${currentTime} - ${modifyTime1})
-days=$(expr ${stampDiff} / 86400)
-remainingDays=$(expr 90 - ${days})
-tlsStatus=${remainingDays}
-if [[ ${remainingDays} -le 0 ]]; then
-	tlsStatus="expired"
-fi
-
-# OS Uptime
-uptime="$(uptime -p | cut -d " " -f 2-10)"
-
-# Getting CPU Information
-cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
-cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
-cpu_usage+=" %"
-ISP=$(curl -s ipinfo.io | jq -r '.org' | awk -F' ' '{$1=""; print substr($0,2)}')
-
 # Buat array untuk menerjemahkan nama hari
 declare -A days
 days["Monday"]="Senin"
@@ -173,18 +150,16 @@ EN_DAY=$(date +%A)
 # Ambil jam, menit, dan tanggal
 TIME=$(date +"%H:%M")
 DATE=$(date +"%d-%m-%Y")
-
 # Ganti nama hari ke bahasa Indonesia
 ID_DAY=${days[$EN_DAY]}
 
 IPVPS=$(curl -s ifconfig.me )
-LOC=$(curl -s ipinfo.io | jq -r '.city' | tr -d '\n' && printf ", " && curl -s ipinfo.io | jq -r '.country' | xargs -I {} curl -s https://restcountries.com/v3.1/alpha/{} | jq -r '.[0].name.common')
-cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo )
-cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
-freq=$( awk -F: ' /cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo )
+domain=$(cat /etc/xray/domain)
+uptime="$(uptime -p | cut -d " " -f 2-10)"
 tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
-fram=$( free -m | awk 'NR==2 {print $4}' )
+ISP=$(curl -s ipinfo.io | jq -r '.org' | awk -F' ' '{$1=""; print substr($0,2)}')
+LOC=$(curl -s ipinfo.io | jq -r '.city' | tr -d '\n' && printf ", " && curl -s ipinfo.io | jq -r '.country' | xargs -I {} curl -s https://restcountries.com/v3.1/alpha/{} | jq -r '.[0].name.common')
 
 # user
 license_data="${licenses["$user_name"]}"
@@ -213,46 +188,46 @@ xvlesx=$(cat /etc/xray/config.json | grep '^#&' | cut -d ' ' -f 2 | sort | uniq 
 xtrojanx=$(cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq | wc -l)
 
 clear 
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m               ━VPS INFO━                \e[0m"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m OS            \e[31m: \e[0m"`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
-echo -e "\e[1;32m Uptime        \e[31m: \e[0m$uptime"
-echo -e "\e[1;32m Public IP     \e[31m: \e[0m$IPVPS"
-echo -e "\e[1;32m Author Sc     \e[31m: \e[0mFian & Lista"
-echo -e "\e[1;32m Country       \e[31m: \e[0m$LOC"
-echo -e "\e[1;32m DOMAIN        \e[31m: \e[0m$domain"
-echo -e "\e[1;32m ISP           \e[31m: \e[0m$ISP"
-echo -e "\e[1;32m DATE & TIME   \e[31m: \e[0m$ID_DAY $TIME $DATE"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m               ━RAM INFO━                \e[0m"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"	
-echo -e "\e[1;32m RAM TOTAL \e[31m: \e[0m$tram MB   \e[1;32m RAM USED \e[31m: \e[0m$uram MB"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m           ━SERVICE INFO━                \e[0m"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m    SSH   \e[31m:\e[0m$ssh_status     \e[1;32m Xray     \e[31m:\e[0m$xray_status"
-echo -e "\e[1;32m    Nginx \e[31m:\e[0m$nginx_status     \e[1;32m Dropbear \e[31m:\e[0m$dropbear_status"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m           ━ACCOUNT CREATED━             \e[0m"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m SSH\e[31m:\e[0m$xshx  \e[1;32mVmess\e[31m:\e[0m$xvmesx  \e[1;32mVless\e[31m:\e[0m$xvlesx  \e[1;32mTrojan\e[31m:\e[0m$xtrojanx"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m                ━MENU━                   \e[0m"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;33m [\e[36m1\e[1;33m]\e[31m : \e[0mSSH           \e[1;33m[\e[36m7\e[1;33m]\e[31m : \e[0mStatus Service"
-echo -e "\e[1;33m [\e[36m2\e[1;33m]\e[31m : \e[0mVmess         \e[1;33m[\e[36m8\e[1;33m]\e[31m : \e[0mMonitor VPS"
-echo -e "\e[1;33m [\e[36m3\e[1;33m]\e[31m : \e[0mVless         \e[1;33m[\e[36m9\e[1;33m]\e[31m : \e[0mReboot VPS"
-echo -e "\e[1;33m [\e[36m4\e[1;33m]\e[31m : \e[0mTrojan        \e[1;33m[\e[36m10\e[1;33m]\e[31m: \e[0mClear Cache"
-echo -e "\e[1;33m [\e[36m5\e[1;33m]\e[31m : \e[0mShwsocks      \e[1;33m[\e[36m11\e[1;33m]\e[31m: \e[0mBoot Telegram"
-echo -e "\e[1;33m [\e[36m6\e[1;33m]\e[31m : \e[0mSetting       \e[1;33m[\e[36mx\e[1;33m]\e[31m : \e[0mExit Script"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m              ━USER INFO━                \e[0m"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m   Name \e[31m: \e[0m$user_name   \e[1;32m Exp \e[31m: \e[0m$exp_date"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m                  ━VPS INFO━                   \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;32m OS                  \e[31m: \e[0m"`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
+echo -e "\e[1;32m Uptime              \e[31m: \e[0m$uptime"
+echo -e "\e[1;32m Public IP           \e[31m: \e[0m$IPVPS"
+echo -e "\e[1;32m Author Sc           \e[31m: \e[0mFian & Lista"
+echo -e "\e[1;32m Country             \e[31m: \e[0m$LOC"
+echo -e "\e[1;32m DOMAIN              \e[31m: \e[0m$domain"
+echo -e "\e[1;32m ISP                 \e[31m: \e[0m$ISP"
+echo -e "\e[1;32m DATE & TIME         \e[31m: \e[0m$ID_DAY $TIME $DATE"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m                  ━RAM INFO━                   \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"	
+echo -e "\e[1;32m RAM TOTAL \e[31m: \e[0m$tram MB         \e[1;32m RAM USED \e[31m: \e[0m$uram MB"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m              ━SERVICE INFO━                   \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;32m    SSH   \e[31m:\e[0m$ssh_status        \e[1;32m Xray     \e[31m:\e[0m$xray_status"
+echo -e "\e[1;32m    Nginx \e[31m:\e[0m$nginx_status        \e[1;32m Dropbear \e[31m:\e[0m$dropbear_status"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m              ━ACCOUNT CREATED━                \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;32m SSH\e[31m:\e[0m$xshx   \e[1;32mVmess\e[31m:\e[0m$xvmesx   \e[1;32mVless\e[31m:\e[0m$xvlesx   \e[1;32mTrojan\e[31m:\e[0m$xtrojanx"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m                   ━MENU━                      \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;33m [\e[36m1\e[1;33m]\e[31m : \e[0mSSH              \e[1;33m[\e[36m7\e[1;33m]\e[31m : \e[0mStatus Service"
+echo -e "\e[1;33m [\e[36m2\e[1;33m]\e[31m : \e[0mVmess            \e[1;33m[\e[36m8\e[1;33m]\e[31m : \e[0mMonitor VPS"
+echo -e "\e[1;33m [\e[36m3\e[1;33m]\e[31m : \e[0mVless            \e[1;33m[\e[36m9\e[1;33m]\e[31m : \e[0mReboot VPS"
+echo -e "\e[1;33m [\e[36m4\e[1;33m]\e[31m : \e[0mTrojan           \e[1;33m[\e[36m10\e[1;33m]\e[31m: \e[0mClear Cache"
+echo -e "\e[1;33m [\e[36m5\e[1;33m]\e[31m : \e[0mShwsocks         \e[1;33m[\e[36m11\e[1;33m]\e[31m: \e[0mBoot Telegram"
+echo -e "\e[1;33m [\e[36m6\e[1;33m]\e[31m : \e[0mSetting          \e[1;33m[\e[36mx\e[1;33m]\e[31m : \e[0mExit Script"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m                 ━USER INFO━                   \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;32m   Name \e[31m: \e[0m$user_name      \e[1;32m Exp \e[31m: \e[0m$exp_date"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e   ""
-echo -e "\e[1;36m━━━━━━━━━━━━[ \e[1;32mt.me/yansxdi \e[1;36m]━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;36m━━━━━━━━━━━━━━[ \e[1;32mt.me/yansxdi \e[1;36m]━━━━━━━━━━━━━━━\e[0m"
 echo -e   ""
 echo -e "┏━\e[1;36m[\e[1;32mPilih Menu\e[1;36m]\e[0m"
 read -p "┗━> "  opt
