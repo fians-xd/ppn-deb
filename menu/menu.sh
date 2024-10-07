@@ -211,13 +211,13 @@ echo -e "\e[1;32m    Nginx \e[31m:\e[0m$nginx_status          \e[1;32m Dropbear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m              ━ACCOUNT CREATED━                \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m SSH\e[31m:\e[0m$xshx    \e[1;32mVmess\e[31m:\e[0m$xvmesx    \e[1;32mVless\e[31m:\e[0m$xvlesx    \e[1;32mTrojan\e[31m:\e[0m$xtrojanx"
+echo -e "\e[1;32m   SSH\e[31m:\e[0m$xshx    \e[1;32mVmess\e[31m:\e[0m$xvmesx    \e[1;32mVless\e[31m:\e[0m$xvlesx    \e[1;32mTrojan\e[31m:\e[0m$xtrojanx"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                   ━MENU━                      \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;33m [\e[36m1\e[1;33m]\e[31m : \e[0mSSH               \e[1;33m[\e[36m7\e[1;33m]\e[31m : \e[0mStatus Service"
+echo -e "\e[1;33m [\e[36m1\e[1;33m]\e[31m : \e[0mSSH               \e[1;33m[\e[36m7\e[1;33m]\e[31m : \e[0mReboot VPS"
 echo -e "\e[1;33m [\e[36m2\e[1;33m]\e[31m : \e[0mVmess             \e[1;33m[\e[36m8\e[1;33m]\e[31m : \e[0mMonitor VPS"
-echo -e "\e[1;33m [\e[36m3\e[1;33m]\e[31m : \e[0mVless             \e[1;33m[\e[36m9\e[1;33m]\e[31m : \e[0mReboot VPS"
+echo -e "\e[1;33m [\e[36m3\e[1;33m]\e[31m : \e[0mVless             \e[1;33m[\e[36m9\e[1;33m]\e[31m : \e[0mStatus Service"
 echo -e "\e[1;33m [\e[36m4\e[1;33m]\e[31m : \e[0mTrojan            \e[1;33m[\e[36m10\e[1;33m]\e[31m: \e[0mClear Cache"
 echo -e "\e[1;33m [\e[36m5\e[1;33m]\e[31m : \e[0mShwsocks          \e[1;33m[\e[36m11\e[1;33m]\e[31m: \e[0mBoot Telegram"
 echo -e "\e[1;33m [\e[36m6\e[1;33m]\e[31m : \e[0mSetting           \e[1;33m[\e[36mx\e[1;33m]\e[31m : \e[0mExit Script"
@@ -227,7 +227,7 @@ echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━
 echo -e "\e[1;32m   Name \e[31m: \e[0m$user_name      \e[1;32m Exp \e[31m: \e[0m$exp_date"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e   ""
-echo -e "\e[1;36m━━━━━━━━━━━━━━━[ \e[1;32mt.me/yansxdi \e[1;36m]━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;36m━━━━━━━━━━━━━━━[ \e[1;32mt.me/yansxdi \e[1;36m]━━━━━━━━━━━━━━━━\e[0m"
 echo -e   ""
 echo -e "┏━\e[1;36m[\e[1;32mPilih Menu\e[1;36m]\e[0m"
 read -p "┗━> "  opt
@@ -239,9 +239,9 @@ case $opt in
 4) clear ; m-trojan ;;
 5) clear ; m-ssws ;;
 6) clear ; m-system ;;
-7) clear ; running ;;
+7) clear ; reboot ; /sbin/reboot ;;
 8) clear ; monitor ;;
-9) clear ; reboot ; /sbin/reboot ;;
+9) clear ; running ;;
 10) clear ; clearcache ;;
 11) clear ; tambah_bot ;;
 x) exit ;;
