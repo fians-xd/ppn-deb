@@ -1,5 +1,5 @@
 #!/bin/bash
-#random
+
 apt install jq curl -y
 rm -rf /root/xray/scdomain
 mkdir -p /root/xray
