@@ -159,7 +159,10 @@ uptime="$(uptime -p | cut -d " " -f 2-10)"
 tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
 ISP=$(curl -s ipinfo.io | jq -r '.org' | awk -F' ' '{$1=""; print substr($0,2)}')
-LOC=$(curl -s ipinfo.io | jq -r '.city' | tr -d '\n' && printf ", " && curl -s ipinfo.io | jq -r '.country' | xargs -I {} curl -s https://restcountries.com/v3.1/alpha/{} | jq -r '.[0].name.common')
+
+citytx=$(curl -s ipinfo.io/city)
+count_codex=$(curl -s ipinfo.io/country)
+country_namez=$(grep -w $count_codex /usr/bin/countries.txt | awk '{print $2}')
 
 # user
 license_data="${licenses["$user_name"]}"
@@ -195,7 +198,7 @@ echo -e "\e[1;32m OS                  \e[31m: \e[0m"`hostnamectl | grep "Operati
 echo -e "\e[1;32m UPTIME              \e[31m: \e[0m$uptime"
 echo -e "\e[1;32m PUBLIC IP           \e[31m: \e[0m$IPVPS"
 echo -e "\e[1;32m AUTHOR SC           \e[31m: \e[0mFian & Lista"
-echo -e "\e[1;32m COUNTRY             \e[31m: \e[0m$LOC"
+echo -e "\e[1;32m COUNTRY             \e[31m: \e[0m$citytx, $country_namez"
 echo -e "\e[1;32m DOMAIN              \e[31m: \e[0m$domain"
 echo -e "\e[1;32m ISP                 \e[31m: \e[0m$ISP"
 echo -e "\e[1;32m DATE & TIME         \e[31m: \e[0m$ID_DAY $TIME $DATE"
