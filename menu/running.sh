@@ -45,6 +45,7 @@ wstls=$(systemctl status ws-stunnel.service | grep Active | awk '{print $3}' | c
 wsdrop=$(systemctl status ws-dropbear.service | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 udp=$(systemctl status udp-custom | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 nginx_service=$(/etc/init.d/nginx status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+ovpn=$(systemctl status openvpn | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 
 # COLOR VALIDATION
 RED='\033[0;31m'
@@ -56,6 +57,15 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 clear
+
+# STATUS SERVICE OpenVpn
+if [[ $ovpn == "exited" ]]; then 
+   openvpn=" ${GREEN}Running ${NC}( No Error )"
+   openvpn_tele=" Running ✅"
+else
+   openvpn="${RED}  Not Running ${NC}  ( Error )"
+   openvpn_tele=" Running ❌"
+fi
 
 # STATUS SERVICE  VNSTAT 
 if [[ $vnstat_service == "running" ]]; then 
@@ -210,21 +220,6 @@ else
    status_nginx_tele=" Running ❌"
 fi
 
-
-# TOTAL RAM
-total_ram=` grep "MemTotal: " /proc/meminfo | awk '{ print $2}'`
-totalram=$(($total_ram/1024))
-
-# KERNEL TERBARU
-kernelku=$(uname -r)
-
-# DNS PATCH
-#tipeos2=$(uname -m)
-Name=$"fians-xd"
-Exp=$"Lifetime"
-# GETTING DOMAIN NAME
-Domen="$(cat /etc/xray/domain)"
-
 # Ini Output Untuk Pesan Jika Eksesusi Lewat Terminal Lngsung
 echo -e ""
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
@@ -233,6 +228,7 @@ echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━
 echo -e "\e[1;32mCrons                \e[0m: $status_cron"
 echo -e "\e[1;32mNginx                \e[0m: $status_nginx"
 echo -e "\e[1;32mVnstat               \e[0m: $status_vnstat"
+echo -e "\e[1;32mOpenVpn              \e[0m: $openvpn"
 echo -e "\e[1;32mSSH/TUN              \e[0m: $status_ssh"
 echo -e "\e[1;32mDropbear             \e[0m: $status_beruangjatuh"
 echo -e "\e[1;32mFail2Ban             \e[0m: $status_fail2ban"
@@ -263,7 +259,8 @@ echo ""
    echo "Stunl4 👉 $status_stunnel_tele"
    echo "Ws-tls 👉 $swstls_tele"
    echo "Trojan 👉 $status_trojan_tele"
-   echo "Vnstat 👉 $status_vnstat_tele"   
+   echo "Vnstat 👉 $status_vnstat_tele"
+   echo "OpenVpn👉 $openvpn_tele"
    echo "Fl2-ban 👉 $status_fail2ban_tele"
    echo "Vles-tls 👉 $status_tls_vless_tele"
    echo "Ws-n.tls 👉 $swstls_tele"
