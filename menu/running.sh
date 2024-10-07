@@ -26,6 +26,16 @@ green='\e[1;32m'
 NC='\e[0m'
 green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 red() { echo -e "\\033[31;1m${*}\\033[0m"; }
+
+# COLOR VALIDATION
+RED='\033[0;31m'
+NC='\033[0m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+LIGHT='\033[0;37m'
 clear
 
 # CHEK STATUS
@@ -47,19 +57,8 @@ udp=$(systemctl status udp-custom | grep Active | awk '{print $3}' | cut -d "(" 
 nginx_service=$(/etc/init.d/nginx status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 ovpn=$(systemctl status openvpn | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 
-# COLOR VALIDATION
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-clear
-
 # STATUS SERVICE OpenVpn
-if [[ $ovpn == "exited" ]]; then 
+if [[ $ovpn == "exited" || $ovpn == "running" ]]; then
    openvpn=" ${GREEN}Running ${NC}( No Error )"
    openvpn_tele=" Running ✅"
 else
