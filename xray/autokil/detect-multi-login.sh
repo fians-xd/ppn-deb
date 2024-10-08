@@ -3,18 +3,8 @@
 duration=$1
 ip_limit=$2
 
-# Path file konfigurasi dan backup
+# Path file konfigurasi
 CONFIG_FILE="/etc/xray/config.json"
-BACKUP_FILE="/etc/xray/config.json.bak"
-SAFE_BACKUP_FILE="/etc/xray/config-backup-safe/config.json.bak"
-
-# Backup file konfigurasi Xray
-rm $BACKUP_FILE > /dev/null 2>&1
-cp $CONFIG_FILE $BACKUP_FILE
-# Salin backup ke lokasi aman yang tidak terpengaruh reboot
-mkdir -p /etc/xray/config-backup-safe
-rm $SAFE_BACKUP_FILE > /dev/null 2>&1
-cp $CONFIG_FILE $SAFE_BACKUP_FILE
 
 # Fungsi untuk mendeteksi IP per user dari log Xray
 detect_ip_per_user() {
@@ -23,25 +13,22 @@ detect_ip_per_user() {
     echo "$ips"
 }
 
-# Fungsi untuk lock user dengan memberikan tanda komentar
-lock_user() {
+# Fungsi untuk menandai user dengan menambahkan tanda "-" di awal dan akhir namanya
+mark_user() {
     user=$1
-    echo "Locking user $user for $duration minutes."
-    
-    # Hapus Sementara user
-    sed -i "/\"email\": \"$user\"/,/^}/d" $CONFIG_FILE
+    echo "Marking user $user for $duration minutes."
+
+    # Tambahkan "-" di awal dan akhir nama pengguna di file konfigurasi
+    sed -i "s/\"email\": \"$user\"/\"email\": \"-$user-\"/" $CONFIG_FILE
     systemctl restart xray
-    
+
     sleep $(($duration * 60))
-    
-    echo "Unlocking user $user."
-    
-    # Kembalikan konfigurasi dari backup
-    cp $BACKUP_FILE $CONFIG_FILE
+
+    echo "Restoring user $user."
+
+    # Pulihkan nama pengguna
+    sed -i "s/\"email\": \"-$user-\"/\"email\": \"$user\"/" $CONFIG_FILE
     systemctl restart xray
-    
-    # Hapus file backup aman setelah akun di-unlock
-    rm -f $BACKUP_FILE $SAFE_BACKUP_FILE
 }
 
 # Looping untuk semua user Trojan
@@ -50,7 +37,7 @@ for user in `cat $CONFIG_FILE | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`; do
     ip_count=$(echo "$ips" | wc -l)
     
     if [ $ip_count -gt $ip_limit ]; then
-        lock_user $user
+        mark_user $user
     fi
 done
 
@@ -60,7 +47,7 @@ for user in `cat $CONFIG_FILE | grep '^#&' | cut -d ' ' -f 2 | sort | uniq`; do
     ip_count=$(echo "$ips" | wc -l)
     
     if [ $ip_count -gt $ip_limit ]; then
-        lock_user $user
+        mark_user $user
     fi
 done
 
@@ -70,6 +57,6 @@ for user in `cat $CONFIG_FILE | grep '^###' | cut -d ' ' -f 2 | sort | uniq`; do
     ip_count=$(echo "$ips" | wc -l)
     
     if [ $ip_count -gt $ip_limit ]; then
-        lock_user $user
+        mark_user $user
     fi
 done
