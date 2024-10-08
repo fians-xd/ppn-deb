@@ -149,13 +149,13 @@ cd
 mkdir .ngx
 mkdir /home/vps
 mkdir /home/vps/public_html
-wget --progress=bar:force -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/index" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|index\s+100%|saved \["
+wget --progress=bar:force -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/index" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|index.html\s+100%|saved \["
 mkdir /home/vps/public_html/ss-ws
 mkdir /home/vps/public_html/clash-ws
 
 # install badvpn
 cd
-wget --progress=bar:force -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/newudpgw" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|newudpgw\s+100%|saved \["
+wget --progress=bar:force -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/newudpgw" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|badvpn-udpgw\s+100%|saved \["
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -270,7 +270,7 @@ echo "Config file is at /usr/local/ddos/ddos.conf"
 echo "Please send in your comments and/or suggestions to fian-xd.com"
 
 # // banner /etc/issue.net
-wget --progress=bar:force -O /etc/issue.net "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/banner/banner.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|banner.conf\s+100%|saved \["
+wget --progress=bar:force -O /etc/issue.net "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/banner/banner.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|issue.net\s+100%|saved \["
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
@@ -294,51 +294,51 @@ netfilter-persistent reload
 # download script
 cd /usr/bin
 # menu
-wget --progress=bar:force -O m-vmess "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vmess.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-vmess.sh\s+100%|saved \["
-wget --progress=bar:force -O m-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-vless.sh\s+100%|saved \["
+wget --progress=bar:force -O m-vmess "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vmess.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-vmess\s+100%|saved \["
+wget --progress=bar:force -O m-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-vless\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/running.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|running.sh\s+100%|saved \["
-wget --progress=bar:force -O clearcache "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/clearcache.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|clearcache.sh\s+100%|saved \["
+wget --progress=bar:force -O clearcache "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/clearcache.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|clearcache\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/menu.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu.sh\s+100%|saved \["
-wget --progress=bar:force -O m-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-ssws.sh\s+100%|saved \["
-wget --progress=bar:force -O m-trojan "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-trojan.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-trojan.sh\s+100%|saved \["
+wget --progress=bar:force -O m-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-ssws\s+100%|saved \["
+wget --progress=bar:force -O m-trojan "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-trojan.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-trojan\s+100%|saved \["
 wget -q -O instal-bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/instal-bot.sh"
 wget -q "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/countriest.txt"
 
 # menu ssh ovpn
-wget --progress=bar:force -O m-sshovpn "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-sshovpn.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-sshovpn.sh\s+100%|saved \["
+wget --progress=bar:force -O m-sshovpn "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-sshovpn.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-sshovpn\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/usernew.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|usernew.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/trial.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trial.sh\s+100%|saved \["
-wget --progress=bar:force -O renew "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/renew.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew.sh\s+100%|saved \["
-wget --progress=bar:force -O hapus "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/hapus.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|hapus.sh\s+100%|saved \["
+wget --progress=bar:force -O renew "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/renew.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew\s+100%|saved \["
+wget --progress=bar:force -O hapus "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/hapus.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|hapus\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cek.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek.sh\s+100%|saved \["
-wget --progress=bar:force -O member "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/member.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member.sh\s+100%|saved \["
-wget --progress=bar:force -O delete "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/delete.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|delete.sh\s+100%|saved \["
-wget --progress=bar:force -O autokill "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/autokill.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|autokill.sh\s+100%|saved \["
-wget --progress=bar:force -O ceklim "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ceklim.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ceklim.sh\s+100%|saved \["
-wget --progress=bar:force -O tendang "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/tendang.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tendang.sh\s+100%|saved \["
-wget --progress=bar:force -O sshws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/sshws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|sshws.sh\s+100%|saved \["
-wget --progress=bar:force -O user-lock "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/user-lock.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|user-lock.sh\s+100%|saved \["
-wget --progress=bar:force -O user-unlock "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/user-unlock.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|user-unlock.sh\s+100%|saved \["
+wget --progress=bar:force -O member "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/member.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member\s+100%|saved \["
+wget --progress=bar:force -O delete "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/delete.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|delete\s+100%|saved \["
+wget --progress=bar:force -O autokill "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/autokill.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|autokill\s+100%|saved \["
+wget --progress=bar:force -O ceklim "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ceklim.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ceklim\s+100%|saved \["
+wget --progress=bar:force -O tendang "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/tendang.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tendang\s+100%|saved \["
+wget --progress=bar:force -O sshws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/sshws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|sshws\s+100%|saved \["
+wget --progress=bar:force -O user-lock "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/user-lock.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|user-lock\s+100%|saved \["
+wget --progress=bar:force -O user-unlock "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/user-unlock.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|user-unlock\s+100%|saved \["
 
 # menu system
-wget --progress=bar:force -O m-system "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-system.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-system.sh\s+100%|saved \["
-wget --progress=bar:force -O m-domain "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-domain.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-domain.sh\s+100%|saved \["
-wget --progress=bar:force -O add-host "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/add-host.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-host.sh\s+100%|saved \["
-wget --progress=bar:force -O certv2ray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/certv2ray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|certv2ray.sh\s+100%|saved \["
-wget --progress=bar:force -O speedtest "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/speedtest_cli.py" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|speedtest_cli.py\s+100%|saved \["
-wget --progress=bar:force -O auto-reboot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto-reboot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|auto-reboot.sh\s+100%|saved \["
-wget --progress=bar:force -O restart "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/restart.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|restart.sh\s+100%|saved \["
-wget --progress=bar:force -O tambah_bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tambah_bot.py" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tambah_bot.py\s+100%|saved \["
-wget --progress=bar:force -O ingpo "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/ingpo.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ingpo.sh\s+100%|saved \["
+wget --progress=bar:force -O m-system "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-system.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-system\s+100%|saved \["
+wget --progress=bar:force -O m-domain "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-domain.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-domain\s+100%|saved \["
+wget --progress=bar:force -O add-host "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/add-host.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-host\s+100%|saved \["
+wget --progress=bar:force -O certv2ray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/certv2ray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|certv2ray\s+100%|saved \["
+wget --progress=bar:force -O speedtest "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/speedtest_cli.py" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|speedtest\s+100%|saved \["
+wget --progress=bar:force -O auto-reboot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto-reboot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|auto-reboot\s+100%|saved \["
+wget --progress=bar:force -O restart "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/restart.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|restart\s+100%|saved \["
+wget --progress=bar:force -O tambah_bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tambah_bot.py" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tambah_bot\s+100%|saved \["
+wget --progress=bar:force -O ingpo "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/ingpo.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ingpo\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/zmxn.txt" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|zmxn.txt\s+100%|saved \["
-wget --progress=bar:force -O bw "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/bw.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|bw.sh\s+100%|saved \["
-wget --progress=bar:force -O m-tcp "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tcp.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tcp.sh\s+100%|saved \["
-wget --progress=bar:force -O xp "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/xp.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|xp.sh\s+100%|saved \["
-wget --progress=bar:force -O sshws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/sshws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|sshws.sh\s+100%|saved \["
-wget --progress=bar:force -O m-dns "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-dns.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-dns.sh\s+100%|saved \["
-wget --progress=bar:force -O monitor "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/monitor.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|monitor.sh\s+100%|saved \["
-wget --progress=bar:force -O asuk "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/asuk.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|asuk.sh\s+100%|saved \["
-wget --progress=bar:force -O auto_nginx "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto_nginx.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|auto_nginx.sh\s+100%|saved \["
+wget --progress=bar:force -O bw "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/bw.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|bw\s+100%|saved \["
+wget --progress=bar:force -O m-tcp "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tcp.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-tcp\s+100%|saved \["
+wget --progress=bar:force -O xp "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/xp.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|xp\s+100%|saved \["
+wget --progress=bar:force -O sshws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/sshws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|sshws\s+100%|saved \["
+wget --progress=bar:force -O m-dns "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-dns.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-dns\s+100%|saved \["
+wget --progress=bar:force -O monitor "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/monitor.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|monitor\s+100%|saved \["
+wget --progress=bar:force -O asuk "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/asuk.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|asuk\s+100%|saved \["
+wget --progress=bar:force -O auto_nginx "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto_nginx.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|auto_nginx\s+100%|saved \["
 
 # Multi Login Xray
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/autokil/menu-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu-multi-login.sh\s+100%|saved \["
