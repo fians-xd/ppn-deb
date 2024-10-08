@@ -266,8 +266,9 @@ echo; echo -n "Creating cron to run script every minute....."
 /usr/local/ddos/ddos.sh --cron > /dev/null 2>&1
 echo ".....done"
 echo; echo "Installation has completed."
+echo " "
 echo "Config file is at /usr/local/ddos/ddos.conf"
-echo "Please send in your comments and/or suggestions to fian-xd.com"
+echo -e "Please send in your comments and/or suggestions to ${biru}@${green} wa.me/6287749044636 ${NC}"
 
 # // banner /etc/issue.net
 wget --progress=bar:force -O /etc/issue.net "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/banner/banner.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|issue.net\s+100%|saved \["
