@@ -13,20 +13,20 @@ detect_ip_per_user() {
     echo "$ips"
 }
 
-# Fungsi untuk menandai user
+# Fungsi untuk menandai user, hanya jika belum ada tanda "✓"
 mark_user() {
     user=$1
     echo "Marking user $user for $duration minutes."
 
-    # Tandai user Trojan dengan ✓ pada password
-    if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
-        sed -i -E "s/(\"password\": \")([^\"]*)(\".*\"email\": \"$user\")/\1✓\2✓\3/" $CONFIG_FILE
+    # Tandai user Trojan dengan ✓ pada password jika belum ada tanda ✓ di awal dan akhir
+    if grep -q "\"email\": \"$user\"" "$CONFIG_FILE" && ! grep -q "\"password\": \"✓.*$user" "$CONFIG_FILE"; then
+        sed -i -E "s/(\"password\": \")([^✓\"]*)(\".*\"email\": \"$user\")/\1✓\2✓\3/" $CONFIG_FILE
     fi
 
-    # Tandai user VLess dan VMess dengan ✓ pada ID
+    # Tandai user VLess dan VMess dengan ✓ pada ID jika belum ada tanda ✓ di awal
     for prefix in "#&" "###"; do
-        if grep -q "^$prefix $user" "$CONFIG_FILE"; then
-            sed -i -E "s/(\"email\": \")(.*?)(\")/\1✓\2✓\3/" $CONFIG_FILE
+        if grep -q "^$prefix $user" "$CONFIG_FILE" && ! grep -q "\"email\": \"✓$user\"" "$CONFIG_FILE"; then
+            sed -i -E "s/(\"email\": \")(?!✓)(.*?)(\")/\1✓\2\3/" $CONFIG_FILE
         fi
     done
 
@@ -38,13 +38,13 @@ mark_user() {
 
     # Pulihkan password untuk Trojan
     if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
-        sed -i -E "s/(\"password\": \")✓([^\"]*)✓(\".*\"email\": \"$user\")/\1\2\3/" $CONFIG_FILE
+        sed -i -E "s/(\"password\": \")✓([^✓\"]*)✓(\".*\"email\": \"$user\")/\1\2\3/" $CONFIG_FILE
     fi
 
     # Pulihkan ID untuk VLess dan VMess
     for prefix in "#&" "###"; do
         if grep -q "^$prefix $user" "$CONFIG_FILE"; then
-            sed -i -E "s/(\"email\": \")✓(.*?)(✓\")/\1\2\3/" $CONFIG_FILE
+            sed -i -E "s/(\"email\": \")✓(.*?)(\")/\1\2\3/" $CONFIG_FILE
         fi
     done
 
