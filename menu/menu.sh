@@ -153,6 +153,7 @@ DATE=$(date +"%d-%m-%Y")
 # Ganti nama hari ke bahasa Indonesia
 ID_DAY=${days[$EN_DAY]}
 
+osz=$(lsb_release -sd | sed 's/ GNU\/Linux//g' | awk '{print $1, $2, $3}')
 IPVPS=$(curl -s ifconfig.me )
 domain=$(cat /etc/xray/domain)
 uptime="$(uptime -p | cut -d " " -f 2-10)"
@@ -194,7 +195,7 @@ clear
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                  ━VPS INFO━                   \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;32m OS                  \e[31m: \e[0m"`hostnamectl | grep "Operating System" | cut -d ' ' -f5-`	
+echo -e "\e[1;32m OS                  \e[31m: \e[0m$osz"	
 echo -e "\e[1;32m UPTIME              \e[31m: \e[0m$uptime"
 echo -e "\e[1;32m PUBLIC IP           \e[31m: \e[0m$IPVPS"
 echo -e "\e[1;32m AUTHOR SC           \e[31m: \e[0mFian & Lista"
