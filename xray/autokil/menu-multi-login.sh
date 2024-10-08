@@ -79,6 +79,10 @@ fi
 
 # Membaca input dari pengguna
 read -p "Pilih Opsi Diatas: " new_option
+# Jika opsi bukan 5, minta input minimal IP login
+read -p "Masukan Minimal IP Login yang diizinkan (1/2/3/4/5): " ip_limit
+echo $ip_limit > /var/xray-autokil/ip_limit.txt
+echo $new_option > /var/xray-autokil/last_option.txt
 
 # Hentikan semua script jika menu 5 dipilih
 if [[ -n "$new_option" ]] && [[ "$new_option" -eq 5 ]]; then
@@ -88,10 +92,6 @@ if [[ -n "$new_option" ]] && [[ "$new_option" -eq 5 ]]; then
     echo "Semua pengaturan multi-login dimatikan."
     exit 0
 fi
-
-# Jika opsi bukan 5, minta input minimal IP login
-read -p "Masukan Minimal IP Login yang diizinkan (1/2/3/4/5): " ip_limit && echo $ip_limit > /var/xray-autokil/ip_limit.txt
-echo $new_option > /var/xray-autokil/last_option.txt
 
 # Hentikan semua script sebelum menjalankan yang baru
 stop_all_scripts
