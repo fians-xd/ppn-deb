@@ -35,9 +35,9 @@ mark_user() {
 for user in `cat $CONFIG_FILE | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`; do
     ips=$(detect_ip_per_user $user)
     ip_count=$(echo "$ips" | wc -l)
-    
+
     if [ $ip_count -gt $ip_limit ]; then
-        mark_user $user
+        mark_user $user &  # Jalankan mark_user di latar belakang
     fi
 done
 
@@ -45,9 +45,9 @@ done
 for user in `cat $CONFIG_FILE | grep '^#&' | cut -d ' ' -f 2 | sort | uniq`; do
     ips=$(detect_ip_per_user $user)
     ip_count=$(echo "$ips" | wc -l)
-    
+
     if [ $ip_count -gt $ip_limit ]; then
-        mark_user $user
+        mark_user $user &  # Jalankan mark_user di latar belakang
     fi
 done
 
@@ -55,8 +55,10 @@ done
 for user in `cat $CONFIG_FILE | grep '^###' | cut -d ' ' -f 2 | sort | uniq`; do
     ips=$(detect_ip_per_user $user)
     ip_count=$(echo "$ips" | wc -l)
-    
+
     if [ $ip_count -gt $ip_limit ]; then
-        mark_user $user
+        mark_user $user &  # Jalankan mark_user di latar belakang
     fi
 done
+
+wait  # Tunggu semua proses mark_user selesai
