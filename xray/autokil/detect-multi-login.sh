@@ -13,52 +13,60 @@ detect_ip_per_user() {
     echo "$ips"
 }
 
-# Fungsi untuk menandai user dengan menambahkan tanda "-" di awal dan akhir namanya
+# Fungsi untuk menandai user
 mark_user() {
     user=$1
     echo "Marking user $user for $duration minutes."
 
-    # Tambahkan "-" di awal dan akhir nama pengguna di file konfigurasi
-    sed -i "s/\"email\": \"$user\"/\"email\": \"-$user-\"/" $CONFIG_FILE
+    # Tandai user Trojan dengan ✓ pada password
+    if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
+        sed -i -E "s/(\"password\": \")([^\"]*)(\".*\"email\": \"$user\")/\1✓\2✓\3/" $CONFIG_FILE
+    fi
+
+    # Tandai user VLess dan VMess dengan ✓ pada ID
+    for prefix in "#&" "###"; do
+        if grep -q "^$prefix $user" "$CONFIG_FILE"; then
+            sed -i -E "s/(\"email\": \")(.*?)(\")/\1✓\2✓\3/" $CONFIG_FILE
+        fi
+    done
+
     systemctl restart xray
 
     sleep $(($duration * 60))
 
     echo "Restoring user $user."
 
-    # Pulihkan nama pengguna
-    sed -i "s/\"email\": \"-$user-\"/\"email\": \"$user\"/" $CONFIG_FILE
+    # Pulihkan password untuk Trojan
+    if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
+        sed -i -E "s/(\"password\": \")✓([^\"]*)✓(\".*\"email\": \"$user\")/\1\2\3/" $CONFIG_FILE
+    fi
+
+    # Pulihkan ID untuk VLess dan VMess
+    for prefix in "#&" "###"; do
+        if grep -q "^$prefix $user" "$CONFIG_FILE"; then
+            sed -i -E "s/(\"email\": \")✓(.*?)(✓\")/\1\2\3/" $CONFIG_FILE
+        fi
+    done
+
     systemctl restart xray
 }
 
-# Looping untuk semua user Trojan
-for user in `cat $CONFIG_FILE | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`; do
-    ips=$(detect_ip_per_user $user)
-    ip_count=$(echo "$ips" | wc -l)
+# Fungsi untuk menangani semua user berdasarkan prefix
+handle_users() {
+    prefix=$1
+    for user in $(cat $CONFIG_FILE | grep "^$prefix" | cut -d ' ' -f 2 | sort | uniq); do
+        ips=$(detect_ip_per_user $user)
+        ip_count=$(echo "$ips" | wc -l)
 
-    if [ $ip_count -gt $ip_limit ]; then
-        mark_user $user &  # Jalankan mark_user di latar belakang
-    fi
-done
+        if [ $ip_count -gt $ip_limit ]; then
+            mark_user $user &  # Jalankan mark_user di latar belakang
+        fi
+    done
+}
 
-# Looping untuk semua user VLess
-for user in `cat $CONFIG_FILE | grep '^#&' | cut -d ' ' -f 2 | sort | uniq`; do
-    ips=$(detect_ip_per_user $user)
-    ip_count=$(echo "$ips" | wc -l)
-
-    if [ $ip_count -gt $ip_limit ]; then
-        mark_user $user &  # Jalankan mark_user di latar belakang
-    fi
-done
-
-# Looping untuk semua user VMess
-for user in `cat $CONFIG_FILE | grep '^###' | cut -d ' ' -f 2 | sort | uniq`; do
-    ips=$(detect_ip_per_user $user)
-    ip_count=$(echo "$ips" | wc -l)
-
-    if [ $ip_count -gt $ip_limit ]; then
-        mark_user $user &  # Jalankan mark_user di latar belakang
-    fi
-done
+# Menangani semua user berdasarkan prefix
+handle_users "#!"   # Trojan
+handle_users "#&"   # VLess
+handle_users "###"  # VMess
 
 wait  # Tunggu semua proses mark_user selesai
