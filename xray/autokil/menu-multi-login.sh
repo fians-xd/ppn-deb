@@ -18,7 +18,9 @@ print_status() {
 cekip=$(cat /var/xray-autokil/ip_limit.txt)
 check_status() {
     echo " "
-    echo " ~=[ Multilogin/Autokil Xray Yang aktif ]=~"
+    echo "=================================================="
+    echo "    ~=[ Multilogin/Autokil Xray Yang aktif ]=~"
+    echo "=================================================="
     echo " "
     if pgrep -f menu1-multi-login > /dev/null; then
         print_status "aktif" "[•] lock user multilogin $cekip ip selama 5 menit"
