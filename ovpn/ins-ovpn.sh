@@ -17,7 +17,7 @@ domain=$(cat /etc/xray/domain)
 echo " "
 sleep 0.8
 apt-get -y install squid
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/squid3.conf"
+wget --progress=bar:force -O /etc/squid/squid.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/squid3.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|squid.conf\s+100%|saved \["
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # Install OpenVPN dan Easy-RSA
@@ -28,6 +28,7 @@ mkdir -p /etc/openvpn/server/easy-rsa/
 
 cd /etc/openvpn/
 wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/vpn.zip
+wget --progress=bar:force -O /etc/squid/squid.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/squid3.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|squid.conf\s+100%|saved \["
 unzip vpn.zip
 rm -f vpn.zip
 chown -R root:root /etc/openvpn/server/easy-rsa/
