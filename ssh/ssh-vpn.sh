@@ -104,7 +104,7 @@ install_ssl() {
         if [ "$isDebian" != "" ] || [ "$isUbuntu" != "" ]; then
             # Instal nginx dan certbot
             apt-get update
-            apt-get install -y nginx certbot
+            apt-get install -y certbot
             sleep 3s
             
             # Stop nginx service
@@ -112,7 +112,7 @@ install_ssl() {
             
             domens=$(cat /etc/xray/domain)
             # Menggunakan certbot untuk mendapatkan sertifikat
-            echo "A" | certbot certonly --renew-by-default --register-unsafely-without-email --standalone -d $domens
+            echo "A" | certbot certonly --renew-by-default --register-unsafely-without-email --standalone -d $domens --agree-tos
             sleep 0.5
             systemctl start nginx.service
         else
