@@ -219,12 +219,13 @@ echo -e "\e[1;32m  SSH\e[31m:\e[0m$xshx    \e[1;32mVmess\e[31m:\e[0m$xvmesx    \
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                   ━MENU━                      \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;33m [\e[36m1\e[1;33m]\e[31m : \e[0mSSH                \e[1;33m[\e[36m7\e[1;33m]\e[31m : \e[0mReboot VPS"
-echo -e "\e[1;33m [\e[36m2\e[1;33m]\e[31m : \e[0mVmess              \e[1;33m[\e[36m8\e[1;33m]\e[31m : \e[0mMonitor VPS"
-echo -e "\e[1;33m [\e[36m3\e[1;33m]\e[31m : \e[0mVless              \e[1;33m[\e[36m9\e[1;33m]\e[31m : \e[0mStatus Service"
-echo -e "\e[1;33m [\e[36m4\e[1;33m]\e[31m : \e[0mTrojan             \e[1;33m[\e[36m10\e[1;33m]\e[31m: \e[0mClear Cache"
-echo -e "\e[1;33m [\e[36m5\e[1;33m]\e[31m : \e[0mShwsocks           \e[1;33m[\e[36m11\e[1;33m]\e[31m: \e[0mBoot Telegram"
-echo -e "\e[1;33m [\e[36m6\e[1;33m]\e[31m : \e[0mSetting            \e[1;33m[\e[36mx\e[1;33m]\e[31m : \e[0mExit Script"
+echo -e "\e[1;33m [\e[36m1\e[1;33m]\e[31m : \e[0mSSH                \e[1;33m[\e[36m8 \e[1;33m]\e[31m : \e[0mReboot VPS"
+echo -e "\e[1;33m [\e[36m2\e[1;33m]\e[31m : \e[0mVmess              \e[1;33m[\e[36m9 \e[1;33m]\e[31m : \e[0mMonitor VPS"
+echo -e "\e[1;33m [\e[36m3\e[1;33m]\e[31m : \e[0mVless              \e[1;33m[\e[36m10 \e[1;33m]\e[31m : \e[0mStatus Service"
+echo -e "\e[1;33m [\e[36m4\e[1;33m]\e[31m : \e[0mTrojan             \e[1;33m[\e[36m11 \e[1;33m]\e[31m: \e[0mClear Cache"
+echo -e "\e[1;33m [\e[36m5\e[1;33m]\e[31m : \e[0mShwsocks           \e[1;33m[\e[36m12 \e[1;33m]\e[31m: \e[0mBoot Telegram"
+echo -e "\e[1;33m [\e[36m6 \e[1;33m]\e[31m : \e[0mAutokil Ssh        \e[1;33m[\e[36m13 \e[1;33m]\e[31m : \e[0mSetting Script"
+echo -e "\e[1;33m [\e[36m7 \e[1;33m]\e[31m : \e[0mAutokil Xray       \e[1;33m[\e[36mX \e[1;33m]\e[31m : \e[0mExit Script"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                 ━USER INFO━                   \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
@@ -242,6 +243,8 @@ case $opt in
 3) clear ; m-vless ;;
 4) clear ; m-trojan ;;
 5) clear ; m-ssws ;;
+6) clear ; autokill ;;
+7) clear ; menu-multi-login ;;
 6) clear ; m-system ;;
 7) clear ; reboot ; /sbin/reboot ;;
 8) clear ; monitor ;;
