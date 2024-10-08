@@ -57,13 +57,15 @@ stop_all_scripts() {
 echo " "
 check_status
 echo " "
-echo "============================================"
-echo "1. Lock user multilogin selama 5 menit"
-echo "2. Lock user multilogin selama 10 menit"
-echo "3. Lock user multilogin selama 15 menit"
-echo "4. Lock user multilogin selama 20 menit"
-echo "5. Off kan seluruh settingan Multi Login"
-echo "============================================"
+echo "=================================================="
+echo " ~=[ Menu Multilogin Xray (vmes,vles,trojan) ]=~"
+echo "=================================================="
+echo "[1] Lock user multilogin selama 5 menit"
+echo "[2] Lock user multilogin selama 10 menit"
+echo "[3] Lock user multilogin selama 15 menit"
+echo "[4] Lock user multilogin selama 20 menit"
+echo "[5] Off kan seluruh settingan Multi Login"
+echo "=================================================="
 echo " "
 
 # Baca opsi terakhir jika ada
