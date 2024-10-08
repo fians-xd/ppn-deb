@@ -91,8 +91,6 @@ fi
 
 # Jika opsi bukan 5, minta input minimal IP login
 read -p "Masukan Minimal IP Login yang diizinkan (1/2/3/4/5): " ip_limit
-echo $new_option > /var/xray-autokil/last_option.txt
-echo $ip_limit > /var/xray-autokil/ip_limit.txt
 
 # Hentikan semua script sebelum menjalankan yang baru
 stop_all_scripts
@@ -136,5 +134,7 @@ done
 
 clear
 echo " "
+echo $new_option > /var/xray-autokil/last_option.txt
+echo $ip_limit > /var/xray-autokil/ip_limit.txt
 check_status
 echo " "
