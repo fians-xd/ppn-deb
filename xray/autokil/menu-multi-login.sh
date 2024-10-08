@@ -18,30 +18,30 @@ print_status() {
 cekip=$(cat /var/xray-autokil/ip_limit.txt)
 check_status() {
     echo " "
-    echo " Multilogin/Autokil Xray Yang aktif:"
-    
+    echo " ~=[ Multilogin/Autokil Xray Yang aktif ]=~"
+    echo " "
     if pgrep -f menu1-multi-login > /dev/null; then
-        print_status "aktif" "lock user multilogin $cekip ip selama 5 menit"
+        print_status "aktif" "[•] lock user multilogin $cekip ip selama 5 menit"
     else
-        print_status "tidak" "lock user multilogin selama 5 menit"
+        print_status "tidak" "[•] lock user multilogin selama 5 menit"
     fi
 
     if pgrep -f menu2-multi-login > /dev/null; then
-        print_status "aktif" "lock user multilogin $cekip ip selama 10 menit"
+        print_status "aktif" "[•] lock user multilogin $cekip ip selama 10 menit"
     else
-        print_status "tidak" "lock user multilogin selama 10 menit"
+        print_status "tidak" "[•] lock user multilogin selama 10 menit"
     fi
 
     if pgrep -f menu3-multi-login > /dev/null; then
-        print_status "aktif" "lock user multilogin $cekip ip selama 15 menit"
+        print_status "aktif" "[•] lock user multilogin $cekip ip selama 15 menit"
     else
-        print_status "tidak" "lock user multilogin selama 15 menit"
+        print_status "tidak" "[•] lock user multilogin selama 15 menit"
     fi
 
     if pgrep -f menu4-multi-login > /dev/null; then
-        print_status "aktif" "lock user multilogin $cekip ip selama 20 menit"
+        print_status "aktif" "[•] lock user multilogin $cekip ip selama 20 menit"
     else
-        print_status "tidak" "lock user multilogin selama 20 menit"
+        print_status "tidak" "[•] lock user multilogin selama 20 menit"
     fi
 }
 
@@ -56,6 +56,7 @@ stop_all_scripts() {
 # Tampilkan menu untuk memilih pengaturan multi-login
 echo " "
 check_status
+echo " "
 echo "============================================"
 echo "1. Lock user multilogin selama 5 menit"
 echo "2. Lock user multilogin selama 10 menit"
