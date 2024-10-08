@@ -245,12 +245,12 @@ case $opt in
 5) clear ; m-ssws ;;
 6) clear ; autokill ;;
 7) clear ; menu-multi-login ;;
-6) clear ; m-system ;;
-7) clear ; reboot ; /sbin/reboot ;;
-8) clear ; monitor ;;
-9) clear ; running ;;
-10) clear ; clearcache ;;
-11) clear ; tambah_bot ;;
-x) exit ;;
+8) clear ; reboot ; /sbin/reboot ;;
+9) clear ; monitor ;;
+10) clear ; running ;;
+11) clear ; clearcache ;;
+12) clear ; tambah_bot ;;
+13) clear ; m-system ;;
+X) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu ;;
 esac
