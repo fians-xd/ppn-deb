@@ -18,6 +18,7 @@ echo " "
 sleep 0.8
 apt-get -y install squid
 wget --progress=bar:force -O /etc/squid/squid.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/squid3.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|squid.conf\s+100%|saved \["
+rm /tmp/wget.log
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # Install OpenVPN dan Easy-RSA
@@ -27,8 +28,8 @@ apt-get install openssl iptables iptables-persistent -y
 mkdir -p /etc/openvpn/server/easy-rsa/
 
 cd /etc/openvpn/
-wget https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/vpn.zip
-wget --progress=bar:force -O /etc/squid/squid.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/squid3.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|squid.conf\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/vpn.zip" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|vpn.zip\s+100%|saved \["
+rm /tmp/wget.log
 unzip vpn.zip
 rm -f vpn.zip
 chown -R root:root /etc/openvpn/server/easy-rsa/
@@ -189,4 +190,4 @@ echo -e "[ ${BGreen}ok${NC} ] Restarting stunnel4 "
 sleep 0.5
 echo -e "[ ${BGreen}ok${NC} ] Restarting vnstat "
 /etc/init.d/squid restart >/dev/null 2>&1
-sleep 0.9
+sleep 0.5
