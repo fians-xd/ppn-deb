@@ -23,12 +23,15 @@ mark_user() {
         sed -i -E "s/(\"password\": \")([^✓\"]*)(\".*\"email\": \"$user\")/\1✓\2✓\3/" $CONFIG_FILE
     fi
 
-    # Tandai user VLess dan VMess dengan ✓ pada ID jika belum ada tanda ✓ di awal
-    for prefix in "#&" "###"; do
-        if grep -q "^$prefix $user" "$CONFIG_FILE" && ! grep -q "\"email\": \"✓$user\"" "$CONFIG_FILE"; then
-            sed -i -E "s/(\"email\": \")(?!✓)(.*?)(\")/\1✓\2\3/" $CONFIG_FILE
-        fi
-    done
+    # Tandai user VMess dengan ✓ pada ID jika belum ada tanda ✓ di awal dan akhir
+    if grep -q "\"email\": \"$user\"" "$CONFIG_FILE" && ! grep -q "\"id\": \"✓.*$user" "$CONFIG_FILE"; then
+        sed -i -E "s/(\"id\": \")([^✓\"]*)(\".*\"email\": \"$user\")/\1✓\2✓\3/" $CONFIG_FILE
+    fi
+
+    # Tandai user VLess dengan ✓ pada ID jika belum ada tanda ✓ di awal dan akhir
+    if grep -q "\"email\": \"$user\"" "$CONFIG_FILE" && ! grep -q "\"id\": \"✓.*$user" "$CONFIG_FILE"; then
+        sed -i -E "s/(\"id\": \")([^✓\"]*)(\".*\"email\": \"$user\")/\1✓\2✓\3/" $CONFIG_FILE
+    fi
 
     systemctl restart xray
 
@@ -41,20 +44,17 @@ mark_user() {
         sed -i -E "s/(\"password\": \")✓([^✓\"]*)✓(\".*\"email\": \"$user\")/\1\2\3/" $CONFIG_FILE
     fi
 
-    # Pulihkan ID untuk VLess dan VMess
-    for prefix in "#&" "###"; do
-        if grep -q "^$prefix $user" "$CONFIG_FILE"; then
-            sed -i -E "s/(\"email\": \")✓(.*?)(\")/\1\2\3/" $CONFIG_FILE
-        fi
-    done
+    # Pulihkan ID untuk VMess dan VLess
+    if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
+        sed -i -E "s/(\"id\": \")✓([^✓\"]*)✓(\".*\"email\": \"$user\")/\1\2\3/" $CONFIG_FILE
+    fi
 
     systemctl restart xray
 }
 
-# Fungsi untuk menangani semua user berdasarkan prefix
+# Fungsi untuk menangani semua user berdasarkan tipe
 handle_users() {
-    prefix=$1
-    for user in $(cat $CONFIG_FILE | grep "^$prefix" | cut -d ' ' -f 2 | sort | uniq); do
+    for user in $(cat $CONFIG_FILE | grep "\"email\": \"" | cut -d '"' -f 4 | sort | uniq); do
         ips=$(detect_ip_per_user $user)
         ip_count=$(echo "$ips" | wc -l)
 
@@ -64,9 +64,7 @@ handle_users() {
     done
 }
 
-# Menangani semua user berdasarkan prefix
-handle_users "#!"   # Trojan
-handle_users "#&"   # VLess
-handle_users "###"  # VMess
+# Menangani semua user
+handle_users
 
 wait  # Tunggu semua proses mark_user selesai
