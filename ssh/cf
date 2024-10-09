@@ -15,7 +15,9 @@ DOMAIN=${DOMAINS[$RANDOM % ${#DOMAINS[@]}]}
 # Input manual untuk subdomain
 while true; do
     echo " "
-    read -p "[•] Input Nama Anda: " sub
+    echo -e "~=[ Input Nama Anda ]=~"
+    echo " "
+    read -p "Name: " sub
 
     if [[ ${#sub} -le 5 ]]; then
         break
