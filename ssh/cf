@@ -14,12 +14,14 @@ DOMAIN=${DOMAINS[$RANDOM % ${#DOMAINS[@]}]}
 
 # Input manual untuk subdomain
 while true; do
-    read -p "Input Nama Anda: " sub
+    echo " "
+    read -p "[•] Input Nama Anda: " sub
 
     if [[ ${#sub} -le 5 ]]; then
         break
     else
         echo "Nama harus minimal 5 huruf. Silakan coba lagi."
+        sleep 0.9
         clear
     fi
 done
