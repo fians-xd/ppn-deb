@@ -56,6 +56,7 @@ mark_user() {
         echo "Restored VMess/VLess for $user."  # Pesan debug
     fi
 
+    sleep 7
     systemctl restart xray
 }
 
@@ -76,5 +77,3 @@ handle_users() {
 
 # Menangani semua user
 handle_users
-
-wait  # Tunggu semua proses mark_user selesai
