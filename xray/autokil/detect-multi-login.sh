@@ -77,3 +77,4 @@ handle_users() {
 
 # Menangani semua user
 handle_users
+wait
