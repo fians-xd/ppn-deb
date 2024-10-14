@@ -74,6 +74,34 @@ handle_users() {
 
 # Menangani semua user
 handle_users
-wait
-sleep 7
-systemctl restart xray
+
+# Path ke file checksum untuk mendeteksi perubahan
+CHECKSUM_FILE="/etc/xray/config_checksum.md5"
+
+# Fungsi untuk menghitung checksum file konfigurasi
+calculate_checksum() {
+    md5sum "$CONFIG_FILE" | awk '{print $1}'
+}
+
+# Cek apakah file checksum ada
+if [ ! -f "$CHECKSUM_FILE" ]; then
+    echo "File checksum tidak ditemukan. Membuat checksum awal."
+    calculate_checksum > "$CHECKSUM_FILE"
+    exit 0
+fi
+
+# Ambil checksum sebelumnya
+PREVIOUS_CHECKSUM=$(cat "$CHECKSUM_FILE")
+# Hitung checksum baru
+CURRENT_CHECKSUM=$(calculate_checksum)
+
+# Bandingkan checksum sebelumnya dan yang sekarang
+if [ "$PREVIOUS_CHECKSUM" != "$CURRENT_CHECKSUM" ]; then
+    echo "Perubahan terdeteksi pada file konfigurasi. Melakukan restart Xray."
+    # Update checksum dan restart Xray
+    echo "$CURRENT_CHECKSUM" > "$CHECKSUM_FILE"
+    systemctl restart xray
+    rm -rf $CHECKSUM_FILE
+else
+    echo "Tidak ada perubahan pada file konfigurasi. Tidak perlu restart."
+fi
