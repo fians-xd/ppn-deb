@@ -437,7 +437,7 @@ cd
 cat > /etc/cron.d/rlog_otm <<-END
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-*/5 * * * * root > /var/log/xray/access.log
+*/3 * * * * root > /var/log/xray/access.log
 */5 * * * * root > /var/log/multi-login-xray.log
 */5 * * * * root > /etc/cek-tr.log
 */5 * * * * root > /etc/cek-vless.log
