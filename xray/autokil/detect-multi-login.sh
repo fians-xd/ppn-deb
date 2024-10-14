@@ -55,9 +55,6 @@ mark_user() {
         sed -i -E "s/(\"id\": \")✓([^✓\"]*)✓(\".*\"email\": \"$user\")/\1\2\3/" $CONFIG_FILE
         echo "Restored VMess/VLess for $user."  # Pesan debug
     fi
-
-    sleep 7
-    systemctl restart xray
 }
 
 # Fungsi untuk menangani semua user berdasarkan tipe
@@ -78,3 +75,5 @@ handle_users() {
 # Menangani semua user
 handle_users
 wait
+sleep 7
+systemctl restart xray
