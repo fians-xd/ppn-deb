@@ -6,9 +6,6 @@ ip_limit=$2
 # Path file konfigurasi
 CONFIG_FILE="/etc/xray/config.json"
 
-# Path ke file checksum untuk mendeteksi perubahan
-CHECKSUM_FILE="/etc/xray/config_checksum.md5"
-
 # Fungsi untuk mendeteksi IP per user dari log Xray
 detect_ip_per_user() {
     user=$1
@@ -42,51 +39,25 @@ mark_user() {
     fi
 
     systemctl restart xray
-    
-    # Fungsi untuk menghitung checksum file konfigurasi
-    calculate_checksum() {
-    md5sum "$CONFIG_FILE" | awk '{print $1}'
-    }
 
-    # Cek apakah file checksum ada
-    if [ ! -f "$CHECKSUM_FILE" ]; then
-    echo "File checksum tidak ditemukan. Membuat checksum awal."
-    calculate_checksum > "$CHECKSUM_FILE"
-    exit 0
-    fi
+    # Tunggu dalam latar belakang tanpa memblokir
+    ( sleep $(($duration * 60))
+      echo "Restoring user $user."  # Pesan debug
 
-    sleep $(($duration * 60))
+      # Pulihkan password untuk Trojan
+      if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
+          sed -i -E "s/(\"password\": \")✓([^✓\"]*)✓(\".*\"email\": \"$user\")/\1\2\3/" $CONFIG_FILE
+          echo "Restored Trojan for $user."  # Pesan debug
+      fi
 
-    echo "Restoring user $user."  # Pesan debug
+      # Pulihkan ID untuk VMess dan VLess
+      if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
+          sed -i -E "s/(\"id\": \")✓([^✓\"]*)✓(\".*\"email\": \"$user\")/\1\2\3/" $CONFIG_FILE
+          echo "Restored VMess/VLess for $user."  # Pesan debug
+      fi
 
-    # Pulihkan password untuk Trojan
-    if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
-        sed -i -E "s/(\"password\": \")✓([^✓\"]*)✓(\".*\"email\": \"$user\")/\1\2\3/" $CONFIG_FILE
-        echo "Restored Trojan for $user."  # Pesan debug
-    fi
-
-    # Pulihkan ID untuk VMess dan VLess
-    if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
-        sed -i -E "s/(\"id\": \")✓([^✓\"]*)✓(\".*\"email\": \"$user\")/\1\2\3/" $CONFIG_FILE
-        echo "Restored VMess/VLess for $user."  # Pesan debug
-    fi
-
-    # Ambil checksum sebelumnya
-    PREVIOUS_CHECKSUM=$(cat "$CHECKSUM_FILE")
-
-    # Hitung checksum baru
-    CURRENT_CHECKSUM=$(calculate_checksum)
-
-    # Bandingkan checksum sebelumnya dan yang sekarang
-    if [ "$PREVIOUS_CHECKSUM" != "$CURRENT_CHECKSUM" ]; then
-        echo "Perubahan terdeteksi pada file konfigurasi. Melakukan restart Xray."
-        # Update checksum dan restart Xray
-        echo "$CURRENT_CHECKSUM" > "$CHECKSUM_FILE"
-        systemctl restart xray
-        rm -rf $CHECKSUM_FILE
-    else
-        echo "Tidak ada perubahan pada file konfigurasi. Tidak perlu restart."
-    fi
+      systemctl restart xray
+    ) &
 }
 
 # Fungsi untuk menangani semua user berdasarkan tipe
@@ -99,7 +70,7 @@ handle_users() {
 
         if [ $ip_count -gt $ip_limit ]; then
             echo "User $user exceeds IP limit ($ip_limit)."  # Pesan debug
-            mark_user $user &  # Jalankan mark_user di latar belakang
+            mark_user $user  # Jalankan mark_user di latar belakang
         fi
     done
 }
