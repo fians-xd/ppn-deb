@@ -233,9 +233,6 @@ chmod +x ins-ovpn.sh && ./ins-ovpn.sh | tee -a .riwayat-install/log-instal-openv
 
 echo " "
 curl -sS ipv4.icanhazip.com > /etc/myipvps
-apt-get install python3-pip -y
-python3 -m pip install --upgrade pip
-python3 -m pip install tabulate
 
 clear
 cd
