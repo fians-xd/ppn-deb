@@ -49,6 +49,7 @@ dart=$(cat /etc/hosts | grep -w `hostname` | awk '{print $2}')
 if [[ "$hst" != "$dart" ]]; then
 echo "$localip $(hostname)" >> /etc/hosts
 fi
+
 # buat folder
 mkdir -p /etc/xray
 mkdir -p /etc/v2ray
@@ -245,10 +246,6 @@ sleep 0.9
 apt-get remove --purge g++ gcc make build-essential zip unzip libz-dev git iftop -y
 apt-get autoremove -y
 apt-get autoclean -y
-sudo mkdir -p /var/xray-autokil
-sudo chmod 777 /var/xray-autokil
-sudo touch /var/xray-autokil/ip_limit.txt
-sudo chmod 755 /var/xray-autokil/ip_limit.txt
 
 clear
 echo ""
