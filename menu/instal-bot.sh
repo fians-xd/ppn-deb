@@ -2,8 +2,8 @@
 
 cd
 rm instal.sh install.sh > /dev/null 2>&1
-apt-get update > /dev/null 2>&1
-apt-get install wget -y > /dev/null 2>&1
+apt-get update
+apt-get install wget -y
 
 # Warna
 green='\e[0;32m'
