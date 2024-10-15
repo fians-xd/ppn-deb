@@ -598,9 +598,11 @@ rm add-tr.sh add-tr.sh.x.c
 sleep 0.8
 gren() { echo -e "\\033[0;32m${*}\\033[0m"; }
 echo " "
-gren "xray/Vmess"
+gren "Setup xray/Vmess Done"
 sleep 0.8
-gren "xray/Vless"
+gren "Setup xray/Vless Done"
+sleep 0.8
+gren "Setup xray/Trokan Done"
 echo " "
 
 mv /root/domain /etc/xray/ 
