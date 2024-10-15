@@ -341,6 +341,10 @@ wget --progress=bar:force -O monitor "https://raw.githubusercontent.com/fians-xd
 wget --progress=bar:force -O asuk "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/asuk.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|asuk\s+100%|saved \["
 wget --progress=bar:force -O auto_nginx "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto_nginx.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|auto_nginx\s+100%|saved \["
 
+# Molog Xray
+wget --progress=bar:force -O molog-xray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/molog_xray/molog-xray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|molog-xray\s+100%|saved \["
+sudo chmod +x molog-xray
+
 sudo shc -U -S -f menu.sh -o menu
 sudo shc -U -S -f running.sh -o running
 sudo shc -U -S -f usernew.sh -o usernew
