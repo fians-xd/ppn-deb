@@ -244,7 +244,7 @@ case $opt in
 4) clear ; m-trojan ;;
 5) clear ; m-ssws ;;
 6) clear ; autokill ;;
-7) clear ; menu-multi-login ;;
+7) clear ; molog-xray ;;
 8) clear ; reboot ; /sbin/reboot ;;
 9) clear ; monitor ;;
 10) clear ; running ;;
