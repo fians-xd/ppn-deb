@@ -130,9 +130,9 @@ cd
 apt-get install nginx -y
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget --progress=bar:force -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/nginx.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/nginx.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|/etc/nginx/nginx.conf\s+100%|saved \["
 rm /etc/nginx/conf.d/vps.conf
-wget --progress=bar:force -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/vps.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|vps.conf\s+100%|saved \["
+wget --progress=bar:force -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/vps.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|/etc/nginx/conf.d/vps.conf\s+100%|saved \["
 /etc/init.d/nginx restart
 
 mkdir /etc/systemd/system/nginx.service.d
@@ -144,13 +144,13 @@ cd
 mkdir .ngx
 mkdir /home/vps
 mkdir /home/vps/public_html
-wget --progress=bar:force -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/index" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|index.html\s+100%|saved \["
+wget --progress=bar:force -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/index" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|/home/vps/public_html/index.html\s+100%|saved \["
 mkdir /home/vps/public_html/ss-ws
 mkdir /home/vps/public_html/clash-ws
 
 # install badvpn
 cd
-wget --progress=bar:force -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/newudpgw" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|badvpn-udpgw\s+100%|saved \["
+wget --progress=bar:force -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/newudpgw" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|/usr/bin/badvpn-udpgw\s+100%|saved \["
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -250,10 +250,10 @@ fi
 echo " "
 echo; echo "Installing DOS-Deflate 0.6"; echo
 echo; echo -n "Downloading source files..."
-wget --progress=bar:force -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ddos.conf\s+100%|saved \["
-wget --progress=bar:force -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|LICENSE\s+100%|saved \["
-wget --progress=bar:force -O /usr/local/ddos/ignore.ip.list http://www.inetbase.com/scripts/ddos/ignore.ip.list 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ignore.ip.list\s+100%|saved \["
-wget --progress=bar:force -O /usr/local/ddos/ddos.sh http://www.inetbase.com/scripts/ddos/ddos.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ddos.sh\s+100%|saved \["
+wget --progress=bar:force -O /usr/local/ddos/ddos.conf http://www.inetbase.com/scripts/ddos/ddos.conf 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|/usr/local/ddos/ddos.conf\s+100%|saved \["
+wget --progress=bar:force -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|/usr/local/ddos/LICENSE\s+100%|saved \["
+wget --progress=bar:force -O /usr/local/ddos/ignore.ip.list http://www.inetbase.com/scripts/ddos/ignore.ip.list 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|/usr/local/ddos/ignore.ip.list\s+100%|saved \["
+wget --progress=bar:force -O /usr/local/ddos/ddos.sh http://www.inetbase.com/scripts/ddos/ddos.sh 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|/usr/local/ddos/ddos.sh\s+100%|saved \["
 chmod 0755 /usr/local/ddos/ddos.sh
 cp -s /usr/local/ddos/ddos.sh /usr/local/sbin/ddos
 echo "...done"
@@ -268,7 +268,7 @@ echo " "
 sleep 0.9
 
 # // banner /etc/issue.net
-wget --progress=bar:force -O /etc/issue.net "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/banner/banner.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|issue.net\s+100%|saved \["
+wget --progress=bar:force -O /etc/issue.net "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/banner/banner.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|/etc/issue.net\s+100%|saved \["
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
@@ -341,43 +341,6 @@ wget --progress=bar:force -O monitor "https://raw.githubusercontent.com/fians-xd
 wget --progress=bar:force -O asuk "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/asuk.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|asuk\s+100%|saved \["
 wget --progress=bar:force -O auto_nginx "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto_nginx.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|auto_nginx\s+100%|saved \["
 
-# Multi Login Xray
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/autokil/menu-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu-multi-login.sh\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/autokil/detect-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|detect-multi-login.sh\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/autokil/menu1-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu1-multi-login.sh\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/autokil/menu2-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu2-multi-login.sh\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/autokil/menu3-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu3-multi-login.sh\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/autokil/menu4-multi-login.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu4-multi-login.sh\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/autokil/restore-xray-config.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|restore-xray-config.sh\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/autokil/restart_running.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|restart_running.sh\s+100%|saved \["
-
-sudo shc -U -S -f menu-multi-login.sh -o menu-multi-login
-sudo shc -U -S -f detect-multi-login.sh -o detect-multi-login
-sudo shc -U -S -f menu1-multi-login.sh -o menu1-multi-login
-sudo shc -U -S -f menu2-multi-login.sh -o menu2-multi-login
-sudo shc -U -S -f menu3-multi-login.sh -o menu3-multi-login
-sudo shc -U -S -f menu4-multi-login.sh -o menu4-multi-login
-sudo shc -U -S -f restore-xray-config.sh -o restore-xray-config
-sudo shc -U -S -f restart_running.sh -o restart_running
-
-sudo chmod +x menu-multi-login
-sudo chmod +x detect-multi-login
-sudo chmod +x menu1-multi-login
-sudo chmod +x menu2-multi-login
-sudo chmod +x menu3-multi-login
-sudo chmod +x menu4-multi-login
-sudo chmod +x restore-xray-config
-sudo chmod +x restart_running
-
-rm menu-multi-login.sh menu-multi-login.sh.x.c
-rm detect-multi-login.sh detect-multi-login.sh.x.c
-rm menu1-multi-login.sh menu1-multi-login.sh.x.c
-rm menu2-multi-login.sh menu2-multi-login.sh.x.c
-rm menu3-multi-login.sh menu3-multi-login.sh.x.c
-rm menu4-multi-login.sh menu4-multi-login.sh.x.c
-rm restore-xray-config.sh restore-xray-config.sh.x.c
-rm restart_running.sh restart_running.sh.x.c
-
 sudo shc -U -S -f menu.sh -o menu
 sudo shc -U -S -f running.sh -o running
 sudo shc -U -S -f usernew.sh -o usernew
@@ -437,7 +400,7 @@ cd
 cat > /etc/cron.d/rlog_otm <<-END
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-*/3 * * * * root > /var/log/xray/access.log
+*/5 * * * * root > /var/log/xray/access.log
 */5 * * * * root > /var/log/multi-login-xray.log
 */5 * * * * root > /etc/cek-tr.log
 */5 * * * * root > /etc/cek-vless.log
