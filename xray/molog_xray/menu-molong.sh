@@ -42,7 +42,7 @@ show_menu() {
     echo -e "3. Lock User Multi Login 15 Menit"
     echo -e "4. Matikan Semua Lock Multilogin"
     echo ""
-    read -p "Masukan Menu (1/2/3/4) : " menu_choice
+    read -p "Pilih Menu: " menu_choice
 }
 
 # Fungsi untuk mengatur durasi dan memastikan hanya satu sesi aktif
