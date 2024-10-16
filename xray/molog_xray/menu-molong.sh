@@ -75,9 +75,9 @@ set_lock() {
 
 # Fungsi untuk menghentikan semua penguncian
 stop_all_locks() {
-    pkill -f "$SCRIPT_DIR/lock-multilogin-5.sh"
-    pkill -f "$SCRIPT_DIR/lock-multilogin-10.sh"
-    pkill -f "$SCRIPT_DIR/lock-multilogin-15.sh"
+    pkill -f "$SCRIPT_DIR/lock-molog"
+    pkill -f "$SCRIPT_DIR/lock-xray"
+    
     # Mengosongkan isi file durasi dan limit
     > "$DURASI_FILE"
     > "$LIMIT_FILE"
