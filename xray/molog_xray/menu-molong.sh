@@ -55,15 +55,15 @@ set_lock() {
     case $1 in
         1)
             echo "5" > "$DURASI_FILE"
-            lock-multilogin-5
+            lock-molog
             ;;
         2)
             echo "10" > "$DURASI_FILE"
-            lock-multilogin-10
+            lock-molog
             ;;
         3)
             echo "15" > "$DURASI_FILE"
-            lock-multilogin-15
+            lock-molog
             ;;
         *)
             echo "Pilihan tidak valid"
