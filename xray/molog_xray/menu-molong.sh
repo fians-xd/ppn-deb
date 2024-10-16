@@ -25,10 +25,10 @@ show_active_locks() {
     for i in 1 2 3; do
         if [[ -f "$DURASI_FILE" && "$(cat "$DURASI_FILE")" == "$((i * 5))" ]]; then
             limit=$(cat "$LIMIT_FILE")
-            echo -e "$i. Lock User ${GREEN}$((i * 5))${NC} Menit Login ${GREEN}$limit${NC} Device [${GREEN}aktif${NC}]"
+            echo -e "$i. Lock User Multi Login ${GREEN}$limit${NC} IP Selama ${GREEN}$((i * 5))${NC} Menit [${GREEN}aktif${NC}]"
             aktif=1  # Menandakan ada sesi aktif
         else
-            echo -e "$i. Lock User $((i * 5)) Menit Login [${RED}non aktif${NC}]"
+            echo -e "$i. Lock User Multi Login - IP Selama $((i * 5)) Menit [${RED}non aktif${NC}]"
         fi
     done
 }
@@ -37,9 +37,9 @@ show_active_locks() {
 show_menu() {
     echo ""
     echo -e "~=[ MENU LOCK MULTILOGIN XRAY ]=~"
-    echo -e "1. Lock User Multi Login 5 Menit"
-    echo -e "2. Lock User Multi Login 10 Menit"
-    echo -e "3. Lock User Multi Login 15 Menit"
+    echo -e "1. Lock User Multi Login Selama 5 Menit"
+    echo -e "2. Lock User Multi Login Selama 10 Menit"
+    echo -e "3. Lock User Multi Login Selama 15 Menit"
     echo -e "4. Matikan Semua Lock Multilogin"
     echo ""
     read -p "Pilih Menu: " menu_choice
