@@ -25,10 +25,10 @@ show_active_locks() {
     for i in 1 2 3; do
         if [[ -f "$DURASI_FILE" && "$(cat "$DURASI_FILE")" == "$((i * 5))" ]]; then
             limit=$(cat "$LIMIT_FILE")
-            echo -e "$i. Lock User Multi Login ${GREEN}$limit${NC} IP Selama ${GREEN}$((i * 5))${NC} Menit [${GREEN}aktif${NC}]"
+            echo -e "$i. Lock User Multi Login ${GREEN}$limit${NC} IP Selama ${GREEN}$((i * 5))${NC} Menit [${GREEN}ON${NC}]"
             aktif=1  # Menandakan ada sesi aktif
         else
-            echo -e "$i. Lock User Multi Login - IP Selama $((i * 5)) Menit [${RED}non aktif${NC}]"
+            echo -e "$i. Lock User Multi Login - IP Selama $((i * 5)) Menit [${RED}OFF${NC}]"
         fi
     done
 }
