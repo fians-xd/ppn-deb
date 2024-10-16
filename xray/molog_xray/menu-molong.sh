@@ -16,7 +16,7 @@ mkdir -p "$CONFIG_DIR"
 
 # Fungsi untuk menampilkan status penguncian yang aktif
 show_active_locks() {
-    echo -e "~=[ MENU LOCK MULTILOGIN XRAY YANG AKTIF ]=~"
+    echo -e "~=[ LOCK MULTILOGIN XRAY YANG AKTIF ]=~"
     
     # Menginisialisasi variabel aktif
     local aktif=0
@@ -25,10 +25,10 @@ show_active_locks() {
     for i in 1 2 3; do
         if [[ -f "$DURASI_FILE" && "$(cat "$DURASI_FILE")" == "$((i * 5))" ]]; then
             limit=$(cat "$LIMIT_FILE")
-            echo -e "$i. Lock User ${GREEN}$((i * 5))${NC} Menit Multi Login ${GREEN}$limit${NC} IP [${GREEN}aktif${NC}]"
+            echo -e "$i. Lock User ${GREEN}$((i * 5))${NC} Menit Login ${GREEN}$limit${NC} Device [${GREEN}aktif${NC}]"
             aktif=1  # Menandakan ada sesi aktif
         else
-            echo -e "$i. Lock User $((i * 5)) Menit Multi Login [${RED}non aktif${NC}]"
+            echo -e "$i. Lock User $((i * 5)) Menit Login [${RED}non aktif${NC}]"
         fi
     done
 }
@@ -41,6 +41,7 @@ show_menu() {
     echo -e "2. Lock User Multi Login 10 Menit"
     echo -e "3. Lock User Multi Login 15 Menit"
     echo -e "4. Matikan Semua Lock Multilogin"
+    echo ""
     read -p "Masukan Menu (1/2/3/4) : " menu_choice
 }
 
