@@ -1,7 +1,7 @@
 #!/bin/bash
 
-durasi=(cat /.molog-xray/durasi.txt)
-limit=(cat /.molog-xray/limit.txt)
+durasi=(cat ~/.molog-xray/durasi.txt)
+limit=(cat ~/.molog-xray/limit.txt)
 
 # Menjalankan script secara terus menerus
 while true; do
