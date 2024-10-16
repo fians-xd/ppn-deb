@@ -37,7 +37,8 @@ for USER in $ALL_USERS; do
     # Jika jumlah IP lebih dari batas yang ditentukan, tambahkan user ke daftar multi-login
     if [ "$IP_COUNT" -gt "$LIMIT_IP" ]; then
         MULTILOGINS+=("$USER")
-        echo "User $USER Login $IP_COUNT IP:\n$LOGIN_IPS"  # Debug output untuk setiap user
+        echo "User $USER Login $IP_COUNT IP:
+        $LOGIN_IPS"  # Debug output untuk setiap user
     fi
 done
 
