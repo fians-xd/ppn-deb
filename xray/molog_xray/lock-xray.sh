@@ -38,7 +38,7 @@ for USER in $ALL_USERS; do
     if [ "$IP_COUNT" -gt "$LIMIT_IP" ]; then
         MULTILOGINS+=("$USER")
         echo "User $USER Login $IP_COUNT IP:
-        $LOGIN_IPS"  # Debug output untuk setiap user
+$LOGIN_IPS"
     fi
 done
 
