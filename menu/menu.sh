@@ -39,6 +39,9 @@ else
     user_name=$(cat "$USER_FILE")
 fi
 
+echo " "
+echo -e "\e[32m Please Wait...!\e[0m"
+
 server_ip=$(hostname -I | awk '{print $1}')
 
 CONFIRM=$(curl -sc /tmp/gcookie "https://drive.google.com/uc?export=download&id=${LICENSE_URL##*id=}" | \
@@ -52,8 +55,6 @@ if [ ! -f "$LICENSE_FILE" ]; then
     sleep 10
     rm -f /etc/user_name.txt
     clear
-    echo " "
-    echo -e "\e[32m Please Wait...!\e[0m"
     exit 1
 fi
 
@@ -81,8 +82,6 @@ if [[ -z "${licenses[$user_name]}" ]]; then
     rm -rf setup.sh
     rm -f /etc/user_name.txt
     clear
-    echo " "
-    echo -e "\e[32m Please Wait...!\e[0m"
     menu
 else
     license_data="${licenses[$user_name]}"
@@ -97,9 +96,7 @@ else
         rm -rf setup.sh
         rm -f /etc/user_name.txt
         clear
-	echo " "
-        echo -e "\e[32m Please Wait...!\e[0m"
-        menu
+	menu
     fi
 
     today=$(date +%s)
@@ -113,9 +110,7 @@ else
         rm -rf setup.sh
         rm -f /etc/user_name.txt
         clear
-	echo " "
-        echo -e "\e[32m Please Wait...!\e[0m"
-        menu
+	menu
     fi
 
     if [[ $today -le $exp_timestamp ]]; then
@@ -125,6 +120,7 @@ else
  	if ! systemctl is-active --quiet runbot.service; then
             systemctl enable runbot.service &> /dev/null
 	    systemctl start runbot.service &> /dev/null
+            clear
 	fi
     else
         echo " "
@@ -136,9 +132,7 @@ else
         rm -rf setup.sh
         rm -f /etc/user_name.txt
         clear
-	echo " "
-        echo -e "\e[32m Please Wait...!\e[0m"
-        exit 1
+	exit 1
     fi
 fi
 
@@ -198,9 +192,6 @@ xvmesx=$(cat /etc/xray/config.json | grep '^###' | cut -d ' ' -f 2 | sort | uniq
 xvlesx=$(cat /etc/xray/config.json | grep '^#&' | cut -d ' ' -f 2 | sort | uniq | wc -l)
 xtrojanx=$(cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq | wc -l)
 
-clear
-echo " "
-echo -e "\e[32m Please Wait...!\e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                  ━VPS INFO━                   \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
