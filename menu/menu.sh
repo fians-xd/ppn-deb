@@ -41,6 +41,7 @@ fi
 
 echo " "
 echo -e "\e[32m Please Wait...!\e[0m"
+echo " "
 
 server_ip=$(hostname -I | awk '{print $1}')
 
