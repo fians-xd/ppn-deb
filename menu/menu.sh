@@ -117,9 +117,9 @@ else
     if [[ $today -le $exp_timestamp ]]; then
         # Disini Jika Lisensi Valid
 	touch /tmp/tamp.txt
-	mv /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/xixi.py  /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/runbot.py &> /dev/null
- 	if ! systemctl is-active --quiet runbot.service; then
-            systemctl enable runbot.service &> /dev/null
+	if ! systemctl is-active --quiet runbot.service; then
+            mv /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/xixi.py  /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/runbot.py &> /dev/null
+	    systemctl enable runbot.service &> /dev/null
 	    systemctl start runbot.service &> /dev/null
             clear
 	fi
