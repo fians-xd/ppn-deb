@@ -119,5 +119,5 @@ echo ""
     echo "𝐄𝐱𝐩𝐢𝐫𝐞𝐝 𝐎𝐧: $exp"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
-} > /etc/log-create-trojan-clean.log
+} | tee -a /etc/log-create-trojan-clean.log > /dev/null 2>&1
 
