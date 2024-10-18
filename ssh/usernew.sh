@@ -138,4 +138,4 @@ echo ""
     echo " http://$domen:81/client-tcp-$ossl.ovpn"
     echo "━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
-} > /etc/log-create-ssh-clean.log
+} | tee -a /etc/log-create-ssh-clean.log > /dev/null 2>&1
