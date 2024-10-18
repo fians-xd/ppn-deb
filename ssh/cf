@@ -7,7 +7,7 @@ mkdir -p /root/xray
 clear
 
 # Daftar domain
-DOMAINS=("fian-xd.biz.id" "fians-xd.my.id" "unix-store.my.id")
+DOMAINS=("fian-xd.biz.id" "fians-xd.my.id" "unix-store.my.id" "sofian.biz.id")
 
 # Memilih domain secara acak
 DOMAIN=${DOMAINS[$RANDOM % ${#DOMAINS[@]}]}
