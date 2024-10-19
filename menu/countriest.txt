@@ -4,6 +4,7 @@ DZ Algeria
 AS American
 AD Andorra
 AO Angola
+SG Singapura
 AI Anguilla
 AQ Antarctica
 AG Antigua
