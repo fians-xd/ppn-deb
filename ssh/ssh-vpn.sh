@@ -99,36 +99,6 @@ gem install lolcat
 timedatectl set-timezone Asia/Jakarta
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 
-install_ssl() {
-    if [ -f "/usr/bin/apt-get" ]; then
-        # Memastikan apakah menggunakan Debian atau Ubuntu
-        isDebian=$(grep -i "debian" /etc/issue)
-        isUbuntu=$(grep -i "ubuntu" /etc/issue)
-
-        if [ "$isDebian" != "" ] || [ "$isUbuntu" != "" ]; then
-            # Instal nginx dan certbot
-            apt-get update
-            apt-get install -y certbot
-            sleep 3s
-            
-            # Stop nginx service
-            systemctl stop nginx.service
-            
-            domens=$(cat /etc/xray/domain)
-            # Menggunakan certbot untuk mendapatkan sertifikat
-            echo "A" | certbot certonly --renew-by-default --register-unsafely-without-email --standalone -d $domens --agree-tos
-            sleep 0.5
-            systemctl start nginx.service
-        else
-            echo "Sistem operasi tidak didukung. Harap gunakan Debian atau Ubuntu."
-            exit 1
-        fi
-    else
-        echo "Sistem operasi tidak didukung. Harap gunakan Debian atau Ubuntu."
-        exit 1
-    fi
-}
-
 # install webserver
 cd
 apt-get install nginx -y
@@ -275,9 +245,6 @@ sleep 0.9
 wget --progress=bar:force -O /etc/issue.net "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/banner/banner.conf" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|/etc/issue.net\s+100%|saved \["
 echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
-
-# Install SSL
-install_ssl
 
 # blokir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
