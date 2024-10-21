@@ -37,8 +37,10 @@ while true; do
     if [[ ${#sub} -le 5 ]]; then
         break
     else
-        echo "Nama harus minimal 5 huruf. Silakan coba lagi."
+        echo "Nama maksimal 5 huruf, tidak lebih, contoh:"
+        echo "adi, salsa, ahmad dll"
         sleep 0.9
+        echo " "
         clear
     fi
 done
