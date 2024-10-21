@@ -44,8 +44,10 @@ sed -i 's/#AUTOSTART="all"/AUTOSTART="all"/g' /etc/default/openvpn
 # restart openvpn dan cek status openvpn
 systemctl enable --now openvpn-server@server-tcp-1194
 systemctl enable --now openvpn-server@server-udp-2200
+echo " "
 /etc/init.d/openvpn restart
 /etc/init.d/openvpn status
+echo " "
 
 # aktifkan ip4 forwarding
 echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -168,9 +170,8 @@ echo " "
 chown -R www-data:www-data /home/vps/public_html
 sleep 0.5
 echo -e "$BGreen[SERVICE]$NC Restart All service SSH & OVPN"
-/etc/init.d/nginx restart >/dev/null 2>&1
-sleep 0.5
 echo -e "[ ${BGreen}ok${NC} ] Restarting nginx"
+/etc/init.d/nginx restart >/dev/null 2>&1
 /etc/init.d/openvpn restart >/dev/null 2>&1
 sleep 0.5
 echo -e "[ ${BGreen}ok${NC} ] Restarting cron "
