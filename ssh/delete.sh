@@ -17,7 +17,7 @@ username=`echo $tuserval | cut -f1 -d:`
 userexp=`echo $tuserval | cut -f2 -d:`
 userexpireinseconds=$(( $userexp * 86400 ))
 tglexp=`date -d @$userexpireinseconds`             
-tgl=`echo $tglexp |awk -F" " '{print $3}'`
+tgl=`echo $tglexp |awk -F" " '{print $2}'`
 while [ ${#tgl} -lt 2 ]
 do
 tgl="0"$tgl
