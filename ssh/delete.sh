@@ -1,6 +1,5 @@
 #!/bin/bash
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-echo "Checking VPS"
+
 clear
 hariini=`date +%d-%m-%Y`
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
