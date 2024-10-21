@@ -28,7 +28,9 @@ DOMAIN=${DOMAINS[$RANDOM % ${#DOMAINS[@]}]}
 # Input manual untuk subdomain
 while true; do
     echo " "
-    echo -e "~=[ Input Nama Anda ]=~"
+    echo -e "$BYellow━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+    echo -e "$BGren    MASUKAN NAMA DOMAINMU      $NC"
+    echo -e "$BYellow━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
     echo " "
     read -p "Name: " sub
 
