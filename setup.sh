@@ -122,7 +122,7 @@ echo -e "$red 2.$BGreen Gunakan Domain Sendiri $NC"
 echo -e "$BYellow━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 read -rp "Pilih Asw: " dns
 if test $dns -eq 1; then
-wget -q -o cf https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cf.sh
+wget -q -O cf https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cf.sh
 chmod +x cf && ./cf
 elif test $dns -eq 2; then
 read -rp "Lebokno Domainmu: " dom
