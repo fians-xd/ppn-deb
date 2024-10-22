@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# Ambil IP publik
-MYIP=$(wget -qO- ipv4.icanhazip.com)
-echo "Checking VPS"
 clear
-
 # Sumber konfigurasi IP
 source /var/lib/ipvps.conf
 
