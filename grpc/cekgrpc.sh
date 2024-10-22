@@ -3,9 +3,7 @@
 red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
-# Getting
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-echo "Checking VPS"
+
 clear
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/vmessgrpc.json | grep '^###' | cut -d ' ' -f 2`);
