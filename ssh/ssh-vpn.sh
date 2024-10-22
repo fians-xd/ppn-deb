@@ -463,6 +463,7 @@ screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7800 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500
 history -c
 echo "unset HISTFILE" >> /etc/profile
+touch /etc/log-create-ssh.log
 
 rm -f /root/key.pem
 rm -f /root/cert.pem
