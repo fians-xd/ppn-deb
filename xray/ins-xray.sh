@@ -612,4 +612,7 @@ fi
 touch /etc/log-create-vmess.log
 touch /etc/log-create-vless.log
 touch /etc/log-create-trojan.log
+chmod 600 /etc/log-create-vmess.log
+chmod 600 /etc/log-create-vless.log
+chmod 600 /etc/log-create-trojan.log
 rm -rf ins-xray.sh
