@@ -57,7 +57,8 @@ gren "==========================================================================
 gren "$(chronyc tracking -v)"
 echo " "
 echo -e "[ ${green}INFO$NC ] Setting dll"
-ntpdate pool.ntp.org
+chronyc -a makestep 
+timedatectl set-ntp true
 
 # install xray
 sleep 0.5
