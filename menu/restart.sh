@@ -1,6 +1,5 @@
 #!/bin/bash
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-echo "Checking VPS"
+
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[1;44m         • RESTART MENU •          \E[0m"
