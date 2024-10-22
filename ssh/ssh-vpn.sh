@@ -376,7 +376,6 @@ cat > /etc/cron.d/rlog_otm <<-END
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 */2 * * * * root > /var/log/xray/access.log
-*/5 * * * * root > /var/log/multi-login-xray.log
 */5 * * * * root > /etc/cek-tr.log
 */5 * * * * root > /etc/cek-vless.log
 */5 * * * * root > /etc/cek-vmess.log
@@ -384,9 +383,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 */5 * * * * root > /etc/log-create-ssh-trial-clean.log
 */5 * * * * root > /etc/log-create-ssh-clean.log
 */5 * * * * root > /etc/log-create-trojan-clean.log
-*/5 * * * * root > /etc/log-create-vless.log
 */5 * * * * root > /etc/log-create-vless-clean.log
-*/5 * * * * root > /etc/log-create-vmess.log
 */5 * * * * root > /etc/log-create-vmess-clean.log
 */5 * * * * root > /etc/log-create-trojan-trial-clean.log
 */5 * * * * root > /etc/log-create-vless-trial-clean.log
