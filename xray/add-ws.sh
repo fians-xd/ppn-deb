@@ -1,7 +1,5 @@
 #!/bin/bash
 
-MYIP=$(wget -qO- ipv4.icanhazip.com)
-echo "Checking VPS"
 clear
 source /var/lib/ipvps.conf
 
