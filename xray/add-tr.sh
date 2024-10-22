@@ -64,29 +64,27 @@ systemctl restart xray
 clear
 
 # Output log dengan format ANSI
-{
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "\E[0;41;36m           TROJAN ACCOUNT          \E[0m"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "Remarks        : ${user}"
-    echo -e "Host/IP        : ${domain}"
-    echo -e "Wildcard       : (bug.com).${domain}"
-    echo -e "Port TLS       : ${tls}"
-    echo -e "Port none TLS  : ${ntls}"
-    echo -e "Port gRPC      : ${tls}"
-    echo -e "Key            : ${uuid}"
-    echo -e "Path           : /trojan-ws"
-    echo -e "ServiceName    : trojan-grpc"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "Link TLS       : ${trojanlink}"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "Link none TLS  : ${trojanlink2}"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "Link gRPC      : ${trojanlink1}"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "Expired On     : $exp"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-} | tee -a /etc/log-create-trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "\E[0;41;36m           TROJAN ACCOUNT          \E[0m" | tee -a /etc/log-create-trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "Remarks        : ${user}" | tee -a /etc/log-create-trojan.log
+echo -e "Host/IP        : ${domain}" | tee -a /etc/log-create-trojan.log
+echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-trojan.log
+echo -e "Port TLS       : ${tls}" | tee -a /etc/log-create-trojan.log
+echo -e "Port none TLS  : ${ntls}" | tee -a /etc/log-create-trojan.log
+echo -e "Port gRPC      : ${tls}" | tee -a /etc/log-create-trojan.log
+echo -e "Key            : ${uuid}" | tee -a /etc/log-create-trojan.log
+echo -e "Path           : /trojan-ws" | tee -a /etc/log-create-trojan.log
+echo -e "ServiceName    : trojan-grpc" | tee -a /etc/log-create-trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "Link TLS       : ${trojanlink}" | tee -a /etc/log-create-trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "Link none TLS  : ${trojanlink2}" | tee -a /etc/log-create-trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "Link gRPC      : ${trojanlink1}" | tee -a /etc/log-create-trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "Expired On     : $exp" | tee -a /etc/log-create-trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
 echo ""
 echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
 echo ""
