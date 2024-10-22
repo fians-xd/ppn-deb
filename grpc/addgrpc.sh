@@ -5,8 +5,7 @@ green='\e[0;32m'
 NC='\e[0m'
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
-# Getting
-MYIP=$(curl -sS ipv4.icanhazip.com)
+
 clear
 domain=$(cat /etc/xray/domain)
 tls=$(cat /etc/xray/vmessgrpc.json | grep port | awk '{print $2}' | sed 's/,//g')
