@@ -13,9 +13,7 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 y="\033[0;1;37m"
 wh="\033[0m"
-# Getting
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-echo "Checking VPS"
+
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[1;44m            DNS CHANGER            \E[m"
