@@ -33,20 +33,15 @@ echo -e "[ ${green}INFO${NC} ] Checking... "
 apt-get install iptables iptables-persistent -y
 echo " "
 sleep 0.5
-echo -e "[ ${green}INFO$NC ] Enable chronyd"
-systemctl enable chronyd
-systemctl restart chronyd
+echo -e "[ ${green}INFO$NC ] Setting ntpdate"
+ntpdate time.cloudflare.com 
+timedatectl set-ntp true
 echo " "
 sleep 0.5
 echo -e "[ ${green}INFO$NC ] Enable chrony"
 systemctl enable chrony
 systemctl restart chrony
 timedatectl set-timezone Asia/Jakarta
-echo " "
-sleep 0.5
-echo -e "[ ${green}INFO$NC ] Setting ntpdate"
-chronyc -a makestep 
-timedatectl set-ntp true
 echo " "
 sleep 0.5
 echo -e "[ ${green}INFO$NC ] Setting chrony tracking"
