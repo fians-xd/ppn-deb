@@ -36,7 +36,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y iptables iptables-persistent
 sleep 0.5
 echo " "
 echo -e "[ ${green}INFO$NC ] Setting ntpdate"
-ntpdate pool.ntp.org 
+chronyc -a makestep 
 timedatectl set-ntp true
 sleep 0.5
 echo -e "[ ${green}INFO$NC ] Enable chronyd"
