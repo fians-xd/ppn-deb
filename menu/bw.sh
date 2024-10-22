@@ -5,8 +5,7 @@ BYellow='\e[1;33m'
 BBlue='\e[1;34m'
 BPurple='\e[1;35m'
 NC='\e[0m'
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-echo "Checking VPS"
+
 clear
 echo -e "\e[1;33m -------------------------------------------------\e[0m"
 echo -e "\e[1;34m                 BANDWITH MONITOR                 \e[0m"
