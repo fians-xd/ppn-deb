@@ -33,7 +33,6 @@ echo -e "[ ${green}INFO${NC} ] Checking... "
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 DEBIAN_FRONTEND=noninteractive apt-get install -y iptables iptables-persistent
-apt-get install chrony -y
 sleep 0.5
 echo " "
 echo -e "[ ${green}INFO$NC ] Setting ntpdate"
