@@ -35,7 +35,7 @@ echo " "
 sleep 0.5
 echo -e "[ ${green}INFO$NC ] Setting ntpdate"
 ntpdate time.cloudflare.com 
-timedatectl set-ntp true
+timedatectl set-ntp false
 echo " "
 sleep 0.5
 echo -e "[ ${green}INFO$NC ] Enable chrony"
