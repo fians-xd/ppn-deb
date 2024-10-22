@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# Ambil IP publik
-MYIP=$(wget -qO- ipv4.icanhazip.com)
-echo "Checking VPS"
 clear
-
 # Cek domain dan port
 cekray=$(grep -ow "XRAY" /root/log-install.txt | sort | uniq)
 if [ "$cekray" = "XRAY" ]; then
