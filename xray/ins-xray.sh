@@ -609,4 +609,7 @@ if [ -f /root/scdomain ];then
 rm /root/scdomain > /dev/null 2>&1
 fi
 > /tmp/tamp.txt
+touch /etc/log-create-vmess.log
+touch /etc/log-create-vless.log
+touch /etc/log-create-trojan.log
 rm -rf ins-xray.sh
