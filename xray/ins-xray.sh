@@ -3,7 +3,7 @@
 echo " "
 sleep 0.8
 
-apt-get clean all && apt-get update
+apt-get clean all
 apt-get update
 apt-get install zip chrony openssl netcat cron -y
 apt-get install socat bash-completion ntpdate curl pwgen -y
