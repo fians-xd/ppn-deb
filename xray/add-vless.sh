@@ -63,30 +63,28 @@ systemctl restart xray
 clear
 
 # Output log
-{
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "\\E[0;41;36m        Vless Account        \E[0m"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "Remarks        : ${user}"
-    echo -e "Domain         : ${domain}"
-    echo -e "Wildcard       : (bug.com).${domain}"
-    echo -e "Port TLS       : $tls"
-    echo -e "Port none TLS  : $none"
-    echo -e "id             : ${uuid}"
-    echo -e "Encryption     : none"
-    echo -e "Network        : ws"
-    echo -e "Path           : /vless"
-    echo -e "Path           : vless-grpc"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "Link TLS       : ${vlesslink1}"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "Link none TLS  : ${vlesslink2}"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "Link gRPC      : ${vlesslink3}"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "Expired On     : $exp"
-    echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-} | tee -a /etc/log-create-vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "\\E[0;41;36m        Vless Account        \E[0m" | tee -a /etc/log-create-vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "Remarks        : ${user}" | tee -a /etc/log-create-vless.log
+echo -e "Domain         : ${domain}" | tee -a /etc/log-create-vless.log
+echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-vless.log
+echo -e "Port TLS       : $tls" | tee -a /etc/log-create-vless.log
+echo -e "Port none TLS  : $none" | tee -a /etc/log-create-vless.log
+echo -e "id             : ${uuid}" | tee -a /etc/log-create-vless.log
+echo -e "Encryption     : none" | tee -a /etc/log-create-vless.log
+echo -e "Network        : ws" | tee -a /etc/log-create-vless.log
+echo -e "Path           : /vless" | tee -a /etc/log-create-vless.log
+echo -e "Path           : vless-grpc" | tee -a /etc/log-create-vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "Link TLS       : ${vlesslink1}" | tee -a /etc/log-create-vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "Link none TLS  : ${vlesslink2}" | tee -a /etc/log-create-vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "Link gRPC      : ${vlesslink3}" | tee -a /etc/log-create-vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "Expired On     : $exp" | tee -a /etc/log-create-vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
 echo ""
 echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
 echo ""
