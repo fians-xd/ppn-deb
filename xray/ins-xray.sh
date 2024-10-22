@@ -1,6 +1,5 @@
 #!/bin/bash
 
-MYIP=$(wget -qO- ipv4.icanhazip.com);
 echo " "
 sleep 0.8
 
