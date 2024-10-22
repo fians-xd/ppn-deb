@@ -18,10 +18,10 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\E[44;1;39m     ⇱ Delete Vmess Account ⇲      \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
-echo -e ""
-echo -e "  • [NOTE] Press any key to back on menu"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-read -rp "   Input Username : " user
+echo -e " [NOTE] Press any key to back on menu"
+echo " "
+read -rp " Input Username: " user
 if [ -z $user ]; then
 m-vmess
 else
