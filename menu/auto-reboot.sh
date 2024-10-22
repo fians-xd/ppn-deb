@@ -6,8 +6,7 @@ BYellow='\e[1;33m'
 BBlue='\e[1;34m'
 BPurple='\e[1;35m'
 NC='\e[0m'
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-echo "Checking VPS"
+
 clear
 if [ ! -e /usr/local/bin/reboot_otomatis ]; then
 echo '#!/bin/bash' > /usr/local/bin/reboot_otomatis 
