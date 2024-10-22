@@ -1,8 +1,6 @@
 #!/bin/bash
 
-MYIP=$(wget -qO- ipv4.icanhazip.com);
 export TERM=xterm
-echo "Checking VPS"
 clear
 echo " "
 echo " "
