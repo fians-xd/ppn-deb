@@ -44,10 +44,6 @@ NC='\e[0m'
 curl -sS https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
 chmod +x /etc/pam.d/common-password
 
-# install speedtest okla
-curl -sS https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-apt-get install speedtest -y
-
 # Edit file /etc/systemd/system/rc-local.service
 cd
 cat > /etc/systemd/system/rc-local.service <<-END
