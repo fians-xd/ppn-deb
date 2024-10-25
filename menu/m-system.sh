@@ -23,7 +23,7 @@ read -p " Select menu : " opt
 echo -e ""
 case $opt in
 1) clear ; m-domain ; exit ;;
-2) clear ; speedtest_cli ; exit ;;
+2) clear ; speedtest ; exit ;;
 3) clear ; auto-reboot ; exit ;;
 4) clear ; restart ; exit ;;
 5) clear ; bw ; exit ;;
