@@ -78,9 +78,6 @@ if [ -f "/etc/openvpn/server/openvpn-udp.log" ]; then
         cat /etc/openvpn/server/openvpn-udp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' -e 's/\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\):[0-9]\+/\1/g' -e 's/      / | /g' -e 's/[A-Za-z]\{3\} [A-Za-z]\{3\}  *[0-9]\{1,2\} //g' -e 's/ [0-9]\{4\}$//g' > /tmp/vpn-login-udp.txt
         cat /tmp/vpn-login-udp.txt
 fi
-echo ""
-echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
-
 # Disini log tanpa kodewarn ansi dan simpan log nya
 {
     echo "━━━━━━━━━━━━━━━━━━━━━━"
@@ -113,6 +110,6 @@ rm -f /tmp/vpn-login-udp.txt
 # Jika parent process bukan python atau python3, lakukan tindakan
 parent_process=$(ps -o comm= -p $PPID)
 if [[ "$parent_process" != "python" && "$parent_process" != "python3" ]]; then
-    read -n 1 -s -r -p " Enter to back on Ssh"
+    read -n 1 -s -r -p " Enter to Back on Menu Ssh"
     m-sshovpn
 fi
