@@ -273,3 +273,10 @@ echo ""
    echo "━━━━━━━━━━━━━━━━━━━━━━"
    echo ""
 } | sed -e 's/\x1b\[[0-9;]*m//g' > /etc/status-service.log
+
+# Jika parent process bukan python atau python3, lakukan tindakan
+parent_process=$(ps -o comm= -p $PPID)
+if [[ "$parent_process" != "python" && "$parent_process" != "python3" ]]; then
+    read -n 1 -s -r -p " Enter to back on Menu"
+    menu
+fi
