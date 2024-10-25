@@ -111,7 +111,7 @@ else
         rm -rf setup.sh
         rm -f /etc/user_name.txt
         clear
-	menu
+	    menu
     fi
 
     if [[ $today -le $exp_timestamp ]]; then
@@ -119,22 +119,52 @@ else
 	touch /tmp/tamp.txt
 	if ! systemctl is-active --quiet runbot.service; then
             mv /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/xixi.py  /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/runbot.py &> /dev/null
-	    systemctl enable runbot.service &> /dev/null
-	    systemctl start runbot.service &> /dev/null
+	        systemctl enable runbot.service &> /dev/null
+	        systemctl start runbot.service &> /dev/null
             clear
 	fi
     else
         echo " "
         echo -e "\e[31m Lisensi Anda telah berakhir pada $exp_date.\e[0m"
-	systemctl disable runbot.service &> /dev/null
- 	systemctl stop runbot.service &> /dev/null
-  	mv /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/runbot.py  /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/xixi.py &> /dev/null
+	    systemctl disable runbot.service &> /dev/null
+ 	    systemctl stop runbot.service &> /dev/null
+  	    mv /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/runbot.py  /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/xixi.py &> /dev/null
         sleep 10
         rm -rf setup.sh
         rm -f /etc/user_name.txt
         clear
 	exit 1
     fi
+fi
+
+# Fungsi untuk memeriksa respons status HTTP dari Nginx
+check_nginx_status() {
+    if curl -s --head --request GET http://localhost:81 | grep "200 OK" > /dev/null 2>&1; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Fungsi untuk memeriksa status rest_nginx.service
+check_rest_nginx_status() {
+    if systemctl is-active --quiet rest_nginx.service; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Logika pengecekan dan tindakan
+check_nginx_status
+nginx_ok=$?
+
+check_rest_nginx_status
+rest_nginx_running=$?
+
+if [[ $nginx_ok -eq 0 && $rest_nginx_running -ne 0 ]]; then
+    systemctl enable rest_nginx.service > /dev/null 2>&1
+    systemctl start rest_nginx.service > /dev/null 2>&1
 fi
 
 # Buat array untuk menerjemahkan nama hari

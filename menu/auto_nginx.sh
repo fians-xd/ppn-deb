@@ -2,7 +2,7 @@
 
 LOG_FILE="/root/.ngx/auto_nginx.log"
 CHECK_INTERVAL=7200 # 2 jam dalam detik
-DELAY_AFTER_REBOOT=20   # 5 detik delay setelah reboot
+DELAY_AFTER_REBOOT=5   # 5 detik delay setelah reboot
 
 # Pastikan direktori log ada
 mkdir -p "$(dirname $LOG_FILE)"
@@ -61,7 +61,6 @@ perform_recovery() {
         echo "$(date): Nginx berhasil dipulihkan setelah tindakan pemulihan" | tee -a $LOG_FILE
     else
         echo "$(date): Nginx masih tidak berfungsi. Perlu reboot sistem" | tee -a $LOG_FILE
-        sleep 15
         reboot
     fi
 }
