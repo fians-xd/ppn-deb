@@ -38,9 +38,6 @@ echo -e "Link gRPC      : ${trojanlink1}"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Expired On     : $exp"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo ""
-echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
-echo ""
 
 {
 echo "━━━━━━━━━━━━━━━━━━━━━━"
@@ -70,6 +67,6 @@ echo ""
 # Jika parent process bukan python atau python3, lakukan tindakan
 parent_process=$(ps -o comm= -p $PPID)
 if [[ "$parent_process" != "python" && "$parent_process" != "python3" ]]; then
-    read -n 1 -s -r -p " Enter to back on menu Trojan"
+    read -n 1 -s -r -p " Enter to Back on Menu Trojan"
     m-trojan
 fi
