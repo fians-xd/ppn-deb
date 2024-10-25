@@ -119,8 +119,9 @@ echo ""
     echo ""
     } > /etc/log-create-ssh-trial-clean.log
 
-# Prompt hanya jika tidak ada argumen
-if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
+# Jika parent process bukan python atau python3, lakukan tindakan
+parent_process=$(ps -o comm= -p $PPID)
+if [[ "$parent_process" != "python" && "$parent_process" != "python3" ]]; then
     read -n 1 -s -r -p "Press any key to back on menu"
     m-sshovpn
 fi
