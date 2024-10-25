@@ -67,6 +67,7 @@ echo ""
 # Jika parent process bukan python atau python3, lakukan tindakan
 parent_process=$(ps -o comm= -p $PPID)
 if [[ "$parent_process" != "python" && "$parent_process" != "python3" ]]; then
-    read -n 1 -s -r -p " Enter to Back on Menu Trojan"
+    echo -e ""
+    read -n 1 -s -r -p " Enter to Back Menu Trojan"
     m-trojan
 fi

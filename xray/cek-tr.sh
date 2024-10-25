@@ -66,6 +66,7 @@ rm -rf /tmp/other.txt
 # Jika parent process bukan python atau python3, lakukan tindakan
 parent_process=$(ps -o comm= -p $PPID)
 if [[ "$parent_process" != "python" && "$parent_process" != "python3" ]]; then
-    read -n 1 -s -r -p " Enter to back on menu Trojan"
+    echo -e ""
+    read -n 1 -s -r -p " Enter to back menu Trojan"
     m-trojan
 fi

@@ -72,9 +72,6 @@ echo "          ~=[ OPEN-VPN ]=~"
 echo ""
 echo " http://$domen:81/client-tcp-$ossl.ovpn"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo ""
-echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
-echo ""
 
 # Output trial bot
 {
@@ -122,6 +119,7 @@ echo ""
 # Jika parent process bukan python atau python3, lakukan tindakan
 parent_process=$(ps -o comm= -p $PPID)
 if [[ "$parent_process" != "python" && "$parent_process" != "python3" ]]; then
-    read -n 1 -s -r -p " Enter to back on Ssh"
+    echo -e ""
+    read -n 1 -s -r -p " Enter to Back Menu Ssh"
     m-sshovpn
 fi

@@ -135,6 +135,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 
 # Prompt hanya jika tidak ada argumen
 if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
-    read -n 1 -s -r -p " Enter to Back on Menu Ssh"
+    echo -e ""
+    read -n 1 -s -r -p " Enter to Back Menu Ssh"
     m-sshovpn
 fi
