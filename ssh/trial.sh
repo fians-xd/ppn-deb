@@ -118,3 +118,9 @@ echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
     } > /etc/log-create-ssh-trial-clean.log
+
+# Prompt hanya jika tidak ada argumen
+if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
+    read -n 1 -s -r -p "Press any key to back on menu"
+    m-sshovpn
+fi
