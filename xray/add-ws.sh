@@ -133,9 +133,6 @@ echo -e "Link gRPC      : ${vmesslink3}" | tee -a /etc/log-create-vmess.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
 echo -e "Expired On     : $exp" | tee -a /etc/log-create-vmess.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
-echo ""
-echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
-echo ""
 
 # Simpan log bersih tanpa ANSI untuk Telegram
 {
@@ -168,6 +165,6 @@ echo ""
 
 # Prompt hanya jika tidak ada argumen
 if [[ -z "$1" || -z "$2" ]]; then
-    read -n 1 -s -r -p "Press any key to back on menu"
+    read -n 1 -s -r -p " Enter to Back on Menu Vmess"
     m-vmess
 fi
