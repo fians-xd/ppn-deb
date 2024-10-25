@@ -61,6 +61,7 @@ perform_recovery() {
         echo "$(date): Nginx berhasil dipulihkan setelah tindakan pemulihan" | tee -a $LOG_FILE
     else
         echo "$(date): Nginx masih tidak berfungsi. Perlu reboot sistem" | tee -a $LOG_FILE
+        sleep 15
         reboot
     fi
 }
