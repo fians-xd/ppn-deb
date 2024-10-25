@@ -58,10 +58,14 @@ fi
 } > /etc/cek-tr.log
 
 done
-echo " "
-echo -e "\e[1;36m[\e[1;32m Click menu Again \e[1;36m]\e[0m"
-echo " "
 
 rm -rf /tmp/iptrws.txt
 rm -rf /tmp/other.txt
 > /tmp/tamp.txt
+
+# Jika parent process bukan python atau python3, lakukan tindakan
+parent_process=$(ps -o comm= -p $PPID)
+if [[ "$parent_process" != "python" && "$parent_process" != "python3" ]]; then
+    read -n 1 -s -r -p " Enter to back on menu Trojan"
+    m-trojan
+fi
