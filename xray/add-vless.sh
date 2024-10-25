@@ -115,3 +115,9 @@ echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━"
     echo ""
 } | tee -a /etc/log-create-vless-clean.log > /dev/null 2>&1
+
+# Prompt hanya jika tidak ada argumen
+if [[ -z "$1" || -z "$2" ]]; then
+    read -n 1 -s -r -p "Press any key to back on menu"
+    m-vless
+fi
