@@ -192,13 +192,10 @@ uptime="$(uptime -p | cut -d " " -f 2-10)"
 tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
 
-# Membaca API Key dari file dan menyimpannya dalam array
 mapfile -t API_KEYS < /usr/bin/geolocation.txt
-# Memilih API Key secara acak dari array
 API_KEY=${API_KEYS[$RANDOM % ${#API_KEYS[@]}]}
-# Menggunakan API Key terpilih untuk permintaan
 response=$(curl -s "https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}")
-# Memproses respons
+echo "Response: $response"
 ISP=$(echo "$response" | jq -r '.organization')
 cityt=$(echo "$response" | jq -r '.city')
 count_name=$(echo "$response" | jq -r '.country_name')
