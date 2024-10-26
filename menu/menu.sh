@@ -191,11 +191,17 @@ domain=$(cat /etc/xray/domain)
 uptime="$(uptime -p | cut -d " " -f 2-10)"
 tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
-ISP=$(curl -s http://ip-api.com/json | jq -r '.as' | sed 's/^[A-Za-z]*[0-9]* //')
 
-citytx=$(curl -s http://ip-api.com/json | jq -r '.regionName')
-count_codex=$(curl -s http://ip-api.com/json | jq -r '.countryCode')
-country_namez=$(grep -w $count_codex /usr/bin/countriest.txt | awk '{print $2}')
+# Membaca API Key dari file dan menyimpannya dalam array
+mapfile -t API_KEYS < /usr/bin/geolocation.txt
+# Memilih API Key secara acak dari array
+API_KEY=${API_KEYS[$RANDOM % ${#API_KEYS[@]}]}
+# Menggunakan API Key terpilih untuk permintaan
+response=$(curl -s "https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}")
+# Memproses respons
+ISP=$(echo "$response" | jq -r '.organization')
+cityt=$(echo "$response" | jq -r '.city')
+count_name=$(echo "$response" | jq -r '.country_name')
 
 # user
 license_data="${licenses["$user_name"]}"
@@ -231,7 +237,7 @@ echo -e "\e[1;32m OS                  \e[1;35m: \e[0m$osz"
 echo -e "\e[1;32m UPTIME              \e[1;35m: \e[0m$uptime"
 echo -e "\e[1;32m PUBLIC IP           \e[1;35m: \e[0m$IPVPS"
 echo -e "\e[1;32m AUTHOR SC           \e[1;35m: \e[0mFian & Lista"
-echo -e "\e[1;32m COUNTRY             \e[1;35m: \e[0m$citytx, $country_namez"
+echo -e "\e[1;32m COUNTRY             \e[1;35m: \e[0m$cityt, $count_name"
 echo -e "\e[1;32m DOMAIN              \e[1;35m: \e[0m$domain"
 echo -e "\e[1;32m ISP                 \e[1;35m: \e[0m$ISP"
 echo -e "\e[1;32m DATE & TIME         \e[1;35m: \e[0m$ID_DAY $TIME $DATE"
