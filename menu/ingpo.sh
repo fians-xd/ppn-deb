@@ -16,11 +16,11 @@ count_name=$(echo "$response" | jq -r '.country_name')
 # Menyimpan informasi ke file log
 {
     echo "◆ 𝐎𝐒 : $OS"
+    echo "◆ 𝐈𝐒𝐏 : $ISP"
     echo "◆ 𝐏𝐮𝐛-𝐈𝐏 : $PUBLIC_IP"
     echo "◆ 𝐃𝐨𝐦𝐚𝐢𝐧 : $DOMAIN"
     echo "◆ 𝐂𝐨𝐮𝐧𝐭 : $cityt, $count_name"
     echo "◆ 𝐔𝐩𝐭𝐢𝐦𝐞 : $UPTIME"
-    echo "◆ 𝐈𝐒𝐏 : $ISP"
     echo "◆ 𝐃𝐚𝐭𝐞&𝐓𝐢𝐦𝐞 : $DATE_TIME"
 } > /etc/ingpo.log
 
