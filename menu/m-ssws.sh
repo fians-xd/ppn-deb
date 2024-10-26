@@ -7,14 +7,14 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e ""
 echo -e " [\e[36m1\e[0m] Create Account Shadowsocks "
 echo -e " [\e[36m2\e[0m] Create Trial Shadowsocks "
-echo -e " [\e[36m3\e[0m] Extending Account Shadowsocks "
-echo -e " [\e[36m4\e[0m] Delete Account Shadowsocks "
-echo -e " [\e[36m5\e[0m] User list created Account "
-echo -e ""
-echo -e " [\e[31m0\e[0m] \e[31mBACK TO MENU\033[0m"
-echo -e   ""
-echo -e   "Press x or [ Ctrl+C ] • To-Exit"
+echo -e " [\e[36m3\e[0m] Member Check Shadowsocks "
+echo -e " [\e[36m4\e[0m] Renew Account Shadowsocks "
+echo -e " [\e[36m5\e[0m] Delete Account Shadowsocks "
+echo -e " [\e[36m6\e[0m] User list created Account "
 echo ""
+echo -e " [\e[31m0\e[0m] \e[31mBACK TO MENU\033[0m"
+echo ""
+echo -e   "Press x or [ Ctrl+C ] • To-Exit"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 read -p " Select menu : " opt
@@ -22,9 +22,10 @@ echo -e ""
 case $opt in
 1) clear ; add-ssws ;;
 2) clear ; trialssws ;;
-3) clear ; renew-ssws ;;
-4) clear ; del-ssws ;;
-5) clear ; cat /etc/log-create-shadowsocks.log ; exit ;;
+3) clear ; member-shws ;;
+4) clear ; renew-ssws ;;
+5) clear ; del-ssws ;;
+6) clear ; cat /etc/log-create-shadowsocks.log ; exit ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "salah tekan" ; sleep 1 ; m-ssws ;;
