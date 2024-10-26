@@ -270,8 +270,8 @@ wget --progress=bar:force -O clearcache "https://raw.githubusercontent.com/fians
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/menu.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu.sh\s+100%|saved \["
 wget --progress=bar:force -O m-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-ssws\s+100%|saved \["
 wget --progress=bar:force -O m-trojan "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-trojan.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-trojan\s+100%|saved \["
-wget -q -O instal-bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/instal-bot.sh"
-wget -q "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/countriest.txt"
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/geolocation.txt" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|geolocation.txt\s+100%|saved \["
+wget --progress=bar:force -O instal-bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/instal-bot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|instal-bot\s+100%|saved \["
 
 # menu ssh ovpn
 wget --progress=bar:force -O m-sshovpn "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-sshovpn.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-sshovpn\s+100%|saved \["
