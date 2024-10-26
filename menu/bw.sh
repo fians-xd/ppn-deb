@@ -146,7 +146,7 @@ bw
 8)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m         STATISTIK TERPAKAI SETIAP JAM          \e[0m"
+echo -e "\e[1;44m        STATISTIK TERPAKAI SETIAP JAM          \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -162,7 +162,7 @@ bw
 9)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m            LIVE BANDWITH SAAT INI           \e[0m"
+echo -e "\e[1;44m           LIVE BANDWITH SAAT INI             \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;34m Press [ Ctrl+C ] To-Exit \e[0m"
 echo -e ""
