@@ -191,10 +191,10 @@ domain=$(cat /etc/xray/domain)
 uptime="$(uptime -p | cut -d " " -f 2-10)"
 tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
-ISP=$(curl -s ipinfo.io | jq -r '.org' | awk -F' ' '{$1=""; print substr($0,2)}')
+ISP=$(curl -s http://ip-api.com/json | jq -r '.as' | sed 's/^[A-Za-z]*[0-9]* //')
 
-citytx=$(curl -s ipinfo.io/city)
-count_codex=$(curl -s ipinfo.io/country)
+citytx=$(curl -s http://ip-api.com/json | jq -r '.regionName')
+count_codex=$(curl -s http://ip-api.com/json | jq -r '.countryCode')
 country_namez=$(grep -w $count_codex /usr/bin/countriest.txt | awk '{print $2}')
 
 # user
