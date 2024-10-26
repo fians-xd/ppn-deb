@@ -4,10 +4,8 @@
 /etc/init.d/dropbear restart
 /etc/init.d/stunnel4 restart
 /etc/init.d/openvpn restart
-/etc/init.d/fail2ban restart
 /etc/init.d/cron restart
 /etc/init.d/nginx restart
-/etc/init.d/squid restart
 systemctl restart udp-custom
 systemctl restart udp-custom.service
 systemctl restart xray
