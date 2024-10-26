@@ -277,6 +277,8 @@ echo -e "\e[33m==================[ Contact ]=====================\033[0m" | tee 
 echo -e "$BGreen                 t.me/fians-xd                  $NC" | tee -a log-install.txt
 echo -e "\e[33m==================================================\033[0m" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
+
+sed -i 's/\r//' /usr/bin/geolocation.txt
 rm /root/setup.sh >/dev/null 2>&1
 rm /root/ins-xray.sh >/dev/null 2>&1
 rm /root/insshws.sh >/dev/null 2>&1
