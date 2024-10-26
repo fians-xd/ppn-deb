@@ -60,7 +60,6 @@ case $Restart in
                 sleep 0.5
                 echo -e "[ \033[32mok\033[0m ] Restarting websocket Service (via systemctl) "
                 sleep 0.5
-                systemctl restart sshws.service
                 systemctl restart ws-dropbear.service
                 systemctl restart ws-stunnel.service
                 sleep 0.5
@@ -224,7 +223,6 @@ case $Restart in
                 sleep 1
                 echo -e "[ \033[32mok\033[0m ] Restarting websocket Service (via systemctl) "
                 sleep 0.5
-                systemctl restart sshws.service
                 systemctl restart ws-dropbear.service
                 systemctl restart ws-stunnel.service
                 sleep 0.5
