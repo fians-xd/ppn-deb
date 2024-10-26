@@ -82,7 +82,7 @@ bw
 4)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m           TOTAL BANDWITH SETIAP HARI           \e[0m"
+echo -e "\e[1;44m          TOTAL BANDWITH SETIAP HARI           \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -98,7 +98,7 @@ bw
 5)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m           TOTAL BANDWITH SETIAP BULAN          \e[0m"
+echo -e "\e[1;44m          TOTAL BANDWITH SETIAP BULAN          \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -114,7 +114,7 @@ bw
 6)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m           TOTAL BANDWITH SETIAP TAHUN          \e[0m"
+echo -e "\e[1;44m          TOTAL BANDWITH SETIAP TAHUN          \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -130,7 +130,7 @@ bw
 7)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m             TOTAL BANDWITH TERTINGGI           \e[0m"
+echo -e "\e[1;44m            TOTAL BANDWITH TERTINGGI           \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -162,7 +162,7 @@ bw
 9)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m             LIVE BANDWITH SAAT INI           \e[0m"
+echo -e "\e[1;44m            LIVE BANDWITH SAAT INI           \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;34m Press [ Ctrl+C ] To-Exit \e[0m"
 echo -e ""
