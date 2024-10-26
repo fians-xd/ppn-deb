@@ -12,7 +12,6 @@ systemctl restart xray
 systemctl restart sshws.service
 systemctl restart ws-dropbear.service
 systemctl restart ws-stunnel.service
-systemctl restart trojan-go.service
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
