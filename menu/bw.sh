@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # pewarna hidup
 BGreen='\e[1;32m'
 BYellow='\e[1;33m'
@@ -7,9 +8,9 @@ BPurple='\e[1;35m'
 NC='\e[0m'
 
 clear
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m                 BANDWITH MONITOR                 \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m              BANDWITH MONITOR                 \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "" 
 echo -e "\e[1;35m 1 \e[0m Lihat Total Bandwith Tersisa"
 echo -e "\e[1;35m 2 \e[0m Tabel Penggunaan Setiap 5 Menit"
@@ -25,169 +26,169 @@ echo -e ""
 echo -e "\e[1;34m 0 BACK TO MENU \e[0m"
 echo -e "\e[1;34m x Keluar \e[0m"
 echo -e "" 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 read -p " Select menu : " opt
 echo -e ""
 case $opt in
 1)
 clear 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m           TOTAL BANDWITH SERVER TERSISA          \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m           TOTAL BANDWITH SERVER TERSISA          \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
 vnstat
 
 echo -e ""
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p " Enter to Back Menu Bw"
 bw
 ;;
 
 2)
 clear 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m            TOTAL BANDWITH SETIAP 5 MENIT         \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m            TOTAL BANDWITH SETIAP 5 MENIT         \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
 vnstat -5
 
 echo -e ""
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p " Enter to Back Menu Bw"
 bw
 ;;
 
 3)
 clear 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m              TOTAL BANDWITH SETIAP JAM           \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m              TOTAL BANDWITH SETIAP JAM           \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
 vnstat -h
 
 echo -e ""
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p " Enter to Back Menu Bw"
 bw
 ;;
 
 4)
 clear 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m            TOTAL BANDWITH SETIAP HARI            \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m            TOTAL BANDWITH SETIAP HARI            \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
 vnstat -d
 
 echo -e ""
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p " Enter to Back Menu Bw"
 bw
 ;;
 
 5)
 clear 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m            TOTAL BANDWITH SETIAP BULAN •         \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m            TOTAL BANDWITH SETIAP BULAN •         \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
 vnstat -m
 
 echo -e ""
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p " Enter to Back Menu Bw"
 bw
 ;;
 
 6)
 clear 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m            TOTAL BANDWITH SETIAP TAHUN           \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m            TOTAL BANDWITH SETIAP TAHUN           \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
 vnstat -y
 
 echo -e ""
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p " Enter to Back Menu Bw"
 bw
 ;;
 
 7)
 clear 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m              TOTAL BANDWITH TERTINGGI            \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m              TOTAL BANDWITH TERTINGGI            \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
 vnstat -t
 
 echo -e ""
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p " Enter to Back Menu Bw"
 bw
 ;;
 
 8)
 clear 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m           STATISTIK TERPAKAI SETIAP JAM          \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m           STATISTIK TERPAKAI SETIAP JAM          \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
 vnstat -hg
 
 echo -e ""
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p " Enter to Back Menu Bw"
 bw
 ;;
 
 9)
 clear 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m               LIVE BANDWITH SAAT INI             \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m               LIVE BANDWITH SAAT INI             \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;34m Press [ Ctrl+C ] To-Exit \e[0m"
 echo -e ""
 
 vnstat -l
 
 echo -e ""
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p " Enter to Back Menu Bw"
 bw
 ;;
 
 10)
 clear 
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
-echo -e "\e[1;34m           LIVE TRAFIK PENGGUNAAN BANDWITH        \e[0m"
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;44m           LIVE TRAFIK PENGGUNAAN BANDWITH        \e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
 vnstat -tr
 
 echo -e ""
-echo -e "\e[1;33m -------------------------------------------------\e[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p " Enter to Back Menu Bw"
 bw
 ;;
 
