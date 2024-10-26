@@ -284,5 +284,5 @@ case $opt in
 12) clear ; tambah_bot ;;
 13) clear ; m-system ;;
 X|x) exit ;;
-*) echo "Anda salah tekan " ; sleep 1 ; menu ;;
+*) echo " Anda salah tekan " ; sleep 1 ; menu ;;
 esac
