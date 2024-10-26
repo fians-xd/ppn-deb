@@ -60,163 +60,127 @@ ovpn=$(systemctl status openvpn | grep Active | awk '{print $3}' | cut -d "(" -f
 # STATUS SERVICE OpenVpn
 if [[ $ovpn == "exited" || $ovpn == "running" ]]; then
    openvpn=" ${GREEN}Running ${NC}( No Error )"
-   openvpn_tele=" Running ✅"
 else
    openvpn="${RED}  Not Running ${NC}  ( Error )"
-   openvpn_tele=" Running ❌"
 fi
 
 # STATUS SERVICE  VNSTAT 
 if [[ $vnstat_service == "running" ]]; then 
    status_vnstat=" ${GREEN}Running ${NC}( No Error )"
-   status_vnstat_tele=" Running ✅"
 else
    status_vnstat="${RED}  Not Running ${NC}  ( Error )"
-   status_vnstat_tele=" Running ❌"
 fi
 
 # STATUS SERVICE  CRONS 
 if [[ $cron_service == "running" ]]; then 
    status_cron=" ${GREEN}Running ${NC}( No Error )"
-   status_cron_tele=" Running ✅"
 else
    status_cron="${RED}  Not Running ${NC}  ( Error )"
-   status_cron_tele=" Running ❌"
 fi
 
 # STATUS SERVICE  SSH 
 if [[ $ssh_service == "running" ]]; then 
    status_ssh=" ${GREEN}Running ${NC}( No Error )"
-   status_ssh_tele=" Running ✅"
 else
    status_ssh="${RED}  Not Running ${NC}  ( Error )"
-   status_ssh_tele=" Running ❌"
 fi
 
 # STATUS SERVICE SQUID 
 if [[ $squid_service == "running" ]]; then 
    status_squid=" ${GREEN}Running ${NC}( No Error )"
-   status_squid_tele=" Running ✅"
 else
    status_squid="${RED}  Not Running ${NC}  ( Error )"
-   status_squid_tele=" Running ❌"
 fi
 
 # STATUS SERVICE FAIL2BAN 
 if [[ $fail2ban_service == "running" ]]; then 
    status_fail2ban=" ${GREEN}Running ${NC}( No Error )"
-   status_fail2ban_tele=" Running ✅"
 else
    status_fail2ban="${RED}  Not Running ${NC}  ( Error )"
-   status_fail2ban_tele=" Running ❌"
 fi
 
 # STATUS SERVICE TLS 
 if [[ $tls_v2ray_status == "running" ]]; then 
    status_tls_v2ray=" ${GREEN}Running${NC} ( No Error )"
-   status_tls_v2ray_tele=" Running ✅"
 else
    status_tls_v2ray="${RED}  Not Running ${NC}   ( Error )"
-   status_tls_v2ray_tele=" Running ❌"
 fi
 
 # STATUS SERVICE NON TLS V2RAY
 if [[ $nontls_v2ray_status == "running" ]]; then 
    status_nontls_v2ray=" ${GREEN}Running ${NC}( No Error )${NC}"
-   status_nontls_v2ray_tele=" Running ✅"
 else
    status_nontls_v2ray="${RED}  Not Running ${NC}  ( Error )${NC}"
-   status_nontls_v2ray_tele=" Running ❌"
 fi
 
 # STATUS SERVICE VLESS HTTPS
 if [[ $vless_tls_v2ray_status == "running" ]]; then
   status_tls_vless=" ${GREEN}Running${NC} ( No Error )"
-  status_tls_vless_tele=" Running ✅"
 else
   status_tls_vless="${RED}  Not Running ${NC}  ( Error )${NC}"
-  status_tls_vless_tele=" Running ❌"
 fi
 
 # STATUS SERVICE VLESS HTTP
 if [[ $vless_nontls_v2ray_status == "running" ]]; then
   status_nontls_vless=" ${GREEN}Running${NC} ( No Error )"
-  status_nontls_vless_tele=" Running ✅"
 else
   status_nontls_vless="${RED}  Not Running ${NC}  ( Error )${NC}"
-  status_nontls_vless_tele=" Running ❌"
 fi
 
 # STATUS SERVICE TROJAN
 if [[ $trojan_server == "running" ]]; then 
    status_trojan=" ${GREEN}Running ${NC}( No Error )${NC}"
-   status_trojan_tele=" Running ✅"
 else
    status_trojan="${RED}  Not Running ${NC}  ( Error )${NC}"
-   status_trojan_tele=" Running ❌"
 fi
 
 # STATUS SERVICE DROPBEAR
 if [[ $dropbear_status == "running" ]]; then 
    status_beruangjatuh=" ${GREEN}Running${NC} ( No Error )${NC}"
-   status_beruangjatuh_tele=" Running ✅"
 else
    status_beruangjatuh="${RED}  Not Running ${NC}  ( Error )${NC}"
-   status_beruangjatuh_tele=" Running ❌"
 fi
 
 # STATUS SERVICE STUNNEL
 if [[ $stunnel_service == "running" ]]; then 
    status_stunnel=" ${GREEN}Running ${NC}( No Error )"
-   status_stunnel_tele=" Running ✅"
 else
    status_stunnel="${RED}  Not Running ${NC}  ( Error )}"
-   status_stunnel_tele=" Running ❌"
 fi
 
 # STATUS SERVICE WEBSOCKET TLS
 if [[ $wstls == "running" ]]; then 
    swstls=" ${GREEN}Running ${NC}( No Error )${NC}"
-   swstls_tele=" Running ✅"
 else
    swstls="${RED}  Not Running ${NC}  ( Error )${NC}"
-   swstls_tele=" Running ❌"
 fi
 
 # STATUS SERVICE WEBSOCKET DROPBEAR
 if [[ $wsdrop == "running" ]]; then 
    swsdrop=" ${GREEN}Running ${NC}( No Error )${NC}"
-   status_swsdrop_tele=" Running ✅"
 else
    swsdrop="${RED}  Not Running ${NC}  ( Error )${NC}"
-   status_swsdrop_tele=" Running ❌"
 fi
 
 # STATUS SHADOWSOCKS
 if [[ $shadowsocks == "running" ]]; then 
    status_shadowsocks=" ${GREEN}Running ${NC}( No Error )${NC}"
-   status_shadowsocks_tele=" Running ✅"
 else
    status_shadowsocks="${RED}  Not Running ${NC}  ( Error )${NC}"
-   status_shadowsocks_tele=" Running ❌"
 fi
 
 # STATUS UDP-CUSTOM
 if [[ $udp == "running" ]]; then 
    status_udp=" ${GREEN}Running ${NC}( No Error )${NC}"
-   status_udp_tele=" Running ✅"
 else
    status_udp="${RED}  Not Running ${NC}  ( Error )${NC}"
-   status_udp_tele=" Running ❌"
 fi
 
 # STATUS NGINX
 if [[ $nginx_service == "running" ]]; then 
    status_nginx=" ${GREEN}Running ${NC}( No Error )"
-   status_nginx_tele=" Running ✅"
 else
    status_nginx="${RED}  Not Running ${NC}  ( Error )"
-   status_nginx_tele=" Running ❌"
 fi
 
 # Ini Output Untuk Pesan Jika Eksesusi Lewat Terminal Lngsung
@@ -244,33 +208,6 @@ echo -e "\e[1;32mXRAYS Vless None TLS \e[0m: $status_nontls_vless"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                   t.me/yansxdi                   \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-
-# Ini Output Untuk Pesan Bot Telegram Tanpa kode warna ansi
-{
-   echo "━━━━━━━━━━━━━━━━━━━━━━"
-   echo "          SERVICE INFORMATION           "
-   echo "━━━━━━━━━━━━━━━━━━━━━━"
-   echo "Cron 👉 $status_cron_tele"
-   echo "Nginx 👉 $status_nginx_tele"
-   echo "Stunl4 👉 $status_stunnel_tele"
-   echo "Ws-tls 👉 $swstls_tele"
-   echo "Trojan 👉 $status_trojan_tele"
-   echo "Vnstat 👉 $status_vnstat_tele"
-   echo "OpenVpn👉 $openvpn_tele"
-   echo "Fl2-ban 👉 $status_fail2ban_tele"
-   echo "Vles-tls 👉 $status_tls_vless_tele"
-   echo "Ws-n.tls 👉 $swstls_tele"
-   echo "Ssh/Tun 👉 $status_ssh_tele"
-   echo "Vmes-tls 👉 $status_tls_v2ray_tele"
-   echo "Vles-n.tls 👉 $status_nontls_vless_tele"
-   echo "Dropbear 👉 $status_beruangjatuh_tele"   
-   echo "Vmes-n.tls 👉 $status_nontls_v2ray_tele"
-   echo "Shw-socks 👉 $status_shadowsocks_tele"
-   echo "Udp-Custom 👉 $status_udp_tele"
-   echo "━━━━━━━━━━━━━━━━━━━━━━"
-   echo ""
-} | sed -e 's/\x1b\[[0-9;]*m//g' > /etc/status-service.log
-
 echo -e ""
 read -n 1 -s -r -p " Enter to back on Menu"
 menu
