@@ -34,7 +34,7 @@ case $opt in
 1)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m           TOTAL BANDWITH SERVER TERSISA          \e[0m"
+echo -e "\e[1;44m          TOTAL BANDWITH SERVER TERSISA         \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -50,7 +50,7 @@ bw
 2)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m            TOTAL BANDWITH SETIAP 5 MENIT         \e[0m"
+echo -e "\e[1;44m         TOTAL BANDWITH SETIAP 5 MENIT         \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -66,7 +66,7 @@ bw
 3)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m              TOTAL BANDWITH SETIAP JAM           \e[0m"
+echo -e "\e[1;44m             TOTAL BANDWITH SETIAP JAM          \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -82,7 +82,7 @@ bw
 4)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m            TOTAL BANDWITH SETIAP HARI            \e[0m"
+echo -e "\e[1;44m           TOTAL BANDWITH SETIAP HARI           \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -98,7 +98,7 @@ bw
 5)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m            TOTAL BANDWITH SETIAP BULAN •         \e[0m"
+echo -e "\e[1;44m           TOTAL BANDWITH SETIAP BULAN          \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -114,7 +114,7 @@ bw
 6)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m            TOTAL BANDWITH SETIAP TAHUN           \e[0m"
+echo -e "\e[1;44m           TOTAL BANDWITH SETIAP TAHUN          \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -130,7 +130,7 @@ bw
 7)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m              TOTAL BANDWITH TERTINGGI            \e[0m"
+echo -e "\e[1;44m             TOTAL BANDWITH TERTINGGI           \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -146,7 +146,7 @@ bw
 8)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m           STATISTIK TERPAKAI SETIAP JAM          \e[0m"
+echo -e "\e[1;44m         STATISTIK TERPAKAI SETIAP JAM          \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -162,7 +162,7 @@ bw
 9)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m               LIVE BANDWITH SAAT INI             \e[0m"
+echo -e "\e[1;44m             LIVE BANDWITH SAAT INI           \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;34m Press [ Ctrl+C ] To-Exit \e[0m"
 echo -e ""
@@ -179,7 +179,7 @@ bw
 10)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m           LIVE TRAFIK PENGGUNAAN BANDWITH        \e[0m"
+echo -e "\e[1;44m         LIVE TRAFIK PENGGUNAAN BANDWITH      \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
