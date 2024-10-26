@@ -34,7 +34,7 @@ case $opt in
 1)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m          TOTAL BANDWITH SERVER TERSISA         \e[0m"
+echo -e "\e[1;44m         TOTAL BANDWITH SERVER TERSISA         \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
@@ -66,7 +66,7 @@ bw
 3)
 clear 
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-echo -e "\e[1;44m             TOTAL BANDWITH SETIAP JAM          \e[0m"
+echo -e "\e[1;44m            TOTAL BANDWITH SETIAP JAM          \e[0m"
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 
