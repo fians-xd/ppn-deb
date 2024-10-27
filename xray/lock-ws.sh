@@ -33,9 +33,9 @@ while IFS= read -r line; do
 
   # Deteksi status lock/unlock berdasarkan tanda komentar
   if grep -q "#},{\"id\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
-    user_status[$user]="${exp} \033[0;31mlock\033[0m" # Warna merah untuk locked
+    user_status[$user]="${exp} [\033[0;31mlock\033[0m]" # Warna merah untuk locked
   else
-    user_status[$user]="${exp} \033[0;32munlock\033[0m" # Warna hijau untuk unlocked
+    user_status[$user]="${exp} [\033[0;32munlock\033[0m]" # Warna hijau untuk unlocked
   fi
 done < <(grep -E "^### " "$CONFIG_FILE")
 
@@ -56,7 +56,7 @@ if [ -z "$user" ]; then
 else
     # Jika akun tidak dikunci, kunci akun dengan menambahkan komentar tanpa spasi di depan
     sed -i "/},{\"id\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
-    status="lock"
+    status="[\033[0;31mLock\033[0m]"
   fi
 
   # Restart Xray untuk menerapkan perubahan
