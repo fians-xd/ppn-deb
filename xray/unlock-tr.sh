@@ -31,10 +31,9 @@ while IFS= read -r line; do
   user=$(echo "$line" | awk '{print $2}')
   exp=$(echo "$line" | awk '{print $3}')
 
-  # Cek apakah ada bullet di password
+  # Cek apakah akun terkunci atau tidak
   if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
-    password_line=$(grep -A1 "\"email\": \"$user\"" "$CONFIG_FILE" | grep "\"password\":")
-    if [[ "$password_line" == *"\"password\": \"~"* ]]; then
+    if grep -q "#},{\"password\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
       user_status[$user]="${exp} \033[0;31mlock\033[0m" # Warna merah untuk locked
     else
       user_status[$user]="${exp} \033[0;32munlock\033[0m" # Warna hijau untuk unlocked
@@ -57,26 +56,30 @@ read -rp " Input Username: " user
 if [ -z "$user" ]; then
   m-trojan
 else
-  # Hapus tanda bullet dari password akun yang sesuai
-  sed -i "/\"email\": \"$user\"/{
-    N; s/\"password\": \"~\([^\"]*\)~\"/\"password\": \"\1\"/
-  }" "$CONFIG_FILE"
+  # Jika akun terkunci, hapus komentar (#},{) untuk unlock
+  if grep -q "#},{\"password\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
+    sed -i "/#},{\"password\":.*\"email\": \"$user\"/s/#,//" "$CONFIG_FILE"
+    
+    # Restart Xray untuk menerapkan perubahan
+    systemctl restart xray > /dev/null 2>&1
 
-  # Restart Xray untuk menerapkan perubahan
-  systemctl restart xray > /dev/null 2>&1
-
-  # Ambil tanggal expired dari komentar username
-  exp=$(grep -wE "^#! $user" "$CONFIG_FILE" | cut -d ' ' -f 3 | sort | uniq)
-  clear
-  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-  echo -e "\E[44;1;39m     ⇱ Unlock Trojan Account ⇲     \E[0m"
-  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-  echo -e "   • Account Unlocked Successfully"
-  echo -e ""
-  echo -e "   • Client Name : $user"
-  echo -e "   • Expired On  : $exp"
-  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-  echo ""
-  read -n 1 -s -r -p "   Press any key to go back to the menu"
-  m-trojan
+    # Ambil tanggal expired dari komentar username
+    exp=$(grep -wE "^#! $user" "$CONFIG_FILE" | cut -d ' ' -f 3 | sort | uniq)
+    clear
+    echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "\E[44;1;39m     ⇱ Unlock Trojan Account ⇲     \E[0m"
+    echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "   • Account Unlocked Successfully"
+    echo -e ""
+    echo -e "   • Client Name : $user"
+    echo -e "   • Expired On  : $exp"
+    echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo ""
+    read -n 1 -s -r -p "   Press any key to go back to the menu"
+    m-trojan
+  else
+    echo -e "   • Account is already unlocked."
+    read -n 1 -s -r -p "   Press any key to go back to the menu"
+    m-trojan
+  fi
 fi
