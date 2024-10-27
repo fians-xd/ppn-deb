@@ -24,21 +24,18 @@ echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━
 
 # Menyimpan informasi username dan status
 i=1
-declare -A user_status # Untuk menyimpan status user
+declare -A user_status
 
 # Menyimpan informasi username dan tanggal expired
 while IFS= read -r line; do
   user=$(echo "$line" | awk '{print $2}')
   exp=$(echo "$line" | awk '{print $3}')
 
-  # Cek apakah ada bullet di password
-  if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
-    password_line=$(grep -A1 "\"email\": \"$user\"" "$CONFIG_FILE" | grep "\"password\":")
-    if [[ "$password_line" == *"\"password\": \"~"* ]]; then
-      user_status[$user]="${exp} \033[0;31mlock\033[0m" # Warna merah untuk locked
-    else
-      user_status[$user]="${exp} \033[0;32munlock\033[0m" # Warna hijau untuk unlocked
-    fi
+  # Deteksi status lock/unlock berdasarkan tanda komentar
+  if grep -q "#},{\"password\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
+    user_status[$user]="${exp} \033[0;31mlock\033[0m" # Warna merah untuk locked
+  else
+    user_status[$user]="${exp} \033[0;32munlock\033[0m" # Warna hijau untuk unlocked
   fi
 done < <(grep -E "^#! " "$CONFIG_FILE")
 
@@ -57,10 +54,16 @@ read -rp " Input Username: " user
 if [ -z "$user" ]; then
   m-trojan
 else
-  # Cari username di dalam config dan tambahkan bullet pada password yang sesuai
-  sed -i "/\"email\": \"$user\"/{
-    N; s/\"password\": \"\([^\"]*\)\"/\"password\": \"~\1~\"/
-  }" "$CONFIG_FILE"
+  # Cari username di dalam config dan tambahkan atau hapus komentar sesuai status lock/unlock
+  if grep -q "#},{\"password\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
+    # Jika akun dikunci, buka kunci dengan menghapus komentar
+    sed -i "/#},{\"password\":.*\"email\": \"$user\"/s/#//" "$CONFIG_FILE"
+    status="unlock"
+  else
+    # Jika akun tidak dikunci, kunci akun dengan menambahkan komentar tanpa spasi di depan
+    sed -i "/},{\"password\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
+    status="lock"
+  fi
 
   # Restart Xray untuk menerapkan perubahan
   systemctl restart xray > /dev/null 2>&1
@@ -71,7 +74,7 @@ else
   echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo -e "\E[44;1;39m     ⇱ Locked Trojan Account ⇲     \E[0m"
   echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-  echo -e "   • Account Locked Successfully"
+  echo -e "   • Account ${status^} Successfully"
   echo -e ""
   echo -e "   • Client Name : $user"
   echo -e "   • Expired On  : $exp"
