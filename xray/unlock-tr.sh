@@ -56,7 +56,7 @@ read -rp " Input Username: " user
 if [ -z "$user" ]; then
   m-trojan
 else
-  # Jika akun terkunci, hapus komentar (#},{) untuk unlock
+  # Jika akun terkunci, hapus komentar (#) untuk unlock
   if grep -q "#},{\"password\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
     sed -i "/#},{\"password\":.*\"email\": \"$user\"/s/#//" "$CONFIG_FILE"
     
