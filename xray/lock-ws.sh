@@ -58,6 +58,8 @@ else
   if grep -q "#},{\"id\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
     # Jika akun sudah dikunci, abaikan dan tidak cetak apa-apa
     echo -e " Akun $user Sudah Dikunci Asw"
+    sleep 5
+    m-vmess
   else
     # Jika akun tidak dikunci, kunci akun dengan menambahkan tanda komentar
     sed -i "/},{\"id\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
