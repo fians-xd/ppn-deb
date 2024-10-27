@@ -57,8 +57,10 @@ else
   # Cek apakah akun sudah dikunci (mengandung # di depan)
   if grep -q "#},{\"id\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
     # Jika akun sudah dikunci, abaikan dan tidak cetak apa-apa
-    echo -e " Akun $user Sudah Dikunci Asw"
-    sleep 5
+    echo " "
+    echo -e " Akun User $user Sudah Dikunci Asw"
+    echo " "
+    read -n 1 -s -r -p "Tekan Enter Kembali Kemenu"
     m-vmess
   else
     # Jika akun tidak dikunci, kunci akun dengan menambahkan tanda komentar
