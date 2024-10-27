@@ -6,11 +6,11 @@ CONFIG_FILE="/etc/xray/config.json"
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "$CONFIG_FILE")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-  echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo -e "\E[44;1;39m     ⇱ Unlock Vmess Account ⇲      \E[0m"
-  echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo -e "  • You don't have any existing clients!"
-  echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo ""
   read -n 1 -s -r -p "   Press any key to go back to the menu"
   m-vmess
@@ -18,9 +18,9 @@ fi
 
 # Menampilkan daftar akun dengan status lock/unlock
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;39m     ⇱ Unlock Vmess Account ⇲      \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 # Menyimpan informasi username dan status
 i=1
@@ -48,7 +48,7 @@ for user in "${!user_status[@]}"; do
   ((i++))
 done
 
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " [NOTE] Press any key to back on menu"
 echo " "
 read -rp " Input Username: " user
@@ -68,14 +68,14 @@ else
   # Ambil tanggal expired dari komentar username
   exp=$(grep -wE "^### $user" "$CONFIG_FILE" | cut -d ' ' -f 3 | sort | uniq)
   clear
-  echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo -e "\E[44;1;39m     ⇱ Unlock Vmess Account ⇲      \E[0m"
-  echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo -e "   • Account Unlocked Successfully"
   echo -e ""
   echo -e "   • Client Name : $user"
   echo -e "   • Expired On  : $exp"
-  echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo ""
   read -n 1 -s -r -p "   Press any key to go back to the menu"
   m-vmess
