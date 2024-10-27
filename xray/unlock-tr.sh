@@ -58,7 +58,7 @@ if [ -z "$user" ]; then
 else
   # Jika akun terkunci, hapus komentar (#},{) untuk unlock
   if grep -q "#},{\"password\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
-    sed -i "/#},{\"password\":.*\"email\": \"$user\"/s/#,//" "$CONFIG_FILE"
+    sed -i "/#},{\"password\":.*\"email\": \"$user\"/s/#//" "$CONFIG_FILE"
     
     # Restart Xray untuk menerapkan perubahan
     systemctl restart xray > /dev/null 2>&1
