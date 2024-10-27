@@ -54,12 +54,6 @@ read -rp " Input Username: " user
 if [ -z "$user" ]; then
   m-vless
 else
-  # Cari username di dalam config dan tambahkan atau hapus komentar sesuai status lock/unlock
-  if grep -q "#},{\"id\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
-    # Jika akun dikunci, buka kunci dengan menghapus komentar
-    sed -i "/#},{\"id\":.*\"email\": \"$user\"/s/#//" "$CONFIG_FILE"
-    status="unlock"
-  else
     # Jika akun tidak dikunci, kunci akun dengan menambahkan komentar tanpa spasi di depan
     sed -i "/},{\"id\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
     status="lock"
