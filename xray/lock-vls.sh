@@ -12,7 +12,7 @@ if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
   echo -e "  • You don't have any existing clients!"
   echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo ""
-  read -n 1 -s -r -p "   Press any key to go back to the menu"
+  read -n 1 -s -r -p "Press any key to go back to the menu"
   m-vless
 fi
 
@@ -33,9 +33,9 @@ while IFS= read -r line; do
 
   # Deteksi status lock/unlock berdasarkan tanda komentar
   if grep -q "#},{\"id\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
-    user_status[$user]="${exp} \033[0;31mlock\033[0m" # Warna merah untuk locked
+    user_status[$user]="${exp} [\033[0;31mlock\033[0m]" # Warna merah untuk locked
   else
-    user_status[$user]="${exp} \033[0;32munlock\033[0m" # Warna hijau untuk unlocked
+    user_status[$user]="${exp} [\033[0;32munlock\033[0m]" # Warna hijau untuk unlocked
   fi
 done < <(grep -E "^#& " "$CONFIG_FILE")
 
@@ -61,7 +61,7 @@ else
     echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo -e "  Akun User [$user] Sudah Dikunci Asw"
     echo " "
-    read -n 1 -s -r -p "Tekan Enter Kembali Kemenu"
+    read -n 1 -s -r -p "Press any key to go back to the menu"
     m-vless
   else
     # Jika akun tidak dikunci, kunci akun dengan menambahkan tanda komentar
@@ -84,6 +84,6 @@ else
   echo -e "   • Expired On  : $exp"
   echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo ""
-  read -n 1 -s -r -p "   Press any key to go back to the menu"
+  read -n 1 -s -r -p "Press any key to go back to the menu"
   m-vless
 fi
