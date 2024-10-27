@@ -8,10 +8,8 @@ echo -e ""
 echo -e " [\e[36m1\e[0m] Create Account Trojan "
 echo -e " [\e[36m2\e[0m] Trial Account Trojan "
 echo -e " [\e[36m3\e[0m] Member Trojan Check "
-
 echo -e " [\e[36m4\e[0m] Lock Member Trojan "
 echo -e " [\e[36m5\e[0m] UnLock Member Trojan "
-
 echo -e " [\e[36m6\e[0m] Renew Account Trojan "
 echo -e " [\e[36m7\e[0m] Delete Account Trojan "
 echo -e " [\e[36m8\e[0m] Check User Login Trojan "
@@ -28,10 +26,12 @@ case $opt in
 1) clear ; add-tr ;;
 2) clear ; trialtrojan ;;
 3) clear ; member-tr ;;
-4) clear ; renew-tr ;;
-5) clear ; del-tr ;;
-6) clear ; cek-tr ;;
-7) clear ; cat /etc/log-create-trojan.log ; exit ;;
+4) clear ; lock-tr ;;
+5) clear ; unlock-tr ;;
+6) clear ; renew-tr ;;
+7) clear ; del-tr ;;
+8) clear ; cek-tr ;;
+9) clear ; cat /etc/log-create-trojan.log ; exit ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "Anda Salah Tekan" ; sleep 1 ; m-trojan ;;

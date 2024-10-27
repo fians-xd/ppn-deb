@@ -8,10 +8,8 @@ echo -e ""
 echo -e " [\e[36m1\e[0m] Create Account Vless "
 echo -e " [\e[36m2\e[0m] Trial Account Vless "
 echo -e " [\e[36m3\e[0m] Member Vless Check "
-
 echo -e " [\e[36m4\e[0m] Lock Member Vless "
 echo -e " [\e[36m5\e[0m] UnLock Member Vless "
-
 echo -e " [\e[36m6\e[0m] Renew Account Vless "
 echo -e " [\e[36m7\e[0m] Delete Account Vless "
 echo -e " [\e[36m8\e[0m] Check User Login Vless "
@@ -28,10 +26,12 @@ case $opt in
 1) clear ; add-vless ; exit ;;
 2) clear ; trialvless ; exit ;;
 3) clear ; member-vls ; exit ;;
-4) clear ; renew-vless ; exit ;;
-5) clear ; del-vless ; exit ;;
-6) clear ; cek-vless ; exit ;;
-7) clear ; cat /etc/log-create-vless.log ; exit ;;
+4) clear ; lock-vls ;;
+5) clear ; unlock-vls ;;
+6) clear ; renew-vless ; exit ;;
+7) clear ; del-vless ; exit ;;
+8) clear ; cek-vless ; exit ;;
+9) clear ; cat /etc/log-create-vless.log ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; m-vless ;;
