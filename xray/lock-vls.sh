@@ -63,7 +63,7 @@ else
     echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo " "
     read -n 1 -s -r -p "Tekan Enter Kembali Kemenu"
-    m-vmess
+    m-vless
   else
     # Jika akun tidak dikunci, kunci akun dengan menambahkan tanda komentar
     sed -i "/},{\"id\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
