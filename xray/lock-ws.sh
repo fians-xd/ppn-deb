@@ -65,7 +65,7 @@ else
   else
     # Jika akun tidak dikunci, kunci akun dengan menambahkan tanda komentar
     sed -i "/},{\"id\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
-    status="[\033[0;31mLock\033[0m]"
+    status="Lock"
   fi
 
 
