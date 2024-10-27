@@ -12,7 +12,7 @@ if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
   echo -e "  • You don't have any existing clients!"
   echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo ""
-  read -n 1 -s -r -p "   Press any key to go back to the menu"
+  read -n 1 -s -r -p "Press any key to go back to the menu"
   m-vmess
 fi
 
@@ -75,7 +75,7 @@ else
     echo -e "   • Expired On  : $exp"
     echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo ""
-    read -n 1 -s -r -p "   Press any key to go back to the menu"
+    read -n 1 -s -r -p "Press any key to go back to the menu"
     m-vmess
   else
     echo " "
