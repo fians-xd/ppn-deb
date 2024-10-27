@@ -34,9 +34,9 @@ while IFS= read -r line; do
   # Cek apakah akun terkunci atau tidak
   if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
     if grep -q "#},{\"password\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
-      user_status[$user]="${exp} \033[0;31mlock\033[0m" # Warna merah untuk locked
+      user_status[$user]="${exp} [\033[0;31mlock\033[0m]" # Warna merah untuk locked
     else
-      user_status[$user]="${exp} \033[0;32munlock\033[0m" # Warna hijau untuk unlocked
+      user_status[$user]="${exp} [\033[0;32munlock\033[0m]" # Warna hijau untuk unlocked
     fi
   fi
 done < <(grep -E "^#! " "$CONFIG_FILE")
