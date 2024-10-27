@@ -54,9 +54,19 @@ read -rp " Input Username: " user
 if [ -z "$user" ]; then
   m-vless
 else
-    # Jika akun tidak dikunci, kunci akun dengan menambahkan komentar tanpa spasi di depan
+  # Cek apakah akun sudah dikunci (mengandung # di depan)
+  if grep -q "#},{\"id\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
+    # Jika akun sudah dikunci, abaikan dan tidak cetak apa-apa
+    echo " "
+    echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "  Akun User $user Sudah Dikunci Asw"
+    echo " "
+    read -n 1 -s -r -p "Tekan Enter Kembali Kemenu"
+    m-vmess
+  else
+    # Jika akun tidak dikunci, kunci akun dengan menambahkan tanda komentar
     sed -i "/},{\"id\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
-    status="lock"
+    status="Lock"
   fi
 
   # Restart Xray untuk menerapkan perubahan
