@@ -55,12 +55,12 @@ if [ -z "$user" ]; then
   m-vmess
 else
   # Cek apakah akun sudah dikunci (mengandung # di depan)
-  if grep -q "#},{\"password\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
+  if grep -q "#},{\"id\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
     # Jika akun sudah dikunci, abaikan dan tidak cetak apa-apa
     exit
   else
     # Jika akun tidak dikunci, kunci akun dengan menambahkan tanda komentar
-    sed -i "/},{\"password\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
+    sed -i "/},{\"id\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
     status="[\033[0;31mLock\033[0m]"
   fi
 
