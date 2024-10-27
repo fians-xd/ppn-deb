@@ -541,17 +541,25 @@ wget --progress=bar:force -O renew-ws "https://raw.githubusercontent.com/fians-x
 wget --progress=bar:force -O del-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-ws\s+100%|saved \[" && chmod +x del-ws
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-ws.sh\s+100%|saved \["
 wget --progress=bar:force -O member-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-ws\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/lock-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|lock-ws.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/unlock-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|unlock-ws.sh\s+100%|saved \["
 
 sudo shc -U -S -f add-ws.sh -o add-ws
 sudo shc -U -S -f trialvmess.sh -o trialvmess
 sudo shc -U -S -f cek-ws.sh -o cek-ws
+sudo shc -U -S -f lock-ws.sh -o lock-ws
+sudo shc -U -S -f unlock-ws.sh -o unlock-ws
 
 sudo chmod +x add-ws
+sudo chmod +x lock-ws
+sudo chmod +x unlock-ws
 sudo chmod +x trialvmess
 sudo chmod +x cek-ws
 sudo chmod +x member-ws
 
 rm add-ws.sh add-ws.sh.x.c
+rm lock-ws.sh lock-ws.sh.x.c
+rm unlock-ws.sh unlock-ws.sh.x.c
 rm trialvmess.sh trialvmess.sh.x.c
 rm cek-ws.sh cek-ws.sh.x.c
 
@@ -562,19 +570,27 @@ wget --progress=bar:force -O renew-vless "https://raw.githubusercontent.com/fian
 wget --progress=bar:force -O del-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-vless\s+100%|saved \[" && chmod +x del-vless
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-vless.sh\s+100%|saved \["
 wget --progress=bar:force -O member-vls "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-vls\s+100%|saved \[" && chmod +x renew-vless
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/lock-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|lock-vls.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/unlock-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|unlock-vls.sh\s+100%|saved \["
 
 sudo shc -U -S -f add-vless.sh -o add-vless
 sudo shc -U -S -f trialvless.sh -o trialvless
 sudo shc -U -S -f cek-vless.sh -o cek-vless
+sudo shc -U -S -f lock-vls.sh -o lock-vls
+sudo shc -U -S -f unlock-vls.sh -o unlock-vls
 
 sudo chmod +x add-vless
 sudo chmod +x trialvless
+sudo chmod +x lock-vls
+sudo chmod +x unlock-vls
 sudo chmod +x cek-vless
 sudo chmod +x member-vls
 
 rm add-vless.sh add-vless.sh.x.c
 rm trialvless.sh trialvless.sh.x.c
 rm cek-vless.sh cek-vless.sh.x.c
+rm lock-vls.sh lock-vls.sh.x.c
+rm unlock-vls.sh unlock-vls.sh.x.c
 
 # trojan
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-tr.sh\s+100%|saved \["
@@ -583,19 +599,27 @@ wget --progress=bar:force -O del-tr "https://raw.githubusercontent.com/fians-xd/
 wget --progress=bar:force -O renew-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-tr\s+100%|saved \[" && chmod +x renew-tr
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-tr.sh\s+100%|saved \["
 wget --progress=bar:force -O member-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-tr\s+100%|saved \[" && chmod +x renew-tr
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/lock-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|lock-tr.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/unlock-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|unlock-tr.sh\s+100%|saved \["
 
 sudo shc -U -S -f cek-tr.sh -o cek-tr
 sudo shc -U -S -f trialtrojan.sh -o trialtrojan
 sudo shc -U -S -f add-tr.sh -o add-tr
+sudo shc -U -S -f lock-tr.sh -o lock-tr
+sudo shc -U -S -f unlock-tr.sh -o unlock-tr
 
 sudo chmod +x cek-tr
 sudo chmod +x trialtrojan
 sudo chmod +x add-tr
 sudo chmod +x member-tr
+sudo chmod +x lock-tr
+sudo chmod +x unlock-tr
 
 rm cek-tr.sh cek-tr.sh.x.c
 rm trialtrojan.sh trialtrojan.sh.x.c
 rm add-tr.sh add-tr.sh.x.c
+rm lock-tr.sh lock-tr.sh.x.c
+rm unlock-tr.sh unlock-tr.sh.x.c
 
 sleep 0.8
 gren() { echo -e "\\033[0;32m${*}\\033[0m"; }
