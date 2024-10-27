@@ -34,7 +34,7 @@ while IFS= read -r line; do
   # Cek apakah ada bullet di password
   if grep -q "\"email\": \"$user\"" "$CONFIG_FILE"; then
     password_line=$(grep -A1 "\"email\": \"$user\"" "$CONFIG_FILE" | grep "\"id\":")
-    if [[ "$password_line" == *"\"id\": \"•"* ]]; then
+    if [[ "$password_line" == *"\"id\": \"~"* ]]; then
       user_status[$user]="${exp} \033[0;31mlock\033[0m" # Warna merah untuk locked
     else
       user_status[$user]="${exp} \033[0;32munlock\033[0m" # Warna hijau untuk unlocked
@@ -59,7 +59,7 @@ if [ -z "$user" ]; then
 else
   # Hapus tanda bullet dari password akun yang sesuai
   sed -i "/\"email\": \"$user\"/{
-    N; s/\"id\": \"•\([^\"]*\)•\"/\"id\": \"\1\"/
+    N; s/\"id\": \"~\([^\"]*\)~\"/\"id\": \"\1\"/
   }" "$CONFIG_FILE"
 
   # Restart Xray untuk menerapkan perubahan
