@@ -60,6 +60,7 @@ else
     echo " "
     echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo -e "  Akun User $user Sudah Dikunci Asw"
+    echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo " "
     read -n 1 -s -r -p "Tekan Enter Kembali Kemenu"
     m-vmess
