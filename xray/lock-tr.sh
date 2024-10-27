@@ -55,8 +55,24 @@ if [ -z "$user" ]; then
   m-trojan
 else
     # Jika akun tidak dikunci, kunci akun dengan menambahkan komentar tanpa spasi di depan
-    sed -i "/},{\"password\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
+    
     status="lock"
+  fi
+else
+  # Cek apakah akun sudah dikunci (mengandung # di depan)
+  if grep -q "#},{\"password\":.*\"email\": \"$user\"" "$CONFIG_FILE"; then
+    # Jika akun sudah dikunci, abaikan dan tidak cetak apa-apa
+    echo " "
+    echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "  Akun User $user Sudah Dikunci Asw"
+    echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo " "
+    read -n 1 -s -r -p "Tekan Enter Kembali Kemenu"
+    m-vmess
+  else
+    # Jika akun tidak dikunci, kunci akun dengan menambahkan tanda komentar
+    sed -i "/},{\"password\":.*\"email\": \"$user\"/s/},{/#},{/" "$CONFIG_FILE"
+    status="Lock"
   fi
 
   # Restart Xray untuk menerapkan perubahan
