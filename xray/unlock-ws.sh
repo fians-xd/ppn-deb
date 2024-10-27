@@ -80,7 +80,7 @@ else
   else
     echo " "
     echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "  Akun User [$user] Sudah Diunlock"
+    echo -e "  Akun User [$user] Sudah Diunlock Asw"
     echo -e " "
     read -n 1 -s -r -p "Press any key to go back to the menu"
     m-vmess
