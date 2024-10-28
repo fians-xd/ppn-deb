@@ -1,6 +1,6 @@
 #!/bin/bash
 
-timedatectl set-timezone Asia/Jakarta
+cp config.json /etc/xray/config.json
 clear
 ##----- Auto Remove Vmess
 data=( `cat /etc/xray/config.json | grep '^###' | cut -d ' ' -f 2 | sort | uniq`);
