@@ -195,7 +195,6 @@ uram=$( free -m | awk 'NR==2 {print $3}' )
 mapfile -t API_KEYS < /usr/bin/geolocation.txt
 API_KEY=${API_KEYS[$RANDOM % ${#API_KEYS[@]}]}
 response=$(curl -s "https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}")
-echo "Response: $response"
 ISP=$(echo "$response" | jq -r '.organization')
 cityt=$(echo "$response" | jq -r '.city')
 count_name=$(echo "$response" | jq -r '.country_name')
