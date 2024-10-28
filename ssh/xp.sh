@@ -37,7 +37,7 @@ do
 done
 
 #----- Auto Remove Trojan
-data=( `cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`)
 now=`date +"%Y-%m-%d"`
 for user in "${data[@]}"
 do
@@ -46,10 +46,8 @@ do
     d2=$(date -d "$now" +%s)
     exp2=$(( (d1 - d2) / 86400 ))
     if [[ "$exp2" -le "0" ]]; then
-        # Hapus yang memiliki tanda `},{`
-        sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
-        # Hapus yang memiliki tanda `#},{`
-        sed -i "/^#! $user $exp/,/^#},{/d" /etc/xray/config.json
+        # Hapus akun yang sudah kedaluwarsa dengan tanda `},{` atau `#},{` sebagai pemisah
+        sed -i "/^#! $user $exp$/,/^\s*#\{0,1\}},{/d" /etc/xray/config.json
     fi
 done
 systemctl restart xray
