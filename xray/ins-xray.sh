@@ -418,6 +418,17 @@ Restart=always
 WantedBy=multi-user.target
 END
 
+cat > /etc/systemd/system/satpam.service <<-END
+[Unit]
+Description=Satpam Service
+After=network.target
+[Service]
+ExecStart=/usr/bin/satpam >/dev/null 2>&1
+Restart=always
+[Install]
+WantedBy=multi-user.target
+END
+
 sed -i '$ ilocation = /vless' /etc/nginx/conf.d/xray.conf
 sed -i '$ i{' /etc/nginx/conf.d/xray.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
