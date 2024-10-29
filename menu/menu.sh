@@ -283,7 +283,7 @@ case $opt in
 9) clear ; monitor ;;
 10) clear ; running ;;
 11) clear ; clearcache ;;
-12) clear ; tambah_bot ;;
+12) clear ; tambah_bot ; exit ;;
 13) clear ; m-system ;;
 X|x) exit ;;
 *) echo " Anda salah tekan " ; sleep 1 ; menu ;;
