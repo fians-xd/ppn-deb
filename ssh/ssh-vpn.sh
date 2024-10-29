@@ -295,6 +295,7 @@ wget --progress=bar:force -O m-domain "https://raw.githubusercontent.com/fians-x
 wget --progress=bar:force -O add-host "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/add-host.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-host\s+100%|saved \["
 wget --progress=bar:force -O certv2ray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/certv2ray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|certv2ray\s+100%|saved \["
 wget --progress=bar:force -O speedtest "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/speedtest.py" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|speedtest\s+100%|saved \["
+wget --progress=bar:force -O tespeed "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/tespeed.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tespeed\s+100%|saved \["
 wget --progress=bar:force -O auto-reboot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto-reboot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|auto-reboot\s+100%|saved \["
 wget --progress=bar:force -O restart "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/restart.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|restart\s+100%|saved \["
 wget --progress=bar:force -O tambah_bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tambah_bot.py" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tambah_bot\s+100%|saved \["
@@ -355,6 +356,7 @@ chmod +x m-domain
 chmod +x add-host
 chmod +x certv2ray
 chmod +x speedtest
+chmod +x tespeed
 chmod +x auto-reboot
 chmod +x restart
 chmod +x tambah_bot
