@@ -196,16 +196,16 @@ check_services() {
                 return
             else
                 # Aktifkan dan jalankan satpam.service
-                systemctl enable satpam.service
-                systemctl start satpam.service
+                systemctl enable satpam.service > /dev/null 2>&1
+                systemctl start satpam.service > /dev/null 2>&1
             fi
         fi
 
     else
         # Jika salah satu layanan tidak aktif
         if systemctl is-active --quiet satpam.service; then
-            systemctl disable satpam.service
-            systemctl stop satpam.service
+            systemctl disable satpam.service > /dev/null 2>&1
+            systemctl stop satpam.service > /dev/null 2>&1
         else
             # Abaikan jika satpam.service sudah mati
             return
