@@ -153,58 +153,63 @@ check_services() {
     local wsdrop=$(systemctl is-active ws-dropbear.service)
     local udp=$(systemctl is-active udp-custom)
     local ovpn=$(systemctl is-active openvpn)
+    
+    # Cek jika semua layanan aktif
+    if [[ "$tls_v2ray_status" == "active" && \
+          "$nontls_v2ray_status" == "active" && \
+          "$vless_tls_v2ray_status" == "active" && \
+          "$vless_nontls_v2ray_status" == "active" && \
+          "$shadowsocks" == "active" && \
+          "$trojan_server" == "active" && \
+          "$dropbear_status" == "active" && \
+          "$stunnel_service" == "active" && \
+          "$vnstat_service" == "active" && \
+          "$cron_service" == "active" && \
+          "$fail2ban_service" == "active" && \
+          "$wstls" == "active" && \
+          "$wsdrop" == "active" && \
+          "$udp" == "active" && \
+          "$ovpn" == "active" ]]; then
 
-    # Periksa apakah semua layanan aktif
-    if [[ "$tls_v2ray_status" == "active" ]] &&
-       [[ "$nontls_v2ray_status" == "active" ]] &&
-       [[ "$vless_tls_v2ray_status" == "active" ]] &&
-       [[ "$vless_nontls_v2ray_status" == "active" ]] &&
-       [[ "$shadowsocks" == "active" ]] &&
-       [[ "$trojan_server" == "active" ]] &&
-       [[ "$dropbear_status" == "active" ]] &&
-       [[ "$stunnel_service" == "active" ]] &&
-       [[ "$vnstat_service" == "active" ]] &&
-       [[ "$cron_service" == "active" ]] &&
-       [[ "$fail2ban_service" == "active" ]] &&
-       [[ "$wstls" == "active" ]] &&
-       [[ "$wsdrop" == "active" ]] &&
-       [[ "$udp" == "active" ]] &&
-       [[ "$ovpn" == "active" ]]; then
-       
-        # Periksa apakah satpam.service sudah berjalan
-        local satpam_status=$(systemctl is-active satpam.service)
-        
-        if [[ "$satpam_status" == "active" ]]; then
-            echo "Satpam service sudah berjalan. Mengabaikan perintah untuk mengaktifkan atau memulai."
+        # Cek status satpam.service
+        if systemctl is-active --quiet satpam.service; then
+            # Abaikan jika satpam.service sudah aktif
+            return
         else
-            # Jika semua layanan aktif dan satpam tidak berjalan, pastikan satpam berjalan
-            systemctl enable satpam.service
-            systemctl start satpam.service
-            echo "Satpam service diaktifkan dan dijalankan."
+            # Cek jika ada layanan yang mati
+            if [[ "$tls_v2ray_status" != "active" || \
+                  "$nontls_v2ray_status" != "active" || \
+                  "$vless_tls_v2ray_status" != "active" || \
+                  "$vless_nontls_v2ray_status" != "active" || \
+                  "$shadowsocks" != "active" || \
+                  "$trojan_server" != "active" || \
+                  "$dropbear_status" != "active" || \
+                  "$stunnel_service" != "active" || \
+                  "$vnstat_service" != "active" || \
+                  "$cron_service" != "active" || \
+                  "$fail2ban_service" != "active" || \
+                  "$wstls" != "active" || \
+                  "$wsdrop" != "active" || \
+                  "$udp" != "active" || \
+                  "$ovpn" != "active" ]]; then
+                # Abaikan jika ada layanan yang mati
+                return
+            else
+                # Aktifkan dan jalankan satpam.service
+                systemctl enable satpam.service
+                systemctl start satpam.service
+            fi
         fi
-    else
-        # Jika salah satu layanan tidak berjalan, matikan dan nonaktifkan satpam
-        systemctl disable satpam.service
-        systemctl stop satpam.service
-        echo "Salah satu layanan tidak berjalan. Satpam service dinonaktifkan dan dihentikan."
-    fi
-}
 
-# Fungsi untuk memeriksa respons status HTTP dari Nginx
-check_nginx_status() {
-    if curl -s --head --request GET http://localhost:81 | grep "200 OK" > /dev/null 2>&1; then
-        return 0
     else
-        return 1
-    fi
-}
-
-# Fungsi untuk memeriksa status rest_nginx.service
-check_rest_nginx_status() {
-    if systemctl is-active --quiet rest_nginx.service; then
-        return 0
-    else
-        return 1
+        # Jika salah satu layanan tidak aktif
+        if systemctl is-active --quiet satpam.service; then
+            systemctl disable satpam.service
+            systemctl stop satpam.service
+        else
+            # Abaikan jika satpam.service sudah mati
+            return
+        fi
     fi
 }
 
