@@ -137,6 +137,59 @@ else
     fi
 fi
 
+check_services() {
+    local tls_v2ray_status=$(systemctl is-active xray)
+    local nontls_v2ray_status=$(systemctl is-active xray)
+    local vless_tls_v2ray_status=$(systemctl is-active xray)
+    local vless_nontls_v2ray_status=$(systemctl is-active xray)
+    local shadowsocks=$(systemctl is-active xray)
+    local trojan_server=$(systemctl is-active xray)
+    local dropbear_status=$(/etc/init.d/dropbear status | grep -o "Active: [a-z]*" | awk '{print $2}')
+    local stunnel_service=$(/etc/init.d/stunnel4 status | grep -o "Active: [a-z]*" | awk '{print $2}')
+    local vnstat_service=$(/etc/init.d/vnstat status | grep -o "Active: [a-z]*" | awk '{print $2}')
+    local cron_service=$(/etc/init.d/cron status | grep -o "Active: [a-z]*" | awk '{print $2}')
+    local fail2ban_service=$(/etc/init.d/fail2ban status | grep -o "Active: [a-z]*" | awk '{print $2}')
+    local wstls=$(systemctl is-active ws-stunnel.service)
+    local wsdrop=$(systemctl is-active ws-dropbear.service)
+    local udp=$(systemctl is-active udp-custom)
+    local ovpn=$(systemctl is-active openvpn)
+
+    # Periksa apakah semua layanan aktif
+    if [[ "$tls_v2ray_status" == "active" ]] &&
+       [[ "$nontls_v2ray_status" == "active" ]] &&
+       [[ "$vless_tls_v2ray_status" == "active" ]] &&
+       [[ "$vless_nontls_v2ray_status" == "active" ]] &&
+       [[ "$shadowsocks" == "active" ]] &&
+       [[ "$trojan_server" == "active" ]] &&
+       [[ "$dropbear_status" == "active" ]] &&
+       [[ "$stunnel_service" == "active" ]] &&
+       [[ "$vnstat_service" == "active" ]] &&
+       [[ "$cron_service" == "active" ]] &&
+       [[ "$fail2ban_service" == "active" ]] &&
+       [[ "$wstls" == "active" ]] &&
+       [[ "$wsdrop" == "active" ]] &&
+       [[ "$udp" == "active" ]] &&
+       [[ "$ovpn" == "active" ]]; then
+       
+        # Periksa apakah satpam.service sudah berjalan
+        local satpam_status=$(systemctl is-active satpam.service)
+        
+        if [[ "$satpam_status" == "active" ]]; then
+            echo "Satpam service sudah berjalan. Mengabaikan perintah untuk mengaktifkan atau memulai."
+        else
+            # Jika semua layanan aktif dan satpam tidak berjalan, pastikan satpam berjalan
+            systemctl enable satpam.service
+            systemctl start satpam.service
+            echo "Satpam service diaktifkan dan dijalankan."
+        fi
+    else
+        # Jika salah satu layanan tidak berjalan, matikan dan nonaktifkan satpam
+        systemctl disable satpam.service
+        systemctl stop satpam.service
+        echo "Salah satu layanan tidak berjalan. Satpam service dinonaktifkan dan dihentikan."
+    fi
+}
+
 # Fungsi untuk memeriksa respons status HTTP dari Nginx
 check_nginx_status() {
     if curl -s --head --request GET http://localhost:81 | grep "200 OK" > /dev/null 2>&1; then
@@ -224,6 +277,9 @@ xshx=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)
 xvmesx=$(cat /etc/xray/config.json | grep '^###' | cut -d ' ' -f 2 | sort | uniq | wc -l)
 xvlesx=$(cat /etc/xray/config.json | grep '^#&' | cut -d ' ' -f 2 | sort | uniq | wc -l)
 xtrojanx=$(cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq | wc -l)
+
+# Panggil fungsi untuk memeriksa layanan
+check_services
 
 clear
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
