@@ -137,6 +137,24 @@ else
     fi
 fi
 
+# Fungsi untuk memeriksa respons status HTTP dari Nginx
+check_nginx_status() {
+    if curl -s --head --request GET http://localhost:81 | grep "200 OK" > /dev/null 2>&1; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Fungsi untuk memeriksa status rest_nginx.service
+check_rest_nginx_status() {
+    if systemctl is-active --quiet rest_nginx.service; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 # Logika pengecekan dan tindakan
 check_nginx_status
 nginx_ok=$?
