@@ -137,82 +137,6 @@ else
     fi
 fi
 
-check_services() {
-    local tls_v2ray_status=$(systemctl is-active xray)
-    local nontls_v2ray_status=$(systemctl is-active xray)
-    local vless_tls_v2ray_status=$(systemctl is-active xray)
-    local vless_nontls_v2ray_status=$(systemctl is-active xray)
-    local shadowsocks=$(systemctl is-active xray)
-    local trojan_server=$(systemctl is-active xray)
-    local dropbear_status=$(/etc/init.d/dropbear status | grep -o "Active: [a-z]*" | awk '{print $2}')
-    local stunnel_service=$(/etc/init.d/stunnel4 status | grep -o "Active: [a-z]*" | awk '{print $2}')
-    local vnstat_service=$(/etc/init.d/vnstat status | grep -o "Active: [a-z]*" | awk '{print $2}')
-    local cron_service=$(/etc/init.d/cron status | grep -o "Active: [a-z]*" | awk '{print $2}')
-    local fail2ban_service=$(/etc/init.d/fail2ban status | grep -o "Active: [a-z]*" | awk '{print $2}')
-    local wstls=$(systemctl is-active ws-stunnel.service)
-    local wsdrop=$(systemctl is-active ws-dropbear.service)
-    local udp=$(systemctl is-active udp-custom)
-    local ovpn=$(systemctl is-active openvpn)
-    
-    # Cek jika semua layanan aktif
-    if [[ "$tls_v2ray_status" == "active" && \
-          "$nontls_v2ray_status" == "active" && \
-          "$vless_tls_v2ray_status" == "active" && \
-          "$vless_nontls_v2ray_status" == "active" && \
-          "$shadowsocks" == "active" && \
-          "$trojan_server" == "active" && \
-          "$dropbear_status" == "active" && \
-          "$stunnel_service" == "active" && \
-          "$vnstat_service" == "active" && \
-          "$cron_service" == "active" && \
-          "$fail2ban_service" == "active" && \
-          "$wstls" == "active" && \
-          "$wsdrop" == "active" && \
-          "$udp" == "active" && \
-          "$ovpn" == "active" ]]; then
-
-        # Cek status satpam.service
-        if systemctl is-active --quiet satpam.service; then
-            # Abaikan jika satpam.service sudah aktif
-            return
-        else
-            # Cek jika ada layanan yang mati
-            if [[ "$tls_v2ray_status" != "active" || \
-                  "$nontls_v2ray_status" != "active" || \
-                  "$vless_tls_v2ray_status" != "active" || \
-                  "$vless_nontls_v2ray_status" != "active" || \
-                  "$shadowsocks" != "active" || \
-                  "$trojan_server" != "active" || \
-                  "$dropbear_status" != "active" || \
-                  "$stunnel_service" != "active" || \
-                  "$vnstat_service" != "active" || \
-                  "$cron_service" != "active" || \
-                  "$fail2ban_service" != "active" || \
-                  "$wstls" != "active" || \
-                  "$wsdrop" != "active" || \
-                  "$udp" != "active" || \
-                  "$ovpn" != "active" ]]; then
-                # Abaikan jika ada layanan yang mati
-                return
-            else
-                # Aktifkan dan jalankan satpam.service
-                systemctl enable satpam.service > /dev/null 2>&1
-                systemctl start satpam.service > /dev/null 2>&1
-            fi
-        fi
-
-    else
-        # Jika salah satu layanan tidak aktif
-        if systemctl is-active --quiet satpam.service; then
-            systemctl disable satpam.service > /dev/null 2>&1
-            systemctl stop satpam.service > /dev/null 2>&1
-        else
-            # Abaikan jika satpam.service sudah mati
-            return
-        fi
-    fi
-}
-
 # Logika pengecekan dan tindakan
 check_nginx_status
 nginx_ok=$?
@@ -282,9 +206,6 @@ xshx=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)
 xvmesx=$(cat /etc/xray/config.json | grep '^###' | cut -d ' ' -f 2 | sort | uniq | wc -l)
 xvlesx=$(cat /etc/xray/config.json | grep '^#&' | cut -d ' ' -f 2 | sort | uniq | wc -l)
 xtrojanx=$(cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq | wc -l)
-
-# Panggil fungsi untuk memeriksa layanan
-check_services
 
 clear
 echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
