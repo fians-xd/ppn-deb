@@ -35,7 +35,7 @@ case $opt in
 6) clear ; renew ; exit ;;
 7) clear ; delete ; exit ;;
 8) clear ; ceklim ; exit ;;
-9) clear ; cat /etc/log-create-ssh.log ; exit ;;
+9) clear ; listcreat-ssh ; exit ;;
 10) clear ; nano /etc/issue.net ; exit ;;
 11) clear ; user-lock ; exit ;;
 12) clear ; user-unlock ; exit ;;
