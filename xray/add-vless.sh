@@ -21,16 +21,16 @@ masaaktif=${2:-}
 
 if [[ -z "$user" ]]; then
     until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         echo -e "\\E[0;41;36m      Add Vless Account      \E[0m"
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         read -rp "User: " -e user
         CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
         if [[ ${CLIENT_EXISTS} == '1' ]]; then
             clear
-            echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+            echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
             echo -e "\\E[0;41;36m      Add Vless Account      \E[0m"
-            echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+            echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
             echo ""
             echo "A client with the specified name was already created, please choose another name."
             echo ""
@@ -63,9 +63,9 @@ systemctl restart xray
 clear
 
 # Output log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
 echo -e "\\E[0;41;36m        Vless Account        \E[0m" | tee -a /etc/log-create-vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-vless.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-vless.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-vless.log
@@ -76,15 +76,15 @@ echo -e "Encryption     : none" | tee -a /etc/log-create-vless.log
 echo -e "Network        : ws" | tee -a /etc/log-create-vless.log
 echo -e "Path           : /vless" | tee -a /etc/log-create-vless.log
 echo -e "Path           : vless-grpc" | tee -a /etc/log-create-vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
 echo -e "Link TLS       : ${vlesslink1}" | tee -a /etc/log-create-vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
 echo -e "Link none TLS  : ${vlesslink2}" | tee -a /etc/log-create-vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
 echo -e "Link gRPC      : ${vlesslink3}" | tee -a /etc/log-create-vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
 echo -e "Expired On     : $exp" | tee -a /etc/log-create-vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vless.log
 
 # Simpan log bersih tanpa ANSI untuk Telegram
 {
