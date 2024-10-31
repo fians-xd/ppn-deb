@@ -6,11 +6,11 @@ CONFIG_FILE="/etc/xray/config.json"
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#! " "$CONFIG_FILE")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo -e "\E[44;1;39m     ⇱ Locked Trojan Account ⇲     \E[0m"
-  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo -e "  • You don't have any existing clients!"
-  echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo ""
   read -n 1 -s -r -p "Press any key to go back to the menu"
   m-trojan
