@@ -8,9 +8,9 @@ cek=$(netstat -ntlp | grep 10000 | awk '{print $7}' | cut -d'/' -f2)
 function install () {
 IP=$(wget -qO- ifconfig.me/ip);
 clear
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;100;33m        • INSTALL WEBMIN •         \E[0m"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.5
 echo ""
 echo -e "\033[32m[Info]\033[0m Adding Repository Webmin"
@@ -32,16 +32,16 @@ echo -e "\033[32m[Info]\033[0m Webmin Install Successfully !"
 echo ""
 echo " $IP:10000"
 echo ""
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-webmin
 }
 function restart () {
 clear
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;100;33m        • RESTART WEBMIN •         \E[0m"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.5
 echo ""
 echo " Restarting Webmin"
@@ -50,16 +50,16 @@ echo ""
 sleep 0.5
 echo -e "\033[32m[Info]\033[0m Webmin Start Successfully !"
 echo ""
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-webmin
 }
 function uninstall () {
 clear
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;100;33m       • UNINSTALL WEBMIN •        \E[0m"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 0.5
 echo ""
 echo -e "\033[32m[Info]\033[0m Removing Repositori Webmin"
@@ -71,7 +71,7 @@ apt autoremove --purge webmin -y > /dev/null 2>&1
 sleep 0.5
 echo -e "\033[32m[Info]\033[0m Webmin Uninstall Successfully !"
 echo ""
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-webmin
@@ -82,9 +82,9 @@ else
 sts="${Error}"
 fi
 clear 
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;100;33m          • WEBMIN MENU •          \E[0m"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 echo -e " Status $sts"
 echo -e " [\e[36m•1\e[0m] Install Webmin"
@@ -95,7 +95,7 @@ echo -e " [\e[31m•0\e[0m] \e[31mBACK TO MENU\033[0m"
 echo -e ""
 echo -e   "Press x or [ Ctrl+C ] • To-Exit"
 echo -e ""
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 read -rp " Please Enter The Correct Number : " -e num
 if [[ "$num" = "1" ]]; then
