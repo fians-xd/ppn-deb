@@ -21,20 +21,20 @@ masaaktif=${2:-}
 
 if [[ -z "$user" ]]; then
     until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         echo -e "\E[0;41;36m           ADD TROJAN ACCOUNT          \E[0m"
-        echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         read -rp "User: " -e user
         user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
         if [[ ${user_EXISTS} == '1' ]]; then
             clear
-            echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+            echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
             echo -e "\E[0;41;36m           TROJAN ACCOUNT          \E[0m"
-            echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+            echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
             echo ""
             echo "A client with the specified name was already created, please choose another name."
             echo ""
-            echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+            echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
             read -n 1 -s -r -p "Press any key to back on menu"
             exit 1
         fi
@@ -64,9 +64,9 @@ systemctl restart xray
 clear
 
 # Output log dengan format ANSI
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
 echo -e "\E[0;41;36m           TROJAN ACCOUNT          \E[0m" | tee -a /etc/log-create-trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-trojan.log
 echo -e "Host/IP        : ${domain}" | tee -a /etc/log-create-trojan.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-trojan.log
@@ -76,15 +76,15 @@ echo -e "Port gRPC      : ${tls}" | tee -a /etc/log-create-trojan.log
 echo -e "Key            : ${uuid}" | tee -a /etc/log-create-trojan.log
 echo -e "Path           : /trojan-ws" | tee -a /etc/log-create-trojan.log
 echo -e "ServiceName    : trojan-grpc" | tee -a /etc/log-create-trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
 echo -e "Link TLS       : ${trojanlink}" | tee -a /etc/log-create-trojan.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
 echo -e "Link none TLS  : ${trojanlink2}" | tee -a /etc/log-create-trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
 echo -e "Link gRPC      : ${trojanlink1}" | tee -a /etc/log-create-trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
 echo -e "Expired On     : $exp" | tee -a /etc/log-create-trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
 
 # Simpan log bersih tanpa ANSI untuk Telegram
 {
