@@ -1,9 +1,9 @@
 #!/bin/bash
 
 clear
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[1;44m        • DOMAIN MENU •            \E[0m"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 echo -e " [\e[36m1\e[0m] CHANGE DOMAIN VPS"
 echo -e " [\e[36m2\e[0m] RENEW CERTIFICATE DOMAIN"
@@ -12,7 +12,7 @@ echo -e " [\e[31m0\e[0m] \e[31mBACK TO MENU\033[0m"
 echo -e   ""
 echo -e   "Press x or [ Ctrl+C ] • To-Exit"
 echo -e   ""
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 read -p " Select menu : " opt
 echo -e ""
