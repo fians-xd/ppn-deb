@@ -259,7 +259,7 @@ echo -e "\e[1;36m [\e[33m3\e[1;36m]\e[1;33m : \e[0mVless              \e[1;36m[\
 echo -e "\e[1;36m [\e[33m4\e[1;36m]\e[1;33m : \e[0mTrojan             \e[1;36m[\e[33m11\e[1;36m]\e[1;33m : \e[0mClear Cache"
 echo -e "\e[1;36m [\e[33m5\e[1;36m]\e[1;33m : \e[0mShwsocks           \e[1;36m[\e[33m12\e[1;36m]\e[1;33m : \e[0mBoot Telegram"
 echo -e "\e[1;36m [\e[33m6\e[1;36m]\e[1;33m : \e[0mAutokil Ssh        \e[1;36m[\e[33m13\e[1;36m]\e[1;33m : \e[0mSetting Script"
-echo -e "\e[1;36m [\e[33m7\e[1;36m]\e[1;33m : \e[0mAutokil Xray       \e[1;36m[\e[33mX\e[1;36m]\e[1;33m : \e[0mExit Script"
+echo -e "\e[1;36m [\e[33m7\e[1;36m]\e[1;33m : \e[0mAutokil Xray       \e[1;36m[\e[33mXx\e[1;36m]\e[1;33m : \e[0mExit Script"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                 ━USER INFO━                   \e[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
@@ -285,6 +285,6 @@ case $opt in
 11) clear ; clearcache ;;
 12) clear ; tambah_bot ; exit ;;
 13) clear ; m-system ;;
-X|x) exit ;;
+X|x|Xx) exit ;;
 *) echo " Anda salah tekan " ; sleep 1 ; menu ;;
 esac
