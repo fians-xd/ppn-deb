@@ -31,7 +31,7 @@ case $opt in
 6) clear ; renew-vless ; exit ;;
 7) clear ; del-vless ; exit ;;
 8) clear ; cek-vless ; exit ;;
-9) clear ; cat /etc/log-create-vless.log ; exit ;;
+9) clear ; listcreat-vls ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; m-vless ;;
