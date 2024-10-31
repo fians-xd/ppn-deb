@@ -31,7 +31,7 @@ case $opt in
 6) clear ; renew-tr ;;
 7) clear ; del-tr ;;
 8) clear ; cek-tr ;;
-9) clear ; cat /etc/log-create-trojan.log ; exit ;;
+9) clear ; listcreat-tr ; exit ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "Anda Salah Tekan" ; sleep 1 ; m-trojan ;;
