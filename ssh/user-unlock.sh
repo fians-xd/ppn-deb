@@ -5,8 +5,6 @@ green='\e[1;32m'
 NC='\e[0m'
 clear
 echo " "
-echo " "
-echo " "
 read -p "Input USERNAME to unlock: " username
 egrep "^$username" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
@@ -16,10 +14,10 @@ clear
   echo " "
   echo " "
   echo " "
-  echo "-------------------------------------------"
+  echo -e "\e[1;35m-------------------------------------------\e[0m"
   echo -e "Username ${blue}$username${NC} successfully ${green}UNLOCKED${NC}."
   echo -e "Access for Username ${blue}$username${NC} has been restored"
-  echo "-------------------------------------------"
+  echo -e "\e[1;35m-------------------------------------------\e[0m"
 else
 echo " "
 echo -e "Username ${red}$username${NC} not found in your server."
