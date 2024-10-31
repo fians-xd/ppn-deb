@@ -31,7 +31,7 @@ case $opt in
 6) clear ; renew-ws ; exit ;;
 7) clear ; del-ws ; exit ;;
 8) clear ; cek-ws ; exit ;;
-9) clear ; cat /etc/log-create-vmess.log ; exit ;;
+9) clear ; listcreat-ws ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; m-vmess ;;
