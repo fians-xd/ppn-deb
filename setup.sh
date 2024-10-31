@@ -15,6 +15,7 @@ BGreen='\e[1;32m'
 BGren='\e[1;44m'
 BYellow='\e[1;33m'
 BBlue='\e[1;34m'
+ungu='\e[1;35m'
 NC='\e[0m'
 purple() { echo -e "\\033[35;1m${*}\\033[0m"; }
 tyblue() { echo -e "\\033[36;1m${*}\\033[0m"; }
@@ -114,12 +115,12 @@ echo "IP=" >> /var/lib/ipvps.conf
 clear
 echo ""
 echo ""
-echo -e "$BYellow━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 echo -e "$BGren    LEBOKNO DOMAIN VPS-MU      $NC"
-echo -e "$BYellow━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 echo -e "$red 1.$BGreen Gunakan Domain Random $NC"
 echo -e "$red 2.$BGreen Gunakan Domain Sendiri $NC"
-echo -e "$BYellow━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 read -rp "Pilih Asw: " dns
 if test $dns -eq 1; then
 wget -q -O cf https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cf.sh
@@ -143,18 +144,18 @@ clear
 #install ssh ovpn
 cd
 mkdir .riwayat-install
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-ssh.txt
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-ssh.txt
 echo -e "$BGren   Install SSH WEBSOCKET   $NC" | tee -a .riwayat-install/log-instal-ssh.txt
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-ssh.txt
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-ssh.txt
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ssh-vpn.sh | tee -a .riwayat-install/log-instal-ssh.txt
 chmod +x ssh-vpn.sh && ./ssh-vpn.sh | tee -a .riwayat-install/log-instal-ssh.txt
 clear
 
 #Instal Xray
 cd
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-xray.txt
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-xray.txt
 echo -e "$BGren   Install XRAY   $NC" | tee -a .riwayat-install/log-instal-xray.txt
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-xray.txt
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-xray.txt
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/ins-xray.sh | tee -a .riwayat-install/log-instal-xray.txt
 chmod +x ins-xray.sh && ./ins-xray.sh | tee -a .riwayat-install/log-instal-xray.txt
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/sshws/insshws.sh | tee -a .riwayat-install/log-instal-insshws.txt
@@ -215,9 +216,9 @@ clear
 
 #install udp
 cd
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
 echo -e "$BGren  INSTALL UDP-CUSTOM  $NC" | tee -a .riwayat-install/log-instal-udp.txt
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-udp.txt
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/udp-custom/ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
 chmod +x ins-udp.sh && ./ins-udp.sh | tee -a .riwayat-install/log-instal-udp.txt
 
@@ -225,9 +226,9 @@ sleep 0.5
 clear
 
 # Install Open-Vpn
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-openvpn.txt
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-openvpn.txt
 echo -e "$BGren  INSTALL OpenVPN   $NC" | tee -a .riwayat-install/log-instal-openvpn.txt
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-openvpn.txt
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a .riwayat-install/log-instal-openvpn.txt
 wget -q https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ovpn/ins-ovpn.sh | tee -a .riwayat-install/log-instal-openvpn.txt
 chmod +x ins-ovpn.sh && ./ins-ovpn.sh | tee -a .riwayat-install/log-instal-openvpn.txt
 
@@ -246,9 +247,9 @@ apt-get autoclean -y
 
 clear
 echo ""
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a log-install.txt
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a log-install.txt
 echo -e "$BGreen   >>> 𝐒𝐞𝐫𝐯𝐢𝐜𝐞 & 𝐏𝐨𝐫𝐭 𝐘𝐚𝐧𝐠 𝐃𝐢𝐠𝐮𝐧𝐚𝐤𝐚𝐧 <<<<$NC"  | tee -a log-install.txt      
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a log-install.txt
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a log-install.txt
 echo ""
 echo "     >> Nginx                    : 81" | tee -a log-install.txt
 echo "     >> Badvpn                   : 7100-7900" | tee -a log-install.txt
@@ -273,9 +274,9 @@ echo "     >> Trojan WS none TLS       : 80" | tee -a log-install.txt
 echo "     >> Shadowsocks WS TLS       : 443" | tee -a log-install.txt
 echo "     >> Shadowsocks WS none TLS  : 80" | tee -a log-install.txt
 echo ""
-echo -e "\e[33m==================[ Contact ]=====================\033[0m" | tee -a log-install.txt
+echo -e "\e[1;35m==================[ Contact ]=====================\033[0m" | tee -a log-install.txt
 echo -e "$BGreen                 t.me/fians-xd                  $NC" | tee -a log-install.txt
-echo -e "\e[33m==================================================\033[0m" | tee -a log-install.txt
+echo -e "\e[1;35m==================================================\033[0m" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
 
 rm /root/setup.sh >/dev/null 2>&1
