@@ -25,7 +25,7 @@ case $opt in
 3) clear ; member-shws ;;
 4) clear ; renew-ssws ;;
 5) clear ; del-ssws ;;
-6) clear ; cat /etc/log-create-shadowsocks.log ; exit ;;
+6) clear ; listcreat-shws ; exit ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "salah tekan" ; sleep 1 ; m-ssws ;;
