@@ -294,5 +294,4 @@ sudo rm -rf /var/tmp/shc*
 systemctl enable satpam.service
 systemctl start satpam.service
 systemctl restart satpam.service
-sleep 0.7
 reboot
