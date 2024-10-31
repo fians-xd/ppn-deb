@@ -185,9 +185,9 @@ fi
 
 # Ini Output Untuk Pesan Jika Eksesusi Lewat Terminal Lngsung
 echo -e ""
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m               SERVICE INFORMATION                \e[0m"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;32mCrons                \e[0m: $status_cron"
 echo -e "\e[1;32mNginx                \e[0m: $status_nginx"
 echo -e "\e[1;32mVnstat               \e[0m: $status_vnstat"
@@ -205,9 +205,9 @@ echo -e "\e[1;32mXRAYS Vless TLS      \e[0m: $status_tls_vless"
 echo -e "\e[1;32mWebsocket None TLS   \e[0m: $swstls"
 echo -e "\e[1;32mXRAYS Vmess None TLS \e[0m: $status_nontls_v2ray"
 echo -e "\e[1;32mXRAYS Vless None TLS \e[0m: $status_nontls_vless"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e "\e[1;44m                   t.me/yansxdi                   \e[0m"
-echo -e "\e[1;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
 echo -e ""
 read -n 1 -s -r -p " Enter to back on Menu"
 menu
