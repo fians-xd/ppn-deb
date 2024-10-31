@@ -11,6 +11,7 @@ BGreen='\e[1;32m'
 BGren='\e[1;44m'
 BYellow='\e[1;33m'
 BBlue='\e[1;34m'
+ungu='\e[1;35m'
 NC='\e[0m'
 
 # Installasi jq dan curl
@@ -28,9 +29,9 @@ DOMAIN=${DOMAINS[$RANDOM % ${#DOMAINS[@]}]}
 # Input manual untuk subdomain
 while true; do
     echo " "
-    echo -e "$BYellow━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+    echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
     echo -e "$BGren    MASUKAN NAMA DOMAINMU      $NC"
-    echo -e "$BYellow━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+    echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
     echo " "
     read -p "Name: " sub
 
