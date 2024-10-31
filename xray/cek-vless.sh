@@ -16,9 +16,9 @@ green='\e[0;32m'
 NC='\e[0m'
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/config.json | grep '^#&' | cut -d ' ' -f 2 | sort | uniq`);
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m";
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m";
 echo -e "\E[0;41;36m         Vless User Login       \E[0m";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m";
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m";
 for akun in "${data[@]}"
 do
 if [[ -z "$akun" ]]; then
@@ -45,7 +45,7 @@ jum2=$(cat /tmp/ipvless.txt | nl)
 echo "User : $akun" | tee -a /tmp/tamp.txt;
 echo "$jum2" | tee -a /tmp/tamp.txt;
 echo "━━━━━━━━━━━━━━━━━━━━━━" | tee -a /tmp/tamp.txt > /dev/null
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 fi
 # Disini log tanpa kodewarn ansi dan simpan log nya
