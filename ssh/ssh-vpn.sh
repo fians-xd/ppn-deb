@@ -288,6 +288,7 @@ wget --progress=bar:force -O tendang "https://raw.githubusercontent.com/fians-xd
 wget --progress=bar:force -O sshws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/sshws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|sshws\s+100%|saved \["
 wget --progress=bar:force -O user-lock "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/user-lock.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|user-lock\s+100%|saved \["
 wget --progress=bar:force -O user-unlock "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/user-unlock.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|user-unlock\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/listcreat-ssh.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|listcreat-ssh.sh\s+100%|saved \["
 
 # menu system
 wget --progress=bar:force -O m-system "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-system.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-system\s+100%|saved \["
@@ -320,8 +321,10 @@ sudo shc -U -S -f running.sh -o running
 sudo shc -U -S -f usernew.sh -o usernew
 sudo shc -U -S -f trial.sh -o trial
 sudo shc -U -S -f cek.sh -o cek
+sudo shc -U -S -f listcreat-ssh.sh -o listcreat-ssh
 
 sudo chmod +x menu
+sudo chmod +x listcreat-ssh
 sudo chmod +x running
 sudo chmod +x usernew
 sudo chmod +x trial
@@ -332,6 +335,7 @@ rm running.sh running.sh.x.c
 rm usernew.sh usernew.sh.x.c
 rm trial.sh trial.sh.x.c
 rm cek.sh cek.sh.x.c
+rm listcreat-ssh.sh listcreat-ssh.sh.x.c
 
 chmod +x m-vmess
 chmod +x m-vless
