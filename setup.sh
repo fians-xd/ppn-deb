@@ -274,7 +274,7 @@ echo "     >> Trojan WS none TLS       : 80" | tee -a log-install.txt
 echo "     >> Shadowsocks WS TLS       : 443" | tee -a log-install.txt
 echo "     >> Shadowsocks WS none TLS  : 80" | tee -a log-install.txt
 echo ""
-echo -e "\e[1;35m==================[ Contact ]=====================\033[0m" | tee -a log-install.txt
+echo -e "\e[1;35m==================[\e[0;32m Contact \e[1;35m]=====================\033[0m" | tee -a log-install.txt
 echo -e "$BGreen                 t.me/fians-xd                  $NC" | tee -a log-install.txt
 echo -e "\e[1;35m==================================================\033[0m" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
@@ -285,14 +285,13 @@ rm /root/insshws.sh >/dev/null 2>&1
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo " "
 echo " Auto reboot in 10 Seconds "
-sleep 10
-rm -rf setup.sh xray > /dev/null 2>&1
+sleep 8
 
 cd
 sudo rm -rf /usr/local/bin/shc /tmp/wget.log ins-udp.sh
 sudo rm -rf /tmp/shc* ins-ovpn.sh
 sudo rm -rf /var/tmp/shc*
+rm -rf setup.sh xray > /dev/null 2>&1
 systemctl enable satpam.service
 systemctl start satpam.service
-systemctl restart satpam.service
 reboot
