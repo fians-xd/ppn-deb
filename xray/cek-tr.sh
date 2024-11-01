@@ -17,7 +17,7 @@ NC='\e[0m'
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`);
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m";
-echo -e "\E[0;41;36m       Trojan User Login         \E[0m";
+echo -e "\e[1;44m       Trojan User Login         \E[0m";
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m";
 for akun in "${data[@]}"
 do

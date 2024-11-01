@@ -22,14 +22,14 @@ masaaktif=${2:-}
 if [[ -z "$user" ]]; then
     until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[0;41;36m           ADD TROJAN ACCOUNT          \E[0m"
+        echo -e "\e[1;44m           ADD TROJAN ACCOUNT          \E[0m"
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         read -rp "User: " -e user
         user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
         if [[ ${user_EXISTS} == '1' ]]; then
             clear
             echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-            echo -e "\E[0;41;36m           TROJAN ACCOUNT          \E[0m"
+            echo -e "\e[1;44m           TROJAN ACCOUNT          \E[0m"
             echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
             echo ""
             echo "A client with the specified name was already created, please choose another name."
@@ -65,7 +65,7 @@ clear
 
 # Output log dengan format ANSI
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
-echo -e "\E[0;41;36m           TROJAN ACCOUNT          \E[0m" | tee -a /etc/log-create-trojan.log
+echo -e "\e[1;44m           TROJAN ACCOUNT          \E[0m" | tee -a /etc/log-create-trojan.log
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-trojan.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-trojan.log
 echo -e "Host/IP        : ${domain}" | tee -a /etc/log-create-trojan.log

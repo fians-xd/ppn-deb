@@ -71,7 +71,7 @@ clear
 
 # Ini output untuk di Terminal jika script dijalankan dari terminal 
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m            Trial Vmess            \E[0m"
+echo -e "\e[1;44m            Trial Vmess            \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"

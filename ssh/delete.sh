@@ -3,7 +3,7 @@
 clear
 hariini=`date +%d-%m-%Y`
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m             ⇱ AUTO DELETE ⇲              \E[0m"
+echo -e "\e[1;44m             ⇱ AUTO DELETE ⇲              \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
 echo " Thank you for removing the EXPIRED USERS"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  

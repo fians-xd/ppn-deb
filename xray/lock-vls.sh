@@ -7,7 +7,7 @@ clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#& " "$CONFIG_FILE")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
   echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-  echo -e "\E[44;1;39m     ⇱ Locked Vless Account ⇲      \E[0m"
+  echo -e "\e[1;44m     ⇱ Locked Vless Account ⇲      \E[0m"
   echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo -e "  • You don't have any existing clients!"
   echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -19,7 +19,7 @@ fi
 # Menampilkan daftar akun dengan status lock/unlock
 clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m     ⇱ Locked Vless Account ⇲      \E[0m"
+echo -e "\e[1;44m     ⇱ Locked Vless Account ⇲      \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 # Menyimpan informasi username dan status
@@ -76,7 +76,7 @@ else
   exp=$(grep -wE "^#& $user" "$CONFIG_FILE" | cut -d ' ' -f 3 | sort | uniq)
   clear
   echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-  echo -e "\E[44;1;39m     ⇱ Locked Vless Account ⇲      \E[0m"
+  echo -e "\e[1;44m     ⇱ Locked Vless Account ⇲      \E[0m"
   echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
   echo -e "   • Account ${status^} Successfully"
   echo -e ""

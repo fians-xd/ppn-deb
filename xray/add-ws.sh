@@ -18,14 +18,14 @@ masaaktif=${2:-}
 if [[ -z "$user" ]]; then
     until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\\E[0;41;36m      Add Vmess Account      \E[0m"
+        echo -e "\e[1;44m      Add Vmess Account      \E[0m"
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         read -rp "User: " -e user
         CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
         if [[ ${CLIENT_EXISTS} == '1' ]]; then
             clear
             echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-            echo -e "\\E[0;41;36m       Vmess Account      \E[0m"
+            echo -e "\e[1;44m       Vmess Account      \E[0m"
             echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
             echo ""
             echo "A client with the specified name was already created, please choose another name."
@@ -110,7 +110,7 @@ clear
 
 # Output log
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
-echo -e "\\E[0;41;36m       Vmess Account      \E[0m" | tee -a /etc/log-create-vmess.log
+echo -e "\e[1;44m       Vmess Account      \E[0m" | tee -a /etc/log-create-vmess.log
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-vmess.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-vmess.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-vmess.log

@@ -14,7 +14,7 @@ fi
 
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m         Dropbear User Login       \E[0m"
+echo -e "\e[1;44m         Dropbear User Login       \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "ID  |  Username  |  IP Address";
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -38,7 +38,7 @@ done
 
 echo " "
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m          OpenSSH User Login       \E[0m"
+echo -e "\e[1;44m          OpenSSH User Login       \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "ID  |  Username  |  IP Address";
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -59,7 +59,7 @@ done
 if [ -f "/etc/openvpn/server/openvpn-tcp.log" ]; then
         echo " "
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[0;41;36m      OpenVPN TCP User Login       \E[0m"
+        echo -e "\e[1;44m      OpenVPN TCP User Login       \E[0m"
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         echo "User  |  IP Address  |  LoginTime";
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -71,7 +71,7 @@ fi
 if [ -f "/etc/openvpn/server/openvpn-udp.log" ]; then
         echo " "
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[0;41;36m      OpenVPN UDP User Login       \E[0m"
+        echo -e "\e[1;44m      OpenVPN UDP User Login       \E[0m"
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         echo "User  |  IP Address  |  LoginTime";
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"

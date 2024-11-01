@@ -34,7 +34,7 @@ PID=`ps -ef |grep -v grep | grep sshws |awk '{print $2}'`
 
 # Output Triall SSH
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m            TRIAL SSH              \E[0m"
+echo -e "\e[1;44m            TRIAL SSH              \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Username       : $Login"
 echo -e "Password       : $Pass"

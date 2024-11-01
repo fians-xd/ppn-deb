@@ -2,7 +2,7 @@
 
 clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
+echo -e "\e[1;44m               RENEW  USER                \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
 echo
 read -p "Username : " User
@@ -20,7 +20,7 @@ egrep "^$User" /etc/passwd >/dev/null
 echo -e "$Pass\n$Pass\n"|passwd $User &> /dev/null
 clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
+echo -e "\e[1;44m               RENEW  USER                \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
 echo -e ""
 echo -e " Username : $User"
@@ -31,7 +31,7 @@ echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━
 else
 clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
+echo -e "\e[1;44m               RENEW  USER                \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
 echo -e ""
 echo -e "   Username Doesnt Exist      "

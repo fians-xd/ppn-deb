@@ -4,7 +4,7 @@ clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━=━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m       Member Sodosok Account      \E[0m"
+echo -e "\e[1;44m       Member Sodosok Account      \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 echo " You have no existing clients!"
@@ -17,7 +17,7 @@ fi
 
 clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m       Member Sodosok Account      \E[0m"
+echo -e "\e[1;44m       Member Sodosok Account      \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "  User       Expired  " 
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"

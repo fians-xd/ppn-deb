@@ -16,7 +16,7 @@ wh="\033[0m"
 
 clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[1;44m            DNS CHANGER            \E[m"
+echo -e "\e[1;44m            DNS CHANGER            \E[m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 dnsfile="/root/dns"
 if test -f "$dnsfile"; then

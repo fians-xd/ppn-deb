@@ -18,7 +18,7 @@ Pass=${2:-}
 masaaktif=${3:-}
 
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m           ADD SSH ACCOUNT          \E[0m"
+echo -e "\e[1;44m           ADD SSH ACCOUNT          \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 if [[ -z "$Login" ]]; then
@@ -52,7 +52,7 @@ PID=$(ps -ef | grep -v grep | grep sshws | awk '{print $2}')
 
 # Tampilkan hasil
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
-echo -e "\E[0;41;36m            SSH Account            \E[0m" | tee -a /etc/log-create-ssh.log
+echo -e "\e[1;44m            SSH Account            \E[0m" | tee -a /etc/log-create-ssh.log
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-ssh.log
 echo -e "Username    : $Login" | tee -a /etc/log-create-ssh.log
 echo -e "Password    : $Pass" | tee -a /etc/log-create-ssh.log

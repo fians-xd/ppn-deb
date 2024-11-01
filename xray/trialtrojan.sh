@@ -19,7 +19,7 @@ trojanlink2="trojan://${uuid}@bugmu-anj.com:${ntls}?path=%2Ftrojan-ws&security=n
 
 clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m           TRIAL TROJAN           \E[0m"
+echo -e "\e[1;44m           TRIAL TROJAN           \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks        : ${user}"
 echo -e "Host/IP        : ${domain}"

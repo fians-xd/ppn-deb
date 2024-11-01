@@ -2,7 +2,7 @@
 
 clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[1;44m     • Shadowsocks Account •       \E[0m"
+echo -e "\e[1;44m     • Shadowsocks Account •       \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 echo -e " [\e[36m1\e[0m] Create Account Shadowsocks "

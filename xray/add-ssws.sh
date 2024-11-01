@@ -22,7 +22,7 @@ tls="$(cat ~/log-install.txt | grep -w "Shadowsocks WS TLS" | cut -d: -f2|sed 's
 ntls="$(cat ~/log-install.txt | grep -w "Shadowsocks WS none TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\\E[0;41;36m      Add Shadowsocks Account    \E[0m"
+echo -e "\e[1;44m      Add Shadowsocks Account    \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 		read -rp "User: " -e user
@@ -31,7 +31,7 @@ echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
             echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-            echo -e "\\E[0;41;36m      Add Shadowsocks Account      \E[0m"
+            echo -e "\e[1;44m      Add Shadowsocks Account      \E[0m"
             echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 			echo ""
 			echo "A client with the specified name was already created, please choose another name."
@@ -279,7 +279,7 @@ systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-shadowsocks.log
-echo -e "\\E[0;41;36m        Shadowsocks Account      \E[0m" | tee -a /etc/log-create-shadowsocks.log
+echo -e "\e[1;44m        Shadowsocks Account      \E[0m" | tee -a /etc/log-create-shadowsocks.log
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-shadowsocks.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-shadowsocks.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-shadowsocks.log

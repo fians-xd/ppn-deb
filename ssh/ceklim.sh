@@ -2,7 +2,7 @@
 
 clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m         CEK USER MULTI SSH        \E[0m"
+echo -e "\e[1;44m         CEK USER MULTI SSH        \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 if [ -e "/root/log-limit.txt" ]; then
 echo "User Who Violate The Maximum Limit";
