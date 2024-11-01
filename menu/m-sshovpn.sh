@@ -36,7 +36,7 @@ case $opt in
 7) clear ; delete ; exit ;;
 8) clear ; ceklim ; exit ;;
 9) clear ; listcreat-ssh ; exit ;;
-10) clear ; nano /etc/issue.net ; exit ;;
+10) clear ; ganti-banner ; exit ;;
 11) clear ; user-lock ; exit ;;
 12) clear ; user-unlock ; exit ;;
 0) clear ; menu ; exit ;;
