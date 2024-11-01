@@ -1,8 +1,11 @@
 #!/bin/bash
 
 if [ ! -f /etc/log-create-vless.log ] || [ ! -s /etc/log-create-vless.log ]; then
+    echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo " "
     echo " Anda Belum Menambahkan User Vless.."
+    echo " "
+    echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 else
     cat /etc/log-create-vless.log
 fi
