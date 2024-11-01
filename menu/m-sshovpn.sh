@@ -8,10 +8,10 @@ echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━
 echo -e ""
 echo -e " [\e[36m1\e[0m] Create SSH & WS Account "
 echo -e " [\e[36m2\e[0m] Trial SSH & WS Account "
-echo -e " [\e[36m3\e[0m] Member SSH & WS Check " +
+echo -e " [\e[36m3\e[0m] Member SSH & WS Check "
 echo -e " [\e[36m4\e[0m] Delete SSH & WS Account "
 echo -e " [\e[36m5\e[0m] Check User Login SSH & WS "
-echo -e " [\e[36m6\e[0m] Renew SSH & WS Account " +
+echo -e " [\e[36m6\e[0m] Renew SSH & WS Account "
 echo -e " [\e[36m7\e[0m] Delete User Expired SSH & WS "
 echo -e " [\e[36m8\e[0m] Cek Users Multi Login Multi"
 echo -e " [\e[36m9\e[0m] User list created Account "
