@@ -305,6 +305,7 @@ wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/ma
 wget --progress=bar:force -O bw "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/bw.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|bw\s+100%|saved \["
 wget --progress=bar:force -O m-tcp "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tcp.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-tcp\s+100%|saved \["
 wget --progress=bar:force -O xp "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/xp.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|xp\s+100%|saved \["
+wget --progress=bar:force -O ganti-banner "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ganti-banner.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ganti-banner\s+100%|saved \["
 wget --progress=bar:force -O sshws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/sshws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|sshws\s+100%|saved \["
 wget --progress=bar:force -O m-dns "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-dns.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-dns\s+100%|saved \["
 wget --progress=bar:force -O monitor "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/monitor.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|monitor\s+100%|saved \["
@@ -343,6 +344,7 @@ chmod +x clearcache
 chmod +x m-ssws
 chmod +x instal-bot
 chmod +x m-trojan
+chmod +x ganti-banner
 
 chmod +x m-sshovpn
 chmod +x renew
