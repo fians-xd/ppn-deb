@@ -43,3 +43,4 @@ sleep 0.9
 rm -rf /tmp/wget.log install.sh /usr/local/bin/shc
 apt-get purge gcc make build-essential zip unzip -y
 apt-get autoremove -y
+exit
