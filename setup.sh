@@ -274,7 +274,7 @@ echo "     >> Trojan WS none TLS       : 80" | tee -a log-install.txt
 echo "     >> Shadowsocks WS TLS       : 443" | tee -a log-install.txt
 echo "     >> Shadowsocks WS none TLS  : 80" | tee -a log-install.txt
 echo ""
-echo -e "\e[1;35m==================[$BGreen Contact \e[1;35m]=====================\033[0m" | tee -a log-install.txt
+echo -e "\e[1;35m==================\e[1;36m[$BGreen Contact \e[1;36m]\e[1;35m=====================\033[0m" | tee -a log-install.txt
 echo -e "$BGreen                 t.me/fians-xd                  $NC" | tee -a log-install.txt
 echo -e "\e[1;35m==================================================\033[0m" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
