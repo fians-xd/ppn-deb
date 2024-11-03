@@ -3,7 +3,6 @@
 export TERM=xterm
 clear
 echo " "
-echo " "
 
 if [ -e "/var/log/auth.log" ]; then
         LOG="/var/log/auth.log";
