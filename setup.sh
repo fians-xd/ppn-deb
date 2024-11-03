@@ -291,6 +291,8 @@ cd
 sudo rm -rf /usr/local/bin/shc /tmp/wget.log ins-udp.sh
 sudo rm -rf /tmp/shc* ins-ovpn.sh
 sudo rm -rf /var/tmp/shc*
+touch /var/log/secure
+chmod 600 /var/log/secure
 rm -rf setup.sh xray > /dev/null 2>&1
 systemctl enable satpam.service
 systemctl start satpam.service
