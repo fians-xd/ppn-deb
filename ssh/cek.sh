@@ -18,21 +18,16 @@ echo -e "\e[1;44m         Dropbear User Login       \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "ID  |  Username  |  IP Address";
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-
-# Ambil data login dari auth.log
-cat $LOG | grep -i "Password auth succeeded" > /tmp/login-db.txt;
-
+strings "$LOG" | grep -i "dropbear" | grep -i "Password auth succeeded" > /tmp/login-db.txt;
 for PID in "${data[@]}"
 do
         cat /tmp/login-db.txt | grep "dropbear\[$PID\]" > /tmp/login-db-pid.txt;
         NUM=`cat /tmp/login-db-pid.txt | wc -l`;
         USER=`cat /tmp/login-db-pid.txt | awk '{print $10}'`;
-
-        # Ambil IP dari log Nginx (kolom pertama)
-        IP=$(grep -Eo "^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" /var/log/nginx/access.log | tail -n 1)
-
+        IP=`cat /tmp/login-db-pid.txt | awk '{print $12}'`;
         if [ $NUM -eq 1 ]; then
                 echo "$PID - $USER - $IP";
+        echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         fi
 done
 
