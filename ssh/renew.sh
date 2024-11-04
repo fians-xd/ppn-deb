@@ -19,9 +19,10 @@ else
 printf "%-17s %2s %-17s %2s \n" " $AKUN" "$exp   " "${GREEN}UNLOCKED${NORMAL}"
 fi
 fi
-done
+done < /etc/passwd
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo " "
-read -p "Username : " User
+read -p "Input Username : " User
 egrep "^$User" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
 read -p "Day Extend : " Days
