@@ -22,10 +22,10 @@ fi
 done < /etc/passwd
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo " "
-read -p "Input Username : " User
+read -p "Input Username: " User
 egrep "^$User" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
-read -p "Day Extend : " Days
+read -p "Day Extend: " Days
 Today=`date +%s`
 Days_Detailed=$(( $Days * 86400 ))
 Expire_On=$(($Today + $Days_Detailed))
