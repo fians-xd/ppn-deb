@@ -4,7 +4,23 @@ clear
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\e[1;44m               RENEW  USER                \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  
-echo
+echo " USERNAME           EXP DATE       STATUS"
+echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+while read expired
+do
+AKUN="$(echo $expired | cut -d: -f1)"
+ID="$(echo $expired | grep -v nobody | cut -d: -f3)"
+exp="$(chage -l $AKUN | grep "Account expires" | awk -F": " '{print $2}')"
+status="$(passwd -S $AKUN | awk '{print $2}' )"
+if [[ $ID -ge 1000 ]]; then
+if [[ "$status" = "L" ]]; then
+printf "%-17s %2s %-17s %2s \n" " $AKUN" "$exp   " "${RED}LOCKED${NORMAL}"
+else
+printf "%-17s %2s %-17s %2s \n" " $AKUN" "$exp   " "${GREEN}UNLOCKED${NORMAL}"
+fi
+fi
+done
+echo " "
 read -p "Username : " User
 egrep "^$User" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
