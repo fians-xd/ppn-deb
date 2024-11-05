@@ -169,6 +169,7 @@ while true; do
         echo " "
     fi
 done
+fi
 
 echo -e "${BGreen}Done!${NC}"
 sleep 0.5
