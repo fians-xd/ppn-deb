@@ -27,7 +27,7 @@ echo "Enter to Back Menu Trojan"
 echo ""
 echo -e "\e[1;35m━━━━━━━━━\e[1;36m[\e[0;32m t.me/yansxdi \e[1;36m]\e[1;35m━━━━━━━━━━\033[0m"
 echo ""
-read -rp "Input Username : " user
+read -rp "Input Username: " user
 
 if [ -z "$user" ]; then
     m-trojan
