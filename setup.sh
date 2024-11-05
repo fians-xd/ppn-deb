@@ -118,10 +118,10 @@ echo ""
 echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 echo -e "$BGren    LEBOKNO DOMAIN VPS-MU      $NC"
 echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
-echo -e "$red 1.$BGreen Gunakan Domain Random $NC"
-echo -e "$red 2.$BGreen Gunakan Domain Sendiri $NC"
+echo -e "\e[1;36m [\e[33m1\e[1;36m]\e[1;33m : $BGreen Gunakan Domain Random $NC"
+echo -e "\e[1;36m [\e[33m2\e[1;36m]\e[1;33m : $BGreen Gunakan Domain Sendiri $NC"
 echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
-read -rp "Pilih Asw: " dns
+read -rp "[•] Pilih Baangg: " dns
 if test $dns -eq 1; then
 wget -q -O cf https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cf.sh
 chmod +x cf && ./cf
@@ -129,7 +129,7 @@ chmod +x cf && ./cf
 elif test $dns -eq 2; then
 while true; do
     # Meminta input domain dari pengguna
-    read -rp "Inputkan Domainmu: " dom
+    read -rp "[•] Inputkan Domainmu: " dom
 
     # Cek jika input kosong
     if [[ -z "$dom" ]]; then
