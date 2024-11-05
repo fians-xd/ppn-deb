@@ -14,7 +14,6 @@ echo -e " [\e[36m6\e[0m] User list created Account "
 echo ""
 echo -e " [\e[31m0\e[0m] \e[31mBACK TO MENU\033[0m"
 echo ""
-echo -e   "Press x or [ Ctrl+C ] • To-Exit"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 read -p " Select menu : " opt
