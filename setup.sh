@@ -121,7 +121,9 @@ echo -e "\e[1;36m[\e[1;33m1\e[1;36m]$BGreen Gunakan Domain Random $NC"
 echo -e "\e[1;36m[\e[1;33m2\e[1;36m]$BGreen Gunakan Domain Sendiri $NC"
 echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 echo " "
+
 read -rp "Pilih Opsi: " dns
+
 if test $dns -eq 1; then
 wget -q -O cf https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cf.sh
 chmod +x cf && ./cf
