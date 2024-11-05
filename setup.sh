@@ -125,18 +125,45 @@ read -rp "Pilih Asw: " dns
 if test $dns -eq 1; then
 wget -q -O cf https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/cf.sh
 chmod +x cf && ./cf
+
 elif test $dns -eq 2; then
-read -rp "Lebokno Domainmu: " dom
-echo "IP=$dom" > /var/lib/ipvps.conf
-echo "$dom" > /root/scdomain
-echo "$dom" > /etc/xray/scdomain
-echo "$dom" > /etc/xray/domain
-echo "$dom" > /etc/v2ray/domain
-echo "$dom" > /root/domain
-else 
-echo "Not Found Argument"
-exit 1
-fi
+while true; do
+    # Meminta input domain dari pengguna
+    read -rp "Inputkan Domainmu: " dom
+
+    # Cek jika input kosong
+    if [[ -z "$dom" ]]; then
+        echo "Input yang benar asw.."
+	sleep 9
+        continue
+    fi
+
+    # Cek format domain menggunakan regex (memastikan ada ekstensi domain)
+    if ! [[ "$dom" =~ ^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
+        echo "Input domain yang benar Asw.."
+	sleep 9
+        continue
+    fi
+
+    # Mengecek apakah domain memiliki record A
+    if dig +short A "$dom" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$'; then
+        # Menyimpan informasi domain ke file konfigurasi
+        echo "IP=$dom" > /var/lib/ipvps.conf
+        echo "$dom" > /root/scdomain
+        echo "$dom" > /etc/xray/scdomain
+        echo "$dom" > /etc/xray/domain
+        echo "$dom" > /etc/v2ray/domain
+        echo "$dom" > /root/domain
+        break
+    else
+        # Jika domain tidak memiliki A record, tampilkan pesan dan minta input lagi
+        echo "Domain [$dom] tidak memiliki record A."
+        echo "Pointing dulu domainmu dengan benar asuuu.."
+        echo "Silakan coba Input Ulang Domainmu lagi..!!"
+	sleep 9
+    fi
+done
+
 echo -e "${BGreen}Done!${NC}"
 sleep 0.5
 clear
