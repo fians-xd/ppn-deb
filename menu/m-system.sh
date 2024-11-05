@@ -15,8 +15,6 @@ echo -e " [\e[36m7\e[0m] DNS CHANGER"
 echo -e ""
 echo -e " [\e[31m0\e[0m] \e[31mBACK TO MENU\033[0m"
 echo -e   ""
-echo -e   "Press x or [ Ctrl+C ] • To-Exit"
-echo -e   ""
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 read -p " Select menu : " opt
