@@ -22,10 +22,12 @@ echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━
 echo -e "\e[1;44m          ⇱ Renew Vmess ⇲          \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
-echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo " Enter to Back Menu Vmess"
+echo " "
+echo "Enter to Back Menu Vmess"
 echo ""
-read -rp "Input Username : " user
+echo -e "\e[1;35m━━━━━━━━━\e[1;36m[\e[0;32m t.me/yansxdi \e[1;36m]\e[1;35m━━━━━━━━━━\033[0m"
+echo ""
+read -rp "Input Username: " user
 
 if [ -z "$user" ]; then
     m-vmess
