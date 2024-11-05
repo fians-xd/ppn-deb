@@ -117,8 +117,8 @@ echo ""
 echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 echo -e "$BGren    LEBOKNO DOMAIN VPS-MU      $NC"
 echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
-echo -e "\e[1;36m [\e[33m1\e[1;36m]\e[1;33m : $BGreen Gunakan Domain Random $NC"
-echo -e "\e[1;36m [\e[33m2\e[1;36m]\e[1;33m : $BGreen Gunakan Domain Sendiri $NC"
+echo -e "\e[1;36m[\e[33m1\e[1;36m]\e[1;33m : $BGreen Gunakan Domain Random $NC"
+echo -e "\e[1;36m[\e[33m2\e[1;36m]\e[1;33m : $BGreen Gunakan Domain Sendiri $NC"
 echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 read -rp "[•] Pilih Baangg: " dns
 if test $dns -eq 1; then
