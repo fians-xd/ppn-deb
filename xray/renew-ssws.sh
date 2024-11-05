@@ -33,8 +33,9 @@ echo -e "\e[1;44m         -Renew Shadowsocks-       \E[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
 echo " "
+echo " Enter to Back Menu ShwSocks"
+echo ""
 echo -e "\e[1;35m━━━━━━━━━\e[1;36m[\e[0;32m t.me/yansxdi \e[1;36m]\e[1;35m━━━━━━━━━━\033[0m"
-echo " "
 echo " Enter to Back Menu ShwSocks"
 echo ""
 read -rp "Input Username: " user
