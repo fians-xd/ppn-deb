@@ -7,20 +7,19 @@ echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━
 echo -e ""
 echo -e " [\e[36m1\e[0m] Create Account Vmess "
 echo -e " [\e[36m2\e[0m] Trial Account Vmess "
-echo -e " [\e[36m3\e[0m] Member Vmess Check "
-echo -e " [\e[36m4\e[0m] Lock Member Vmess "
-echo -e " [\e[36m5\e[0m] UnLock Member Vmess "
-echo -e " [\e[36m6\e[0m] Renew Account Vmess "
+echo -e " [\e[36m3\e[0m] Check Member Vmess "
+echo -e " [\e[36m4\e[0m] Kunci Member Vmess "
+echo -e " [\e[36m5\e[0m] Buka Kunci Member Vmess "
+echo -e " [\e[36m6\e[0m] Perpanjang Account Vmess "
 echo -e " [\e[36m7\e[0m] Delete Account Vmess "
 echo -e " [\e[36m8\e[0m] Check User Login Vmess "
 echo -e " [\e[36m9\e[0m] User list created Account "
 echo -e ""
 echo -e " [\e[31m0\e[0m] \e[31mBACK TO MENU\033[0m"
 echo -e ""
-echo -e   "Press x or [ Ctrl+C ] • To-Exit"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
-read -p " Pilih menu:  "  opt
+read -p " Pilih menu: "  opt
 echo -e ""
 case $opt in
 1) clear ; add-ws ; exit ;;
