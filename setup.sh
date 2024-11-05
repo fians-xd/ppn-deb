@@ -114,7 +114,6 @@ echo "IP=" >> /var/lib/ipvps.conf
 
 clear
 echo ""
-echo ""
 echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 echo -e "$BGren    LEBOKNO DOMAIN VPS-MU      $NC"
 echo -e "$ungu━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
