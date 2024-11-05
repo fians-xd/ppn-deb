@@ -20,7 +20,7 @@ printf "%-17s %2s %-17s %2s \n" " $AKUN" "$exp   " "${GREEN}UNLOCKED${NORMAL}"
 fi
 fi
 done < /etc/passwd
-echo -e "\e[1;35m━━━━━━━━━━━━\e[1;36m[\e[1;44m t.me/yansxdi \e[1;36m]\e[1;35m━━━━━━━━━━━━━━\033[0m"
+echo -e "\e[1;35m━━━━━━━━━━━━\e[1;36m[\e[0;32m t.me/yansxdi \e[1;36m]\e[1;35m━━━━━━━━━━━━━━\033[0m"
 echo " "
 read -p "Input Username: " User
 egrep "^$User" /etc/passwd >/dev/null
