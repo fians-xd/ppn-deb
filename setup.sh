@@ -133,16 +133,20 @@ while true; do
 
     # Cek jika input kosong
     if [[ -z "$dom" ]]; then
-        echo "Input yang benar asw.."
-	sleep 9
-        continue
+        echo " "
+	echo "Input yang benar asw.."
+	sleep 5
+        echo " "
+	continue
     fi
 
     # Cek format domain menggunakan regex (memastikan ada ekstensi domain)
     if ! [[ "$dom" =~ ^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
-        echo "Input domain yang benar Asw.."
-	sleep 9
-        continue
+        echo " "
+	echo "Input domain yang benar Asw.."
+	sleep 5
+        echo " "
+	continue
     fi
 
     # Mengecek apakah domain memiliki record A
@@ -157,10 +161,12 @@ while true; do
         break
     else
         # Jika domain tidak memiliki A record, tampilkan pesan dan minta input lagi
-        echo "Domain [$dom] tidak memiliki record A."
+        echo " "
+	echo "Domain [ $dom ] Belum Terpointing dengan benar.."
         echo "Pointing dulu domainmu dengan benar asuuu.."
-        echo "Silakan coba Input Ulang Domainmu lagi..!!"
-	sleep 9
+        echo "Silakan input ulang domainmu yang sudah dipointing..!!"
+	sleep 5
+        echo " "
     fi
 done
 
