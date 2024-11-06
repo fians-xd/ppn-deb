@@ -691,6 +691,7 @@ rm member-tr.sh member-tr.sh.x.c
 rm unlock-tr.sh unlock-tr.sh.x.c
 rm listcreat-tr.sh listcreat-tr.sh.x.c
 
+cd
 sleep 0.8
 gren() { echo -e "\\033[0;32m${*}\\033[0m"; }
 echo " "
