@@ -612,10 +612,10 @@ rm listcreat-ws.sh listcreat-ws.sh.x.c
 # vless
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-vless.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialvless.sh\s+100%|saved \["
-wget --progress=bar:force -O renew-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-vless\s+100%|saved \[" && chmod +x renew-vless
-wget --progress=bar:force -O del-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-vless\s+100%|saved \[" && chmod +x del-vless
+wget --progress=bar:force -O renew-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-vless\s+100%|saved \["
+wget --progress=bar:force -O del-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-vless\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-vless.sh\s+100%|saved \["
-wget --progress=bar:force -O member-vls "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-vls\s+100%|saved \[" && chmod +x renew-vless
+wget --progress=bar:force -O member-vls "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-vls\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/lock-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|lock-vls.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/unlock-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|unlock-vls.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/listcreat-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|listcreat-vls.sh\s+100%|saved \["
@@ -634,6 +634,9 @@ sudo chmod +x lock-vls
 sudo chmod +x unlock-vls
 sudo chmod +x cek-vless
 sudo chmod +x member-vls
+chmod +x renew-vless
+chmod +x del-vless
+chmod +x renew-vless
 
 rm listcreat-vls.sh listcreat-vls.sh.x.c
 rm add-vless.sh add-vless.sh.x.c
