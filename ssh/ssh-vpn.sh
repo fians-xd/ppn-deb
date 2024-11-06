@@ -274,7 +274,7 @@ wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/ma
 wget --progress=bar:force -O instal-bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/instal-bot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|instal-bot\s+100%|saved \["
 
 # menu ssh ovpn
-wget --progress=bar:force -O m-sshovpn "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-sshovpn.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-sshovpn\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-sshovpn.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-sshovpn.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/usernew.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|usernew.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/trial.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trial.sh\s+100%|saved \["
 wget --progress=bar:force -O renew "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/renew.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew\s+100%|saved \["
@@ -317,26 +317,13 @@ wget --progress=bar:force -O satpam "https://raw.githubusercontent.com/fians-xd/
 wget --progress=bar:force -O molog-xray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/molog_xray/molog-xray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|molog-xray\s+100%|saved \["
 sudo chmod +x molog-xray
 
-#-----------------------------------------------------------------
+sudo shc -U -S -f m-sshovpn.sh -o m-sshovpn
 sudo shc -U -S -f m-vmess.sh -o m-vmess
 sudo shc -U -S -f m-vless.sh -o m-vless
 sudo shc -U -S -f m-ssws.sh -o m-ssws
 sudo shc -U -S -f m-trojan.sh -o m-trojan
-sudo shc -U -S -f m-trojan.sh -o user-lock
-sudo shc -U -S -f m-trojan.sh -o user-unlock
-
-sudo chmod +x m-vmess
-sudo chmod +x m-vless
-sudo chmod +x m-ssws
-sudo chmod +x m-trojan
-sudo chmod +x user-lock
-sudo chmod +x user-unlock
-
-rm m-vmess.sh m-vmess.sh.x.c
-rm m-vless.sh m-vless.sh.x.c
-rm m-ssws.sh m-ssws.sh.x.c
-rm m-trojan.sh m-trojan.sh.x.c
-#-----------------------------------------------------------------
+sudo shc -U -S -f user-lock.sh -o user-lock
+sudo shc -U -S -f user-unlock.sh -o user-unlock
 sudo shc -U -S -f menu.sh -o menu
 sudo shc -U -S -f running.sh -o running
 sudo shc -U -S -f usernew.sh -o usernew
@@ -344,6 +331,13 @@ sudo shc -U -S -f trial.sh -o trial
 sudo shc -U -S -f cek.sh -o cek
 sudo shc -U -S -f listcreat-ssh.sh -o listcreat-ssh
 
+sudo chmod +x m-sshovpn
+sudo chmod +x m-vmess
+sudo chmod +x m-vless
+sudo chmod +x m-ssws
+sudo chmod +x m-trojan
+sudo chmod +x user-lock
+sudo chmod +x user-unlock
 sudo chmod +x menu
 sudo chmod +x listcreat-ssh
 sudo chmod +x running
@@ -351,6 +345,13 @@ sudo chmod +x usernew
 sudo chmod +x trial
 sudo chmod +x cek
 
+rm m-sshovpn.sh m-sshovpn.sh.x.c
+rm m-vmess.sh m-vmess.sh.x.c
+rm m-vless.sh m-vless.sh.x.c
+rm m-ssws.sh m-ssws.sh.x.c
+rm m-trojan.sh m-trojan.sh.x.c
+rm user-lock.sh user-lock.sh.x.c
+rm user-unlock.sh user-unlock.sh.x.c
 rm menu.sh menu.sh.x.c
 rm running.sh running.sh.x.c
 rm usernew.sh usernew.sh.x.c
