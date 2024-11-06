@@ -612,37 +612,43 @@ rm listcreat-ws.sh listcreat-ws.sh.x.c
 # vless
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-vless.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialvless.sh\s+100%|saved \["
-wget --progress=bar:force -O renew-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-vless\s+100%|saved \["
-wget --progress=bar:force -O del-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-vless\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-vless.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-vless.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-vless.sh\s+100%|saved \["
-wget --progress=bar:force -O member-vls "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-vls\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-vls.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/lock-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|lock-vls.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/unlock-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|unlock-vls.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/listcreat-vls.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|listcreat-vls.sh\s+100%|saved \["
 
-sudo shc -U -S -f listcreat-vls.sh -o listcreat-vls
 sudo shc -U -S -f add-vless.sh -o add-vless
 sudo shc -U -S -f trialvless.sh -o trialvless
 sudo shc -U -S -f cek-vless.sh -o cek-vless
 sudo shc -U -S -f lock-vls.sh -o lock-vls
 sudo shc -U -S -f unlock-vls.sh -o unlock-vls
+sudo shc -U -S -f renew-vless.sh -o renew-vless
+sudo shc -U -S -f del-vless.sh -o del-vless
+sudo shc -U -S -f member-vls.sh -o member-vls
+sudo shc -U -S -f listcreat-vls.sh -o listcreat-vls
 
-sudo chmod +x listcreat-vls
 sudo chmod +x add-vless
 sudo chmod +x trialvless
 sudo chmod +x lock-vls
 sudo chmod +x unlock-vls
 sudo chmod +x cek-vless
-chmod +x member-vls
-chmod +x renew-vless
-chmod +x del-vless
+sudo chmod +x member-vls
+sudo chmod +x renew-vless
+sudo chmod +x del-vless
+sudo chmod +x listcreat-vls
 
-rm listcreat-vls.sh listcreat-vls.sh.x.c
 rm add-vless.sh add-vless.sh.x.c
 rm trialvless.sh trialvless.sh.x.c
 rm cek-vless.sh cek-vless.sh.x.c
 rm lock-vls.sh lock-vls.sh.x.c
 rm unlock-vls.sh unlock-vls.sh.x.c
+rm member-vls.sh member-vls.sh.x.c
+rm renew-vless.sh renew-vless.sh.x.c
+rm del-vless.sh del-vless.sh.x.c
+rm listcreat-vls.sh listcreat-vls.sh.x.c
 
 # trojan
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-tr.sh\s+100%|saved \["
