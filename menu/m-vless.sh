@@ -5,7 +5,7 @@ echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━
 echo -e "\e[1;44m           ━VLESS MENU━            \e[0m"
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
-echo -e " [\e[36m1\e[0m] Buat Akum Vless "
+echo -e " [\e[36m1\e[0m] Buat Akun Vless "
 echo -e " [\e[36m2\e[0m] Trial Akun Vless "
 echo -e " [\e[36m3\e[0m] Cek Jumlah Member Vless "
 echo -e " [\e[36m4\e[0m] Kunci Member Vless "
