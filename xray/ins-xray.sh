@@ -653,38 +653,43 @@ rm listcreat-vls.sh listcreat-vls.sh.x.c
 # trojan
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-tr.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialtrojan.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialtrojan.sh\s+100%|saved \["
-wget --progress=bar:force -O del-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-tr\s+100%|saved \["
-wget --progress=bar:force -O renew-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-tr\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-tr.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-tr.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-tr.sh\s+100%|saved \["
-wget --progress=bar:force -O member-tr "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-tr\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-tr.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/lock-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|lock-tr.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/unlock-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|unlock-tr.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/listcreat-tr.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|listcreat-tr.sh\s+100%|saved \["
 
-sudo shc -U -S -f listcreat-tr.sh -o listcreat-tr
 sudo shc -U -S -f cek-tr.sh -o cek-tr
 sudo shc -U -S -f trialtrojan.sh -o trialtrojan
 sudo shc -U -S -f add-tr.sh -o add-tr
 sudo shc -U -S -f lock-tr.sh -o lock-tr
 sudo shc -U -S -f unlock-tr.sh -o unlock-tr
+sudo shc -U -S -f del-tr.sh -o del-tr
+sudo shc -U -S -f renew-tr.sh -o renew-tr
+sudo shc -U -S -f member-tr.sh -o member-tr
+sudo shc -U -S -f listcreat-tr.sh -o listcreat-tr
 
-sudo chmod +x listcreat-tr
 sudo chmod +x cek-tr
 sudo chmod +x trialtrojan
 sudo chmod +x add-tr
-sudo chmod +x member-tr
 sudo chmod +x lock-tr
 sudo chmod +x unlock-tr
-chmod +x del-tr
-chmod +x renew-tr
-chmod +x renew-tr
+sudo chmod +x del-tr
+sudo chmod +x renew-tr
+sudo chmod +x member-tr
+sudo chmod +x listcreat-tr
 
-rm listcreat-tr.sh listcreat-tr.sh.x.c
 rm cek-tr.sh cek-tr.sh.x.c
 rm trialtrojan.sh trialtrojan.sh.x.c
 rm add-tr.sh add-tr.sh.x.c
 rm lock-tr.sh lock-tr.sh.x.c
+rm del-tr.sh del-tr.sh.x.c
+rm renew-tr.sh renew-tr.sh.x.c
+rm member-tr.sh member-tr.sh.x.c
 rm unlock-tr.sh unlock-tr.sh.x.c
+rm listcreat-tr.sh listcreat-tr.sh.x.c
 
 sleep 0.8
 gren() { echo -e "\\033[0;32m${*}\\033[0m"; }
