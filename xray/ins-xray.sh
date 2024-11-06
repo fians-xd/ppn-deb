@@ -633,7 +633,7 @@ sudo chmod +x trialvless
 sudo chmod +x lock-vls
 sudo chmod +x unlock-vls
 sudo chmod +x cek-vless
-sudo chmod +x member-vls
+chmod +x member-vls
 chmod +x renew-vless
 chmod +x del-vless
 
