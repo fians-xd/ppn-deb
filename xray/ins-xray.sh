@@ -571,35 +571,43 @@ rm member-shws.sh member-shws.sh.x.c
 # vmess
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-ws.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialvmess.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialvmess.sh\s+100%|saved \["
-wget --progress=bar:force -O renew-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-ws\s+100%|saved \[" && chmod +x renew-ws
-wget --progress=bar:force -O del-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-ws\s+100%|saved \[" && chmod +x del-ws
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-ws.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-ws.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/cek-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-ws.sh\s+100%|saved \["
-wget --progress=bar:force -O member-ws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-ws\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-ws.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/lock-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|lock-ws.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/unlock-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|unlock-ws.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/listcreat-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|listcreat-ws.sh\s+100%|saved \["
 
-sudo shc -U -S -f listcreat-ws.sh -o listcreat-ws
 sudo shc -U -S -f add-ws.sh -o add-ws
 sudo shc -U -S -f trialvmess.sh -o trialvmess
 sudo shc -U -S -f cek-ws.sh -o cek-ws
 sudo shc -U -S -f lock-ws.sh -o lock-ws
 sudo shc -U -S -f unlock-ws.sh -o unlock-ws
+sudo shc -U -S -f member-ws.sh -o member-ws
+sudo shc -U -S -f renew-ws.sh -o renew-ws
+sudo shc -U -S -f del-ws.sh -o del-ws
+sudo shc -U -S -f listcreat-ws.sh -o listcreat-ws
 
 sudo chmod +x add-ws
-sudo chmod +x listcreat-ws
 sudo chmod +x lock-ws
 sudo chmod +x unlock-ws
 sudo chmod +x trialvmess
 sudo chmod +x cek-ws
 sudo chmod +x member-ws
+sudo chmod +x renew-ws
+sudo chmod +x del-ws
+sudo chmod +x listcreat-ws
 
-rm listcreat-ws.sh listcreat-ws.sh.x.c
 rm add-ws.sh add-ws.sh.x.c
+rm member-ws.sh member-ws.sh.x.c
 rm lock-ws.sh lock-ws.sh.x.c
 rm unlock-ws.sh unlock-ws.sh.x.c
 rm trialvmess.sh trialvmess.sh.x.c
 rm cek-ws.sh cek-ws.sh.x.c
+rm renew-ws.sh renew-ws.sh.x.c
+rm del-ws.sh del-ws.sh.x.c
+rm listcreat-ws.sh listcreat-ws.sh.x.c
 
 # vless
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-vless.sh\s+100%|saved \["
