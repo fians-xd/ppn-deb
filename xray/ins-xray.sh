@@ -636,7 +636,6 @@ sudo chmod +x cek-vless
 sudo chmod +x member-vls
 chmod +x renew-vless
 chmod +x del-vless
-chmod +x renew-vless
 
 rm listcreat-vls.sh listcreat-vls.sh.x.c
 rm add-vless.sh add-vless.sh.x.c
