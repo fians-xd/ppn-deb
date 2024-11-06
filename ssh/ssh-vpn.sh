@@ -263,13 +263,13 @@ netfilter-persistent reload
 # download script
 cd /usr/bin
 # menu
-wget --progress=bar:force -O m-vmess "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vmess.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-vmess\s+100%|saved \["
-wget --progress=bar:force -O m-vless "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-vless\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vmess.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-vmess.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-vless.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/running.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|running.sh\s+100%|saved \["
 wget --progress=bar:force -O clearcache "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/clearcache.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|clearcache\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/menu.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu.sh\s+100%|saved \["
-wget --progress=bar:force -O m-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-ssws\s+100%|saved \["
-wget --progress=bar:force -O m-trojan "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-trojan.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-trojan\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-ssws.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-trojan.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-trojan.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/geolocation.txt" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|geolocation.txt\s+100%|saved \[" && sed -i 's/\r//' geolocation.txt
 wget --progress=bar:force -O instal-bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/instal-bot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|instal-bot\s+100%|saved \["
 
@@ -286,8 +286,8 @@ wget --progress=bar:force -O autokill "https://raw.githubusercontent.com/fians-x
 wget --progress=bar:force -O ceklim "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ceklim.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ceklim\s+100%|saved \["
 wget --progress=bar:force -O tendang "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/tendang.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tendang\s+100%|saved \["
 wget --progress=bar:force -O sshws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/sshws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|sshws\s+100%|saved \["
-wget --progress=bar:force -O user-lock "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/user-lock.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|user-lock\s+100%|saved \["
-wget --progress=bar:force -O user-unlock "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/user-unlock.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|user-unlock\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/user-lock.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|user-lock.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/user-unlock.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|user-unlock.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/listcreat-ssh.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|listcreat-ssh.sh\s+100%|saved \["
 
 # menu system
@@ -317,6 +317,26 @@ wget --progress=bar:force -O satpam "https://raw.githubusercontent.com/fians-xd/
 wget --progress=bar:force -O molog-xray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/molog_xray/molog-xray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|molog-xray\s+100%|saved \["
 sudo chmod +x molog-xray
 
+#-----------------------------------------------------------------
+sudo shc -U -S -f m-vmess.sh -o m-vmess
+sudo shc -U -S -f m-vless.sh -o m-vless
+sudo shc -U -S -f m-ssws.sh -o m-ssws
+sudo shc -U -S -f m-trojan.sh -o m-trojan
+sudo shc -U -S -f m-trojan.sh -o user-lock
+sudo shc -U -S -f m-trojan.sh -o user-unlock
+
+sudo chmod +x m-vmess
+sudo chmod +x m-vless
+sudo chmod +x m-ssws
+sudo chmod +x m-trojan
+sudo chmod +x user-lock
+sudo chmod +x user-unlock
+
+rm m-vmess.sh m-vmess.sh.x.c
+rm m-vless.sh m-vless.sh.x.c
+rm m-ssws.sh m-ssws.sh.x.c
+rm m-trojan.sh m-trojan.sh.x.c
+#-----------------------------------------------------------------
 sudo shc -U -S -f menu.sh -o menu
 sudo shc -U -S -f running.sh -o running
 sudo shc -U -S -f usernew.sh -o usernew
@@ -355,8 +375,6 @@ chmod +x autokill
 chmod +x ceklim
 chmod +x tendang
 chmod +x sshws
-chmod +x user-lock
-chmod +x user-unlock
 
 chmod +x m-system
 chmod +x m-domain
