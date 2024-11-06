@@ -540,16 +540,33 @@ systemctl restart runn
 
 cd /usr/bin/
 # shadowsocks
-wget --progress=bar:force -O add-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-ssws\s+100%|saved \[" && chmod +x add-ssws
-wget --progress=bar:force -O trialssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialssws\s+100%|saved \[" && chmod +x trialssws
-wget --progress=bar:force -O del-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-ssws\s+100%|saved \[" && chmod +x del-ssws
-wget --progress=bar:force -O renew-ssws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-ssws\s+100%|saved \[" && chmod +x renew-ssws
-wget --progress=bar:force -O member-shws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-shws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-shws\s+100%|saved \[" && chmod +x member-shws
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-ssws.sh\s+100%|saved \[" && chmod +x add-ssws
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/trialssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialssws.sh\s+100%|saved \[" && chmod +x trialssws
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/del-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|del-ssws.sh\s+100%|saved \[" && chmod +x del-ssws
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/renew-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|renew-ssws.sh\s+100%|saved \[" && chmod +x renew-ssws
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/member-shws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|member-shws.sh\s+100%|saved \[" && chmod +x member-shws
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/listcreat-shws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|listcreat-shws.sh\s+100%|saved \[" && chmod +x member-shws
 
+sudo shc -U -S -f add-ssws.sh -o add-ssws
+sudo shc -U -S -f trialssws.sh -o trialssws
+sudo shc -U -S -f del-ssws.sh -o del-ssws
+sudo shc -U -S -f renew-ssws.sh -o renew-ssws
+sudo shc -U -S -f member-shws.sh -o member-shws
 sudo shc -U -S -f listcreat-shws.sh -o listcreat-shws
+
 sudo chmod +x listcreat-shws
+sudo chmod +x add-ssws
+sudo chmod +x trialssws
+sudo chmod +x del-ssws
+sudo chmod +x renew-ssws
+sudo chmod +x member-shws
+
 rm listcreat-shws.sh listcreat-shws.sh.x.c
+rm add-ssws.sh add-ssws.sh.x.c
+rm trialssws.sh trialssws.sh.x.c
+rm del-ssws.sh del-ssws.sh.x.c
+rm renew-ssws.sh renew-ssws.sh.x.c
+rm member-shws.sh member-shws.sh.x.c
 
 # vmess
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/add-ws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-ws.sh\s+100%|saved \["
