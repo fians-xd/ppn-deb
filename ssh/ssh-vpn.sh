@@ -290,12 +290,12 @@ wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/ma
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/listcreat-ssh.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|listcreat-ssh.sh\s+100%|saved \["
 
 # menu system
-wget --progress=bar:force -O  "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-system.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-system\s+100%|saved \["
-wget --progress=bar:force -O  "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-domain.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-domain\s+100%|saved \["
-wget --progress=bar:force -O  "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/add-host.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-host\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-system.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-system.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-domain.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-domain.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/add-host.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|add-host.sh\s+100%|saved \["
 wget --progress=bar:force -O certv2ray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/certv2ray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|certv2ray\s+100%|saved \["
 wget --progress=bar:force -O speedtest "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/speedtest.py" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|speedtest\s+100%|saved \["
-wget --progress=bar:force -O  "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/tespeed.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tespeed\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/tespeed.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tespeed.sh\s+100%|saved \["
 wget --progress=bar:force -O auto-reboot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto-reboot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|auto-reboot\s+100%|saved \["
 wget --progress=bar:force -O restart "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/restart.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|restart\s+100%|saved \["
 wget --progress=bar:force -O tambah_bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tambah_bot.py" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tambah_bot\s+100%|saved \["
@@ -320,20 +320,21 @@ sudo shc -U -S -f delete.sh -o delete
 sudo shc -U -S -f autokill.sh -o autokill
 sudo shc -U -S -f ceklim.sh -o ceklim
 sudo shc -U -S -f tendang.sh -o tendang
-sudo shc -U -S -f  -o m-system
-sudo shc -U -S -f  -o m-domain
-sudo shc -U -S -f  -o add-host
-sudo shc -U -S -f  -o tespeed
-sudo shc -U -S -f  -o ingpo
-sudo shc -U -S -f  -o bw
-sudo shc -U -S -f  -o m-tcp
-sudo shc -U -S -f  -o xp
-sudo shc -U -S -f  -o ganti-banner
-sudo shc -U -S -f  -o m-dns
-sudo shc -U -S -f  -o monitor
-sudo shc -U -S -f  -o asuk
-sudo shc -U -S -f  -o auto_nginx
-sudo shc -U -S -f  -o satpam
+------------------------------------------------
+sudo shc -U -S -f m-system.sh -o m-system
+sudo shc -U -S -f m-domain.sh -o m-domain
+sudo shc -U -S -f add-host.sh -o add-host
+sudo shc -U -S -f tespeed.sh -o tespeed
+sudo shc -U -S -f ingpo.sh -o ingpo
+sudo shc -U -S -f bw.sh -o bw
+sudo shc -U -S -f tcp.sh -o m-tcp
+sudo shc -U -S -f xp.sh -o xp
+sudo shc -U -S -f ganti-banner.sh -o ganti-banner
+sudo shc -U -S -f m-dns.sh -o m-dns
+sudo shc -U -S -f monitor.sh -o monitor
+sudo shc -U -S -f asuk.sh -o asuk
+sudo shc -U -S -f auto_nginx.sh -o auto_nginx
+sudo shc -U -S -f satpam.sh -o satpam
 --------------------------------------------------------------------------------------------------------
 
 # Molog Xray
