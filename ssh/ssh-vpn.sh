@@ -313,6 +313,28 @@ wget --progress=bar:force -O speedtest "https://raw.githubusercontent.com/fians-
 wget --progress=bar:force -O sshws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/sshws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|sshws\s+100%|saved \["
 
 --------------------------------------------------------------------------------------------------------
+sudo chmod +x renew
+sudo chmod +x hapus
+sudo chmod +x member
+sudo chmod +x delete
+sudo chmod +x autokill
+sudo chmod +x ceklim
+sudo chmod +x tendang
+sudo chmod +x m-system
+sudo chmod +x m-domain
+sudo chmod +x add-host
+sudo chmod +x tespeed
+sudo chmod +x ingpo
+sudo chmod +x bw
+sudo chmod +x m-tcp
+sudo chmod +x xp
+sudo chmod +x ganti-banner
+sudo chmod +x m-dns
+sudo chmod +x monitor
+sudo chmod +x asuk
+sudo chmod +x auto_nginx
+sudo chmod +x satpam
+
 sudo shc -U -S -f renew.sh -o renew
 sudo shc -U -S -f hapus.sh -o hapus
 sudo shc -U -S -f member.sh -o member
@@ -320,7 +342,6 @@ sudo shc -U -S -f delete.sh -o delete
 sudo shc -U -S -f autokill.sh -o autokill
 sudo shc -U -S -f ceklim.sh -o ceklim
 sudo shc -U -S -f tendang.sh -o tendang
-------------------------------------------------
 sudo shc -U -S -f m-system.sh -o m-system
 sudo shc -U -S -f m-domain.sh -o m-domain
 sudo shc -U -S -f add-host.sh -o add-host
@@ -335,6 +356,30 @@ sudo shc -U -S -f monitor.sh -o monitor
 sudo shc -U -S -f asuk.sh -o asuk
 sudo shc -U -S -f auto_nginx.sh -o auto_nginx
 sudo shc -U -S -f satpam.sh -o satpam
+
+
+
+rm renew.sh renew.sh
+rm hapus.sh hapus.sh
+rm member.sh member.sh
+rm delete.sh delete.sh
+rm autokill.sh autokill.sh
+rm ceklim.sh ceklim.sh
+rm tendang.sh tendang.sh
+rm m-system.sh m-system.sh
+rm m-domain.sh m-domain.sh
+rm add-host.sh add-host.sh
+rm tespeed.sh tespeed.sh
+rm ingpo.sh ingpo.sh
+rm bw.sh bw.sh
+rm tcp.sh tcp.sh
+rm 
+rm 
+rm 
+rm 
+rm 
+rm 
+rm 
 --------------------------------------------------------------------------------------------------------
 
 # Molog Xray
