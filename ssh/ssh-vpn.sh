@@ -356,6 +356,8 @@ sudo chmod +x m-vmess
 sudo chmod +x m-vless
 sudo chmod +x m-ssws
 sudo chmod +x m-trojan
+sudo chmod +x m-system
+sudo chmod +x m-domain
 sudo chmod +x user-lock
 sudo chmod +x user-unlock
 sudo chmod +x menu
@@ -371,8 +373,6 @@ sudo chmod +x delete
 sudo chmod +x autokill
 sudo chmod +x ceklim
 sudo chmod +x tendang
-sudo chmod +x m-system
-sudo chmod +x m-domain
 sudo chmod +x add-host
 sudo chmod +x tespeed
 sudo chmod +x ingpo
