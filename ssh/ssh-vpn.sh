@@ -41,8 +41,10 @@ BBlue='\e[1;34m'
 NC='\e[0m'
 
 # simple password minimal
-curl -sS https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/password | openssl aes-256-cbc -d -a -pass pass:scvps07gg -pbkdf2 > /etc/pam.d/common-password
-chmod +x /etc/pam.d/common-password
+cd
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/common-password" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|common-password\s+100%|saved \["
+mv common-password /etc/pam.d/
+chmod 644 /etc/pam.d/common-password
 
 # Edit file /etc/systemd/system/rc-local.service
 cd
