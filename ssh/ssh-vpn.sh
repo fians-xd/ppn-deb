@@ -266,12 +266,10 @@ cd /usr/bin
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vmess.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-vmess.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-vless.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-vless.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/running.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|running.sh\s+100%|saved \["
-wget --progress=bar:force -O clearcache "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/clearcache.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|clearcache\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/menu.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|menu.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-ssws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-ssws.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-trojan.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-trojan.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/geolocation.txt" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|geolocation.txt\s+100%|saved \[" && sed -i 's/\r//' geolocation.txt
-wget --progress=bar:force -O instal-bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/instal-bot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|instal-bot\s+100%|saved \["
 
 # menu ssh ovpn
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-sshovpn.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-sshovpn.sh\s+100%|saved \["
@@ -311,30 +309,25 @@ wget --progress=bar:force -O tambah_bot "https://raw.githubusercontent.com/fians
 wget --progress=bar:force -O certv2ray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/certv2ray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|certv2ray\s+100%|saved \["
 wget --progress=bar:force -O speedtest "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/speedtest.py" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|speedtest\s+100%|saved \["
 wget --progress=bar:force -O sshws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/sshws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|sshws\s+100%|saved \["
+wget --progress=bar:force -O instal-bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/instal-bot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|instal-bot\s+100%|saved \["
+wget --progress=bar:force -O clearcache "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/clearcache.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|clearcache\s+100%|saved \["
 
---------------------------------------------------------------------------------------------------------
-sudo chmod +x renew
-sudo chmod +x hapus
-sudo chmod +x member
-sudo chmod +x delete
-sudo chmod +x autokill
-sudo chmod +x ceklim
-sudo chmod +x tendang
-sudo chmod +x m-system
-sudo chmod +x m-domain
-sudo chmod +x add-host
-sudo chmod +x tespeed
-sudo chmod +x ingpo
-sudo chmod +x bw
-sudo chmod +x m-tcp
-sudo chmod +x xp
-sudo chmod +x ganti-banner
-sudo chmod +x m-dns
-sudo chmod +x monitor
-sudo chmod +x asuk
-sudo chmod +x auto_nginx
-sudo chmod +x satpam
+# Molog Xray
+wget --progress=bar:force -O molog-xray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/molog_xray/molog-xray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|molog-xray\s+100%|saved \["
+sudo chmod +x molog-xray
 
+sudo shc -U -S -f m-sshovpn.sh -o m-sshovpn
+sudo shc -U -S -f m-vmess.sh -o m-vmess
+sudo shc -U -S -f m-vless.sh -o m-vless
+sudo shc -U -S -f m-ssws.sh -o m-ssws
+sudo shc -U -S -f m-trojan.sh -o m-trojan
+sudo shc -U -S -f user-lock.sh -o user-lock
+sudo shc -U -S -f user-unlock.sh -o user-unlock
+sudo shc -U -S -f menu.sh -o menu
+sudo shc -U -S -f running.sh -o running
+sudo shc -U -S -f usernew.sh -o usernew
+sudo shc -U -S -f trial.sh -o trial
+sudo shc -U -S -f cek.sh -o cek
 sudo shc -U -S -f renew.sh -o renew
 sudo shc -U -S -f hapus.sh -o hapus
 sudo shc -U -S -f member.sh -o member
@@ -356,48 +349,6 @@ sudo shc -U -S -f monitor.sh -o monitor
 sudo shc -U -S -f asuk.sh -o asuk
 sudo shc -U -S -f auto_nginx.sh -o auto_nginx
 sudo shc -U -S -f satpam.sh -o satpam
-
-
-
-rm renew.sh renew.sh
-rm hapus.sh hapus.sh
-rm member.sh member.sh
-rm delete.sh delete.sh
-rm autokill.sh autokill.sh
-rm ceklim.sh ceklim.sh
-rm tendang.sh tendang.sh
-rm m-system.sh m-system.sh
-rm m-domain.sh m-domain.sh
-rm add-host.sh add-host.sh
-rm tespeed.sh tespeed.sh
-rm ingpo.sh ingpo.sh
-rm bw.sh bw.sh
-rm tcp.sh tcp.sh
-rm 
-rm 
-rm 
-rm 
-rm 
-rm 
-rm 
---------------------------------------------------------------------------------------------------------
-
-# Molog Xray
-wget --progress=bar:force -O molog-xray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/molog_xray/molog-xray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|molog-xray\s+100%|saved \["
-sudo chmod +x molog-xray
-
-sudo shc -U -S -f m-sshovpn.sh -o m-sshovpn
-sudo shc -U -S -f m-vmess.sh -o m-vmess
-sudo shc -U -S -f m-vless.sh -o m-vless
-sudo shc -U -S -f m-ssws.sh -o m-ssws
-sudo shc -U -S -f m-trojan.sh -o m-trojan
-sudo shc -U -S -f user-lock.sh -o user-lock
-sudo shc -U -S -f user-unlock.sh -o user-unlock
-sudo shc -U -S -f menu.sh -o menu
-sudo shc -U -S -f running.sh -o running
-sudo shc -U -S -f usernew.sh -o usernew
-sudo shc -U -S -f trial.sh -o trial
-sudo shc -U -S -f cek.sh -o cek
 sudo shc -U -S -f listcreat-ssh.sh -o listcreat-ssh
 
 sudo chmod +x m-sshovpn
@@ -413,6 +364,35 @@ sudo chmod +x running
 sudo chmod +x usernew
 sudo chmod +x trial
 sudo chmod +x cek
+sudo chmod +x renew
+sudo chmod +x hapus
+sudo chmod +x member
+sudo chmod +x delete
+sudo chmod +x autokill
+sudo chmod +x ceklim
+sudo chmod +x tendang
+sudo chmod +x m-system
+sudo chmod +x m-domain
+sudo chmod +x add-host
+sudo chmod +x tespeed
+sudo chmod +x ingpo
+sudo chmod +x bw
+sudo chmod +x m-tcp
+sudo chmod +x xp
+sudo chmod +x ganti-banner
+sudo chmod +x m-dns
+sudo chmod +x monitor
+sudo chmod +x asuk
+sudo chmod +x auto_nginx
+sudo chmod +x satpam
+chmod +x clearcache
+chmod +x instal-bot
+chmod +x sshws
+chmod +x certv2ray
+chmod +x speedtest
+chmod +x auto-reboot
+chmod +x restart
+chmod +x tambah_bot
 
 rm m-sshovpn.sh m-sshovpn.sh.x.c
 rm m-vmess.sh m-vmess.sh.x.c
@@ -427,44 +407,31 @@ rm usernew.sh usernew.sh.x.c
 rm trial.sh trial.sh.x.c
 rm cek.sh cek.sh.x.c
 rm listcreat-ssh.sh listcreat-ssh.sh.x.c
+rm renew.sh renew.sh.x.c
+rm hapus.sh hapus.sh.x.c
+rm member.sh member.sh.x.c
+rm delete.sh delete.sh.x.c
+rm autokill.sh autokill.sh.x.c
+rm ceklim.sh ceklim.sh.x.c
+rm tendang.sh tendang.sh.x.c
+rm m-system.sh m-system.sh.x.c
+rm m-domain.sh m-domain.sh.x.c
+rm add-host.sh add-host.sh.x.c
+rm tespeed.sh tespeed.sh.x.c
+rm ingpo.sh ingpo.sh.x.c
+rm bw.sh bw.sh.x.c
+rm tcp.sh tcp.sh.x.c
+rm xp.sh xp.sh.x.c
+rm ganti-banner.sh ganti-banner.sh.x.c
+rm m-dns.sh m-dns.sh.x.c
+rm monitor.sh monitor.sh.x.c
+rm asuk.sh asuk.sh.x.c
+rm auto_nginx.sh auto_nginx.sh.x.c
+rm satpam.sh satpam.sh.x.c
 
-chmod +x m-vmess
-chmod +x m-vless
-chmod +x clearcache
-chmod +x m-ssws
-chmod +x instal-bot
-chmod +x m-trojan
-chmod +x ganti-banner
+--------------------------------------------------------------------------------------------------------
 
-chmod +x m-sshovpn
-chmod +x renew
-chmod +x hapus
-chmod +x member
-chmod +x delete
-chmod +x autokill
-chmod +x ceklim
-chmod +x tendang
-chmod +x sshws
-
-chmod +x m-system
-chmod +x m-domain
-chmod +x add-host
-chmod +x certv2ray
-chmod +x speedtest
-chmod +x tespeed
-chmod +x auto-reboot
-chmod +x restart
-chmod +x tambah_bot
-chmod +x ingpo
-chmod +x bw
-chmod +x m-tcp
-chmod +x xp
-chmod +x sshws
-chmod +x m-dns
-chmod +x monitor
-chmod +x asuk
-chmod +x auto_nginx
-chmod +x satpam
+--------------------------------------------------------------------------------------------------------
 
 cd
 cat > /etc/cron.d/rlog_otm <<-END
