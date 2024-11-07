@@ -42,9 +42,9 @@ NC='\e[0m'
 
 # simple password minimal
 cd
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/common-password" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|common-password\s+100%|saved \["
-mv common-password /etc/pam.d/
-chmod 644 /etc/pam.d/common-password
+sudo wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/common-password" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|common-password\s+100%|saved \["
+sudo mv common-password /etc/pam.d/
+sudo chmod 644 /etc/pam.d/common-password
 
 # Edit file /etc/systemd/system/rc-local.service
 cd
