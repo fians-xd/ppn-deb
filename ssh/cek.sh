@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export TERM=xterm
+> /etc/cek-ssh.log
 clear
 echo " "
 
@@ -13,10 +14,15 @@ fi
 
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo "━━━━━━━━━━━━━━━━━━━━━━" >> /etc/cek-ssh.log
 echo -e "\e[1;44m         Dropbear User Login       \E[0m"
+echo "               User Login Ssh" >> /etc/cek-ssh.log
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo "━━━━━━━━━━━━━━━━━━━━━━" >> /etc/cek-ssh.log
 echo "ID  |  Username  |  IP Address";
+echo "  ID      |      User      |      IP Address" >> /etc/cek-ssh.log
 echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo "━━━━━━━━━━━━━━━━━━━━━━" >> /etc/cek-ssh.log
 strings "$LOG" | grep -i "dropbear" | grep -i "Password auth succeeded" > /tmp/login-db.txt;
 for PID in "${data[@]}"
 do
@@ -26,7 +32,9 @@ do
         IP=$(grep -Eo "^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" /var/log/nginx/access.log | tail -n 1);
         if [ $NUM -eq 1 ]; then
                 echo "$PID - $USER - $IP";
+                echo "$PID - $USER - $IP" >> /etc/cek-ssh.log;
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+        echo "━━━━━━━━━━━━━━━━━━━━━━" >> /etc/cek-ssh.log
         fi
 done
 
@@ -72,29 +80,6 @@ if [ -f "/etc/openvpn/server/openvpn-udp.log" ]; then
         cat /etc/openvpn/server/openvpn-udp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' -e 's/\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\):[0-9]\+/\1/g' -e 's/      / | /g' -e 's/[A-Za-z]\{3\} [A-Za-z]\{3\}  *[0-9]\{1,2\} //g' -e 's/ [0-9]\{4\}$//g' > /tmp/vpn-login-udp.txt
         cat /tmp/vpn-login-udp.txt
 fi
-# Disini log tanpa kodewarn ansi dan simpan log nya
-{
-    echo "━━━━━━━━━━━━━━━━━━━━━━"
-    echo "               User Login Ssh"
-    echo "━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  ID      |      User      |      IP Address"
-    echo "━━━━━━━━━━━━━━━━━━━━━━"
-    data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
-    # Ambil data login dari auth.log
-    strings $LOG | grep -i "Password auth succeeded" > /tmp/login-db.txt;
-    for PID in "${data[@]}"
-    do
-        cat /tmp/login-db.txt | grep "dropbear\[$PID\]" > /tmp/login-db-pid.txt;
-        NUM=`cat /tmp/login-db-pid.txt | wc -l`;
-        USER=`cat /tmp/login-db-pid.txt | awk '{print $10}'`;
-        IP=$(grep -Eo "^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" /var/log/nginx/access.log | tail -n 1)
-
-        if [ $NUM -eq 1 ]; then
-                echo "$PID - $USER - $IP";
-        echo "━━━━━━━━━━━━━━━━━━━━━━"
-        fi
-    done
-} > /etc/cek-ssh.log
 
 echo "";
 rm -f /tmp/login-db-pid.txt
