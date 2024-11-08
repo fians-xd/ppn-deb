@@ -437,19 +437,19 @@ SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 0 23 * * * root > /var/log/xray/access.log
 0 23 * * * root > /var/log/auth.log
-*/3 * * * * root > /var/log/secure
-*/3 * * * * root > /etc/cek-tr.log
-*/3 * * * * root > /etc/cek-vless.log
-*/3 * * * * root > /etc/cek-vmess.log
-*/3 * * * * root > /etc/cek-ssh.log
-*/3 * * * * root > /etc/log-create-ssh-trial-clean.log
-*/3 * * * * root > /etc/log-create-ssh-clean.log
-*/3 * * * * root > /etc/log-create-trojan-clean.log
-*/3 * * * * root > /etc/log-create-vless-clean.log
-*/3 * * * * root > /etc/log-create-vmess-clean.log
-*/3 * * * * root > /etc/log-create-trojan-trial-clean.log
-*/3 * * * * root > /etc/log-create-vless-trial-clean.log
-*/3 * * * * root > /etc/log-create-vmess-trial-clean.log
+*/5 * * * * root > /var/log/secure
+*/5 * * * * root > /etc/cek-tr.log
+*/5 * * * * root > /etc/cek-vless.log
+*/5 * * * * root > /etc/cek-vmess.log
+*/5 * * * * root > /etc/cek-ssh.log
+*/5 * * * * root > /etc/log-create-ssh-trial-clean.log
+*/5 * * * * root > /etc/log-create-ssh-clean.log
+*/5 * * * * root > /etc/log-create-trojan-clean.log
+*/5 * * * * root > /etc/log-create-vless-clean.log
+*/5 * * * * root > /etc/log-create-vmess-clean.log
+*/5 * * * * root > /etc/log-create-trojan-trial-clean.log
+*/5 * * * * root > /etc/log-create-vless-trial-clean.log
+*/5 * * * * root > /etc/log-create-vmess-trial-clean.log
 0 */2 * * * root > /root/.ngx/auto_nginx.log
 END
 
