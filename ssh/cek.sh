@@ -44,7 +44,7 @@ do
         cat /tmp/login-db.txt | grep "sshd\[$PID\]" > /tmp/login-db-pid.txt;
         NUM=`cat /tmp/login-db-pid.txt | wc -l`;
         USER=`cat /tmp/login-db-pid.txt | awk '{print $9}'`;
-        IP=`cat /tmp/login-db-pid.txt | awk '{print $11}'`;
+        IP=$(grep -Eo "^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" /var/log/nginx/access.log | tail -n 1);
         if [ $NUM -eq 1 ]; then
                 echo "$PID - $USER - $IP";
         fi
