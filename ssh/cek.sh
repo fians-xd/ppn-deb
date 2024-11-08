@@ -23,7 +23,7 @@ do
         cat /tmp/login-db.txt | grep "dropbear\[$PID\]" > /tmp/login-db-pid.txt;
         NUM=`cat /tmp/login-db-pid.txt | wc -l`;
         USER=`cat /tmp/login-db-pid.txt | awk '{print $10}'`;
-        IP=`cat /tmp/login-db-pid.txt | awk '{print $12}'`;
+        IP=$(grep -Eo "^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" /var/log/nginx/access.log | tail -n 1);
         if [ $NUM -eq 1 ]; then
                 echo "$PID - $USER - $IP";
         echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -44,7 +44,7 @@ do
         cat /tmp/login-db.txt | grep "sshd\[$PID\]" > /tmp/login-db-pid.txt;
         NUM=`cat /tmp/login-db-pid.txt | wc -l`;
         USER=`cat /tmp/login-db-pid.txt | awk '{print $9}'`;
-        IP=$(grep -Eo "^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" /var/log/nginx/access.log | tail -n 1);
+        IP=`cat /tmp/login-db-pid.txt | awk '{print $11}'`;
         if [ $NUM -eq 1 ]; then
                 echo "$PID - $USER - $IP";
         fi
