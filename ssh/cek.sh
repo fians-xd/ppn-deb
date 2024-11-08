@@ -81,7 +81,7 @@ fi
     echo "━━━━━━━━━━━━━━━━━━━━━━"
     data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
     # Ambil data login dari auth.log
-    cat $LOG | grep -i "Password auth succeeded" > /tmp/login-db.txt;
+    strings $LOG | grep -i "Password auth succeeded" > /tmp/login-db.txt;
     for PID in "${data[@]}"
     do
         cat /tmp/login-db.txt | grep "dropbear\[$PID\]" > /tmp/login-db-pid.txt;
@@ -91,6 +91,7 @@ fi
 
         if [ $NUM -eq 1 ]; then
                 echo "$PID - $USER - $IP";
+        echo "━━━━━━━━━━━━━━━━━━━━━━"
         fi
     done
 } > /etc/cek-ssh.log
