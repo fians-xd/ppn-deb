@@ -423,7 +423,7 @@ cat > /etc/systemd/system/satpam.service <<-END
 Description=Satpam Service
 After=network.target
 [Service]
-ExecStartPre=/bin/sleep 60
+ExecStartPre=/bin/sleep 40
 ExecStart=/usr/bin/satpam >/dev/null 2>&1
 Restart=always
 [Install]
