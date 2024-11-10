@@ -45,7 +45,7 @@ echo " "
 
 server_ip=$(curl -sS ifconfig.me)
 
-curl --compressed -L -o $LICENSE_FILE "https://gitlab.com/qxzlx/xzzx/-/raw/main/lisensi.txt?ref_type=heads" > /dev/null 2>&1
+curl --compressed -L -o $LICENSE_FILE "$LICENSE_URL" > /dev/null 2>&1
 
 if [ ! -f "$LICENSE_FILE" ]; then
     echo " "
