@@ -24,6 +24,8 @@ GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
 LIGHT='\033[0;37m'
 
+QJXY_MKK=$(cat /usr/bin/zmxn.txt)
+LICENSE_URL=$(echo "$QJXY_MKK" | base64 --decode)
 LICENSE_FILE="/tmp/lisensi.txt"
 USER_FILE="/etc/user_name.txt"
 
