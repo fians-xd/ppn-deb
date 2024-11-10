@@ -272,6 +272,31 @@ echo " "
 curl -sS ipv4.icanhazip.com > /etc/myipvps
 
 clear
+echo " "
+echo -e "${biru}~=[ ${green}ADD Resolved DNS Please Wait.! ${biru}]=~${NC}"
+# DNS yang akan ditambahkan
+DNS1="8.8.8.8"
+DNS2="1.1.1.1"
+RESOLVED_CONF="/etc/systemd/resolved.conf"
+
+# Fungsi untuk menambahkan DNS jika belum ada
+add_dns() {
+    echo " "
+    echo "Menambahkan DNS Resolved..."
+    sudo sed -i "/^\[Resolve\]/a DNS=$DNS1 $DNS2" $RESOLVED_CONF
+}
+
+# Mengecek apakah DNS sudah ada di konfigurasi
+if grep -q "DNS=$DNS1 $DNS2" $RESOLVED_CONF; then
+    echo "DNS Resolved sudah dikonfigurasi, tidak ada perubahan yang dilakukan."
+else
+    add_dns
+    # Restart systemd-resolved untuk menerapkan perubahan
+    sudo systemctl restart systemd-resolved
+    echo "DNS berhasil ditambahkan..."
+fi
+
+clear
 cd
 echo " "
 echo -e "${biru}~=[ ${green}Clearing Trash Please Wait.! ${biru}]=~${NC}"
