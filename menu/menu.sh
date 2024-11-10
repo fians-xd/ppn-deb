@@ -50,6 +50,8 @@ CONFIRM=$(curl -sc /tmp/gcookie "https://drive.google.com/uc?export=download&id=
 
 curl -L -b /tmp/gcookie "https://drive.google.com/uc?export=download&confirm=${CONFIRM}&id=${LICENSE_URL##*id=}" -o $LICENSE_FILE > /dev/null 2>&1
 
+curl -L "https://drive.google.com/uc?export=download&id=${FILE_ID}" -o $OUTPUT_FILE
+
 if [ ! -f "$LICENSE_FILE" ]; then
     echo " "
     echo -e "\e[31m Koneksi Server Bermasalah, Reboot Dulu.\e[0m"
