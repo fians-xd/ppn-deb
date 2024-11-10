@@ -297,7 +297,6 @@ wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/ma
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/ingpo.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ingpo.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/zmxn.txt" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|zmxn.txt\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/bw.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|bw.sh\s+100%|saved \["
-wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tcp.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tcp.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/xp.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|xp.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/ganti-banner.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ganti-banner.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/m-dns.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-dns.sh\s+100%|saved \["
@@ -313,6 +312,7 @@ wget --progress=bar:force -O speedtest "https://raw.githubusercontent.com/fians-
 wget --progress=bar:force -O sshws "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/ssh/sshws.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|sshws\s+100%|saved \["
 wget --progress=bar:force -O instal-bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/instal-bot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|instal-bot\s+100%|saved \["
 wget --progress=bar:force -O clearcache "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/clearcache.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|clearcache\s+100%|saved \["
+wget --progress=bar:force -O m-tcp "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tcp.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|m-tcp\s+100%|saved \["
 
 # Molog Xray
 wget --progress=bar:force -O molog-xray "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/xray/molog_xray/molog-xray.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|molog-xray\s+100%|saved \["
@@ -343,7 +343,6 @@ sudo shc -U -S -f add-host.sh -o add-host
 sudo shc -U -S -f tespeed.sh -o tespeed
 sudo shc -U -S -f ingpo.sh -o ingpo
 sudo shc -U -S -f bw.sh -o bw
-sudo shc -U -S -f tcp.sh -o m-tcp
 sudo shc -U -S -f xp.sh -o xp
 sudo shc -U -S -f ganti-banner.sh -o ganti-banner
 sudo shc -U -S -f m-dns.sh -o m-dns
@@ -379,7 +378,6 @@ sudo chmod +x add-host
 sudo chmod +x tespeed
 sudo chmod +x ingpo
 sudo chmod +x bw
-sudo chmod +x m-tcp
 sudo chmod +x xp
 sudo chmod +x ganti-banner
 sudo chmod +x m-dns
@@ -395,6 +393,7 @@ chmod +x speedtest
 chmod +x auto-reboot
 chmod +x restart
 chmod +x tambah_bot
+chmod +x m-tcp
 
 rm m-sshovpn.sh m-sshovpn.sh.x.c
 rm m-vmess.sh m-vmess.sh.x.c
@@ -422,7 +421,6 @@ rm add-host.sh add-host.sh.x.c
 rm tespeed.sh tespeed.sh.x.c
 rm ingpo.sh ingpo.sh.x.c
 rm bw.sh bw.sh.x.c
-rm tcp.sh tcp.sh.x.c
 rm xp.sh xp.sh.x.c
 rm ganti-banner.sh ganti-banner.sh.x.c
 rm m-dns.sh m-dns.sh.x.c
