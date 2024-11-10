@@ -43,7 +43,7 @@ echo " "
 echo -e "\e[32m Please Wait...!\e[0m"
 echo " "
 
-server_ip=$(hostname -I | awk '{print $1}')
+server_ip=$(curl -sS ifconfig.me)
 
 curl --compressed -o $LICENSE_FILE "$LICENSE_URL" > /dev/null 2>&1
 
