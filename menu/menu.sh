@@ -43,7 +43,7 @@ echo " "
 
 server_ip=$(curl -sS ifconfig.me)
 
-curl --compressed -o $LICENSE_FILE "https://gitlab.com/qxzlx/xzzx/-/blob/main/lisensi.txt" > /dev/null 2>&1
+curl --compressed -L -o $LICENSE_FILE "https://gitlab.com/qxzlx/xzzx/-/blob/main/lisensi.txt" > /dev/null 2>&1
 
 if [ ! -f "$LICENSE_FILE" ]; then
     echo " "
