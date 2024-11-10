@@ -24,8 +24,6 @@ GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
 LIGHT='\033[0;37m'
 
-QJXY_MKK=$(cat /usr/bin/zmxn.txt)
-LICENSE_URL=$(echo "$QJXY_MKK" | base64 --decode)
 LICENSE_FILE="/tmp/lisensi.txt"
 USER_FILE="/etc/user_name.txt"
 
@@ -45,7 +43,7 @@ echo " "
 
 server_ip=$(curl -sS ifconfig.me)
 
-curl --compressed -o $LICENSE_FILE "$LICENSE_URL" > /dev/null 2>&1
+curl --compressed -o $LICENSE_FILE "https://gitlab.com/qxzlx/xzzx/-/blob/main/lisensi.txt" > /dev/null 2>&1
 
 if [ ! -f "$LICENSE_FILE" ]; then
     echo " "
