@@ -35,10 +35,10 @@ while true; do
     echo " "
     read -p "Name: " sub
 
-    if [[ ${#sub} -le 5 ]]; then
+    if [[ ${#sub} -le 7 ]]; then
         break
     else
-        echo "Nama maksimal 5 huruf, tidak lebih, contoh:"
+        echo "Nama maksimal 7 huruf, tidak lebih, contoh:"
         echo "adi, salsa, ahmad dll"
         sleep 0.9
         echo " "
