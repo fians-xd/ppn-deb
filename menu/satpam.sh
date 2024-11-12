@@ -44,8 +44,8 @@ check_services() {
     fi
 }
 
-# Menjalankan pengecekan setiap 20 detik
+# Menjalankan pengecekan setiap 10 detik
 while true; do
     check_services
-    sleep 20
+    sleep 10
 done
