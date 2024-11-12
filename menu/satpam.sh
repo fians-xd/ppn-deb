@@ -15,7 +15,6 @@ check_services() {
     local fail2ban_service=$(/etc/init.d/fail2ban status | grep -o "Active: [a-z]*" | awk '{print $2}')
     local wstls=$(systemctl is-active ws-stunnel.service)
     local wsdrop=$(systemctl is-active ws-dropbear.service)
-    local udp=$(systemctl is-active udp-custom)
     local ovpn=$(systemctl is-active openvpn)
 
     # Jika ada service yang tidak aktif, restart semuanya
@@ -23,7 +22,7 @@ check_services() {
           "$vless_nontls_v2ray_status" != "active" || "$shadowsocks" != "active" || "$trojan_server" != "active" || \
           "$dropbear_status" != "active" || "$stunnel_service" != "active" || \
           "$vnstat_service" != "active" || "$cron_service" != "active" || "$fail2ban_service" != "active" || \
-          "$wstls" != "active" || "$wsdrop" != "active" || "$udp" != "active" || \
+          "$wstls" != "active" || "$wsdrop" != "active" || \
           "$ovpn" != "active" ]]; then
         echo "Ada service yang tidak berjalan, melakukan restart..."
         /etc/init.d/dropbear restart
@@ -31,8 +30,6 @@ check_services() {
         /etc/init.d/fail2ban restart
         /etc/init.d/openvpn restart
         /etc/init.d/cron restart
-        systemctl restart udp-custom
-        systemctl restart udp-custom.service
         systemctl restart xray
         systemctl restart ws-dropbear.service
         systemctl restart ws-stunnel.service
