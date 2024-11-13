@@ -31,6 +31,8 @@ check_services() {
         /etc/init.d/openvpn restart
         /etc/init.d/cron restart
         systemctl restart xray
+        systemctl restart udp-custom
+        systemctl restart udp-custom.service
         systemctl restart ws-dropbear.service
         systemctl restart ws-stunnel.service
         screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
