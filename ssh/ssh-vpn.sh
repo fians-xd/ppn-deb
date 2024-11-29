@@ -304,6 +304,8 @@ wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/ma
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/asuk.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|asuk.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto_nginx.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|auto_nginx.sh\s+100%|saved \["
 wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/satpam.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|satpam.sh\s+100%|saved \["
+wget --progress=bar:force "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/backup.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|backup.sh\s+100%|saved \["
+
 wget --progress=bar:force -O auto-reboot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/auto-reboot.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|auto-reboot\s+100%|saved \["
 wget --progress=bar:force -O restart "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/restart.sh" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|restart\s+100%|saved \["
 wget --progress=bar:force -O tambah_bot "https://raw.githubusercontent.com/fians-xd/ppn-deb/master/menu/tambah_bot.py" 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|tambah_bot\s+100%|saved \["
@@ -351,6 +353,7 @@ sudo shc -U -S -f asuk.sh -o asuk
 sudo shc -U -S -f auto_nginx.sh -o auto_nginx
 sudo shc -U -S -f satpam.sh -o satpam
 sudo shc -U -S -f listcreat-ssh.sh -o listcreat-ssh
+sudo shc -U -S -f backup.sh -o backup
 
 sudo chmod +x m-sshovpn
 sudo chmod +x m-vmess
@@ -385,6 +388,7 @@ sudo chmod +x monitor
 sudo chmod +x asuk
 sudo chmod +x auto_nginx
 sudo chmod +x satpam
+sudo chmod +x backup
 chmod +x clearcache
 chmod +x instal-bot
 chmod +x sshws
@@ -428,6 +432,7 @@ rm monitor.sh monitor.sh.x.c
 rm asuk.sh asuk.sh.x.c
 rm auto_nginx.sh auto_nginx.sh.x.c
 rm satpam.sh satpam.sh.x.c
+rm backup.sh backup.sh.x.c
 
 cd
 cat > /etc/cron.d/rlog_otm <<-END
