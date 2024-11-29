@@ -31,7 +31,7 @@ backup_users() {
     echo "Backup selesai.!"
     echo -e "Silahkan download di: http://$domen:81/backup.zip"
     echo " "
-    sleep 10
+    read -n 1 -s -r -p "Jika data sudah ter download maka tekan enter"
     clear
 }
 
