@@ -122,8 +122,9 @@ restore_users() {
 # Main menu
 while true; do
     clear
-    echo " "
-    echo "-=[ OPSI BACKUP USER VPN ]=-"
+    echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+    echo -e "\e[1;44m           ━MENU BACKUP ALL USER━              \e[0m"
+    echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
     echo " "
     echo "1. Backup user jadi zip"
     echo "2. Terapkan backup user"
