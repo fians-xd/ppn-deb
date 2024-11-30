@@ -35,10 +35,10 @@ backup_users() {
     # Menampilkan hasil
     clear
     echo " "
-    echo "Backup selesai!"
+    echo "Backup selesai.!"
     echo "Silahkan copy paste url di browser"
     echo " "
-    echo -e "Download cok disini: $URL"
+    echo -e "Download disini cok: $URL"
     echo " "
     read -n 1 -s -r -p "Jika data sudah ter download maka tekan enter"
     rm -rf backup $FILE
