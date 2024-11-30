@@ -33,7 +33,7 @@ else
     exit 1
 fi
 
-wget -q https://github.com/neurobin/shc/archive/refs/tags/4.0.3.zip && unzip 4.0.3.zip && cd shc-4.0.3 && sudo chmod +x * && sudo ./configure && sudo make && sudo make install && cd && rm 4.0.3.zip && rm -rf shc-4.0.3
+wget -q https://github.com/fians-xd/mmk/raw/refs/heads/main/shc.zip && unzip shc.zip && cd shc && sudo chmod +x * && sudo ./configure && sudo make && sudo make install && cd && rm -rf shc.zip shc
 sudo shc -U -S -f instal.sh -o install.sh
 rm instal.sh instal.sh.x.c
 chmod +x install.sh
