@@ -5,7 +5,8 @@ apt install zip unzip -y
 
 # Function to create a backup
 backup_users() {
-    echo "Membuat file backup..."
+    echo "Memulai BackUp User..."
+    sleep 3
     mkdir -p backup
 
     # Backup SSH/WebSocket (user dan password saja)
