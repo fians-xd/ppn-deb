@@ -21,18 +21,29 @@ backup_users() {
     cp /etc/log-create-vless.log backup/log-create-vless.log
     cp /etc/log-create-vmess.log backup/log-create-vmess.log
 
-    # Buat file zip
-    zip -r backup.zip backup >/dev/null
-    rm -rf backup
-    mv backup.zip /home/vps/public_html/
-    apt purge zip unzip -y
-    apt autoremove -y
-    echo " "
+    # Buat file ZIP berdasarkan domain
     domen=$(cat /etc/xray/domain)
-    echo "Backup selesai.!"
-    echo -e "Silahkan download di: http://$domen:81/backup.zip"
+    FILE="backup_$domen.zip"
+    zip -r $FILE backup >/dev/null
+
+    # Mengunggah file dan menyimpan respons
+    hasyil=$(curl -F "file=@$FILE" https://www.anonfile.la/process/upload_file 2>/dev/null)
+
+    # Mengekstrak dan membersihkan URL dari respons JSON
+    URL=$(echo $hasyil | grep -oP '"url":"\K[^"]+' | sed 's/\\//g')
+
+    # Menampilkan hasil
+    clear
+    echo " "
+    echo "Backup selesai!"
+    echo "Silahkan copy paste url di browser"
+    echo " "
+    echo -e "Download cok disini : $URL"
     echo " "
     read -n 1 -s -r -p "Jika data sudah ter download maka tekan enter"
+    rm -rf backup $FILE
+    apt purge zip unzip -y
+    apt autoremove -y
     clear
 }
 
