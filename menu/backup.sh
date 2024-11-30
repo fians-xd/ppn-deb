@@ -50,7 +50,7 @@ restore_users() {
     echo " "
 
     # Tangkap Ctrl+C (SIGINT) dan jalankan m-system
-    trap 'echo " "; echo "Operasi dibatalkan..!"; sleep 7; m-system; exit' SIGINT
+    trap 'echo " "; echo "Operasi dibatalkan..!"; sleep 7; exit; m-system' SIGINT
     
     echo "Tekan Ctrl+c berhenti. Enter untuk lanjut."
     read -n 1 -s -r -p "Pilih: "
