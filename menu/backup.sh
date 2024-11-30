@@ -38,6 +38,7 @@ backup_users() {
 
 # Function to restore from a backup
 restore_users() {
+    clear
     echo " "
     echo "WARNING.!!!"
     echo "Tindakan ini akan (merusak/menghapus data) jika tidak dilakukan dengan hati-hati"
@@ -50,7 +51,7 @@ restore_users() {
     echo " "
 
     # Tangkap Ctrl+C (SIGINT) dan jalankan m-system
-    trap 'echo " "; echo "Operasi dibatalkan..!"; sleep 7; exit; m-system' SIGINT
+    trap 'clear; echo " "; echo "Operasi dibatalkan..!"; sleep 7; m-system; exit' SIGINT
     
     echo "Tekan Ctrl+c berhenti. Enter untuk lanjut."
     read -n 1 -s -r -p "Pilih: "
@@ -144,9 +145,11 @@ while true; do
     echo -e "\e[1;44m           ━MENU BACKUP ALL USER━              \e[0m"
     echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
     echo " "
-    echo -e "\e[1;36m [\e[33m1\e[1;36m]\e[1;33m : \e[0mBackup Semua User"
-    echo -e "\e[1;36m [\e[33m2\e[1;36m]\e[1;33m : \e[0mTerapkan Hasil Backup"
-    echo -e "\e[1;36m [\e[33m3\e[1;36m]\e[1;33m : \e[0mKembali Kemenu Utama"
+    echo -e "\e[1;36m[\e[33m1\e[1;36m]\e[1;33m : \e[0mBackup Semua User"
+    echo -e "\e[1;36m[\e[33m2\e[1;36m]\e[1;33m : \e[0mTerapkan Hasil Backup"
+    echo -e "\e[1;36m[\e[33m3\e[1;36m]\e[1;33m : \e[0mKembali Kemenu Utama"
+    echo " "
+    echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m"
     echo " "
     echo -n "Pilih opsi [1-3]: "
     read opsi
