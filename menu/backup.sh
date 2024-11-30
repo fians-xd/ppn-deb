@@ -48,10 +48,25 @@ restore_users() {
     echo "Untuk memindahkan file backup.zip tersebut disarankan menggunakan client ssh yang support SFTP"
     echo "Jika anda sudah yakin dan ingin melanjutkanya maka"
     echo " "
+
+    # Tangkap Ctrl+C (SIGINT) dan jalankan m-system
+    trap 'echo "Operasi dibatalkan.!"; sleep 5; m-system; exit' SIGINT
+
     read -n 1 -s -r -p "Ctrl+c untuk berhenti, Tekan enter untuk lanjut."
+
+    # Cek dan ubah nama file yang cocok menjadi backup.zip
+    for FILE in ./backup*.zip; do
+        if [ -f "$FILE" ]; then
+            mv "$FILE" ./backup.zip
+            break
+        fi
+    done
+
+    # Periksa kembali apakah file backup.zip ada
     if [ ! -f backup.zip ]; then
-        echo "File backup.zip tidak ditemukan!"
-        exit 1
+        echo "File backup tidak ditemukan!..."
+        sleep 6
+        m-system
     fi
 
     unzip backup.zip >/dev/null
