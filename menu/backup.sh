@@ -76,9 +76,10 @@ restore_users() {
 
     # Restart services
     echo " "
-    echo -e "[ \033[32mInfo\033[0m ] Restart Begin"
-    sleep 3
     echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    echo -e "[ \033[32mInfo\033[0m ] Restart Begin"
+    echo -e "\e[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+    sleep 3
     /etc/init.d/ssh restart
     /etc/init.d/dropbear restart
     /etc/init.d/stunnel4 restart
