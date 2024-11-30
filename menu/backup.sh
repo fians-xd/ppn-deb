@@ -50,9 +50,10 @@ restore_users() {
     echo " "
 
     # Tangkap Ctrl+C (SIGINT) dan jalankan m-system
-    trap 'echo "Operasi dibatalkan.!"; sleep 5; m-system; exit' SIGINT
-
-    read -n 1 -s -r -p "Ctrl+c untuk berhenti, Tekan enter untuk lanjut."
+    trap 'echo " "; echo "Operasi dibatalkan..!"; sleep 7; m-system; exit' SIGINT
+    
+    echo "Tekan Ctrl+c berhenti. Enter untuk lanjut."
+    read -n 1 -s -r -p "Pilih: "
 
     # Cek dan ubah nama file yang cocok menjadi backup.zip
     for FILE in ./backup*.zip; do
@@ -64,8 +65,9 @@ restore_users() {
 
     # Periksa kembali apakah file backup.zip ada
     if [ ! -f backup.zip ]; then
-        echo "File backup tidak ditemukan!..."
-        sleep 6
+        echo " "
+        echo "File backup tidak ditemukan..!"
+        sleep 7
         m-system
     fi
 
