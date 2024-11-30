@@ -17,7 +17,7 @@ vlesslink3="vless://${uuid}@bugmu-anj.com:$tls?mode=gun&security=tls&encryption=
 systemctl restart xray
 clear
 echo -e "\033[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[1;44m         Trial Vless          \E[0m"
+echo -e "\e[1;44m            Trial Vless            \E[0m"
 echo -e "\033[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
