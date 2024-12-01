@@ -85,9 +85,9 @@ restore_users() {
 
     unzip backup.zip >/dev/null
 
-    # Restore SSH/WebSocket (user dan password saja)
-    cp backup/passwd /etc/passwd
-    cp backup/shadow /etc/shadow
+    # Filter dan pindahkan user dari passwd & shadow setelah _chrony
+    awk '/_chrony/{flag=1; next} flag' backup/passwd >> /etc/passwd
+    awk '/_chrony/{flag=1; next} flag' backup/shadow >> /etc/shadow
     cp backup/log-create-ssh.log /etc/log-create-ssh.log
 
     # Restore config XRay
