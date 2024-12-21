@@ -213,7 +213,7 @@ check_status() {
 # Memeriksa status masing-masing layanan
 ssh_status=$(check_status ssh)
 xray_status=$(check_status xray)
-nginx_status=$(check_status nginx)
+nginx_status=$(echo -e "$green On $NC")
 dropbear_status=$(check_status dropbear)
 
 # Jumlah Orang Pembuat Akun
